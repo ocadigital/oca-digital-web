@@ -7,14 +7,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-700 z-50">
+    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <img 
-              src="/lovable-uploads/59b9e7e2-b0cd-4eba-9ab0-4502658f48db.png" 
+              src="/lovable-uploads/18d4131d-a5da-421a-9823-78cd9d9b35fe.png" 
               alt="OCA Digital" 
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
           </div>
           

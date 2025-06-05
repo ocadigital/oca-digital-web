@@ -1,14 +1,13 @@
-
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <img 
-              src="/lovable-uploads/59b9e7e2-b0cd-4eba-9ab0-4502658f48db.png" 
+              src="/lovable-uploads/18d4131d-a5da-421a-9823-78cd9d9b35fe.png" 
               alt="OCA Digital" 
-              className="h-8 w-auto mb-4"
+              className="h-12 w-auto mb-4 filter invert"
             />
             <p className="text-gray-400 mb-4 max-w-md">
               Especialistas em marketing imobiliário que combinam estratégia, dados e automação 
