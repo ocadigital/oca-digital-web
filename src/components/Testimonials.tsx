@@ -30,33 +30,33 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             O que nossos clientes dizem
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Resultados reais de empresas que transformaram suas operações com a OCA Digital
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
+            <Card key={index} className="p-8 hover:shadow-lg transition-shadow bg-gray-700 border-gray-600">
               <div className="mb-4">
                 <div className="flex text-yellow-400 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <span key={i}>⭐</span>
                   ))}
                 </div>
-                <p className="text-gray-700 italic leading-relaxed">
+                <p className="text-gray-300 italic leading-relaxed">
                   "{testimonial.content}"
                 </p>
               </div>
-              <div className="border-t pt-4">
-                <div className="font-bold text-gray-900">{testimonial.name}</div>
-                <div className="text-blue-600">{testimonial.company}</div>
+              <div className="border-t border-gray-600 pt-4">
+                <div className="font-bold text-white">{testimonial.name}</div>
+                <div className="text-blue-400">{testimonial.company}</div>
               </div>
             </Card>
           ))}
@@ -65,16 +65,16 @@ const Testimonials = () => {
         <div className="text-center mt-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">98%</div>
-              <div className="text-gray-600">Taxa de Satisfação</div>
+              <div className="text-4xl font-bold text-blue-400 mb-2">98%</div>
+              <div className="text-gray-300">Taxa de Satisfação</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">+180%</div>
-              <div className="text-gray-600">ROI Médio dos Clientes</div>
+              <div className="text-4xl font-bold text-blue-400 mb-2">+180%</div>
+              <div className="text-gray-300">ROI Médio dos Clientes</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">24h</div>
-              <div className="text-gray-600">Tempo Médio de Resposta</div>
+              <div className="text-4xl font-bold text-blue-400 mb-2">24h</div>
+              <div className="text-gray-300">Tempo Médio de Resposta</div>
             </div>
           </div>
         </div>
