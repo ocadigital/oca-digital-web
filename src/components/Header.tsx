@@ -12,28 +12,30 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <img 
-              src="/lovable-uploads/18d4131d-a5da-421a-9823-78cd9d9b35fe.png" 
+              src="/lovable-uploads/b55ec33f-e02c-4406-bee6-48e0cdab621c.png" 
               alt="OCA Digital" 
               className="h-12 w-auto"
             />
           </div>
           
           <nav className="hidden md:flex space-x-8">
-            <a href="#inicio" className="text-gray-300 hover:text-blue-400 transition-colors">Início</a>
-            <a href="#sobre" className="text-gray-300 hover:text-blue-400 transition-colors">Sobre Nós</a>
-            <a href="#servicos" className="text-gray-300 hover:text-blue-400 transition-colors">Serviços</a>
-            <a href="#produtos" className="text-gray-300 hover:text-blue-400 transition-colors">Produtos</a>
-            <a href="#contato" className="text-gray-300 hover:text-blue-400 transition-colors">Contato</a>
+            <a href="#inicio" className="text-gray-700 hover:text-blue-600 transition-colors">Início</a>
+            <a href="#sobre" className="text-gray-700 hover:text-blue-600 transition-colors">Sobre Nós</a>
+            <a href="#servicos" className="text-gray-700 hover:text-blue-600 transition-colors">Serviços</a>
+            <a href="#produtos" className="text-gray-700 hover:text-blue-600 transition-colors">Produtos</a>
+            <a href="#blog" className="text-gray-700 hover:text-blue-600 transition-colors">Blog</a>
+            <a href="#faq" className="text-gray-700 hover:text-blue-600 transition-colors">FAQ</a>
+            <a href="#contato" className="text-gray-700 hover:text-blue-600 transition-colors">Contato</a>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="text-blue-400 border-blue-400 hover:bg-blue-400 hover:text-gray-900">
+            <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white">
               Consultoria Gratuita
             </Button>
           </div>
 
           <button
-            className="md:hidden text-gray-300"
+            className="md:hidden text-gray-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -42,12 +44,14 @@ const Header = () => {
 
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900 border-t border-gray-700">
-              <a href="#inicio" className="block px-3 py-2 text-gray-300">Início</a>
-              <a href="#sobre" className="block px-3 py-2 text-gray-300">Sobre Nós</a>
-              <a href="#servicos" className="block px-3 py-2 text-gray-300">Serviços</a>
-              <a href="#produtos" className="block px-3 py-2 text-gray-300">Produtos</a>
-              <a href="#contato" className="block px-3 py-2 text-gray-300">Contato</a>
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+              <a href="#inicio" className="block px-3 py-2 text-gray-700">Início</a>
+              <a href="#sobre" className="block px-3 py-2 text-gray-700">Sobre Nós</a>
+              <a href="#servicos" className="block px-3 py-2 text-gray-700">Serviços</a>
+              <a href="#produtos" className="block px-3 py-2 text-gray-700">Produtos</a>
+              <a href="#blog" className="block px-3 py-2 text-gray-700">Blog</a>
+              <a href="#faq" className="block px-3 py-2 text-gray-700">FAQ</a>
+              <a href="#contato" className="block px-3 py-2 text-gray-700">Contato</a>
               <div className="px-3 py-2">
                 <Button className="w-full bg-blue-600 hover:bg-blue-700">
                   Consultoria Gratuita

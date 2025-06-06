@@ -1,3 +1,4 @@
+
 import { Card } from '@/components/ui/card';
 
 const About = () => {
@@ -43,6 +44,13 @@ const About = () => {
     <section id="sobre" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/lovable-uploads/92c5cc46-716d-450d-ad26-cf59d7f39222.png" 
+              alt="OCA Digital Avatar" 
+              className="h-24 w-24 rounded-full object-cover border-4 border-blue-200"
+            />
+          </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Sobre a OCA Digital
           </h2>

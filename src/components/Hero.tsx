@@ -2,22 +2,63 @@
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { useState } from 'react';
 
 const Hero = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    companySize: ''
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name.trim()) newErrors.name = 'Nome é obrigatório';
+    if (!formData.email.trim()) {
+      newErrors.email = 'E-mail é obrigatório';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'E-mail inválido';
+    }
+    if (!formData.phone.trim()) newErrors.phone = 'Telefone é obrigatório';
+    if (!formData.companySize) newErrors.companySize = 'Tamanho da empresa é obrigatório';
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      alert('Diagnóstico solicitado com sucesso! Entraremos em contato em breve.');
+      setFormData({ name: '', email: '', phone: '', companySize: '' });
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
   return (
-    <section id="inicio" className="pt-16 min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+    <section id="inicio" className="pt-16 min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Transforme sua
-                <span className="text-blue-400"> Imobiliária</span>
+                <span className="text-blue-600"> Imobiliária</span>
                 <br />
                 em uma Máquina de
-                <span className="text-blue-400"> Conversão</span>
+                <span className="text-blue-600"> Conversão</span>
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-xl text-gray-600 leading-relaxed">
                 Especialistas em marketing imobiliário que combinam estratégia, dados e automação 
                 para gerar mais leads qualificados e impulsionar suas vendas.
               </p>
@@ -27,60 +68,86 @@ const Hero = () => {
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4">
                 Baixar E-book Gratuito
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-gray-600 text-gray-300 hover:bg-gray-700">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-blue-600 text-blue-600 hover:bg-blue-50">
                 Agendar Consultoria
               </Button>
             </div>
 
             <div className="grid grid-cols-3 gap-8 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">+200%</div>
-                <div className="text-sm text-gray-400">Aumento em Leads</div>
+                <div className="text-3xl font-bold text-blue-600">+200%</div>
+                <div className="text-sm text-gray-500">Aumento em Leads</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">+150%</div>
-                <div className="text-sm text-gray-400">ROI Médio</div>
+                <div className="text-3xl font-bold text-blue-600">+150%</div>
+                <div className="text-sm text-gray-500">ROI Médio</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">50+</div>
-                <div className="text-sm text-gray-400">Clientes Ativos</div>
+                <div className="text-3xl font-bold text-blue-600">50+</div>
+                <div className="text-sm text-gray-500">Clientes Ativos</div>
               </div>
             </div>
           </div>
 
           <div className="relative">
-            <Card className="p-8 bg-gray-800 shadow-2xl border-gray-700">
-              <h3 className="text-2xl font-bold mb-6 text-center text-white">
+            <Card className="p-8 bg-white shadow-2xl border-gray-200">
+              <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">
                 🎯 Diagnóstico Gratuito
               </h3>
-              <form className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Nome completo"
-                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-700 text-white placeholder-gray-400"
-                />
-                <input
-                  type="email"
-                  placeholder="E-mail profissional"
-                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-700 text-white placeholder-gray-400"
-                />
-                <input
-                  type="tel"
-                  placeholder="WhatsApp"
-                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-700 text-white placeholder-gray-400"
-                />
-                <select className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-700 text-white">
-                  <option>Tamanho da sua empresa</option>
-                  <option>Corretor Autônomo</option>
-                  <option>Pequena Imobiliária (2-10 corretores)</option>
-                  <option>Média Imobiliária (11-50 corretores)</option>
-                  <option>Grande Imobiliária (50+ corretores)</option>
-                </select>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 py-3">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Nome completo"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-400 ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                  />
+                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="E-mail profissional"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-400 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                  />
+                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="WhatsApp"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-400 ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
+                  />
+                  {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                </div>
+                <div>
+                  <select 
+                    name="companySize"
+                    value={formData.companySize}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 ${errors.companySize ? 'border-red-500' : 'border-gray-300'}`}
+                  >
+                    <option value="">Tamanho da sua empresa</option>
+                    <option value="corretor-autonomo">Corretor Autônomo</option>
+                    <option value="pequena-imobiliaria">Pequena Imobiliária (2-10 corretores)</option>
+                    <option value="media-imobiliaria">Média Imobiliária (11-50 corretores)</option>
+                    <option value="grande-imobiliaria">Grande Imobiliária (50+ corretores)</option>
+                  </select>
+                  {errors.companySize && <p className="text-red-500 text-sm mt-1">{errors.companySize}</p>}
+                </div>
+                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3">
                   Receber Diagnóstico Gratuito
                 </Button>
               </form>
-              <p className="text-xs text-gray-400 text-center mt-4">
+              <p className="text-xs text-gray-500 text-center mt-4">
                 Seus dados estão protegidos. Não fazemos spam.
               </p>
             </Card>
@@ -88,7 +155,7 @@ const Hero = () => {
         </div>
 
         <div className="text-center mt-16">
-          <ArrowDown className="mx-auto text-gray-500 animate-bounce" size={32} />
+          <ArrowDown className="mx-auto text-gray-400 animate-bounce" size={32} />
         </div>
       </div>
     </section>

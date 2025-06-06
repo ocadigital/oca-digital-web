@@ -1,3 +1,6 @@
+
+import { Instagram } from 'lucide-react';
+
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
@@ -5,25 +8,36 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <img 
-              src="/lovable-uploads/18d4131d-a5da-421a-9823-78cd9d9b35fe.png" 
+              src="/lovable-uploads/45ce75aa-341c-4a65-b905-b4b8a7c0cf9a.png" 
               alt="OCA Digital" 
-              className="h-12 w-auto mb-4 filter invert"
+              className="h-12 w-auto mb-4"
             />
             <p className="text-gray-400 mb-4 max-w-md">
               Especialistas em marketing imobiliário que combinam estratégia, dados e automação 
               para transformar sua operação em uma máquina de conversão.
             </p>
-            <div className="text-gray-400">
+            <div className="text-gray-400 space-y-2">
               <div>📧 contato@ocadigital.com.br</div>
-              <div>📱 (11) 99999-9999</div>
+              <div>📱 (48) 99679-0700</div>
+              <div>📍 Florianópolis, SC - Atendimento Nacional</div>
+            </div>
+            <div className="flex items-center mt-4">
+              <a 
+                href="https://instagram.com/ocadigital" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Instagram size={24} />
+              </a>
             </div>
           </div>
 
           <div>
             <h3 className="font-bold mb-4 text-white">Serviços</h3>
             <ul className="space-y-2 text-gray-400">
+              <li><a href="#servicos" className="hover:text-blue-400 transition-colors">Diagnóstico Estratégico</a></li>
               <li><a href="#servicos" className="hover:text-blue-400 transition-colors">SDR - Pré-qualificação</a></li>
-              <li><a href="#servicos" className="hover:text-blue-400 transition-colors">SEO Avançado</a></li>
               <li><a href="#servicos" className="hover:text-blue-400 transition-colors">Automação de Marketing</a></li>
               <li><a href="#servicos" className="hover:text-blue-400 transition-colors">Lançamentos</a></li>
               <li><a href="#servicos" className="hover:text-blue-400 transition-colors">Pacotes Mensais</a></li>

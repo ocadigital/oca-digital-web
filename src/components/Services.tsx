@@ -5,6 +5,18 @@ import { Button } from '@/components/ui/button';
 const Services = () => {
   const services = [
     {
+      title: "Diagnóstico Estratégico",
+      description: "Análise completa da sua operação atual com sugestões práticas para melhorar seus resultados.",
+      duration: "1 semana",
+      features: [
+        "Auditoria completa do marketing digital",
+        "Análise da concorrência",
+        "Mapeamento de oportunidades",
+        "Plano de ação personalizado",
+        "Relatório detalhado com insights"
+      ]
+    },
+    {
       title: "SDR - Núcleo de Pré-qualificação",
       description: "Unificação e centralização de leads, CRM, scripts de atendimento e dashboard em tempo real.",
       duration: "3 meses",
@@ -14,18 +26,6 @@ const Services = () => {
         "Scripts BANT para qualificação",
         "Dashboard de acompanhamento",
         "Clusterização por personas"
-      ]
-    },
-    {
-      title: "SEO Avançado",
-      description: "Otimização completa do site, estratégia de palavras-chave e monitoramento de posicionamento.",
-      duration: "4 meses",
-      features: [
-        "Auditoria técnica completa",
-        "Estratégia de palavras-chave",
-        "Otimização de imagens e metadados",
-        "Gestão de backlinks",
-        "Política de reviews"
       ]
     },
     {
@@ -80,12 +80,12 @@ const Services = () => {
     {
       name: "Plano Full",
       price: "R$ 8.000/mês",
-      description: "Solução completa com SEO e automação",
+      description: "Solução completa com automação",
       features: [
         "Tudo do Avançado",
-        "SEO contínuo",
         "Automação de marketing",
-        "Consultoria mensal"
+        "Consultoria mensal",
+        "Suporte prioritário"
       ]
     }
   ];

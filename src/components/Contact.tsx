@@ -12,13 +12,17 @@ const Contact = () => {
     service: '',
     message: ''
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: Record<string, string> = {};
     
     if (!formData.name.trim()) newErrors.name = 'Nome é obrigatório';
-    if (!formData.email.trim()) newErrors.email = 'E-mail é obrigatório';
+    if (!formData.email.trim()) {
+      newErrors.email = 'E-mail é obrigatório';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'E-mail inválido';
+    }
     if (!formData.phone.trim()) newErrors.phone = 'Telefone é obrigatório';
     if (!formData.companyType) newErrors.companyType = 'Tipo de empresa é obrigatório';
     if (!formData.service) newErrors.service = 'Serviço de interesse é obrigatório';
@@ -28,15 +32,23 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      // Process form submission here
       alert('Formulário enviado com sucesso!');
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        companyType: '',
+        service: '',
+        message: ''
+      });
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name]) {
@@ -123,7 +135,6 @@ const Contact = () => {
                   <option value="">Serviço de interesse</option>
                   <option value="diagnostico">Diagnóstico Estratégico</option>
                   <option value="sdr">SDR - Núcleo de Pré-qualificação</option>
-                  <option value="seo">SEO Avançado</option>
                   <option value="automacao">Automação de Marketing</option>
                   <option value="lancamento">Lançamento Imobiliário</option>
                   <option value="oca-one">OCA One</option>
@@ -180,18 +191,6 @@ const Contact = () => {
               </p>
               <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold">
                 Agendar Consultoria Gratuita
-              </Button>
-            </Card>
-
-            <Card className="p-6 bg-green-50 border-green-200">
-              <h4 className="font-bold text-xl mb-4 text-green-800">Diagnóstico Estratégico</h4>
-              <p className="text-green-700 mb-4">
-                Análise completa da sua operação atual com sugestões práticas 
-                para melhorar seus resultados.
-              </p>
-              <div className="text-2xl font-bold text-green-600 mb-4">R$ 3.000</div>
-              <Button variant="outline" className="w-full border-green-500 text-green-600 hover:bg-green-100 font-semibold">
-                Contratar Diagnóstico
               </Button>
             </Card>
           </div>

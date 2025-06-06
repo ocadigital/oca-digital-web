@@ -17,13 +17,19 @@ const Products = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <Card className="p-8 bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">OCA One</h3>
-              <p className="text-lg text-gray-700 mb-6">
-                Uma plataforma imobiliária inteligente que centraliza os leads, automatiza a qualificação, 
-                sugere imóveis em carteira e oferece inteligência de mercado — tudo via IA no WhatsApp.
-              </p>
+            <div className="flex items-center justify-center mb-6">
+              <img 
+                src="/lovable-uploads/e79f7b11-3826-4bd5-ab00-59394cfadb26.png" 
+                alt="OCA One Icon" 
+                className="h-16 w-16 mr-4"
+              />
+              <h3 className="text-3xl font-bold text-gray-900">OCA One</h3>
             </div>
+            
+            <p className="text-lg text-gray-700 mb-6">
+              Uma plataforma imobiliária inteligente que centraliza os leads, automatiza a qualificação, 
+              sugere imóveis em carteira e oferece inteligência de mercado — tudo via IA no WhatsApp.
+            </p>
 
             <div className="space-y-4 mb-8">
               <div className="bg-white p-4 rounded-lg border border-blue-200">
@@ -57,13 +63,19 @@ const Products = () => {
           </Card>
 
           <Card className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 border-gray-200">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">OCA Base</h3>
-              <p className="text-lg text-gray-700 mb-6">
-                Solução completa para pequenas imobiliárias e corretores autônomos com site profissional 
-                e integração com os maiores portais do mercado.
-              </p>
+            <div className="flex items-center justify-center mb-6">
+              <img 
+                src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
+                alt="OCA Base Icon" 
+                className="h-16 w-16 mr-4"
+              />
+              <h3 className="text-3xl font-bold text-gray-900">OCA Base</h3>
             </div>
+
+            <p className="text-lg text-gray-700 mb-6">
+              Solução completa para pequenas imobiliárias e corretores autônomos com site profissional 
+              e integração com os maiores portais do mercado.
+            </p>
 
             <div className="space-y-4 mb-8">
               <div className="bg-white p-4 rounded-lg border border-gray-200">
