@@ -57,7 +57,7 @@ const Services = () => {
   const packages = [
     {
       name: "Plano Essencial",
-      price: "R$ 3.000/mês",
+      price: "R$ 2.700/mês",
       description: "Mídia paga + landing + My Business + relatório",
       features: [
         "Google Ads",
@@ -68,7 +68,7 @@ const Services = () => {
     },
     {
       name: "Plano Avançado",
-      price: "R$ 5.000/mês",
+      price: "R$ 3.200/mês",
       description: "Inclui planejamento estratégico e conteúdo",
       features: [
         "Tudo do Essencial",
@@ -79,7 +79,7 @@ const Services = () => {
     },
     {
       name: "Plano Full",
-      price: "R$ 8.000/mês",
+      price: "R$ 4.000/mês",
       description: "Solução completa com automação",
       features: [
         "Tudo do Avançado",
@@ -129,7 +129,10 @@ const Services = () => {
         </div>
 
         <div>
-          <h3 className="text-3xl font-bold text-center mb-12 text-gray-900">Pacotes Mensais</h3>
+          <h3 className="text-3xl font-bold text-center mb-4 text-gray-900">Pacotes Mensais</h3>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Serviços mensais contínuos para impulsionar o desempenho da sua imobiliária com estratégias comprovadas
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
               <Card key={index} className={`p-8 hover:shadow-lg transition-shadow bg-white border-gray-200 ${index === 1 ? 'border-blue-400 border-2' : ''}`}>
