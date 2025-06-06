@@ -14,18 +14,6 @@ const Testimonials = () => {
       company: "Corretora Independente",
       content: "Como corretora autônoma, eu estava perdida no marketing digital. A consultoria da OCA me deu clareza e as ferramentas certas. Hoje tenho um pipeline consistente de clientes.",
       rating: 5
-    },
-    {
-      name: "Roberto Costa",
-      company: "Costa Incorporações",
-      content: "O lançamento do nosso último empreendimento com a OCA Digital foi um sucesso. Vendemos 80% das unidades em 30 dias. A estratégia de marketing foi impecável.",
-      rating: 5
-    },
-    {
-      name: "Ana Beatriz",
-      company: "Imobiliária Premium",
-      content: "A automação de marketing que implementaram revolucionou nosso atendimento. Agora conseguimos nutrir leads automaticamente e nossa equipe foca apenas nos clientes mais qualificados.",
-      rating: 5
     }
   ];
 

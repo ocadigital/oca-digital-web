@@ -21,7 +21,7 @@ const Products = () => {
               <img 
                 src="/lovable-uploads/e79f7b11-3826-4bd5-ab00-59394cfadb26.png" 
                 alt="OCA One Icon" 
-                className="h-16 w-16 mr-4"
+                className="h-16 w-16 mr-4 bg-white rounded-lg p-2"
               />
               <h3 className="text-3xl font-bold text-gray-900">OCA One</h3>
             </div>
@@ -67,7 +67,7 @@ const Products = () => {
               <img 
                 src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
                 alt="OCA Base Icon" 
-                className="h-16 w-16 mr-4"
+                className="h-16 w-16 mr-4 bg-white rounded-lg p-2"
               />
               <h3 className="text-3xl font-bold text-gray-900">OCA Base</h3>
             </div>

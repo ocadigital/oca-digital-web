@@ -1,5 +1,5 @@
 
-import { Instagram } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -21,7 +21,7 @@ const Footer = () => {
               <div>📱 (48) 99679-0700</div>
               <div>📍 Florianópolis, SC - Atendimento Nacional</div>
             </div>
-            <div className="flex items-center mt-4">
+            <div className="flex items-center space-x-4 mt-4">
               <a 
                 href="https://instagram.com/ocadigital" 
                 target="_blank" 
@@ -29,6 +29,14 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Instagram size={24} />
+              </a>
+              <a 
+                href="https://linkedin.com/company/ocadigital" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Linkedin size={24} />
               </a>
             </div>
           </div>
