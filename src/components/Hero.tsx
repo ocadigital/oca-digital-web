@@ -2,9 +2,10 @@
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +13,12 @@ const Hero = () => {
     companySize: ''
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -46,8 +53,16 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="pt-16 min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section id="inicio" className="pt-16 min-h-screen relative overflow-hidden">
+      {/* Parallax Background */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white"
+        style={{
+          transform: `translateY(${scrollY * 0.5}px)`,
+        }}
+      />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
