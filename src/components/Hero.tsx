@@ -36,9 +36,33 @@ const Hero = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const sendEmail = (subject: string, body: string) => {
+    const emailData = {
+      to: 'anderson@ocadigital.com.br',
+      subject: subject,
+      body: body
+    };
+    
+    // Create mailto link
+    const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
+    window.open(mailtoLink, '_blank');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      const emailBody = `
+Novo diagnóstico solicitado:
+
+Nome: ${formData.name}
+E-mail: ${formData.email}
+Telefone: ${formData.phone}
+Tamanho da empresa: ${formData.companySize}
+
+Data: ${new Date().toLocaleString('pt-BR')}
+      `;
+      
+      sendEmail('Diagnóstico', emailBody);
       alert('Diagnóstico solicitado com sucesso! Entraremos em contato em breve.');
       setFormData({ name: '', email: '', phone: '', companySize: '' });
     }
@@ -50,6 +74,10 @@ const Hero = () => {
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
+  };
+
+  const handleConsultationClick = () => {
+    window.open('https://calendly.com/anderson-ocadigital/30min', '_blank');
   };
 
   return (
@@ -83,7 +111,12 @@ const Hero = () => {
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4">
                 Baixar E-book Gratuito
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-blue-600 text-blue-600 hover:bg-blue-50">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-4 border-blue-600 text-blue-600 hover:bg-blue-50"
+                onClick={handleConsultationClick}
+              >
                 Agendar Consultoria
               </Button>
             </div>

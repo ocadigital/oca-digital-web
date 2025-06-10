@@ -3,6 +3,14 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 const Products = () => {
+  const handleComingSoon = () => {
+    alert('Em breve');
+  };
+
+  const handleConsultationClick = () => {
+    window.open('https://calendly.com/anderson-ocadigital/30min', '_blank');
+  };
+
   return (
     <section id="produtos" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,7 +64,11 @@ const Products = () => {
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">A partir de R$ 497/mês</div>
               <p className="text-gray-700 mb-6">Setup personalizado incluído</p>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+                onClick={handleConsultationClick}
+              >
                 Agendar Demo
               </Button>
             </div>
@@ -102,7 +114,12 @@ const Products = () => {
             <div className="text-center">
               <div className="text-3xl font-bold text-gray-700 mb-2">Consulte valores</div>
               <p className="text-gray-600 mb-6">Planos flexíveis para seu negócio</p>
-              <Button size="lg" variant="outline" className="border-gray-400 text-gray-700 hover:bg-gray-100 font-semibold">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-gray-400 text-gray-700 hover:bg-gray-100 font-semibold"
+                onClick={handleConsultationClick}
+              >
                 Agendar Demo
               </Button>
             </div>
@@ -128,7 +145,11 @@ const Products = () => {
                   <div className="text-gray-600">De conteúdo</div>
                 </div>
               </div>
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold"
+                onClick={handleComingSoon}
+              >
                 Inscrever-se no Curso
               </Button>
             </div>

@@ -1,4 +1,3 @@
-
 import { Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
@@ -22,16 +21,11 @@ const Footer = () => {
               <div>📍 Florianópolis, SC - Atendimento Nacional</div>
             </div>
             <div className="flex items-center space-x-4 mt-4">
-              <a 
-                href="https://instagram.com/ocadigital" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
+              <div className="text-gray-400 cursor-default">
                 <Instagram size={24} />
-              </a>
+              </div>
               <a 
-                href="https://linkedin.com/company/ocadigital" 
+                href="https://www.linkedin.com/company/941540/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
