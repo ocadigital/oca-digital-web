@@ -3,6 +3,10 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 const Products = () => {
+  const handleEmBreve = () => {
+    alert('Em breve');
+  };
+
   return (
     <section id="produtos" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,7 +132,11 @@ const Products = () => {
                   <div className="text-gray-600">De conteúdo</div>
                 </div>
               </div>
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold"
+                onClick={handleEmBreve}
+              >
                 Inscrever-se no Curso
               </Button>
             </div>

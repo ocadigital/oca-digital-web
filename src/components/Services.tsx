@@ -90,6 +90,17 @@ const Services = () => {
     }
   ];
 
+  const handleInteresseClick = () => {
+    const contactSection = document.getElementById('contato');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleContratarClick = () => {
+    window.open('https://form.typeform.com/to/FVEwOxzP', '_blank');
+  };
+
   return (
     <section id="servicos" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,8 +131,11 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold">
-                  Saiba Mais
+                <Button 
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+                  onClick={handleInteresseClick}
+                >
+                  Tenho Interesse!
                 </Button>
               </Card>
             ))}
@@ -154,7 +168,10 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className={`w-full font-semibold ${index === 1 ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-800'}`}>
+                <Button 
+                  className={`w-full font-semibold ${index === 1 ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-800'}`}
+                  onClick={handleContratarClick}
+                >
                   Contratar Agora
                 </Button>
               </Card>
