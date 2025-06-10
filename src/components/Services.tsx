@@ -1,3 +1,4 @@
+
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -89,14 +90,6 @@ const Services = () => {
     }
   ];
 
-  const handleInterestClick = () => {
-    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleContractClick = () => {
-    window.open('https://form.typeform.com/to/FVEwOxzP', '_blank');
-  };
-
   return (
     <section id="servicos" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,11 +120,8 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                  onClick={handleInterestClick}
-                >
-                  Tenho Interesse!
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold">
+                  Saiba Mais
                 </Button>
               </Card>
             ))}
@@ -164,10 +154,7 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  className={`w-full font-semibold ${index === 1 ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-800'}`}
-                  onClick={handleContractClick}
-                >
+                <Button className={`w-full font-semibold ${index === 1 ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-800'}`}>
                   Contratar Agora
                 </Button>
               </Card>

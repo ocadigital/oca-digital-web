@@ -41,35 +41,9 @@ const ContactForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const sendEmail = (subject: string, body: string) => {
-    const emailData = {
-      to: 'anderson@ocadigital.com.br',
-      subject: subject,
-      body: body
-    };
-    
-    // Create mailto link
-    const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`;
-    window.open(mailtoLink, '_blank');
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      const emailBody = `
-Novo contato recebido:
-
-Nome: ${formData.name}
-E-mail: ${formData.email}
-Telefone: ${formData.phone}
-Tipo de empresa: ${formData.companyType}
-Serviço de interesse: ${formData.service}
-Mensagem: ${formData.message}
-
-Data: ${new Date().toLocaleString('pt-BR')}
-      `;
-      
-      sendEmail('Contato', emailBody);
       alert('Formulário enviado com sucesso!');
       setFormData({
         name: '',
