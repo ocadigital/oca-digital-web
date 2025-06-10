@@ -1,123 +1,85 @@
 
+import { Users, Target, Zap, BarChart3 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const About = () => {
-  const methodology = [
-    {
-      phase: "Descoberta",
-      icon: "🔹",
-      description: "Coletamos dados, analisamos o cenário atual e escutamos o time interno. É o momento de abrir possibilidades, identificar gargalos e entender o comportamento dos leads."
-    },
-    {
-      phase: "Definição",
-      icon: "🔸",
-      description: "Com base nos dados, organizamos os aprendizados, identificamos oportunidades e traçamos um diagnóstico estratégico. Aqui é onde as ideias começam a ganhar forma."
-    },
-    {
-      phase: "Execução",
-      icon: "🔹",
-      description: "Criamos e implementamos soluções práticas — desde ajustes técnicos no site e automações de marketing até campanhas de mídia paga e novos processos comerciais."
-    },
-    {
-      phase: "Entrega",
-      icon: "🔸",
-      description: "Validamos, medimos e refinamos. Entregamos relatórios, dashboards e insights contínuos para que a empresa evolua com base em dados e cultura de melhoria contínua."
-    }
-  ];
-
-  const pillars = [
-    {
-      title: "Organização de Processos",
-      description: "Implantação de CRM, NPS, unificação dos Leads para atendimento, processos e metodologia de SDR para criação de núcleo especializado de atendimento."
-    },
-    {
-      title: "Captação de Clientes",
-      description: "Geração de Leads através de Campanhas Marketing customizadas, criação de logo, lançamentos imobiliários e conteúdo para redes sociais."
-    },
-    {
-      title: "Automação e Ferramentas",
-      description: "Criação de Chatbot para atendimento automatizado, cadência de e-mails (inbound marketing), Lead Score, consultoria na contratação e implantação de ferramentas."
-    }
-  ];
-
   return (
-    <section id="sobre" className="py-20 bg-gray-50">
+    <section id="sobre" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Quem Somos
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Especialistas em marketing imobiliário com foco em resultados mensuráveis e crescimento sustentável.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">Nossa História</h3>
+            <p className="text-gray-600 mb-4">
+              Fundada por especialistas em marketing digital e mercado imobiliário, a OCA Digital nasceu da necessidade 
+              de profissionalizar e escalar as operações de marketing das imobiliárias brasileiras.
+            </p>
+            <p className="text-gray-600 mb-4">
+              Nosso nome vem da sigla OCA: Organização de Processos, Captação de Leads e Automação de Marketing. 
+              Esses são os três pilares que sustentam nossa metodologia única.
+            </p>
+            <p className="text-gray-600">
+              Com mais de 50 clientes ativos e resultados comprovados, ajudamos imobiliárias de todos os tamanhos 
+              a transformarem seus processos e alcançarem resultados excepcionais.
+            </p>
+          </div>
+          <div className="relative">
             <img 
-              src="/lovable-uploads/92c5cc46-716d-450d-ad26-cf59d7f39222.png" 
-              alt="OCA Digital Avatar" 
-              className="h-24 w-24 rounded-full object-cover border-4 border-blue-200"
+              src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
+              alt="Equipe OCA Digital" 
+              className="rounded-lg shadow-lg"
             />
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Sobre a OCA Digital
-          </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Nascemos para resolver uma dor que praticamente toda imobiliária e corretor vive: 
-            a dificuldade de gerar leads de qualidade, organizar o funil e transformar este ativo em vendas.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-gray-900">Nossa História</h3>
-            <p className="text-gray-700 leading-relaxed">
-              A OCA Digital é uma consultoria especializada em marketing imobiliário que atua na transformação 
-              digital de imobiliárias, corretores e incorporadoras. Unimos estratégia, dados, automação e 
-              criatividade para gerar mais leads qualificados, organizar processos e impulsionar resultados consistentes.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Trabalhamos com uma abordagem clara e focada em performance: olhamos o todo, analisamos dados 
-              reais e entregamos soluções práticas que transformam o comercial em máquina de conversão.
-            </p>
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <p className="text-gray-800 font-medium italic">
-                "Não se trata de uma agência de marketing. Somos uma consultoria especializada em marketing 
-                imobiliário. Unimos estratégia, dados e tecnologia para estruturar sua presença online, 
-                aumentar a geração de leads qualificados e, principalmente, transformar seus processos 
-                comerciais em uma máquina de conversão."
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+            <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <Users className="text-blue-600" size={32} />
             </div>
-          </div>
-
-          <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-gray-900">Os Três Pilares OCA</h3>
-            <p className="text-gray-700">
-              Nosso nome vem da sigla OCA: <strong>Organização de Processos</strong>, <strong>Captação de Leads</strong> 
-              e <strong>Automação</strong> – os três pilares que sustentam o crescimento sustentável no mercado imobiliário atual.
+            <h4 className="font-bold text-xl mb-2 text-gray-900">Time Especializado</h4>
+            <p className="text-gray-600">
+              Profissionais com experiência comprovada em marketing imobiliário e digital.
             </p>
-            <div className="space-y-4">
-              {pillars.map((pillar, index) => (
-                <Card key={index} className="p-6 bg-white border-gray-200">
-                  <h4 className="font-bold text-lg mb-2 text-blue-600">{pillar.title}</h4>
-                  <p className="text-gray-700">{pillar.description}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
+          </Card>
 
-        <div>
-          <h3 className="text-3xl font-bold text-center mb-12 text-gray-900">Metodologia Double Diamond</h3>
-          <p className="text-center text-gray-600 mb-12 max-w-4xl mx-auto">
-            Utilizamos a metodologia Double Diamond, um modelo consagrado de resolução de problemas usado 
-            pelas maiores consultorias e agências do mundo. Ela nos permite entender o contexto, 
-            diagnosticar com profundidade e propor soluções personalizadas e orientadas a resultados.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {methodology.map((step, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow bg-white border-gray-200">
-                <div className="text-4xl mb-4">{step.icon}</div>
-                <h4 className="text-xl font-bold mb-4 text-gray-900">
-                  Etapa {index + 1}: {step.phase}
-                </h4>
-                <p className="text-gray-700">{step.description}</p>
-              </Card>
-            ))}
-          </div>
+          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+            <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <Target className="text-green-600" size={32} />
+            </div>
+            <h4 className="font-bold text-xl mb-2 text-gray-900">Foco em Resultados</h4>
+            <p className="text-gray-600">
+              Estratégias direcionadas para gerar leads qualificados e aumentar vendas.
+            </p>
+          </Card>
+
+          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+            <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <Zap className="text-purple-600" size={32} />
+            </div>
+            <h4 className="font-bold text-xl mb-2 text-gray-900">Tecnologia Avançada</h4>
+            <p className="text-gray-600">
+              Automação e ferramentas de ponta para otimizar seus processos.
+            </p>
+          </Card>
+
+          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+            <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <BarChart3 className="text-orange-600" size={32} />
+            </div>
+            <h4 className="font-bold text-xl mb-2 text-gray-900">Dados & Analytics</h4>
+            <p className="text-gray-600">
+              Decisões baseadas em dados para maximizar o retorno sobre investimento.
+            </p>
+          </Card>
         </div>
       </div>
     </section>

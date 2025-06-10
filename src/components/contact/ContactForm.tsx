@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 interface ContactFormData {
   name: string;
@@ -22,6 +24,8 @@ const ContactForm = () => {
     message: ''
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -41,10 +45,36 @@ const ContactForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      alert('Formulário enviado com sucesso!');
+    
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          form: 'contact_form',
+          nome: formData.name,
+          email: formData.email,
+          telefone: formData.phone,
+          tipo_de_empresa: formData.companyType,
+          servico: formData.service,
+          comment: formData.message
+        }
+      });
+
+      if (error) {
+        console.error('Error:', error);
+        throw error;
+      }
+
+      toast({
+        title: "Mensagem enviada com sucesso!",
+        description: "Recebemos sua mensagem e entraremos em contato em breve.",
+      });
+
       setFormData({
         name: '',
         email: '',
@@ -53,6 +83,15 @@ const ContactForm = () => {
         service: '',
         message: ''
       });
+    } catch (error) {
+      console.error('Submit error:', error);
+      toast({
+        title: "Erro ao enviar",
+        description: "Ocorreu um erro ao processar sua mensagem. Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -150,8 +189,12 @@ const ContactForm = () => {
           ></textarea>
           {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
         </div>
-        <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-semibold">
-          Enviar Mensagem
+        <Button 
+          type="submit" 
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-semibold"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
         </Button>
       </form>
     </Card>

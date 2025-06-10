@@ -22,6 +22,10 @@ const Blog = () => {
     }
   ];
 
+  const handleEmBreve = () => {
+    alert('Em breve');
+  };
+
   return (
     <section id="blog" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +78,11 @@ const Blog = () => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
+          <Button 
+            size="lg" 
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+            onClick={handleEmBreve}
+          >
             Ver Todos os Posts
           </Button>
         </div>
