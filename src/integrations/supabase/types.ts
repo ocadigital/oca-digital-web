@@ -9,7 +9,39 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      leads_websiteoca: {
+        Row: {
+          comment: string | null
+          created_at: string
+          email: string | null
+          form: string | null
+          id: number
+          nome: string | null
+          telefone: string | null
+          tipo_de_empresa: string | null
+        }
+        Insert: {
+          comment?: string | null
+          created_at?: string
+          email?: string | null
+          form?: string | null
+          id?: number
+          nome?: string | null
+          telefone?: string | null
+          tipo_de_empresa?: string | null
+        }
+        Update: {
+          comment?: string | null
+          created_at?: string
+          email?: string | null
+          form?: string | null
+          id?: number
+          nome?: string | null
+          telefone?: string | null
+          tipo_de_empresa?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
