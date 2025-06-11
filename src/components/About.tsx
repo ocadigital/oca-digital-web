@@ -46,7 +46,11 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-4">
-            <Users className="text-blue-600" size={40} />
+            <img 
+              src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
+              alt="Equipe OCA Digital" 
+              className="w-16 h-16 object-cover rounded-lg"
+            />
           </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Quem Somos
@@ -56,14 +60,14 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Nossa História</h3>
-            <p className="text-gray-600 mb-4">
+        <div className="text-center mb-16">
+          <h3 className="text-3xl font-bold text-gray-900 mb-6">Nossa História</h3>
+          <div className="max-w-4xl mx-auto space-y-4">
+            <p className="text-gray-600">
               Fundada por especialistas em marketing digital e mercado imobiliário, a OCA Digital nasceu da necessidade 
               de profissionalizar e escalar as operações de marketing das imobiliárias brasileiras.
             </p>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600">
               Nosso nome vem da sigla OCA: Organização de Processos, Captação de Leads e Automação de Marketing. 
               Esses são os três pilares que sustentam nossa metodologia única.
             </p>
@@ -71,13 +75,6 @@ const About = () => {
               Com mais de 50 clientes ativos e resultados comprovados, ajudamos imobiliárias de todos os tamanhos 
               a transformarem seus processos e alcançarem resultados excepcionais.
             </p>
-          </div>
-          <div className="relative">
-            <img 
-              src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
-              alt="Equipe OCA Digital" 
-              className="rounded-lg shadow-lg"
-            />
           </div>
         </div>
 
