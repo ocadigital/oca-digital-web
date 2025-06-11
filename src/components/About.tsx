@@ -60,21 +60,38 @@ const About = () => {
           </p>
         </div>
 
-        <div className="text-center mb-16">
-          <h3 className="text-3xl font-bold text-gray-900 mb-6">Nossa História</h3>
-          <div className="max-w-4xl mx-auto space-y-4">
-            <p className="text-gray-600">
-              Fundada por especialistas em marketing digital e mercado imobiliário, a OCA Digital nasceu da necessidade 
-              de profissionalizar e escalar as operações de marketing das imobiliárias brasileiras.
-            </p>
-            <p className="text-gray-600">
-              Nosso nome vem da sigla OCA: Organização de Processos, Captação de Leads e Automação de Marketing. 
-              Esses são os três pilares que sustentam nossa metodologia única.
-            </p>
-            <p className="text-gray-600">
-              Com mais de 50 clientes ativos e resultados comprovados, ajudamos imobiliárias de todos os tamanhos 
-              a transformarem seus processos e alcançarem resultados excepcionais.
-            </p>
+        {/* Nossa História e Pilares lado a lado */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Nossa História */}
+          <div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">Nossa História</h3>
+            <div className="space-y-4">
+              <p className="text-gray-600">
+                Fundada por especialistas em marketing digital e mercado imobiliário, a OCA Digital nasceu da necessidade 
+                de profissionalizar e escalar as operações de marketing das imobiliárias brasileiras.
+              </p>
+              <p className="text-gray-600">
+                Nosso nome vem da sigla OCA: Organização de Processos, Captação de Leads e Automação de Marketing. 
+                Esses são os três pilares que sustentam nossa metodologia única.
+              </p>
+              <p className="text-gray-600">
+                Com mais de 50 clientes ativos e resultados comprovados, ajudamos imobiliárias de todos os tamanhos 
+                a transformarem seus processos e alcançarem resultados excepcionais.
+              </p>
+            </div>
+          </div>
+
+          {/* Os 3 Pilares da OCA */}
+          <div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">Os 3 Pilares da OCA</h3>
+            <div className="space-y-6">
+              {pillars.map((pillar, index) => (
+                <div key={index} className="border-l-4 border-blue-600 pl-4">
+                  <h4 className="font-bold text-lg mb-2 text-gray-900">{pillar.title}</h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">{pillar.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -93,25 +110,6 @@ const About = () => {
                 <div className="text-4xl mb-4">{phase.icon}</div>
                 <h4 className="font-bold text-xl mb-3 text-gray-900">{phase.phase}</h4>
                 <p className="text-gray-600 text-sm leading-relaxed">{phase.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Pilares OCA */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Os 3 Pilares da OCA</h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Organização, Captação e Automação - os fundamentos que transformam operações imobiliárias.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {pillars.map((pillar, index) => (
-              <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
-                <h4 className="font-bold text-xl mb-4 text-gray-900">{pillar.title}</h4>
-                <p className="text-gray-600 leading-relaxed">{pillar.description}</p>
               </Card>
             ))}
           </div>
