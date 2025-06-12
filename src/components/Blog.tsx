@@ -1,29 +1,18 @@
 
+import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { blogPosts } from '@/data/blogPosts';
 
 const Blog = () => {
-  const posts = [
-    {
-      title: "Como Gerar Mais Leads Qualificados para sua Imobiliária em 2024",
-      excerpt: "Descubra as estratégias mais eficazes para atrair clientes que realmente querem comprar ou vender imóveis. Aprenda sobre SEO, campanhas pagas e automação de marketing.",
-      image: "/lovable-uploads/26b5f8ef-bdb2-46e5-95ca-bce53bcf3dca.png",
-      date: "15 de Janeiro, 2024",
-      category: "Marketing Digital",
-      readTime: "8 min"
-    },
-    {
-      title: "O Guia Completo do CRM Imobiliário: Como Organizar seus Leads",
-      excerpt: "Entenda como implementar um sistema de CRM eficiente que vai revolucionar seu atendimento e aumentar suas vendas. Dicas práticas e ferramentas recomendadas.",
-      image: "/lovable-uploads/59b9e7e2-b0cd-4eba-9ab0-4502658f48db.png",
-      date: "08 de Janeiro, 2024",
-      category: "Gestão de Leads",
-      readTime: "12 min"
-    }
-  ];
+  const featuredPosts = blogPosts.filter(post => post.featured).slice(0, 2);
 
-  const handleEmBreve = () => {
-    alert('Em breve');
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('pt-BR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
   };
 
   return (
@@ -39,8 +28,8 @@ const Blog = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {posts.map((post, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow bg-white border-gray-200">
+          {featuredPosts.map((post) => (
+            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-white border-gray-200">
               <div className="aspect-video bg-gray-200 relative overflow-hidden">
                 <img 
                   src={post.image} 
@@ -56,7 +45,7 @@ const Blog = () => {
               
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
-                  <span>{post.date}</span>
+                  <span>{formatDate(post.date)}</span>
                   <span className="mx-2">•</span>
                   <span>{post.readTime} de leitura</span>
                 </div>
@@ -69,22 +58,25 @@ const Blog = () => {
                   {post.excerpt}
                 </p>
                 
-                <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50">
-                  Ler Mais
-                </Button>
+                <Link to={`/blog/${post.slug}`}>
+                  <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50">
+                    Ler Mais
+                  </Button>
+                </Link>
               </div>
             </Card>
           ))}
         </div>
 
         <div className="text-center">
-          <Button 
-            size="lg" 
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-            onClick={handleEmBreve}
-          >
-            Ver Todos os Posts
-          </Button>
+          <Link to="/blog">
+            <Button 
+              size="lg" 
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+            >
+              Ver Todos os Posts
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
