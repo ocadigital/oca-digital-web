@@ -64,10 +64,10 @@ const Footer = () => {
               © 2024 OCA Digital. Todos os direitos reservados.
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="/politica-privacidade" className="text-gray-500 hover:text-blue-400 transition-colors text-sm">
+              <a href="/politica-de-privacidade" className="text-gray-500 hover:text-blue-400 transition-colors text-sm">
                 Política de Privacidade
               </a>
-              <a href="/termos-uso" className="text-gray-500 hover:text-blue-400 transition-colors text-sm">
+              <a href="/termos-de-uso" className="text-gray-500 hover:text-blue-400 transition-colors text-sm">
                 Termos de Uso
               </a>
             </div>
