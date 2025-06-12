@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import NewsletterForm from '@/components/NewsletterForm';
 import { blogPosts, categories, tags } from '@/data/blogPosts';
 import {
   Pagination,
@@ -113,16 +114,7 @@ const BlogIndex = () => {
                   <p className="text-sm text-gray-600 mb-4">
                     Receba os melhores conteúdos sobre marketing imobiliário
                   </p>
-                  <div className="space-y-3">
-                    <input
-                      type="email"
-                      placeholder="Seu melhor e-mail"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-                    />
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      Inscrever-se
-                    </Button>
-                  </div>
+                  <NewsletterForm source="blog_sidebar" />
                 </Card>
               </div>
             </aside>
