@@ -24,7 +24,7 @@ const Products = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card className="p-8 bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+          <Card className="p-8 bg-gradient-to-br from-primary/10 to-primary/20 border-primary/30">
             <div className="flex items-center justify-center mb-6">
               <img 
                 src="/lovable-uploads/e79f7b11-3826-4bd5-ab00-59394cfadb26.png" 
@@ -40,31 +40,30 @@ const Products = () => {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-white p-4 rounded-lg border border-blue-200">
-                <h4 className="font-bold text-blue-600 mb-2">🤖 IA treinada com BANT no WhatsApp</h4>
+              <div className="bg-white p-4 rounded-lg border border-primary/30">
+                <h4 className="font-bold text-primary mb-2">🤖 IA treinada com BANT no WhatsApp</h4>
                 <p className="text-gray-700">Atendimento automatizado e pré-qualificação inteligente</p>
               </div>
               
-              <div className="bg-white p-4 rounded-lg border border-blue-200">
-                <h4 className="font-bold text-blue-600 mb-2">📊 CRM com automação integrada</h4>
+              <div className="bg-white p-4 rounded-lg border border-primary/30">
+                <h4 className="font-bold text-primary mb-2">📊 CRM com automação integrada</h4>
                 <p className="text-gray-700">Gestão completa sem custos extras de integrações</p>
               </div>
               
-              <div className="bg-white p-4 rounded-lg border border-blue-200">
-                <h4 className="font-bold text-blue-600 mb-2">🏠 Avaliação e captação inteligente</h4>
+              <div className="bg-white p-4 rounded-lg border border-primary/30">
+                <h4 className="font-bold text-primary mb-2">🏠 Avaliação e captação inteligente</h4>
                 <p className="text-gray-700">Base no comportamento real do mercado</p>
               </div>
               
-              <div className="bg-white p-4 rounded-lg border border-blue-200">
-                <h4 className="font-bold text-blue-600 mb-2">📈 Inteligência de mercado</h4>
+              <div className="bg-white p-4 rounded-lg border border-primary/30">
+                <h4 className="font-bold text-primary mb-2">📈 Inteligência de mercado</h4>
                 <p className="text-gray-700">Insights e análises para decisões estratégicas</p>
               </div>
             </div>
 
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">A partir de R$ 497/mês</div>
               <p className="text-gray-700 mb-6">Setup personalizado incluído</p>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold" onClick={handleAgendarDemo}>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold" onClick={handleAgendarDemo}>
                 Agendar Demo
               </Button>
             </div>
@@ -108,7 +107,6 @@ const Products = () => {
             </div>
 
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-700 mb-2">Consulte valores</div>
               <p className="text-gray-600 mb-6">Planos flexíveis para seu negócio</p>
               <Button size="lg" variant="outline" className="border-gray-400 text-gray-700 hover:bg-gray-100 font-semibold" onClick={handleAgendarDemo}>
                 Agendar Demo

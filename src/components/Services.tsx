@@ -57,7 +57,6 @@ const Services = () => {
   const packages = [
     {
       name: "Plano Essencial",
-      price: "R$ 2.700/mês",
       description: "Mídia paga + landing + My Business + relatório",
       features: [
         "Google Ads",
@@ -68,7 +67,6 @@ const Services = () => {
     },
     {
       name: "Plano Avançado",
-      price: "R$ 3.200/mês",
       description: "Inclui planejamento estratégico e conteúdo",
       features: [
         "Tudo do Essencial",
@@ -79,7 +77,6 @@ const Services = () => {
     },
     {
       name: "Plano Full",
-      price: "R$ 4.000/mês",
       description: "Solução completa com automação",
       features: [
         "Tudo do Avançado",
@@ -126,13 +123,13 @@ const Services = () => {
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="text-blue-500 mr-2">✓</span>
+                      <span className="text-primary mr-2">✓</span>
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                   onClick={handleInteresseClick}
                 >
                   Tenho Interesse!
@@ -149,27 +146,26 @@ const Services = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
-              <Card key={index} className={`p-8 hover:shadow-lg transition-shadow bg-white border-gray-200 ${index === 1 ? 'border-blue-400 border-2' : ''}`}>
+              <Card key={index} className={`p-8 hover:shadow-lg transition-shadow bg-white border-gray-200 ${index === 1 ? 'border-primary border-2' : ''}`}>
                 {index === 1 && (
-                  <div className="bg-blue-600 text-white text-center py-2 px-4 rounded-t-lg -mt-8 -mx-8 mb-6 font-semibold">
+                  <div className="bg-primary text-primary-foreground text-center py-2 px-4 rounded-t-lg -mt-8 -mx-8 mb-6 font-semibold">
                     Mais Popular
                   </div>
                 )}
                 <div className="text-center mb-6">
                   <h4 className="text-2xl font-bold mb-2 text-gray-900">{pkg.name}</h4>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">{pkg.price}</div>
                   <p className="text-gray-600">{pkg.description}</p>
                 </div>
                 <ul className="space-y-2 mb-6">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="text-blue-500 mr-2">✓</span>
+                      <span className="text-primary mr-2">✓</span>
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className={`w-full font-semibold ${index === 1 ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-800'}`}
+                  className={`w-full font-semibold ${index === 1 ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-gray-100 hover:bg-gray-200 text-gray-800'}`}
                   onClick={handleContratarClick}
                 >
                   Contratar Agora
