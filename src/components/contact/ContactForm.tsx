@@ -104,8 +104,8 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="p-8 bg-white border-gray-200">
-      <h3 className="text-2xl font-bold mb-6 text-gray-900">Envie sua mensagem</h3>
+    <Card className="p-8">
+      <h3 className="text-2xl font-bold mb-6 text-foreground">Envie sua mensagem</h3>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -115,7 +115,7 @@ const ContactForm = () => {
               placeholder="Nome"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.name ? 'border-red-500' : 'border-border'}`}
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
@@ -126,7 +126,7 @@ const ContactForm = () => {
               placeholder="E-mail"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.email ? 'border-red-500' : 'border-border'}`}
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
@@ -139,7 +139,7 @@ const ContactForm = () => {
               placeholder="Telefone"
               value={formData.phone}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.phone ? 'border-red-500' : 'border-border'}`}
             />
             {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
           </div>
@@ -148,7 +148,7 @@ const ContactForm = () => {
               name="companyType"
               value={formData.companyType}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 ${errors.companyType ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground ${errors.companyType ? 'border-red-500' : 'border-border'}`}
             >
               <option value="">Tipo de empresa</option>
               <option value="corretor-autonomo">Corretor Autônomo</option>
@@ -165,7 +165,7 @@ const ContactForm = () => {
             name="service"
             value={formData.service}
             onChange={handleChange}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 ${errors.service ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground ${errors.service ? 'border-red-500' : 'border-border'}`}
           >
             <option value="">Serviço de interesse</option>
             <option value="diagnostico">Diagnóstico Estratégico</option>
@@ -185,13 +185,13 @@ const ContactForm = () => {
             placeholder="Conte-nos sobre seu desafio atual..."
             value={formData.message}
             onChange={handleChange}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 ${errors.message ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.message ? 'border-red-500' : 'border-border'}`}
           ></textarea>
           {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
         </div>
         <Button 
           type="submit" 
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-semibold"
+          className="w-full py-3 font-semibold"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}

@@ -99,37 +99,37 @@ const Services = () => {
   };
 
   return (
-    <section id="servicos" className="py-20 bg-gray-50">
+    <section id="servicos" className="py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Nossos Serviços
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Soluções completas para transformar sua operação imobiliária em uma máquina de conversão
           </p>
         </div>
 
         <div className="mb-20">
-          <h3 className="text-3xl font-bold text-center mb-12 text-gray-900">Serviços Pontuais</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Serviços Pontuais</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="p-8 hover:shadow-lg transition-shadow bg-white border-gray-200">
+              <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
                 <div className="mb-6">
-                  <h4 className="text-2xl font-bold mb-2 text-gray-900">{service.title}</h4>
-                  <p className="text-gray-700 mb-4">{service.description}</p>
-                  <span className="text-gray-600">Duração: {service.duration}</span>
+                  <h4 className="text-2xl font-bold mb-2 text-foreground">{service.title}</h4>
+                  <p className="text-foreground mb-4">{service.description}</p>
+                  <span className="text-muted-foreground">Duração: {service.duration}</span>
                 </div>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
                       <span className="text-primary mr-2">✓</span>
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                  className="w-full font-semibold"
                   onClick={handleInteresseClick}
                 >
                   Tenho Interesse!
@@ -140,32 +140,32 @@ const Services = () => {
         </div>
 
         <div>
-          <h3 className="text-3xl font-bold text-center mb-4 text-gray-900">Pacotes Mensais</h3>
-          <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <h3 className="text-3xl font-bold text-center mb-4 text-foreground">Pacotes Mensais</h3>
+          <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
             Serviços mensais contínuos para impulsionar o desempenho da sua imobiliária com estratégias comprovadas
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
-              <Card key={index} className={`p-8 hover:shadow-lg transition-shadow bg-white border-gray-200 ${index === 1 ? 'border-primary border-2' : ''}`}>
+              <Card key={index} className={`p-8 hover:shadow-lg transition-shadow ${index === 1 ? 'border-primary border-2' : ''}`}>
                 {index === 1 && (
                   <div className="bg-primary text-primary-foreground text-center py-2 px-4 rounded-t-lg -mt-8 -mx-8 mb-6 font-semibold">
                     Mais Popular
                   </div>
                 )}
                 <div className="text-center mb-6">
-                  <h4 className="text-2xl font-bold mb-2 text-gray-900">{pkg.name}</h4>
-                  <p className="text-gray-600">{pkg.description}</p>
+                  <h4 className="text-2xl font-bold mb-2 text-foreground">{pkg.name}</h4>
+                  <p className="text-muted-foreground">{pkg.description}</p>
                 </div>
                 <ul className="space-y-2 mb-6">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
                       <span className="text-primary mr-2">✓</span>
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className={`w-full font-semibold ${index === 1 ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-gray-100 hover:bg-gray-200 text-gray-800'}`}
+                  className={`w-full font-semibold ${index === 1 ? '' : 'bg-accent hover:bg-accent/80 text-foreground'}`}
                   onClick={handleContratarClick}
                 >
                   Contratar Agora
