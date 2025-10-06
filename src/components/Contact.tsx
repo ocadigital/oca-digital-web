@@ -5,13 +5,13 @@ import ConsultationCard from './contact/ConsultationCard';
 
 const Contact = () => {
   return (
-    <section id="contato" className="py-20 bg-gray-50">
+    <section id="contato" className="py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Entre em Contato
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Pronto para transformar sua imobiliária? Vamos conversar sobre suas necessidades e objetivos.
           </p>
         </div>

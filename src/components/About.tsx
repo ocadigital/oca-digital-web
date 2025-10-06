@@ -42,7 +42,7 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-white">
+    <section id="sobre" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-4">
@@ -52,10 +52,10 @@ const About = () => {
               className="w-16 h-16 object-cover rounded-lg"
             />
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Quem Somos
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Especialistas em marketing imobiliário com foco em resultados mensuráveis e crescimento sustentável.
           </p>
         </div>
@@ -64,17 +64,17 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Nossa História */}
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Nossa História</h3>
+            <h3 className="text-3xl font-bold text-foreground mb-6">Nossa História</h3>
             <div className="space-y-4">
-              <p className="text-gray-600">
+              <p className="text-muted-foreground">
                 Fundada por especialistas em marketing digital e mercado imobiliário, a OCA Digital nasceu da necessidade 
                 de profissionalizar e escalar as operações de marketing das imobiliárias brasileiras.
               </p>
-              <p className="text-gray-600">
+              <p className="text-muted-foreground">
                 Nosso nome vem da sigla OCA: Organização de Processos, Captação de Leads e Automação de Marketing. 
                 Esses são os três pilares que sustentam nossa metodologia única.
               </p>
-              <p className="text-gray-600">
+              <p className="text-muted-foreground">
                 Com mais de 50 clientes ativos e resultados comprovados, ajudamos imobiliárias de todos os tamanhos 
                 a transformarem seus processos e alcançarem resultados excepcionais.
               </p>
@@ -83,12 +83,12 @@ const About = () => {
 
           {/* Os 3 Pilares da OCA */}
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Os 3 Pilares da OCA</h3>
+            <h3 className="text-3xl font-bold text-foreground mb-6">Os 3 Pilares da OCA</h3>
             <div className="space-y-6">
               {pillars.map((pillar, index) => (
-                <div key={index} className="border-l-4 border-blue-600 pl-4">
-                  <h4 className="font-bold text-lg mb-2 text-gray-900">{pillar.title}</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">{pillar.description}</p>
+                <div key={index} className="border-l-4 border-primary pl-4">
+                  <h4 className="font-bold text-lg mb-2 text-foreground">{pillar.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{pillar.description}</p>
                 </div>
               ))}
             </div>
@@ -98,8 +98,8 @@ const About = () => {
         {/* Metodologia Section */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Nossa Metodologia</h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h3 className="text-3xl font-bold text-foreground mb-4">Nossa Metodologia</h3>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Desenvolvemos uma abordagem estruturada que combina análise de dados, estratégia e execução para gerar resultados consistentes.
             </p>
           </div>
@@ -108,8 +108,8 @@ const About = () => {
             {methodology.map((phase, index) => (
               <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-4">{phase.icon}</div>
-                <h4 className="font-bold text-xl mb-3 text-gray-900">{phase.phase}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{phase.description}</p>
+                <h4 className="font-bold text-xl mb-3 text-foreground">{phase.phase}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">{phase.description}</p>
               </Card>
             ))}
           </div>
@@ -117,41 +117,41 @@ const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <Users className="text-blue-600" size={32} />
+            <div className="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <Users className="text-primary" size={32} />
             </div>
-            <h4 className="font-bold text-xl mb-2 text-gray-900">Time Especializado</h4>
-            <p className="text-gray-600">
+            <h4 className="font-bold text-xl mb-2 text-foreground">Time Especializado</h4>
+            <p className="text-muted-foreground">
               Profissionais com experiência comprovada em marketing imobiliário e digital.
             </p>
           </Card>
 
           <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <Target className="text-green-600" size={32} />
+            <div className="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <Target className="text-primary" size={32} />
             </div>
-            <h4 className="font-bold text-xl mb-2 text-gray-900">Foco em Resultados</h4>
-            <p className="text-gray-600">
+            <h4 className="font-bold text-xl mb-2 text-foreground">Foco em Resultados</h4>
+            <p className="text-muted-foreground">
               Estratégias direcionadas para gerar leads qualificados e aumentar vendas.
             </p>
           </Card>
 
           <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <Zap className="text-purple-600" size={32} />
+            <div className="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <Zap className="text-primary" size={32} />
             </div>
-            <h4 className="font-bold text-xl mb-2 text-gray-900">Tecnologia Avançada</h4>
-            <p className="text-gray-600">
+            <h4 className="font-bold text-xl mb-2 text-foreground">Tecnologia Avançada</h4>
+            <p className="text-muted-foreground">
               Automação e ferramentas de ponta para otimizar seus processos.
             </p>
           </Card>
 
           <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <BarChart3 className="text-orange-600" size={32} />
+            <div className="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <BarChart3 className="text-primary" size={32} />
             </div>
-            <h4 className="font-bold text-xl mb-2 text-gray-900">Dados & Analytics</h4>
-            <p className="text-gray-600">
+            <h4 className="font-bold text-xl mb-2 text-foreground">Dados & Analytics</h4>
+            <p className="text-muted-foreground">
               Decisões baseadas em dados para maximizar o retorno sobre investimento.
             </p>
           </Card>

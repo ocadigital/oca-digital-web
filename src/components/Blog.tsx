@@ -16,50 +16,50 @@ const Blog = () => {
   };
 
   return (
-    <section id="blog" className="py-20 bg-gray-50">
+    <section id="blog" className="py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Blog OCA Digital
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Conteúdos exclusivos sobre marketing imobiliário, estratégias de vendas e tendências do mercado
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {featuredPosts.map((post) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-white border-gray-200">
-              <div className="aspect-video bg-gray-200 relative overflow-hidden">
+            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-video bg-muted relative overflow-hidden">
                 <img 
                   src={post.image} 
                   alt={post.title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
                     {post.category}
                   </span>
                 </div>
               </div>
               
               <div className="p-6">
-                <div className="flex items-center text-sm text-gray-500 mb-3">
+                <div className="flex items-center text-sm text-muted-foreground mb-3">
                   <span>{formatDate(post.date)}</span>
                   <span className="mx-2">•</span>
                   <span>{post.readTime} de leitura</span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
                   {post.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-muted-foreground mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
                 
                 <Link to={`/blog/${post.slug}`}>
-                  <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50">
+                  <Button variant="outline">
                     Ler Mais
                   </Button>
                 </Link>
@@ -72,7 +72,7 @@ const Blog = () => {
           <Link to="/blog">
             <Button 
               size="lg" 
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+              className="font-semibold"
             >
               Ver Todos os Posts
             </Button>

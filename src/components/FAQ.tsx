@@ -49,29 +49,29 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="py-20 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Perguntas Frequentes
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-muted-foreground">
             Tire suas dúvidas sobre nossos produtos e serviços
           </p>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <Card key={index} className="border border-gray-200">
+            <Card key={index} className="border border-border">
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full p-6 text-left hover:bg-gray-50 transition-colors"
+                className="w-full p-6 text-left hover:bg-accent transition-colors"
               >
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                  <h3 className="text-lg font-semibold text-foreground pr-4">
                     {faq.question}
                   </h3>
-                  <span className="text-blue-600 text-xl flex-shrink-0">
+                  <span className="text-primary text-xl flex-shrink-0">
                     {openItems.includes(index) ? '−' : '+'}
                   </span>
                 </div>
@@ -79,7 +79,7 @@ const FAQ = () => {
               
               {openItems.includes(index) && (
                 <div className="px-6 pb-6">
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
@@ -89,12 +89,12 @@ const FAQ = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
+          <p className="text-muted-foreground mb-4">
             Não encontrou a resposta que procurava?
           </p>
           <a 
             href="#contato" 
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+            className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-semibold"
           >
             Entre em Contato
           </a>
