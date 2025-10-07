@@ -43,7 +43,7 @@ const Header = () => {
               <img 
                 src="/lovable-uploads/b55ec33f-e02c-4406-bee6-48e0cdab621c.png" 
                 alt="OCA Digital" 
-                className="h-12 w-auto"
+                className="h-12 w-auto brightness-0 invert"
               />
             </Link>
           </div>
