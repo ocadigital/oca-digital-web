@@ -24,7 +24,7 @@ const Products = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card className="p-8 bg-card border-primary/30">
+          <Card className="p-8 bg-card hover:shadow-xl transition-all border-2 border-primary/20">
             <div className="flex items-center justify-center mb-6">
               <img 
                 src="/lovable-uploads/e79f7b11-3826-4bd5-ab00-59394cfadb26.png" 
@@ -40,22 +40,22 @@ const Products = () => {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-accent p-4 rounded-lg border border-primary/30">
+              <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
                 <h4 className="font-bold text-primary mb-2">🤖 IA treinada com BANT no WhatsApp</h4>
                 <p className="text-foreground">Atendimento automatizado e pré-qualificação inteligente</p>
               </div>
               
-              <div className="bg-accent p-4 rounded-lg border border-primary/30">
+              <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
                 <h4 className="font-bold text-primary mb-2">📊 CRM com automação integrada</h4>
                 <p className="text-foreground">Gestão completa sem custos extras de integrações</p>
               </div>
               
-              <div className="bg-accent p-4 rounded-lg border border-primary/30">
+              <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
                 <h4 className="font-bold text-primary mb-2">🏠 Avaliação e captação inteligente</h4>
                 <p className="text-foreground">Base no comportamento real do mercado</p>
               </div>
               
-              <div className="bg-accent p-4 rounded-lg border border-primary/30">
+              <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
                 <h4 className="font-bold text-primary mb-2">📈 Inteligência de mercado</h4>
                 <p className="text-foreground">Insights e análises para decisões estratégicas</p>
               </div>
@@ -69,7 +69,7 @@ const Products = () => {
             </div>
           </Card>
 
-          <Card className="p-8 bg-card">
+          <Card className="p-8 bg-card hover:shadow-xl transition-all border-border/50">
             <div className="flex items-center justify-center mb-6">
               <img 
                 src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
@@ -85,22 +85,22 @@ const Products = () => {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-accent p-4 rounded-lg border border-border">
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
                 <h4 className="font-bold text-primary mb-2">🌐 Site profissional</h4>
                 <p className="text-foreground">Design moderno e responsivo</p>
               </div>
               
-              <div className="bg-accent p-4 rounded-lg border border-border">
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
                 <h4 className="font-bold text-primary mb-2">🔗 Integração com portais</h4>
                 <p className="text-foreground">Conecte-se aos maiores portais imobiliários</p>
               </div>
               
-              <div className="bg-accent p-4 rounded-lg border border-border">
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
                 <h4 className="font-bold text-primary mb-2">📋 Gestão de imóveis</h4>
                 <p className="text-foreground">Cadastre e organize toda sua carteira</p>
               </div>
               
-              <div className="bg-accent p-4 rounded-lg border border-border">
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
                 <h4 className="font-bold text-primary mb-2">💰 Preço acessível</h4>
                 <p className="text-foreground">Solução que cabe no seu orçamento</p>
               </div>
@@ -116,7 +116,7 @@ const Products = () => {
         </div>
 
         <div className="mt-16">
-          <Card className="p-8 bg-card border-primary/30">
+          <Card className="p-8 bg-card hover:shadow-xl transition-all border-2 border-primary/20">
             <div className="text-center">
               <h3 className="text-3xl font-bold text-foreground mb-4">
                 📚 Curso para Corretores

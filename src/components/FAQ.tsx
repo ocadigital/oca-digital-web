@@ -62,7 +62,7 @@ const FAQ = () => {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <Card key={index} className="border border-border">
+            <Card key={index} className="border border-border/50 hover:shadow-lg transition-all">
               <button
                 onClick={() => toggleItem(index)}
                 className="w-full p-6 text-left hover:bg-accent transition-colors"

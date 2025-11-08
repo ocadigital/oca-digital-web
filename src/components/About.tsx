@@ -106,7 +106,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {methodology.map((phase, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 bg-card border-border/50">
                 <div className="text-4xl mb-4">{phase.icon}</div>
                 <h4 className="font-bold text-xl mb-3 text-foreground">{phase.phase}</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed">{phase.description}</p>
@@ -116,8 +116,8 @@ const About = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <Card className="p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 bg-card border-border/50">
+            <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <Users className="text-primary" size={32} />
             </div>
             <h4 className="font-bold text-xl mb-2 text-foreground">Time Especializado</h4>
@@ -126,8 +126,8 @@ const About = () => {
             </p>
           </Card>
 
-          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <Card className="p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 bg-card border-border/50">
+            <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <Target className="text-primary" size={32} />
             </div>
             <h4 className="font-bold text-xl mb-2 text-foreground">Foco em Resultados</h4>
@@ -136,8 +136,8 @@ const About = () => {
             </p>
           </Card>
 
-          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <Card className="p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 bg-card border-border/50">
+            <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <Zap className="text-primary" size={32} />
             </div>
             <h4 className="font-bold text-xl mb-2 text-foreground">Tecnologia Avançada</h4>
@@ -146,8 +146,8 @@ const About = () => {
             </p>
           </Card>
 
-          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <div className="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <Card className="p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 bg-card border-border/50">
+            <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <BarChart3 className="text-primary" size={32} />
             </div>
             <h4 className="font-bold text-xl mb-2 text-foreground">Dados & Analytics</h4>

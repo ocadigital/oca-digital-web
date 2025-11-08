@@ -97,7 +97,7 @@ const Hero = () => {
     <section id="inicio" className="pt-16 min-h-screen relative overflow-hidden">
       {/* Parallax Background */}
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-background to-secondary"
+        className="absolute inset-0 bg-gradient-to-br from-background via-secondary/30 to-primary/5"
         style={{
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
@@ -151,7 +151,7 @@ const Hero = () => {
           </div>
 
           <div className="relative">
-            <Card className="p-8 shadow-2xl">
+            <Card className="p-8 shadow-xl border-2 border-primary/10 bg-card/95 backdrop-blur">
               <h3 className="text-2xl font-bold mb-6 text-center text-foreground">
                 🎯 Diagnóstico Gratuito
               </h3>
