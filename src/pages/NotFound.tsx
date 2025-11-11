@@ -1,9 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Home, BookOpen, Mail, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 const NotFound = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const navigateToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-secondary/30 py-12 px-4">
       <Card className="card-elevated max-w-2xl w-full p-8 md:p-12 text-center">
@@ -32,26 +52,35 @@ const NotFound = () => {
             </Button>
           </Link>
           
-          <Link to="/#services" className="group">
-            <Button variant="outline" size="lg" className="w-full gap-2">
-              <Search className="w-5 h-5" />
-              Serviços
-            </Button>
-          </Link>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="w-full gap-2"
+            onClick={() => navigateToSection('servicos')}
+          >
+            <Search className="w-5 h-5" />
+            Serviços
+          </Button>
           
-          <Link to="/#contact" className="group">
-            <Button variant="outline" size="lg" className="w-full gap-2">
-              <Mail className="w-5 h-5" />
-              Contato
-            </Button>
-          </Link>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="w-full gap-2"
+            onClick={() => navigateToSection('contato')}
+          >
+            <Mail className="w-5 h-5" />
+            Contato
+          </Button>
         </div>
 
         <p className="text-sm text-muted-foreground">
           Precisa de ajuda? Entre em{" "}
-          <Link to="/#contact" className="text-primary hover:underline font-medium">
+          <button 
+            onClick={() => navigateToSection('contato')}
+            className="text-primary hover:underline font-medium"
+          >
             contato conosco
-          </Link>
+          </button>
         </p>
       </Card>
     </div>
