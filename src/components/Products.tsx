@@ -12,7 +12,7 @@ const Products = () => {
   };
 
   return (
-    <section id="produtos" className="py-20 bg-background">
+    <section id="produtos" className="py-20 bg-background section-separator">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -24,7 +24,7 @@ const Products = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card className="p-8 bg-card hover:shadow-xl transition-all border-2 border-primary/20">
+          <Card className="p-8 card-elevated hover:-translate-y-2 border-2 border-primary/30 hover:border-primary/50">
             <div className="flex items-center justify-center mb-6">
               <img 
                 src="/lovable-uploads/e79f7b11-3826-4bd5-ab00-59394cfadb26.png" 
@@ -69,7 +69,7 @@ const Products = () => {
             </div>
           </Card>
 
-          <Card className="p-8 bg-card hover:shadow-xl transition-all border-border/50">
+          <Card className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40">
             <div className="flex items-center justify-center mb-6">
               <img 
                 src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
@@ -116,7 +116,7 @@ const Products = () => {
         </div>
 
         <div className="mt-16">
-          <Card className="p-8 bg-card hover:shadow-xl transition-all border-2 border-primary/20">
+          <Card className="p-8 card-elevated hover:-translate-y-2 border-2 border-primary/30 hover:border-primary/50">
             <div className="text-center">
               <h3 className="text-3xl font-bold text-foreground mb-4">
                 📚 Curso para Corretores

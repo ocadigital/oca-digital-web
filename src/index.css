@@ -17,24 +17,28 @@
     --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
+    --secondary: 220 14% 96%;
     --secondary-foreground: 222 47% 11%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
     --ring: 221 83% 53%;
 
     --radius: 0.75rem;
 
+    /* Custom design tokens */
+    --section-separator: 220 13% 91%;
+    --card-elevated: 0 0% 100%;
+    
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222 47% 11%;
     --sidebar-primary: 221 83% 53%;
@@ -105,5 +109,13 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .section-separator {
+    @apply border-t border-border/50;
+  }
+
+  .card-elevated {
+    @apply bg-card shadow-lg border border-border/50 hover:shadow-xl transition-all duration-300;
   }
 }

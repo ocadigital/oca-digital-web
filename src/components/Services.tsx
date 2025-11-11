@@ -99,7 +99,7 @@ const Services = () => {
   };
 
   return (
-    <section id="servicos" className="py-20 bg-secondary/30">
+    <section id="servicos" className="py-20 bg-secondary section-separator">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -114,7 +114,7 @@ const Services = () => {
           <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Serviços Pontuais</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="p-8 hover:shadow-xl transition-all hover:-translate-y-1 bg-card border-border/50">
+              <Card key={index} className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40">
                 <div className="mb-6">
                   <h4 className="text-2xl font-bold mb-2 text-foreground">{service.title}</h4>
                   <p className="text-foreground mb-4">{service.description}</p>
@@ -146,7 +146,7 @@ const Services = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
-              <Card key={index} className={`p-8 hover:shadow-xl transition-all hover:-translate-y-1 bg-card border-border/50 ${index === 1 ? 'border-primary border-2 shadow-lg' : ''}`}>
+              <Card key={index} className={`p-8 card-elevated hover:-translate-y-2 hover:border-primary/40 ${index === 1 ? 'border-primary border-2 shadow-2xl' : ''}`}>
                 {index === 1 && (
                   <div className="bg-primary text-primary-foreground text-center py-2 px-4 rounded-t-lg -mt-8 -mx-8 mb-6 font-semibold shadow-md">
                     Mais Popular

@@ -18,7 +18,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background section-separator">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -31,7 +31,7 @@ const Testimonials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-8 hover:shadow-xl transition-all hover:-translate-y-1 bg-card border-border/50">
+            <Card key={index} className="p-8 card-elevated hover:-translate-y-1 hover:border-primary/40">
               <div className="mb-4">
                 <div className="flex text-yellow-400 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (

@@ -3,7 +3,7 @@ import { Card } from '@/components/ui/card';
 
 const ContactInfo = () => {
   return (
-    <Card className="p-6 shadow-lg border-border/50 bg-card">
+    <Card className="p-6 card-elevated">
       <h4 className="font-bold text-xl mb-4 text-foreground">Informações de Contato</h4>
       <div className="space-y-4">
         <div>
