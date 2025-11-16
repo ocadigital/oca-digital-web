@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
+import ShareButtons from '@/components/blog/ShareButtons';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -182,6 +183,11 @@ const BlogPost = () => {
             ))}
           </div>
         )}
+
+        <ShareButtons 
+          title={post.title} 
+          url={window.location.href}
+        />
 
         {relatedPosts.length > 0 && (
           <section className="mt-12 pt-12 border-t">
