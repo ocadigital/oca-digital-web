@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import ShareButtons from '@/components/blog/ShareButtons';
+import TableOfContents from '@/components/blog/TableOfContents';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -117,26 +118,29 @@ const BlogPost = () => {
     <div className="min-h-screen bg-gray-50 pt-24">
       <Header />
 
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <Breadcrumb className="mb-8">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/">Home</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/blog">Blog</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage className="line-clamp-1">{post.title}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Main Content */}
+          <article className="lg:col-span-8">
+            <Breadcrumb className="mb-8">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/blog">Blog</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="line-clamp-1">{post.title}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
 
         <header className="mb-8">
           <div className="flex items-center gap-2 mb-4">
@@ -184,66 +188,73 @@ const BlogPost = () => {
           </div>
         )}
 
-        <ShareButtons 
-          title={post.title} 
-          url={window.location.href}
-        />
+            <ShareButtons 
+              title={post.title} 
+              url={window.location.href}
+            />
 
-        {relatedPosts.length > 0 && (
-          <section className="mt-12 pt-12 border-t">
-            <h2 className="text-2xl font-bold mb-6">Posts Relacionados</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedPosts.map((relatedPost) => (
-                <Card
-                  key={relatedPost.id}
-                  className="overflow-hidden hover:shadow-lg transition-shadow"
-                >
-                  {relatedPost.image && (
-                    <img
-                      src={relatedPost.image}
-                      alt={relatedPost.title}
-                      className="w-full h-40 object-cover"
-                    />
-                  )}
-                  <div className="p-4">
-                    <h3 className="font-bold mb-2 line-clamp-2">
-                      {relatedPost.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                      {relatedPost.excerpt}
-                    </p>
-                    <Link to={`/blog/${relatedPost.slug}`}>
-                      <Button variant="outline" size="sm" className="w-full">
-                        Ler mais
-                      </Button>
-                    </Link>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </section>
-        )}
+            {relatedPosts.length > 0 && (
+              <section className="mt-12 pt-12 border-t">
+                <h2 className="text-2xl font-bold mb-6">Posts Relacionados</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {relatedPosts.map((relatedPost) => (
+                    <Card
+                      key={relatedPost.id}
+                      className="overflow-hidden hover:shadow-lg transition-shadow"
+                    >
+                      {relatedPost.image && (
+                        <img
+                          src={relatedPost.image}
+                          alt={relatedPost.title}
+                          className="w-full h-40 object-cover"
+                        />
+                      )}
+                      <div className="p-4">
+                        <h3 className="font-bold mb-2 line-clamp-2">
+                          {relatedPost.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                          {relatedPost.excerpt}
+                        </p>
+                        <Link to={`/blog/${relatedPost.slug}`}>
+                          <Button variant="outline" size="sm" className="w-full">
+                            Ler mais
+                          </Button>
+                        </Link>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            )}
 
-        <section className="mt-12 pt-12 border-t">
-          <Card className="p-8 bg-primary/10 border-primary/30">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">
-                Pronto para transformar seu negócio imobiliário?
-              </h3>
-              <p className="text-gray-700 mb-6">
-                Agende uma consultoria gratuita e descubra como podemos ajudar
-                você a alcançar seus objetivos.
-              </p>
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                onClick={() => window.open('https://calendly.com/anderson-ocadigital/30min', '_blank')}
-              >
-                Agendar Consultoria
-              </Button>
-            </div>
-          </Card>
-        </section>
-      </article>
+            <section className="mt-12 pt-12 border-t">
+              <Card className="p-8 bg-primary/10 border-primary/30">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Pronto para transformar seu negócio imobiliário?
+                  </h3>
+                  <p className="text-gray-700 mb-6">
+                    Agende uma consultoria gratuita e descubra como podemos ajudar
+                    você a alcançar seus objetivos.
+                  </p>
+                  <Button
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    onClick={() => window.open('https://calendly.com/anderson-ocadigital/30min', '_blank')}
+                  >
+                    Agendar Consultoria
+                  </Button>
+                </div>
+              </Card>
+            </section>
+          </article>
+
+          {/* Sidebar with Table of Contents */}
+          <aside className="hidden lg:block lg:col-span-4">
+            <TableOfContents content={post.content} />
+          </aside>
+        </div>
+      </div>
 
       <Footer />
     </div>
