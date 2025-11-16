@@ -1,7 +1,26 @@
-
 import { Instagram, Linkedin } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const navigateToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
   return (
     <footer className="bg-secondary text-foreground border-t-2 border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -39,21 +58,21 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-foreground">Serviços</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#servicos" className="hover:text-primary transition-colors">Diagnóstico Estratégico</a></li>
-              <li><a href="#servicos" className="hover:text-primary transition-colors">SDR - Pré-qualificação</a></li>
-              <li><a href="#servicos" className="hover:text-primary transition-colors">Automação de Marketing</a></li>
-              <li><a href="#servicos" className="hover:text-primary transition-colors">Lançamentos</a></li>
-              <li><a href="#servicos" className="hover:text-primary transition-colors">Pacotes Mensais</a></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Diagnóstico Estratégico</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">SDR - Pré-qualificação</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Automação de Marketing</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Lançamentos</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Pacotes Mensais</button></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-bold mb-4 text-foreground">Produtos</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#produtos" className="hover:text-primary transition-colors">OCA One</a></li>
-              <li><a href="#produtos" className="hover:text-primary transition-colors">OCA Base</a></li>
-              <li><a href="#produtos" className="hover:text-primary transition-colors">Curso para Corretores</a></li>
-              <li><a href="#contato" className="hover:text-primary transition-colors">Consultoria Gratuita</a></li>
+              <li><button onClick={() => navigateToSection('produtos')} className="hover:text-primary transition-colors">OCA One</button></li>
+              <li><button onClick={() => navigateToSection('produtos')} className="hover:text-primary transition-colors">OCA Base</button></li>
+              <li><button onClick={() => navigateToSection('produtos')} className="hover:text-primary transition-colors">Curso para Corretores</button></li>
+              <li><button onClick={() => navigateToSection('contato')} className="hover:text-primary transition-colors">Consultoria Gratuita</button></li>
             </ul>
           </div>
         </div>
