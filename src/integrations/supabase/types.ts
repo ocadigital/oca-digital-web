@@ -68,6 +68,30 @@ export type Database = {
         }
         Relationships: []
       }
+      ebook_downloads: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          priority: string
+          whatsapp: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          priority: string
+          whatsapp: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          priority?: string
+          whatsapp?: string
+        }
+        Relationships: []
+      }
       leads_websiteoca: {
         Row: {
           comment: string | null

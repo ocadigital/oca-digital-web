@@ -165,7 +165,8 @@ const Services = () => {
                   ))}
                 </ul>
                 <Button 
-                  className={`w-full font-semibold ${index === 1 ? '' : 'bg-accent hover:bg-accent/80 text-foreground'}`}
+                  className={`w-full font-semibold ${index === 1 ? '' : 'text-white'}`}
+                  variant={index === 1 ? 'default' : 'default'}
                   onClick={handleContratarClick}
                 >
                   Contratar Agora
