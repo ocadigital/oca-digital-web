@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import EbookModal from '@/components/EbookModal';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -15,6 +16,7 @@ const Hero = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isEbookModalOpen, setIsEbookModalOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const Hero = () => {
   }, []);
 
   const handleEbookClick = () => {
-    alert('Em breve');
+    setIsEbookModalOpen(true);
   };
 
   const validateForm = () => {
@@ -223,6 +225,11 @@ const Hero = () => {
           <ArrowDown className="mx-auto text-muted-foreground animate-bounce" size={32} />
         </div>
       </div>
+
+      <EbookModal 
+        isOpen={isEbookModalOpen} 
+        onClose={() => setIsEbookModalOpen(false)} 
+      />
     </section>
   );
 };
