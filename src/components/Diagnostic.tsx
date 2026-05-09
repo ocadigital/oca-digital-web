@@ -37,9 +37,9 @@ const Diagnostic = () => {
     setLoading(true);
     try {
       await supabase.from('leads_websiteoca').insert({
-        name, email, company_type: company || null,
-        form_type: 'diagnostic',
-        message: `Score: ${computedScore}% | ${JSON.stringify(answers)}`,
+        nome: name, email, tipo_de_empresa: company || null,
+        form: 'diagnostic',
+        comment: `Score: ${computedScore}% | ${JSON.stringify(answers)}`,
       });
       setScore(computedScore);
       setSubmitted(true);
