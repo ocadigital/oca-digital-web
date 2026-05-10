@@ -89,7 +89,7 @@ const Features = () => {
                   >
                     <div className="w-9 h-9 rounded-lg bg-gradient-primary p-px mb-3">
                       <div className="w-full h-full rounded-[7px] bg-card flex items-center justify-center">
-                        <it.icon className="w-4.5 h-4.5 text-primary" />
+                        <it.icon className="w-5 h-5 text-primary" />
                       </div>
                     </div>
                     <h3 className="font-semibold text-sm mb-1">{it.title}</h3>
