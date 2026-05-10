@@ -26,19 +26,20 @@ const Hero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-purple opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-neon-purple"></span>
             </span>
-            Plataforma OCA ONE — Powered by IA
+            Especialistas em operação imobiliária + tecnologia
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-6">
-            <span className="text-gradient">IA, automação e dashboards</span>
+            <span className="text-gradient">Automação, performance</span>{' '}
+            <span className="text-foreground/90">e</span>{' '}
+            <span className="text-gradient">inteligência operacional</span>
             <br />
-            <span className="text-foreground/90">para empresas que querem</span>{' '}
-            <span className="text-gradient">escalar operação</span>
+            <span className="text-foreground/90">para empresas que querem escalar resultados</span>
           </h1>
 
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-            Automatize cobranças, contratos, onboarding, atendimento e indicadores
-            em um único ecossistema inteligente.
+            Especialistas em mercado imobiliário, geração de leads, automações,
+            dashboards e operações comerciais inteligentes.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
@@ -56,15 +57,20 @@ const Hero = () => {
               onClick={() => goTo('oca-one')}
               className="h-12 px-6 border-border bg-secondary/40 hover:bg-secondary"
             >
-              Ver Plataforma
+              Conhecer OCA ONE
               <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-success" /> Setup em 7 dias</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-success" /> Integração Asaas + ClickUp</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-success" /> Suporte humano dedicado</span>
+          <div className="flex flex-wrap justify-center gap-2">
+            {['Leads', 'Conversão', 'Automação', 'Cobrança', 'Receita', 'Operação'].map((t) => (
+              <span
+                key={t}
+                className="text-[11px] px-3 py-1.5 rounded-full glass text-muted-foreground border border-border/60"
+              >
+                {t}
+              </span>
+            ))}
           </div>
         </div>
 

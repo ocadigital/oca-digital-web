@@ -1,10 +1,12 @@
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import RealEstate from '@/components/RealEstate';
 import Problems from '@/components/Problems';
-import OcaOne from '@/components/OcaOne';
 import Features from '@/components/Features';
+import OcaOne from '@/components/OcaOne';
 import Dashboards from '@/components/Dashboards';
+import Methodology from '@/components/Methodology';
 import Automations from '@/components/Automations';
 import Integrations from '@/components/Integrations';
 import Cases from '@/components/Cases';
@@ -43,10 +45,12 @@ const Index = () => {
         <Header />
         <main>
           <Hero />
+          <RealEstate />
           <Problems />
-          <OcaOne />
           <Features />
+          <OcaOne />
           <Dashboards />
+          <Methodology />
           <Automations />
           <Integrations />
           <Cases />

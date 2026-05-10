@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const NAV = [
-  { id: 'solucoes', label: 'Soluções' },
+  { id: 'imobiliario', label: 'Imobiliário' },
+  { id: 'servicos', label: 'Serviços' },
   { id: 'oca-one', label: 'OCA ONE' },
-  { id: 'automacao', label: 'Automação IA' },
-  { id: 'integracoes', label: 'Integrações' },
+  { id: 'metodologia', label: 'Metodologia' },
   { id: 'cases', label: 'Cases' },
   { id: 'diagnostico', label: 'Diagnóstico' },
   { id: 'contato', label: 'Contato' },
