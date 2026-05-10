@@ -1,14 +1,14 @@
 import { AlertTriangle, FileWarning, Phone, Layers, BarChart3, Zap, MessageSquareWarning, Network, ArrowRight } from 'lucide-react';
 
 const problems = [
-  { icon: AlertTriangle, title: 'Clientes inadimplentes', desc: 'Receita parada e cobranças sem padrão.' },
-  { icon: Phone, title: 'Cobranças manuais', desc: 'Equipe gastando horas em tarefas repetitivas.' },
-  { icon: FileWarning, title: 'Planilhas espalhadas', desc: 'Dados desconectados e sem visibilidade.' },
-  { icon: Layers, title: 'Equipe perdida no operacional', desc: 'Foco no urgente, nunca no estratégico.' },
-  { icon: BarChart3, title: 'Falta de indicadores', desc: 'Decisões tomadas sem dado, no achismo.' },
-  { icon: Zap, title: 'Falta de automação', desc: 'Processos lentos e propensos a erro.' },
-  { icon: MessageSquareWarning, title: 'Follow-ups esquecidos', desc: 'Oportunidades perdidas todos os dias.' },
-  { icon: Network, title: 'Processos descentralizados', desc: 'Cada área usa uma ferramenta diferente.' },
+  { icon: MessageSquareWarning, title: 'Leads sem resposta', desc: 'Oportunidades perdidas por falta de follow-up rápido.' },
+  { icon: Phone, title: 'Corretor sobrecarregado', desc: 'Tempo gasto qualificando lead frio em vez de vender.' },
+  { icon: FileWarning, title: 'Planilhas espalhadas', desc: 'Captação, CRM e financeiro desconectados.' },
+  { icon: Layers, title: 'Funil comercial sem visibilidade', desc: 'Você não sabe onde o lead está travando.' },
+  { icon: BarChart3, title: 'Campanhas sem ROI claro', desc: 'Investimento em mídia sem rastreio até a venda.' },
+  { icon: Zap, title: 'Processos manuais', desc: 'Cadência, agendamento e cobrança feitos no braço.' },
+  { icon: AlertTriangle, title: 'Inadimplência alta', desc: 'Receita parada e régua de cobrança sem padrão.' },
+  { icon: Network, title: 'Ferramentas desconectadas', desc: 'CRM, WhatsApp, financeiro e mídia em silos.' },
 ];
 
 const Problems = () => {
@@ -21,12 +21,12 @@ const Problems = () => {
             O problema
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            Sua empresa está perdendo{' '}
-            <span className="text-gradient">tempo e dinheiro</span> com processos manuais?
+            Sua operação imobiliária está{' '}
+            <span className="text-gradient">perdendo dinheiro</span> em processos manuais?
           </h2>
           <p className="text-muted-foreground text-lg">
-            Toda operação que ainda depende de tarefas humanas repetitivas está
-            queimando margem e talento. Veja onde isso acontece:
+            Da captação ao pós-venda, cada lead frio, planilha esquecida e cobrança
+            atrasada custa receita. Veja onde isso acontece:
           </p>
         </div>
 
