@@ -34,7 +34,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
             <div className="md:col-span-5">
               <img
-                src="/lovable-uploads/b55ec33f-e02c-4406-bee6-48e0cdab621c.png"
+                src="/logo-oca-white.png"
                 alt="OCA Digital"
                 className="h-10 w-auto mb-4"
               />
