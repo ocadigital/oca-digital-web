@@ -52,7 +52,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
-              src="/lovable-uploads/b55ec33f-e02c-4406-bee6-48e0cdab621c.png"
+              src="/logo-oca-white.png"
               alt="OCA Digital"
               className="h-9 w-auto"
             />

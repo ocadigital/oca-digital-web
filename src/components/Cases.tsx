@@ -10,22 +10,23 @@ const metrics = [
 const clients = [
   { name: 'Aldo Imóveis', tag: 'Imobiliária' },
   { name: 'Vokkan', tag: 'Incorporadora' },
-  { name: 'Aurora Incorporações', tag: 'Lançamentos' },
-  { name: 'Vértice Group', tag: 'Operação Comercial' },
-  { name: 'Fênix Incorporadora', tag: 'Incorporadora' },
-  { name: 'Studio Habitar', tag: 'Imobiliária' },
+  { name: 'Yes Empreendimentos', tag: 'Incorporadora' },
+  { name: 'Buzz', tag: 'Imobiliária' },
+  { name: 'Brognoli', tag: 'Imobiliária' },
+  { name: 'Santa Ilha', tag: 'Imobiliária' },
+  { name: 'RE/MAX', tag: 'Imobiliária' },
 ];
 
 const quotes = [
   {
     q: 'A OCA estruturou nossa captação e nosso atendimento. Hoje temos previsibilidade comercial e dashboards que orientam toda a operação.',
-    n: 'Marina Costa',
-    r: 'COO · Aurora Incorporações',
+    n: 'Diretoria Comercial',
+    r: 'Yes Empreendimentos',
   },
   {
     q: 'Não voltamos mais para planilhas. Marketing, CRM, WhatsApp e cobrança falando entre si — e a equipe focada em vender.',
-    n: 'Rafael Mendes',
-    r: 'CEO · Vértice Group',
+    n: 'Gestão de Operação',
+    r: 'Brognoli Imóveis',
   },
 ];
 
