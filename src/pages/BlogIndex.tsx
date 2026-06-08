@@ -215,17 +215,17 @@ const BlogIndex = () => {
                           <span className="text-xs font-semibold text-primary">
                             {post.category}
                           </span>
-                          <span className="text-gray-400">•</span>
-                          <span className="text-xs text-gray-500">{post.read_time}</span>
+                          <span className="text-muted-foreground/60">•</span>
+                          <span className="text-xs text-muted-foreground">{post.read_time}</span>
                         </div>
-                        <h2 className="text-xl font-bold mb-2 text-gray-900">
+                        <h2 className="text-xl font-bold mb-2 text-foreground">
                           {post.title}
                         </h2>
-                        <p className="text-gray-600 mb-4 line-clamp-3">
+                        <p className="text-muted-foreground mb-4 line-clamp-3">
                           {post.excerpt}
                         </p>
                         <div className="flex items-center justify-between">
-                          <div className="text-sm text-gray-500">
+                          <div className="text-sm text-muted-foreground">
                             <span>{post.author}</span>
                             <span className="mx-2">•</span>
                             <span>{formatDate(post.created_at)}</span>
