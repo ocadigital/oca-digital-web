@@ -108,7 +108,7 @@ const BlogIndex = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-background pt-24">
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -127,8 +127,8 @@ const BlogIndex = () => {
         </Breadcrumb>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog OCA Digital</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="text-4xl font-bold text-foreground mb-4">Blog OCA Digital</h1>
+          <p className="text-xl text-muted-foreground">
             Insights e estratégias para alavancar seu negócio imobiliário
           </p>
         </div>
@@ -144,7 +144,7 @@ const BlogIndex = () => {
                     setCurrentPage(1);
                   }}
                   className={`block w-full text-left px-4 py-2 rounded ${
-                    !selectedCategory ? 'bg-primary text-primary-foreground' : 'hover:bg-gray-100'
+                    !selectedCategory ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
                   }`}
                 >
                   Todas
@@ -157,7 +157,7 @@ const BlogIndex = () => {
                       setCurrentPage(1);
                     }}
                     className={`block w-full text-left px-4 py-2 rounded ${
-                      selectedCategory === category ? 'bg-primary text-primary-foreground' : 'hover:bg-gray-100'
+                      selectedCategory === category ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
                     }`}
                   >
                     {category}
@@ -179,7 +179,7 @@ const BlogIndex = () => {
                     className={`px-3 py-1 rounded-full text-sm ${
                       selectedTag === tag
                         ? 'bg-primary text-primary-foreground'
-                        : 'bg-gray-200 hover:bg-gray-300'
+                        : 'bg-muted hover:bg-muted/80'
                     }`}
                   >
                     {tag}
@@ -196,7 +196,7 @@ const BlogIndex = () => {
           <div className="lg:col-span-3">
             {currentPosts.length === 0 ? (
               <Card className="p-8 text-center">
-                <p className="text-gray-600">Nenhum post encontrado.</p>
+                <p className="text-muted-foreground">Nenhum post encontrado.</p>
               </Card>
             ) : (
               <>
