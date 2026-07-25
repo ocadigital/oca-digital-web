@@ -116,6 +116,12 @@
   }
 
   .card-elevated {
-    @apply bg-card shadow-lg border border-border/50 hover:shadow-xl transition-all duration-300;
+    @apply bg-card border border-border/60 transition-all duration-300;
+    box-shadow: var(--shadow-card);
   }
+  .card-elevated:hover {
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+
 }
