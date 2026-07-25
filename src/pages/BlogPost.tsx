@@ -94,12 +94,12 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-24">
+      <div className="min-h-screen bg-background pt-24">
         <Header />
         <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Card className="p-8 text-center">
             <h1 className="text-2xl font-bold mb-4">Post não encontrado</h1>
-            <p className="text-gray-600 mb-6">
+            <p className="text-muted-foreground mb-6">
               O post que você está procurando não existe ou foi removido.
             </p>
             <Link to="/blog">
@@ -115,7 +115,7 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-background pt-24">
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -147,15 +147,15 @@ const BlogPost = () => {
             <span className="text-sm font-semibold text-primary">
               {post.category}
             </span>
-            <span className="text-gray-400">•</span>
-            <span className="text-sm text-gray-500">{post.read_time}</span>
+            <span className="text-muted-foreground">•</span>
+            <span className="text-sm text-muted-foreground">{post.read_time}</span>
           </div>
           
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-foreground mb-4">
             {post.title}
           </h1>
           
-          <div className="flex items-center text-gray-600">
+          <div className="flex items-center text-muted-foreground">
             <span>Por {post.author}</span>
             <span className="mx-2">•</span>
             <time>{formatDate(post.created_at)}</time>
@@ -180,7 +180,7 @@ const BlogPost = () => {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-gray-200 rounded-full text-sm"
+                className="px-3 py-1 bg-muted rounded-full text-sm"
               >
                 #{tag}
               </span>
@@ -213,7 +213,7 @@ const BlogPost = () => {
                         <h3 className="font-bold mb-2 line-clamp-2">
                           {relatedPost.title}
                         </h3>
-                        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                           {relatedPost.excerpt}
                         </p>
                         <Link to={`/blog/${relatedPost.slug}`}>
@@ -234,7 +234,7 @@ const BlogPost = () => {
                   <h3 className="text-2xl font-bold mb-4">
                     Pronto para transformar seu negócio imobiliário?
                   </h3>
-                  <p className="text-gray-700 mb-6">
+                  <p className="text-foreground/90 mb-6">
                     Agende uma consultoria gratuita e descubra como podemos ajudar
                     você a alcançar seus objetivos.
                   </p>

@@ -24,11 +24,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8">
       <Card className="w-full max-w-md p-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">Admin Login</h2>
-          <p className="mt-2 text-gray-600">Acesse o painel de administração</p>
+          <h2 className="text-3xl font-bold text-foreground">Admin Login</h2>
+          <p className="mt-2 text-muted-foreground">Acesse o painel de administração</p>
         </div>
         
         <form onSubmit={handleSubmit} className="space-y-6">
