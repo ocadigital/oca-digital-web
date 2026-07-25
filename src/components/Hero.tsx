@@ -96,14 +96,21 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="pt-16 min-h-screen relative overflow-hidden">
-      {/* Parallax Background */}
-      <div 
-        className="absolute inset-0 bg-background"
+    <section id="inicio" className="pt-16 min-h-screen relative overflow-hidden bg-background">
+      {/* Violet glow backdrop */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'var(--gradient-hero-glow)' }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none opacity-40"
         style={{
-          transform: `translateY(${scrollY * 0.5}px)`,
+          backgroundImage:
+            'radial-gradient(circle at 20% 80%, hsl(265 90% 45% / 0.25), transparent 40%), radial-gradient(circle at 80% 20%, hsl(250 95% 55% / 0.2), transparent 45%)',
+          transform: `translateY(${scrollY * 0.3}px)`,
         }}
       />
+
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

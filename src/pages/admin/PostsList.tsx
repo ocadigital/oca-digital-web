@@ -89,12 +89,12 @@ const PostsList = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow">
+    <div className="min-h-screen bg-background">
+      <header className="bg-card shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Gerenciar Posts do Blog</h1>
+          <h1 className="text-2xl font-bold text-foreground">Gerenciar Posts do Blog</h1>
           <div className="flex gap-4">
-            <span className="text-gray-600">Olá, {user?.email}</span>
+            <span className="text-muted-foreground">Olá, {user?.email}</span>
             <Button onClick={signOut} variant="outline" size="sm">
               Sair
             </Button>
@@ -115,7 +115,7 @@ const PostsList = () => {
         <div className="grid gap-6">
           {posts.length === 0 ? (
             <Card className="p-8 text-center">
-              <p className="text-gray-600">Nenhum post encontrado. Crie seu primeiro post!</p>
+              <p className="text-muted-foreground">Nenhum post encontrado. Crie seu primeiro post!</p>
             </Card>
           ) : (
             posts.map((post) => (
@@ -123,13 +123,13 @@ const PostsList = () => {
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <h3 className="text-xl font-bold text-gray-900">{post.title}</h3>
-                      <span className={`px-2 py-1 text-xs rounded ${post.published ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
+                      <h3 className="text-xl font-bold text-foreground">{post.title}</h3>
+                      <span className={`px-2 py-1 text-xs rounded ${post.published ? 'bg-green-100 text-green-800' : 'bg-muted text-foreground'}`}>
                         {post.published ? 'Publicado' : 'Rascunho'}
                       </span>
                     </div>
-                    <p className="text-gray-600 mb-2">{post.excerpt}</p>
-                    <div className="text-sm text-gray-500">
+                    <p className="text-muted-foreground mb-2">{post.excerpt}</p>
+                    <div className="text-sm text-muted-foreground">
                       Por {post.author} • {new Date(post.created_at).toLocaleDateString('pt-BR')}
                     </div>
                   </div>
