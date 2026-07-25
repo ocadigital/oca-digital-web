@@ -72,12 +72,12 @@ const NewsletterForm = ({ source = 'blog' }: NewsletterFormProps) => {
         placeholder="Seu melhor e-mail"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full px-3 py-2 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         disabled={isLoading}
       />
-      <Button
-        type="submit"
-        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+      <Button 
+        type="submit" 
+        className="w-full bg-blue-600 hover:bg-blue-700"
         disabled={isLoading}
       >
         {isLoading ? 'Inscrevendo...' : 'Inscrever-se'}
