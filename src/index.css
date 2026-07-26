@@ -124,4 +124,13 @@
     border-color: hsl(var(--primary) / 0.5);
   }
 
+  .btn-gradient {
+    background-image: var(--gradient-primary);
+    box-shadow: 0 6px 20px -8px hsl(265 90% 60% / 0.7);
+    transition: filter 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-gradient:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 8px 26px -8px hsl(265 90% 66% / 0.85);
+  }
 }

@@ -1,13 +1,22 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
 
   const handleConsultoriaClick = () => {
     window.open('https://calendly.com/anderson-ocadigital/30min', '_blank');
@@ -35,7 +44,13 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border/50 z-50 shadow-sm">
+    <header
+      className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
+        isScrolled
+          ? 'bg-background/90 backdrop-blur-md border-b border-border/60 shadow-sm'
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -48,15 +63,16 @@ const Header = () => {
             </Link>
           </div>
           
-          <nav className="hidden md:flex space-x-8">
-            <button onClick={() => navigateToSection('inicio')} className="text-foreground hover:text-primary transition-colors">Início</button>
-            <button onClick={() => navigateToSection('sobre')} className="text-foreground hover:text-primary transition-colors">Sobre Nós</button>
-            <button onClick={() => navigateToSection('servicos')} className="text-foreground hover:text-primary transition-colors">Serviços</button>
-            <button onClick={() => navigateToSection('produtos')} className="text-foreground hover:text-primary transition-colors">Produtos</button>
-            <Link to="/blog" className="text-foreground hover:text-primary transition-colors">Blog</Link>
-            <button onClick={() => navigateToSection('faq')} className="text-foreground hover:text-primary transition-colors">FAQ</button>
-            <button onClick={() => navigateToSection('contato')} className="text-foreground hover:text-primary transition-colors">Contato</button>
+          <nav className="hidden md:flex items-center space-x-1">
+            <button onClick={() => navigateToSection('inicio')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Início</button>
+            <button onClick={() => navigateToSection('sobre')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Sobre Nós</button>
+            <button onClick={() => navigateToSection('servicos')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Serviços</button>
+            <button onClick={() => navigateToSection('produtos')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Produtos</button>
+            <Link to="/blog" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
+            <button onClick={() => navigateToSection('faq')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">FAQ</button>
+            <button onClick={() => navigateToSection('contato')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Contato</button>
           </nav>
+
 
           <div className="hidden md:flex items-center space-x-4">
             <Button 
