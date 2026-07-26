@@ -56,7 +56,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/">
               <img 
-                src="/lovable-uploads/b55ec33f-e02c-4406-bee6-48e0cdab621c.png" 
+                src="/oca-logo-white.png" 
                 alt="OCA Digital" 
                 className="h-12 w-auto"
               />
@@ -76,7 +76,6 @@ const Header = () => {
 
           <div className="hidden md:flex items-center space-x-4">
             <Button 
-              variant="outline" 
               onClick={handleConsultoriaClick}
             >
               Consultoria Gratuita
