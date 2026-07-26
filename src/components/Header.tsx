@@ -56,7 +56,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/">
               <img 
-                src="https://www.ocadigital.com.br/logo-oca-white.png" 
+                src="/lovable-uploads/b55ec33f-e02c-4406-bee6-48e0cdab621c.png" 
                 alt="OCA Digital" 
                 className="h-12 w-auto"
               />
