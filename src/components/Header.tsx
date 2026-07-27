@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import ocaLogo from '@/assets/oca-logo-white.png.asset.json';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,7 +56,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/">
               <img 
-                src={ocaLogo.url} 
+                src="/oca-logo-white.png" 
                 alt="OCA Digital" 
                 className="h-12 w-auto"
               />

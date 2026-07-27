@@ -1,6 +1,5 @@
 import { Instagram, Linkedin } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import ocaLogo from '@/assets/oca-logo-white.png.asset.json';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <img 
-              src={ocaLogo.url} 
+              src="/oca-logo-white.png" 
               alt="OCA Digital" 
               className="h-12 w-auto mb-4"
             />
