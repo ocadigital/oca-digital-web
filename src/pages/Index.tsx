@@ -15,24 +15,20 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>OCA Digital - Marketing Imobiliário Especializado | Florianópolis SC</title>
-        <meta name="description" content="Especialistas em marketing imobiliário que combinam estratégia, dados e automação para transformar sua operação em uma máquina de conversão. Atendimento em Florianópolis e todo Brasil." />
+        <title>OCA Digital | Marketing Imobiliário com IA</title>
+        <meta name="description" content="Marketing imobiliário com estratégia, dados e automação. Gere mais leads qualificados em Florianópolis e em todo o Brasil." />
         <meta name="keywords" content="marketing imobiliário, leads imobiliários, automação marketing, diagnóstico estratégico, CRM imobiliário, Florianópolis, Santa Catarina" />
         <meta name="author" content="OCA Digital" />
-        <meta property="og:title" content="OCA Digital - Marketing Imobiliário Especializado" />
-        <meta property="og:description" content="Transforme sua imobiliária em uma máquina de conversão com nossa consultoria especializada em marketing imobiliário." />
+        <meta property="og:title" content="OCA Digital | Marketing Imobiliário com IA" />
+        <meta property="og:description" content="Transforme sua imobiliária em uma máquina de conversão com marketing imobiliário orientado a dados." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ocadigital.com.br" />
+        <meta property="og:url" content="https://oca-digital-web.lovable.app/" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="OCA Digital - Marketing Imobiliário Especializado" />
-        <meta name="twitter:description" content="Especialistas em marketing imobiliário que combinam estratégia, dados e automação para transformar sua operação em uma máquina de conversão." />
-        <link rel="canonical" href="https://ocadigital.com.br" />
+        <meta name="twitter:title" content="OCA Digital | Marketing Imobiliário com IA" />
+        <meta name="twitter:description" content="Transforme sua imobiliária em uma máquina de conversão com marketing imobiliário orientado a dados." />
+        <link rel="canonical" href="https://oca-digital-web.lovable.app/" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
       </Helmet>
       <div className="min-h-screen">
         <Header />
