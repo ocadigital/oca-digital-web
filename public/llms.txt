@@ -1,0 +1,10 @@
+# OCA Digital
+
+> Agência de marketing imobiliário que combina estratégia, dados e automação para gerar leads qualificados para imobiliárias e corretores no Brasil.
+
+## Pages
+
+- [Home](/): Serviços, produtos, cases e contato da OCA Digital.
+- [Blog](/blog): Artigos sobre marketing imobiliário, vendas e tendências do mercado.
+- [Política de Privacidade](/politica-de-privacidade): Como tratamos dados pessoais.
+- [Termos de Uso](/termos-de-uso): Condições de uso do site.

@@ -179,6 +179,7 @@ const EbookModal = ({ isOpen, onClose }: EbookModalProps) => {
                 id="email"
                 type="email"
                 placeholder="digite o seu melhor email"
+                aria-label="digite o seu melhor email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -200,6 +201,7 @@ const EbookModal = ({ isOpen, onClose }: EbookModalProps) => {
                 id="whatsapp"
                 type="tel"
                 placeholder="o seu whats com DDD"
+                aria-label="o seu whats com DDD"
                 value={whatsapp}
                 onChange={(e) => {
                   const formatted = formatWhatsApp(e.target.value);

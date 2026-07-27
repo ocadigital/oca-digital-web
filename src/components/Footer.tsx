@@ -42,16 +42,23 @@ const Footer = () => {
               <div>📍 Florianópolis, SC - Atendimento Nacional</div>
             </div>
             <div className="flex items-center space-x-4 mt-4">
-              <div className="text-muted-foreground">
-                <Instagram size={24} />
-              </div>
+              <a
+                href="https://www.instagram.com/ocadigital"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da OCA Digital"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Instagram size={24} aria-hidden="true" />
+              </a>
               <a 
                 href="https://www.linkedin.com/company/941540/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="LinkedIn da OCA Digital"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Linkedin size={24} />
+                <Linkedin size={24} aria-hidden="true" />
               </a>
             </div>
           </div>

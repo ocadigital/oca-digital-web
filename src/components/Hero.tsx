@@ -170,6 +170,7 @@ const Hero = () => {
                     type="text"
                     name="name"
                     placeholder="Nome completo"
+                    aria-label="Nome completo"
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.name ? 'border-red-500' : 'border-border'}`}
@@ -181,6 +182,7 @@ const Hero = () => {
                     type="email"
                     name="email"
                     placeholder="E-mail profissional"
+                    aria-label="E-mail profissional"
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.email ? 'border-red-500' : 'border-border'}`}
@@ -192,6 +194,7 @@ const Hero = () => {
                     type="tel"
                     name="phone"
                     placeholder="WhatsApp"
+                    aria-label="WhatsApp"
                     value={formData.phone}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.phone ? 'border-red-500' : 'border-border'}`}
@@ -201,6 +204,7 @@ const Hero = () => {
                 <div>
                   <select 
                     name="companySize"
+                    aria-label="Tamanho da empresa"
                     value={formData.companySize}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground ${errors.companySize ? 'border-red-500' : 'border-border'}`}

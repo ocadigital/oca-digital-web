@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -109,6 +110,15 @@ const BlogIndex = () => {
 
   return (
     <div className="min-h-screen bg-background pt-24">
+      <Helmet>
+        <title>Blog OCA Digital | Marketing Imobiliário</title>
+        <meta name="description" content="Insights e estratégias de marketing imobiliário: geração de leads, automação, vendas e tendências do mercado." />
+        <link rel="canonical" href="https://oca-digital-web.lovable.app/blog" />
+        <meta property="og:title" content="Blog OCA Digital | Marketing Imobiliário" />
+        <meta property="og:description" content="Insights e estratégias para alavancar seu negócio imobiliário." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://oca-digital-web.lovable.app/blog" />
+      </Helmet>
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -136,7 +146,7 @@ const BlogIndex = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <aside className="lg:col-span-1 space-y-6">
             <Card className="p-6">
-              <h3 className="font-bold text-xl mb-4">Categorias</h3>
+              <h2 className="font-bold text-xl mb-4">Categorias</h2>
               <div className="space-y-2">
                 <button
                   onClick={() => {
@@ -167,7 +177,7 @@ const BlogIndex = () => {
             </Card>
 
             <Card className="p-6">
-              <h3 className="font-bold text-xl mb-4">Tags</h3>
+              <h2 className="font-bold text-xl mb-4">Tags</h2>
               <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (
                   <button

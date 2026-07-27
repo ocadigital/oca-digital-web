@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -116,6 +117,32 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background pt-24">
+      <Helmet>
+        <title>{`${post.title} | OCA Digital`}</title>
+        <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={`https://oca-digital-web.lovable.app/blog/${post.slug}`} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://oca-digital-web.lovable.app/blog/${post.slug}`} />
+        {post.image && <meta property="og:image" content={post.image} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: post.title,
+            description: post.excerpt,
+            image: post.image || undefined,
+            author: { '@type': 'Person', name: post.author },
+            publisher: { '@type': 'Organization', name: 'OCA Digital' },
+            datePublished: post.created_at,
+            mainEntityOfPage: `https://oca-digital-web.lovable.app/blog/${post.slug}`,
+          })}
+        </script>
+      </Helmet>
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

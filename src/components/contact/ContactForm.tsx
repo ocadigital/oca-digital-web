@@ -113,6 +113,7 @@ const ContactForm = () => {
               type="text"
               name="name"
               placeholder="Nome"
+              aria-label="Nome"
               value={formData.name}
               onChange={handleChange}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.name ? 'border-red-500' : 'border-border'}`}
@@ -124,6 +125,7 @@ const ContactForm = () => {
               type="email"
               name="email"
               placeholder="E-mail"
+              aria-label="E-mail"
               value={formData.email}
               onChange={handleChange}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.email ? 'border-red-500' : 'border-border'}`}
@@ -137,6 +139,7 @@ const ContactForm = () => {
               type="tel"
               name="phone"
               placeholder="Telefone"
+              aria-label="Telefone"
               value={formData.phone}
               onChange={handleChange}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.phone ? 'border-red-500' : 'border-border'}`}
@@ -146,6 +149,7 @@ const ContactForm = () => {
           <div>
             <select 
               name="companyType"
+              aria-label="Tipo de empresa"
               value={formData.companyType}
               onChange={handleChange}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground ${errors.companyType ? 'border-red-500' : 'border-border'}`}
@@ -163,6 +167,7 @@ const ContactForm = () => {
         <div>
           <select 
             name="service"
+            aria-label="Serviço de interesse"
             value={formData.service}
             onChange={handleChange}
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground ${errors.service ? 'border-red-500' : 'border-border'}`}
@@ -183,6 +188,7 @@ const ContactForm = () => {
             rows={4}
             name="message"
             placeholder="Conte-nos sobre seu desafio atual..."
+            aria-label="Conte-nos sobre seu desafio atual..."
             value={formData.message}
             onChange={handleChange}
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.message ? 'border-red-500' : 'border-border'}`}
