@@ -1,10 +1,19 @@
-
+import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-card">
+      <Helmet>
+        <title>Termos de Uso | OCA Digital</title>
+        <meta name="description" content="Condições de uso do site e dos serviços da OCA Digital." />
+        <link rel="canonical" href="https://oca-digital-web.lovable.app/termos-de-uso" />
+        <meta property="og:title" content="Termos de Uso | OCA Digital" />
+        <meta property="og:description" content="Condições de uso do site e dos serviços da OCA Digital." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://oca-digital-web.lovable.app/termos-de-uso" />
+      </Helmet>
       <Header />
       
       <main className="pt-24 pb-16">

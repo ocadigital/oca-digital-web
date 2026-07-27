@@ -1,10 +1,19 @@
-
+import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-card">
+      <Helmet>
+        <title>Política de Privacidade | OCA Digital</title>
+        <meta name="description" content="Saiba como a OCA Digital coleta, usa e protege seus dados pessoais." />
+        <link rel="canonical" href="https://oca-digital-web.lovable.app/politica-de-privacidade" />
+        <meta property="og:title" content="Política de Privacidade | OCA Digital" />
+        <meta property="og:description" content="Saiba como a OCA Digital coleta, usa e protege seus dados pessoais." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://oca-digital-web.lovable.app/politica-de-privacidade" />
+      </Helmet>
       <Header />
       
       <main className="pt-24 pb-16">
