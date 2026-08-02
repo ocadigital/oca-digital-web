@@ -5,15 +5,27 @@ import { Button } from '@/components/ui/button';
 const Services = () => {
   const services = [
     {
-      title: "Diagnóstico Estratégico",
-      description: "Análise completa da sua operação atual com sugestões práticas para melhorar seus resultados.",
-      duration: "1 semana",
+      title: "Google Ads - Campanhas de Performance",
+      description: "Campanhas de busca, performance e remarketing.",
+      duration: "Mensal",
       features: [
-        "Auditoria completa do marketing digital",
-        "Análise da concorrência",
-        "Mapeamento de oportunidades",
-        "Plano de ação personalizado",
-        "Relatório detalhado com insights"
+        "Campanhas de busca (Search) para alta intenção",
+        "Performance Max e Display",
+        "Remarketing para leads e visitantes",
+        "Otimização contínua de CPL e conversões",
+        "Relatórios de performance e ROI"
+      ]
+    },
+    {
+      title: "Meta Ads",
+      description: "Facebook, Instagram e captação qualificada.",
+      duration: "Mensal",
+      features: [
+        "Campanhas no Facebook e Instagram",
+        "Captação de leads qualificados",
+        "Públicos personalizados e lookalike",
+        "Criativos e testes A/B",
+        "Acompanhamento de resultados"
       ]
     },
     {
@@ -111,7 +123,7 @@ const Services = () => {
         </div>
 
         <div className="mb-20">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Serviços Pontuais</h3>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40">
