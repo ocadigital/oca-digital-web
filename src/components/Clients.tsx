@@ -1,17 +1,12 @@
 const clients = [
-  'Aldo Imóveis',
-  'Vokkan',
-  'Yes Empreendimentos',
-  'Buzz',
-  'Brognoli',
-  'Santa Ilha',
-  'RE/MAX',
-  'Captei',
-  'Unik',
-  'ImobCampeche',
-  'Açoriana Imóveis',
-  'Jéssica Mendonça',
-  'Hot Imóveis',
+  { name: 'Brognoli', src: '/clients/brognoli.png' },
+  { name: 'Buzz', src: '/clients/buzz.png' },
+  { name: 'Captei', src: '/clients/captei.png' },
+  { name: 'Crédito Real', src: '/clients/credito-real.svg' },
+  { name: 'Jéssica Mendonça', src: '/clients/jessica-mendonca.png' },
+  { name: 'Santa Ilha', src: '/clients/santa-ilha.svg' },
+  { name: 'Vokkan', src: '/clients/vokkan.png' },
+  { name: 'Yes Empreendimentos', src: '/clients/yes-empreendimentos.png' },
 ];
 
 const Clients = () => {
@@ -26,14 +21,15 @@ const Clients = () => {
       </div>
 
       <div className="relative overflow-hidden group [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
-          {loop.map((name, i) => (
-            <span
-              key={`${name}-${i}`}
-              className="mx-8 whitespace-nowrap text-lg md:text-xl font-semibold uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors"
-            >
-              {name}
-            </span>
+        <div className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused]">
+          {loop.map((client, i) => (
+            <img
+              key={`${client.name}-${i}`}
+              src={client.src}
+              alt={`Logo ${client.name}`}
+              loading="lazy"
+              className="mx-10 h-8 md:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+            />
           ))}
         </div>
       </div>
