@@ -1,21 +1,12 @@
-import brognoli from '@/assets/clients/brognoli.png.asset.json';
-import buzz from '@/assets/clients/buzz.png.asset.json';
-import captei from '@/assets/clients/captei.png.asset.json';
-import creditoReal from '@/assets/clients/credito-real.svg.asset.json';
-import jessica from '@/assets/clients/jessica-mendonca.png.asset.json';
-import santaIlha from '@/assets/clients/santa-ilha.svg.asset.json';
-import vokkan from '@/assets/clients/vokkan.png.asset.json';
-import yes from '@/assets/clients/yes-empreendimentos.png.asset.json';
-
 const clients = [
-  { name: 'Brognoli', src: brognoli.url },
-  { name: 'Buzz', src: buzz.url },
-  { name: 'Captei', src: captei.url },
-  { name: 'Crédito Real', src: creditoReal.url },
-  { name: 'Jéssica Mendonça', src: jessica.url },
-  { name: 'Santa Ilha', src: santaIlha.url },
-  { name: 'Vokkan', src: vokkan.url },
-  { name: 'Yes Empreendimentos', src: yes.url },
+  { name: 'Brognoli', src: '/clients/brognoli.png' },
+  { name: 'Buzz', src: '/clients/buzz.png' },
+  { name: 'Captei', src: '/clients/captei.png' },
+  { name: 'Crédito Real', src: '/clients/credito-real.svg' },
+  { name: 'Jéssica Mendonça', src: '/clients/jessica-mendonca.png' },
+  { name: 'Santa Ilha', src: '/clients/santa-ilha.svg' },
+  { name: 'Vokkan', src: '/clients/vokkan.png' },
+  { name: 'Yes Empreendimentos', src: '/clients/yes-empreendimentos.png' },
 ];
 
 const Clients = () => {
