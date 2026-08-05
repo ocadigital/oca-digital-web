@@ -65,10 +65,10 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-foreground">Serviços</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Diagnóstico Estratégico</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Google Ads e Meta Ads</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">SDR - Pré-qualificação</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Automação de Marketing</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Lançamentos</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Lançamento Imobiliário</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Pacotes Mensais</button></li>
             </ul>
           </div>

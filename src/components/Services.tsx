@@ -5,27 +5,15 @@ import { Button } from '@/components/ui/button';
 const Services = () => {
   const services = [
     {
-      title: "Google Ads - Campanhas de Performance",
-      description: "Campanhas de busca, performance e remarketing.",
+      title: "Google Ads e Meta Ads - Campanhas de Performance",
+      description: "Campanhas de busca, performance, remarketing e captação qualificada no Facebook e Instagram.",
       duration: "Mensal",
       features: [
         "Campanhas de busca (Search) para alta intenção",
-        "Performance Max e Display",
-        "Remarketing para leads e visitantes",
-        "Otimização contínua de CPL e conversões",
-        "Relatórios de performance e ROI"
-      ]
-    },
-    {
-      title: "Meta Ads",
-      description: "Facebook, Instagram e captação qualificada.",
-      duration: "Mensal",
-      features: [
+        "Performance Max, Display e remarketing",
         "Campanhas no Facebook e Instagram",
-        "Captação de leads qualificados",
-        "Públicos personalizados e lookalike",
-        "Criativos e testes A/B",
-        "Acompanhamento de resultados"
+        "Públicos personalizados, lookalike e testes A/B",
+        "Otimização contínua de CPL, conversões e ROI"
       ]
     },
     {
