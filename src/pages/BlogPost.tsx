@@ -16,6 +16,9 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { logError } from '@/lib/logger';
+import { sanitizeHtml } from '@/lib/sanitize';
+
 
 interface BlogPost {
   id: string;
@@ -71,7 +74,7 @@ const BlogPost = () => {
         setRelatedPosts(related || []);
       }
     } catch (error) {
-      console.error('Error fetching post:', error);
+      logError('Error fetching post:', error);
     } finally {
       setLoading(false);
     }
@@ -199,8 +202,9 @@ const BlogPost = () => {
 
         <div 
           className="prose prose-lg max-w-none mb-8"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
         />
+
 
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-8">

@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { logError } from '@/lib/logger';
 
 interface BlogPost {
   id: string;
@@ -37,7 +38,7 @@ const Blog = () => {
       if (error) throw error;
       setPosts(data || []);
     } catch (error) {
-      console.error('Error fetching posts:', error);
+      logError('Error fetching posts:', error);
     } finally {
       setLoading(false);
     }

@@ -3,6 +3,7 @@ import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { logError } from '@/lib/logger';
 
 interface AuthContextType {
   user: User | null;
@@ -68,7 +69,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setIsAdmin(roles.includes('admin'));
       setIsEditor(roles.includes('editor') || roles.includes('admin'));
     } catch (error) {
-      console.error('Error checking user roles:', error);
+      logError('Error checking user roles:', error);
       setIsAdmin(false);
       setIsEditor(false);
     } finally {

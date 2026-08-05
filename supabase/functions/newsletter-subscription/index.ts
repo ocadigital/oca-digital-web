@@ -44,7 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
     const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY')!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    console.log('Saving newsletter subscription:', { email, source });
+    console.log('Saving newsletter subscription');
 
     // Save to database
     const { data, error: dbError } = await supabase
@@ -69,7 +69,7 @@ const handler = async (req: Request): Promise<Response> => {
         );
       }
       
-      console.error('Database error:', dbError);
+      console.error('Database error:', dbError.code);
       throw new Error(`Erro ao salvar no banco: ${dbError.message}`);
     }
 
@@ -91,7 +91,7 @@ const handler = async (req: Request): Promise<Response> => {
       html: emailContent,
     });
 
-    console.log("Notification email sent successfully:", emailResponse);
+    console.log('Notification email sent successfully');
 
     return new Response(JSON.stringify({ 
       success: true, 
@@ -105,7 +105,7 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
   } catch (error: any) {
-    console.error("Error in newsletter-subscription function:", error);
+    console.error('Error in newsletter-subscription function:', error instanceof Error ? error.message : 'unknown error');
     return new Response(
       JSON.stringify({ 
         success: false, 

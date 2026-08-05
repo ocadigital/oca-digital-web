@@ -23,6 +23,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { logError } from '@/lib/logger';
 
 interface BlogPost {
   id: string;
@@ -72,7 +73,7 @@ const BlogIndex = () => {
       setCategories(uniqueCategories);
       setTags(uniqueTags);
     } catch (error) {
-      console.error('Error fetching posts:', error);
+      logError('Error fetching posts:', error);
     } finally {
       setLoading(false);
     }

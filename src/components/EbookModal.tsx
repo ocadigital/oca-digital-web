@@ -12,6 +12,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { CheckCircle2 } from 'lucide-react';
+import { logError } from '@/lib/logger';
 
 interface EbookModalProps {
   isOpen: boolean;
@@ -95,7 +96,7 @@ const EbookModal = ({ isOpen, onClose }: EbookModalProps) => {
         description: 'Confira seu email para receber o e-book.',
       });
     } catch (error) {
-      console.error('Error saving ebook download:', error);
+      logError('Error saving ebook download:', error);
       toast({
         title: 'Erro',
         description: 'Ocorreu um erro ao processar sua solicitação. Tente novamente.',

@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { logError } from '@/lib/logger';
 
 interface ContactFormData {
   name: string;
@@ -66,7 +67,7 @@ const ContactForm = () => {
       });
 
       if (error) {
-        console.error('Error:', error);
+        logError('Error:', error);
         throw error;
       }
 
@@ -84,7 +85,7 @@ const ContactForm = () => {
         message: ''
       });
     } catch (error) {
-      console.error('Submit error:', error);
+      logError('Submit error:', error);
       toast({
         title: "Erro ao enviar",
         description: "Ocorreu um erro ao processar sua mensagem. Tente novamente.",
