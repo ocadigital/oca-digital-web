@@ -153,8 +153,8 @@ const Hero = () => {
                 <div className="text-sm text-muted-foreground">ROI Médio</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground">Clientes Ativos</div>
+                <div className="text-3xl font-bold text-primary">+20</div>
+                <div className="text-sm text-muted-foreground">Clientes</div>
               </div>
             </div>
           </div>
