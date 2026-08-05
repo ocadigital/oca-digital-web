@@ -17,6 +17,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { logError } from '@/lib/logger';
+import { sanitizeHtml } from '@/lib/sanitize';
+
 
 interface BlogPost {
   id: string;
