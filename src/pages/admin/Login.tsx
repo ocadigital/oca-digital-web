@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+import { logError } from '@/lib/logger';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ const Login = () => {
     try {
       await signIn(email, password);
     } catch (error) {
-      console.error('Login error:', error);
+      logError('Login error:', error);
     } finally {
       setLoading(false);
     }

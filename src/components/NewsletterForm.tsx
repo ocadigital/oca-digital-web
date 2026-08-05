@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import { logError } from '@/lib/logger';
 
 interface NewsletterFormProps {
   source?: string;
@@ -54,7 +55,7 @@ const NewsletterForm = ({ source = 'blog' }: NewsletterFormProps) => {
         });
       }
     } catch (error) {
-      console.error('Newsletter subscription error:', error);
+      logError('Newsletter subscription error:', error);
       toast({
         title: "Erro",
         description: "Erro ao processar inscrição. Tente novamente.",

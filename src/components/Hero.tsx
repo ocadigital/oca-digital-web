@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import EbookModal from '@/components/EbookModal';
+import { logError } from '@/lib/logger';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -65,7 +66,7 @@ const Hero = () => {
       });
 
       if (error) {
-        console.error('Error:', error);
+        logError('Error:', error);
         throw error;
       }
 
@@ -76,7 +77,7 @@ const Hero = () => {
 
       setFormData({ name: '', email: '', phone: '', companySize: '' });
     } catch (error) {
-      console.error('Submit error:', error);
+      logError('Submit error:', error);
       toast({
         title: "Erro ao enviar",
         description: "Ocorreu um erro ao processar sua solicitação. Tente novamente.",

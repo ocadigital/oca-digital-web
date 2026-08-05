@@ -16,6 +16,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { logError } from '@/lib/logger';
 
 interface BlogPost {
   id: string;
@@ -71,7 +72,7 @@ const BlogPost = () => {
         setRelatedPosts(related || []);
       }
     } catch (error) {
-      console.error('Error fetching post:', error);
+      logError('Error fetching post:', error);
     } finally {
       setLoading(false);
     }
