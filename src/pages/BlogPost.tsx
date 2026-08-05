@@ -200,8 +200,9 @@ const BlogPost = () => {
 
         <div 
           className="prose prose-lg max-w-none mb-8"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
         />
+
 
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-8">
