@@ -4,15 +4,15 @@ import { Card } from '@/components/ui/card';
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Carlos Mendes",
-      company: "Imobiliária Mendes & Associados",
-      content: "A OCA Digital transformou completamente nossa operação. Em 6 meses, nossos leads qualificados aumentaram 250% e nossa taxa de conversão triplicou. O investimento se pagou no primeiro mês.",
+      name: "Diretoria Comercial",
+      company: "Yes Empreendimentos",
+      content: "A OCA estruturou nossa captação e nosso atendimento. Hoje temos previsibilidade comercial e dashboards que orientam toda a operação.",
       rating: 5
     },
     {
-      name: "Marina Silva",
-      company: "Corretora Independente",
-      content: "Como corretora autônoma, eu estava perdida no marketing digital. A consultoria da OCA me deu clareza e as ferramentas certas. Hoje tenho um pipeline consistente de clientes.",
+      name: "Gestão de Operação",
+      company: "Brognoli Imóveis",
+      content: "Não voltamos mais para planilhas. Marketing, CRM, WhatsApp e cobrança falando entre si — e a equipe focada em vender.",
       rating: 5
     }
   ];
