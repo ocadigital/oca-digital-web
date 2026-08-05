@@ -78,13 +78,17 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email
     console.log('Sending email notification');
     const emailResponse = await resend.emails.send({
-      from: "OCA Digital <noreply@ocadigital.com.br>",
-      to: ["contato@ocadigital.com.br"],
+      from: "OCA Digital <onboarding@resend.dev>",
+      to: ["anderson.goncalves81@gmail.com"],
       subject: subject,
       html: emailContent,
     });
 
-    console.log('Email sent successfully');
+    if ((emailResponse as any)?.error) {
+      console.error('Resend error:', JSON.stringify((emailResponse as any).error));
+    } else {
+      console.log('Email sent successfully');
+    }
 
     return new Response(JSON.stringify({ 
       success: true, 
