@@ -1,14 +1,48 @@
 
+import { Link } from 'react-router-dom';
 import { Users, Target, Zap, BarChart3 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface AboutProps {
   /** Use when About is rendered as its own page (not a homepage section) so it gets a real h1. */
   asPage?: boolean;
+  /** Use for the condensed homepage version, linking out to the full /sobre page. */
+  summary?: boolean;
 }
 
-const About = ({ asPage = false }: AboutProps) => {
+const About = ({ asPage = false, summary = false }: AboutProps) => {
   const HeadingTag = asPage ? 'h1' : 'h2';
+
+  if (summary) {
+    return (
+      <section id="sobre" className="py-20 bg-background section-separator">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-4">
+            <img
+              src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png"
+              alt="Equipe OCA Digital"
+              className="w-16 h-16 object-cover rounded-lg"
+            />
+          </div>
+          <HeadingTag className="text-4xl font-bold text-foreground mb-6">
+            Quem Somos
+          </HeadingTag>
+          <p className="text-xl text-muted-foreground mb-8">
+            Somos especialistas em marketing imobiliário, unindo estratégia, tecnologia e automação para
+            transformar a operação de imobiliárias e construtoras. Com mais de 20 clientes ativos, ajudamos
+            empresas de todos os tamanhos a captar e qualificar leads de forma mais eficiente.
+          </p>
+          <Link to="/sobre">
+            <Button size="lg" className="font-semibold">
+              Conheça nossa história completa
+            </Button>
+          </Link>
+        </div>
+      </section>
+    );
+  }
+
   const methodology = [
     {
       phase: "Descoberta",
@@ -23,7 +57,7 @@ const About = ({ asPage = false }: AboutProps) => {
     {
       phase: "Execução",
       icon: "🔹",
-      description: "Criamos e implementamos soluções práticas — desde ajustes técnicos no site e automações de marketing até campanhas de mídia paga e novos processos comerciais."
+      description: "Criamos e implementamos soluções práticas, desde ajustes técnicos no site e automações de marketing até campanhas de mídia paga e novos processos comerciais."
     },
     {
       phase: "Entrega",
@@ -81,7 +115,7 @@ const About = ({ asPage = false }: AboutProps) => {
                 Esses são os três pilares que sustentam nossa metodologia única.
               </p>
               <p className="text-muted-foreground">
-                Com mais de 50 clientes ativos e resultados comprovados, ajudamos imobiliárias de todos os tamanhos 
+                Com mais de 20 clientes ativos e resultados comprovados, ajudamos imobiliárias de todos os tamanhos
                 a transformarem seus processos e alcançarem resultados excepcionais.
               </p>
             </div>

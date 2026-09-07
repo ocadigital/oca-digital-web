@@ -1,5 +1,5 @@
 import { Facebook, Linkedin } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -64,9 +64,8 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-foreground">Serviços</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Google Ads e Meta Ads</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">SDR - Pré-qualificação</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Automação de Marketing</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Google Ads, Meta Ads e GPT Ads</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Captação e Qualificação de Leads</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Lançamento Imobiliário</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Pacotes Mensais</button></li>
             </ul>
@@ -75,9 +74,9 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-foreground">Produtos</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><button onClick={() => navigateToSection('produtos')} className="hover:text-primary transition-colors">OCA One</button></li>
-              <li><button onClick={() => navigateToSection('produtos')} className="hover:text-primary transition-colors">OCA Base</button></li>
-              <li><button onClick={() => navigateToSection('produtos')} className="hover:text-primary transition-colors">Curso para Corretores</button></li>
+              <li><Link to="/produtos" className="hover:text-primary transition-colors">OCA One</Link></li>
+              <li><Link to="/produtos" className="hover:text-primary transition-colors">OCA Base</Link></li>
+              <li><Link to="/produtos" className="hover:text-primary transition-colors">Curso para Corretores</Link></li>
               <li><button onClick={() => navigateToSection('contato')} className="hover:text-primary transition-colors">Consultoria Gratuita</button></li>
             </ul>
           </div>

@@ -12,7 +12,7 @@ const Testimonials = () => {
     {
       name: "Gestão de Operação",
       company: "Brognoli Imóveis",
-      content: "Não voltamos mais para planilhas. Marketing, CRM, WhatsApp e cobrança falando entre si — e a equipe focada em vender.",
+      content: "Não voltamos mais para planilhas. Marketing, CRM, WhatsApp e cobrança falando entre si, e a equipe focada em vender.",
       rating: 5
     }
   ];

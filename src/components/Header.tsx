@@ -67,7 +67,7 @@ const Header = () => {
             <button onClick={() => navigateToSection('inicio')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Início</button>
             <button onClick={() => navigateToSection('sobre')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Sobre Nós</button>
             <button onClick={() => navigateToSection('servicos')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Serviços</button>
-            <button onClick={() => navigateToSection('produtos')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Produtos</button>
+            <Link to="/produtos" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Produtos</Link>
             <Link to="/blog" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
             <Link to="/cases" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Cases</Link>
             <button onClick={() => navigateToSection('faq')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">FAQ</button>
@@ -97,7 +97,7 @@ const Header = () => {
               <button onClick={() => navigateToSection('inicio')} className="block px-3 py-2 text-foreground w-full text-left">Início</button>
               <button onClick={() => navigateToSection('sobre')} className="block px-3 py-2 text-foreground w-full text-left">Sobre Nós</button>
               <button onClick={() => navigateToSection('servicos')} className="block px-3 py-2 text-foreground w-full text-left">Serviços</button>
-              <button onClick={() => navigateToSection('produtos')} className="block px-3 py-2 text-foreground w-full text-left">Produtos</button>
+              <Link to="/produtos" className="block px-3 py-2 text-foreground" onClick={() => setIsMenuOpen(false)}>Produtos</Link>
               <Link to="/blog" className="block px-3 py-2 text-foreground" onClick={() => setIsMenuOpen(false)}>Blog</Link>
               <Link to="/cases" className="block px-3 py-2 text-foreground" onClick={() => setIsMenuOpen(false)}>Cases</Link>
               <button onClick={() => navigateToSection('faq')} className="block px-3 py-2 text-foreground w-full text-left">FAQ</button>

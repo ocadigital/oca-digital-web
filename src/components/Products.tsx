@@ -2,7 +2,14 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
-const Products = () => {
+interface ProductsProps {
+  /** Use when Products is rendered as its own page (not a homepage section) so it gets a real h1. */
+  asPage?: boolean;
+}
+
+const Products = ({ asPage = false }: ProductsProps) => {
+  const HeadingTag = asPage ? 'h1' : 'h2';
+
   const handleEmBreve = () => {
     alert('Em breve');
   };
@@ -15,9 +22,9 @@ const Products = () => {
     <section id="produtos" className="py-20 bg-background section-separator">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <HeadingTag className="text-4xl font-bold text-foreground mb-4">
             Nossos Produtos
-          </h2>
+          </HeadingTag>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Soluções inovadoras para revolucionar sua operação imobiliária
           </p>
@@ -36,7 +43,7 @@ const Products = () => {
             
             <p className="text-lg text-foreground mb-6">
               Uma plataforma imobiliária inteligente que centraliza os leads, automatiza a qualificação, 
-              sugere imóveis em carteira e oferece inteligência de mercado — tudo via IA no WhatsApp.
+              sugere imóveis em carteira e oferece inteligência de mercado, tudo via IA no WhatsApp.
             </p>
 
             <div className="space-y-4 mb-8">

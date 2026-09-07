@@ -22,11 +22,10 @@ Not a fit for: general (non–real estate) marketing agencies, web development u
 
 ## Serviços
 
-- Google Ads e Meta Ads (campanhas de performance, remarketing, públicos personalizados)
-- SDR — Núcleo de Pré-qualificação (CRM, scripts BANT, dashboard em tempo real)
-- Automação de Marketing (lead scoring, cadência de e-mails, segmentação)
+- Google Ads, Meta Ads e GPT Ads (campanhas de performance, remarketing, públicos personalizados)
+- Sistema de Captação e Qualificação de Leads (CRM único, scripts BANT, Lead Score, dashboard em tempo real)
 - Lançamento Imobiliário (mídia paga, landing page, e-mail marketing, artes)
-- Pacotes mensais: Essencial, Avançado e Full
+- Pacotes mensais de manutenção pós-implantação: Essencial, Avançado e Full
 
 ## Produtos
 
@@ -38,13 +37,14 @@ Not a fit for: general (non–real estate) marketing agencies, web development u
 
 - E-mail: contato@ocadigital.com.br
 - WhatsApp: (48) 99679-0700
-- Localização: Florianópolis, SC — atendimento nacional
+- Localização: Florianópolis, SC, atendimento nacional
 - Horário: Segunda a Sexta, 9h às 18h
 
 ## Pages
 
 - [Home](/): Serviços, produtos, cases e contato da OCA Digital.
-- [Sobre](/about): História, metodologia e pilares da OCA Digital.
+- [Sobre](/sobre): História, metodologia e pilares da OCA Digital.
+- [Produtos](/produtos): OCA One, OCA Base e Curso para Corretores.
 - [Contato](/contact): Canais de contato e horário de atendimento.
 - [Blog](/blog): Artigos sobre marketing imobiliário, vendas e tendências do mercado.
 - [Cases](/cases): Resultados reais de clientes.

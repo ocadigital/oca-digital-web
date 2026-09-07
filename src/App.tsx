@@ -13,6 +13,7 @@ import BlogPost from "./pages/BlogPost";
 import CasesIndex from "./pages/CasesIndex";
 import CaseDetail from "./pages/CaseDetail";
 import AboutPage from "./pages/AboutPage";
+import ProdutosPage from "./pages/ProdutosPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -36,6 +37,8 @@ const App = () => (
             <Route path="/cases" element={<CasesIndex />} />
             <Route path="/cases/:slug" element={<CaseDetail />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/sobre" element={<AboutPage />} />
+            <Route path="/produtos" element={<ProdutosPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
