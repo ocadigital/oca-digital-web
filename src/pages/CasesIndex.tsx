@@ -43,9 +43,9 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => (
           ))}
         </div>
       )}
-      <Link to={`/cases/${caseStudy.slug}`}>
+      <Link to={`/cases/${caseStudy.slug}`} aria-label={`Ver case completo: ${caseStudy.client}`}>
         <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-          Ver case completo
+          Ver Case Completo
         </Button>
       </Link>
     </div>

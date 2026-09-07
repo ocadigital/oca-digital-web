@@ -248,9 +248,9 @@ const BlogPost = () => {
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                           {relatedPost.excerpt}
                         </p>
-                        <Link to={`/blog/${relatedPost.slug}`}>
+                        <Link to={`/blog/${relatedPost.slug}`} aria-label={`Ler artigo completo: ${relatedPost.title}`}>
                           <Button variant="outline" size="sm" className="w-full">
-                            Ler mais
+                            Ler Artigo Completo
                           </Button>
                         </Link>
                       </div>
@@ -267,8 +267,11 @@ const BlogPost = () => {
                   <p className="text-muted-foreground mb-4">
                     Confira um case real de cliente que aplicou essa estratégia.
                   </p>
-                  <Link to={`/cases/${getCaseByRelatedBlogSlug(post.slug)!.slug}`}>
-                    <Button variant="outline">Ver case completo</Button>
+                  <Link
+                    to={`/cases/${getCaseByRelatedBlogSlug(post.slug)!.slug}`}
+                    aria-label={`Ver case completo: ${getCaseByRelatedBlogSlug(post.slug)!.client}`}
+                  >
+                    <Button variant="outline">Ver Case Completo</Button>
                   </Link>
                 </Card>
               </section>
@@ -288,7 +291,7 @@ const BlogPost = () => {
                     className="bg-primary hover:bg-primary/90 text-primary-foreground"
                     onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
                   >
-                    Agendar Consultoria
+                    Quero Aplicar essa Estratégia
                   </Button>
                 </div>
               </Card>

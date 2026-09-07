@@ -64,7 +64,7 @@ const Products = () => {
             <div className="text-center">
               <p className="text-foreground mb-6">Setup personalizado incluído</p>
               <Button size="lg" className="font-semibold" onClick={handleAgendarDemo}>
-                Agendar Demo
+                Agendar Demo do OCA One
               </Button>
             </div>
           </Card>
@@ -109,7 +109,7 @@ const Products = () => {
             <div className="text-center">
               <p className="text-foreground mb-6">Planos flexíveis para seu negócio</p>
               <Button size="lg" variant="outline" className="font-semibold" onClick={handleAgendarDemo}>
-                Agendar Demo
+                Agendar Demo do OCA Base
               </Button>
             </div>
           </Card>
@@ -139,7 +139,7 @@ const Products = () => {
                 className="font-semibold"
                 onClick={handleEmBreve}
               >
-                Inscrever-se no Curso
+                Garantir Minha Vaga no Curso
               </Button>
             </div>
           </Card>

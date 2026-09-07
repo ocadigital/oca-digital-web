@@ -132,15 +132,15 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="text-lg px-8 py-4" onClick={handleEbookClick}>
-                Baixar E-book Gratuito
+                Baixar Guia Grátis de Marketing Imobiliário
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="text-lg px-8 py-4"
                 onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
               >
-                Agendar Consultoria
+                Falar com Especialista Agora
               </Button>
             </div>
 
@@ -223,7 +223,7 @@ const Hero = () => {
                   className="w-full py-3"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Receber Diagnóstico Gratuito'}
+                  {isSubmitting ? 'Enviando...' : 'Quero meu Diagnóstico Gratuito'}
                 </Button>
               </form>
               <p className="text-xs text-muted-foreground text-center mt-4">

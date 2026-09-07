@@ -242,9 +242,9 @@ const BlogIndex = () => {
                             <span>{formatDate(post.created_at)}</span>
                           </div>
                         </div>
-                        <Link to={`/blog/${post.slug}`}>
+                        <Link to={`/blog/${post.slug}`} aria-label={`Ler artigo completo: ${post.title}`}>
                           <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
-                            Ler mais
+                            Ler Artigo Completo
                           </Button>
                         </Link>
                       </div>

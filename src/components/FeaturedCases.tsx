@@ -55,8 +55,8 @@ const FeaturedCases = () => {
                     </div>
                   ))}
                 </div>
-                <Link to={`/cases/${caseStudy.slug}`}>
-                  <Button variant="outline">Ver case completo</Button>
+                <Link to={`/cases/${caseStudy.slug}`} aria-label={`Ver case completo: ${caseStudy.client}`}>
+                  <Button variant="outline">Ver Case Completo</Button>
                 </Link>
               </div>
             </Card>
@@ -66,7 +66,7 @@ const FeaturedCases = () => {
         <div className="text-center">
           <Link to="/cases">
             <Button size="lg" className="font-semibold">
-              Ver Todos os Cases
+              Ver Todos os Cases de Marketing Imobiliário
             </Button>
           </Link>
         </div>

@@ -126,9 +126,9 @@ const Blog = () => {
                   {post.excerpt}
                 </p>
                 
-                <Link to={`/blog/${post.slug}`}>
+                <Link to={`/blog/${post.slug}`} aria-label={`Ler artigo completo: ${post.title}`}>
                   <Button variant="outline">
-                    Ler Mais
+                    Ler Artigo Completo
                   </Button>
                 </Link>
               </div>
@@ -138,11 +138,11 @@ const Blog = () => {
 
         <div className="text-center">
           <Link to="/blog">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="font-semibold"
             >
-              Ver Todos os Posts
+              Ver Todos os Artigos de Marketing Imobiliário
             </Button>
           </Link>
         </div>

@@ -8,6 +8,7 @@ const Services = () => {
       title: "Google Ads e Meta Ads - Campanhas de Performance",
       description: "Campanhas de busca, performance, remarketing e captação qualificada no Facebook e Instagram.",
       duration: "Mensal",
+      ctaLabel: "Quero Campanhas de Google e Meta Ads",
       features: [
         "Campanhas de busca (Search) para alta intenção",
         "Performance Max, Display e remarketing",
@@ -20,6 +21,7 @@ const Services = () => {
       title: "SDR - Núcleo de Pré-qualificação",
       description: "Unificação e centralização de leads, CRM, scripts de atendimento e dashboard em tempo real.",
       duration: "3 meses",
+      ctaLabel: "Quero um Núcleo de Pré-qualificação",
       features: [
         "Centralização de leads em repositório único",
         "Implementação de CRM personalizado",
@@ -32,6 +34,7 @@ const Services = () => {
       title: "Automação de Marketing",
       description: "Lead scoring, cadência de e-mails e priorização automática de atendimentos.",
       duration: "3 meses",
+      ctaLabel: "Quero Automatizar meu Marketing",
       features: [
         "Algoritmo de Lead Score",
         "Priorização automática de filas",
@@ -44,6 +47,7 @@ const Services = () => {
       title: "Lançamento Imobiliário",
       description: "Campanha completa para lançamentos com mídia paga, landing page e materiais gráficos.",
       duration: "1 mês",
+      ctaLabel: "Quero Lançar meu Empreendimento",
       features: [
         "Mídia paga estratégica",
         "Landing page otimizada",
@@ -128,11 +132,11 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button 
+                <Button
                   className="w-full font-semibold"
                   onClick={handleInteresseClick}
                 >
-                  Tenho Interesse!
+                  {service.ctaLabel}
                 </Button>
               </Card>
             ))}
@@ -164,12 +168,12 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button 
+                <Button
                   className={`w-full font-semibold ${index === 1 ? '' : 'text-white'}`}
                   variant={index === 1 ? 'default' : 'default'}
                   onClick={handleContratarClick}
                 >
-                  Contratar Agora
+                  Contratar {pkg.name}
                 </Button>
               </Card>
             ))}

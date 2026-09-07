@@ -179,7 +179,7 @@ const CaseDetail = () => {
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
             onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
           >
-            Agendar Consultoria
+            Quero um Resultado Assim
           </Button>
         </Card>
       </div>
