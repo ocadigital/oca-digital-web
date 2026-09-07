@@ -1,4 +1,4 @@
-import { Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Linkedin } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
@@ -36,23 +36,22 @@ const Footer = () => {
               para transformar sua operação em uma máquina de conversão.
             </p>
             <div className="text-muted-foreground space-y-2">
-              <div>📧 contato@ocadigital.com.br</div>
               <div>📱 (48) 99679-0700</div>
               <div>📍 Florianópolis, SC - Atendimento Nacional</div>
             </div>
             <div className="flex items-center space-x-4 mt-4">
               <a
-                href="https://www.instagram.com/ocadigital"
+                href="https://www.facebook.com/ocadigitalfloripa"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram da OCA Digital"
+                aria-label="Facebook da OCA Digital"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Instagram size={24} aria-hidden="true" />
+                <Facebook size={24} aria-hidden="true" />
               </a>
-              <a 
-                href="https://www.linkedin.com/company/941540/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/company/941540/"
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn da OCA Digital"
                 className="text-muted-foreground hover:text-primary transition-colors"
