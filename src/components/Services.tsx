@@ -5,42 +5,31 @@ import { Button } from '@/components/ui/button';
 const Services = () => {
   const services = [
     {
-      title: "Google Ads e Meta Ads - Campanhas de Performance",
-      description: "Campanhas de busca, performance, remarketing e captação qualificada no Facebook e Instagram.",
+      title: "Google Ads, Meta Ads e GPT Ads",
+      description: "Campanhas de busca, performance, remarketing e captação qualificada no Facebook, Instagram e GPT Ads.",
       duration: "Mensal",
-      ctaLabel: "Quero Campanhas de Google e Meta Ads",
+      ctaLabel: "Quero Campanhas de Google, Meta e GPT Ads",
       features: [
         "Campanhas de busca (Search) para alta intenção",
         "Performance Max, Display e remarketing",
         "Campanhas no Facebook e Instagram",
+        "Anúncios em GPT Ads, o novo canal de tráfego em IA",
         "Públicos personalizados, lookalike e testes A/B",
         "Otimização contínua de CPL, conversões e ROI"
       ]
     },
     {
-      title: "SDR - Núcleo de Pré-qualificação",
-      description: "Unificação e centralização de leads, CRM, scripts de atendimento e dashboard em tempo real.",
-      duration: "3 meses",
-      ctaLabel: "Quero um Núcleo de Pré-qualificação",
+      title: "Sistema de Captação e Qualificação de Leads",
+      description: "Descubra a origem real de cada lead e nunca mais perca uma oportunidade. Centralização, pontuação e priorização automática, do primeiro clique até a visita agendada.",
+      duration: "3 meses + acompanhamento mensal",
+      ctaLabel: "Quero meu Sistema de Captação e Qualificação",
       features: [
-        "Centralização de leads em repositório único",
-        "Implementação de CRM personalizado",
-        "Scripts BANT para qualificação",
-        "Dashboard de acompanhamento",
-        "Clusterização por personas"
-      ]
-    },
-    {
-      title: "Automação de Marketing",
-      description: "Lead scoring, cadência de e-mails e priorização automática de atendimentos.",
-      duration: "3 meses",
-      ctaLabel: "Quero Automatizar meu Marketing",
-      features: [
-        "Algoritmo de Lead Score",
-        "Priorização automática de filas",
-        "E-mails personalizados",
-        "Limpeza automática de base",
-        "Segmentação avançada"
+        "Centralização de leads em CRM único com rastreamento de origem real",
+        "Scripts BANT + Lead Score automático",
+        "Cadência de e-mails e priorização automática de filas",
+        "Dashboard de acompanhamento em tempo real",
+        "Clusterização por personas e segmentação avançada",
+        "Limpeza automática de base"
       ]
     },
     {
@@ -116,7 +105,7 @@ const Services = () => {
 
         <div className="mb-20">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40">
                 <div className="mb-6">
