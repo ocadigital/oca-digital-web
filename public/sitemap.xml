@@ -64,6 +64,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.ocadigital.com.br/cases/aldo-imoveis-lagoa-da-conceicao</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.ocadigital.com.br/cases/santa-ilha-sunclub-campeche</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
