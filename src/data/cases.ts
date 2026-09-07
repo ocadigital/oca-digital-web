@@ -28,6 +28,7 @@ export const cases: CaseStudy[] = [
     slug: "brognoli-negocios-imobiliarios",
     client: "Brognoli Negócios Imobiliários",
     segment: "Imobiliária",
+    coverImage: "/images/cases/brognoli.jpeg",
     title: "Brognoli: de um dos maiores cases orgânicos do YouTube no mercado imobiliário à previsibilidade comercial de hoje",
     summary:
       "Uma web série que viralizou organicamente entre universitários de Florianópolis e, anos depois, a estruturação de CRM e atendimento que trouxe previsibilidade comercial para a operação.",
@@ -66,6 +67,7 @@ export const cases: CaseStudy[] = [
     client: "Maria do Mar Hotel",
     segment: "Hotelaria",
     otherSegment: true,
+    coverImage: "/images/cases/maria-do-mar-hotel.jpeg",
     title: "Maria do Mar Hotel: a mascote Maricota e o evento Sunset Wedding que viraram notícia",
     summary:
       "Como um hotel tradicional de Florianópolis rejuvenesceu sua marca com uma mascote local e conquistou mídia espontânea com um evento voltado ao mercado de casamentos.",
@@ -88,6 +90,7 @@ export const cases: CaseStudy[] = [
     client: "Pousada dos Sonhos",
     segment: "Hotelaria",
     otherSegment: true,
+    coverImage: "/images/cases/pousada-dos-sonhos.jpeg",
     title: "Pousada dos Sonhos: +403% em acessos orgânicos com uma ação off-line de link building",
     summary:
       "Uma ação off-line com blogueiras, pensada para gerar link building, resultou em um salto expressivo no tráfego orgânico e no ranqueamento das palavras-chave prioritárias do cliente.",

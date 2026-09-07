@@ -26,6 +26,15 @@ const FeaturedCases = () => {
               key={caseStudy.id}
               className="overflow-hidden card-elevated hover:-translate-y-1 hover:border-primary/40"
             >
+              {caseStudy.coverImage && (
+                <div className="aspect-video bg-muted overflow-hidden">
+                  <img
+                    src={caseStudy.coverImage}
+                    alt={caseStudy.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
               <div className="p-6">
                 <span className="text-xs font-semibold text-primary">
                   {caseStudy.segment}
