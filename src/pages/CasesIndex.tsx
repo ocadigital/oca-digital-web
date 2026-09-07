@@ -12,9 +12,50 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { cases } from '@/data/cases';
+import { cases, type CaseStudy } from '@/data/cases';
+
+const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => (
+  <Card className="overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+    {caseStudy.coverImage && (
+      <img
+        src={caseStudy.coverImage}
+        alt={caseStudy.title}
+        className="w-full h-48 object-cover"
+      />
+    )}
+    <div className="p-6 flex flex-col flex-1">
+      <span className="text-xs font-semibold text-primary mb-2">
+        {caseStudy.segment}
+      </span>
+      <h2 className="text-xl font-bold mb-2 text-foreground">
+        {caseStudy.title}
+      </h2>
+      <p className="text-muted-foreground mb-4 line-clamp-3 flex-1">
+        {caseStudy.summary}
+      </p>
+      {caseStudy.metrics.length > 0 && (
+        <div className="grid grid-cols-2 gap-2 mb-4">
+          {caseStudy.metrics.slice(0, 2).map((metric) => (
+            <div key={metric.label} className="text-center bg-muted rounded-lg py-2">
+              <div className="font-bold text-primary">{metric.value}</div>
+              <div className="text-xs text-muted-foreground">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+      <Link to={`/cases/${caseStudy.slug}`}>
+        <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+          Ver case completo
+        </Button>
+      </Link>
+    </div>
+  </Card>
+);
 
 const CasesIndex = () => {
+  const mainCases = cases.filter((c) => !c.otherSegment);
+  const otherCases = cases.filter((c) => c.otherSegment);
+
   return (
     <div className="min-h-screen bg-background pt-24">
       <Helmet>
@@ -61,48 +102,30 @@ const CasesIndex = () => {
             <p className="text-muted-foreground">Nenhum case publicado ainda.</p>
           </Card>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cases.map((caseStudy) => (
-              <Card
-                key={caseStudy.id}
-                className="overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
-              >
-                {caseStudy.coverImage && (
-                  <img
-                    src={caseStudy.coverImage}
-                    alt={caseStudy.title}
-                    className="w-full h-48 object-cover"
-                  />
-                )}
-                <div className="p-6 flex flex-col flex-1">
-                  <span className="text-xs font-semibold text-primary mb-2">
-                    {caseStudy.segment}
-                  </span>
-                  <h2 className="text-xl font-bold mb-2 text-foreground">
-                    {caseStudy.title}
-                  </h2>
-                  <p className="text-muted-foreground mb-4 line-clamp-3 flex-1">
-                    {caseStudy.summary}
-                  </p>
-                  {caseStudy.metrics.length > 0 && (
-                    <div className="grid grid-cols-2 gap-2 mb-4">
-                      {caseStudy.metrics.slice(0, 2).map((metric) => (
-                        <div key={metric.label} className="text-center bg-muted rounded-lg py-2">
-                          <div className="font-bold text-primary">{metric.value}</div>
-                          <div className="text-xs text-muted-foreground">{metric.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  <Link to={`/cases/${caseStudy.slug}`}>
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                      Ver case completo
-                    </Button>
-                  </Link>
+          <>
+            {mainCases.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {mainCases.map((caseStudy) => (
+                  <CaseCard key={caseStudy.id} caseStudy={caseStudy} />
+                ))}
+              </div>
+            )}
+
+            {otherCases.length > 0 && (
+              <div className="mt-16">
+                <h2 className="text-2xl font-bold text-foreground mb-2">Outros segmentos</h2>
+                <p className="text-muted-foreground mb-8">
+                  Cases fora do foco imobiliário atual, de quando a OCA Digital se chamava PontoBr —
+                  mostrando a mesma metodologia aplicada a outros negócios.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {otherCases.map((caseStudy) => (
+                    <CaseCard key={caseStudy.id} caseStudy={caseStudy} />
+                  ))}
                 </div>
-              </Card>
-            ))}
-          </div>
+              </div>
+            )}
+          </>
         )}
       </main>
 

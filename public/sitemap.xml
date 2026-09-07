@@ -38,7 +38,17 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.ocadigital.com.br/cases/case-exemplo-imobiliaria</loc>
+    <loc>https://www.ocadigital.com.br/cases/brognoli-negocios-imobiliarios</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/cases/maria-do-mar-hotel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/cases/pousada-dos-sonhos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

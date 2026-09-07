@@ -130,6 +130,21 @@ const CaseDetail = () => {
           </section>
         </div>
 
+        {caseStudy.externalLinks && caseStudy.externalLinks.length > 0 && (
+          <div className="flex flex-wrap gap-3 mb-10">
+            {caseStudy.externalLinks.map((link) => (
+              <a
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline">{link.label}</Button>
+              </a>
+            ))}
+          </div>
+        )}
+
         {caseStudy.testimonialQuote && (
           <Card className="p-8 bg-muted/50 mb-10">
             <p className="text-lg italic text-foreground mb-4">"{caseStudy.testimonialQuote}"</p>
