@@ -69,6 +69,7 @@ const Header = () => {
             <button onClick={() => navigateToSection('servicos')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Serviços</button>
             <button onClick={() => navigateToSection('produtos')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Produtos</button>
             <Link to="/blog" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
+            <Link to="/cases" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Cases</Link>
             <button onClick={() => navigateToSection('faq')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">FAQ</button>
             <button onClick={() => navigateToSection('contato')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Contato</button>
           </nav>
@@ -98,6 +99,7 @@ const Header = () => {
               <button onClick={() => navigateToSection('servicos')} className="block px-3 py-2 text-foreground w-full text-left">Serviços</button>
               <button onClick={() => navigateToSection('produtos')} className="block px-3 py-2 text-foreground w-full text-left">Produtos</button>
               <Link to="/blog" className="block px-3 py-2 text-foreground" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+              <Link to="/cases" className="block px-3 py-2 text-foreground" onClick={() => setIsMenuOpen(false)}>Cases</Link>
               <button onClick={() => navigateToSection('faq')} className="block px-3 py-2 text-foreground w-full text-left">FAQ</button>
               <button onClick={() => navigateToSection('contato')} className="block px-3 py-2 text-foreground w-full text-left">Contato</button>
               <div className="px-3 py-2">

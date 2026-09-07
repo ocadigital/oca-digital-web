@@ -1,6 +1,6 @@
 // Runs before every build (see "prebuild" in package.json) and regenerates
 // public/sitemap.xml so blog posts are included automatically on each deploy.
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -12,9 +12,25 @@ const SUPABASE_ANON_KEY =
 const staticUrls = [
   { loc: '/', changefreq: 'weekly', priority: '1.0' },
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/cases', changefreq: 'weekly', priority: '0.8' },
   { loc: '/politica-de-privacidade', changefreq: 'yearly', priority: '0.3' },
   { loc: '/termos-de-uso', changefreq: 'yearly', priority: '0.3' },
 ];
+
+function getCaseSlugs() {
+  try {
+    const filePath = path.resolve(
+      path.dirname(fileURLToPath(import.meta.url)),
+      '../src/data/cases.ts'
+    );
+    const content = readFileSync(filePath, 'utf-8');
+    const matches = [...content.matchAll(/slug:\s*"([^"]+)"/g)];
+    return matches.map((m) => m[1]);
+  } catch (err) {
+    console.warn('[generate-sitemap] Falha ao ler cases.ts:', err.message);
+    return [];
+  }
+}
 
 async function fetchPublishedPosts() {
   try {
@@ -50,6 +66,7 @@ function urlEntry({ loc, changefreq, priority, lastmod }) {
 
 async function main() {
   const posts = await fetchPublishedPosts();
+  const caseSlugs = getCaseSlugs();
 
   const postEntries = posts.map((post) =>
     urlEntry({
@@ -60,11 +77,16 @@ async function main() {
     })
   );
 
+  const caseEntries = caseSlugs.map((slug) =>
+    urlEntry({ loc: `/cases/${slug}`, changefreq: 'monthly', priority: '0.7' })
+  );
+
   const staticEntries = staticUrls.map(urlEntry);
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[
     ...staticEntries,
     ...postEntries,
+    ...caseEntries,
   ].join('\n')}\n</urlset>\n`;
 
   const outPath = path.resolve(
@@ -72,7 +94,7 @@ async function main() {
     '../public/sitemap.xml'
   );
   writeFileSync(outPath, xml, 'utf-8');
-  console.log(`[generate-sitemap] sitemap.xml gerado com ${staticUrls.length} páginas estáticas + ${posts.length} posts.`);
+  console.log(`[generate-sitemap] sitemap.xml gerado com ${staticUrls.length} páginas estáticas + ${posts.length} posts + ${caseSlugs.length} cases.`);
 }
 
 main();

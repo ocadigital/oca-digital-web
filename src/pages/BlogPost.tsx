@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { logError } from '@/lib/logger';
 import { sanitizeHtml } from '@/lib/sanitize';
+import { getCaseByRelatedBlogSlug } from '@/data/cases';
 
 
 interface BlogPost {
@@ -256,6 +257,20 @@ const BlogPost = () => {
                     </Card>
                   ))}
                 </div>
+              </section>
+            )}
+
+            {getCaseByRelatedBlogSlug(post.slug) && (
+              <section className="mt-12 pt-12 border-t">
+                <Card className="p-6">
+                  <h3 className="font-bold text-lg mb-2">Veja isso na prática</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Confira um case real de cliente que aplicou essa estratégia.
+                  </p>
+                  <Link to={`/cases/${getCaseByRelatedBlogSlug(post.slug)!.slug}`}>
+                    <Button variant="outline">Ver case completo</Button>
+                  </Link>
+                </Card>
               </section>
             )}
 
