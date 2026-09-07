@@ -130,15 +130,7 @@ const Hero = () => {
                 className="text-lg px-8 py-4"
                 onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
               >
-                Baixar Guia Grátis de Marketing Imobiliário
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 py-4"
-                onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
-              >
-                Falar com Especialista Agora
+                Falar com Especialista
               </Button>
             </div>
 
