@@ -4,7 +4,6 @@ import { Card } from '@/components/ui/card';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import EbookModal from '@/components/EbookModal';
 import { logError } from '@/lib/logger';
 
 const Hero = () => {
@@ -17,7 +16,6 @@ const Hero = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isEbookModalOpen, setIsEbookModalOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -25,10 +23,6 @@ const Hero = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleEbookClick = () => {
-    setIsEbookModalOpen(true);
-  };
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -131,7 +125,11 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg px-8 py-4" onClick={handleEbookClick}>
+              <Button
+                size="lg"
+                className="text-lg px-8 py-4"
+                onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
+              >
                 Baixar Guia Grátis de Marketing Imobiliário
               </Button>
               <Button
@@ -237,11 +235,6 @@ const Hero = () => {
           <ArrowDown className="mx-auto text-muted-foreground animate-bounce" size={32} />
         </div>
       </div>
-
-      <EbookModal 
-        isOpen={isEbookModalOpen} 
-        onClose={() => setIsEbookModalOpen(false)} 
-      />
     </section>
   );
 };
