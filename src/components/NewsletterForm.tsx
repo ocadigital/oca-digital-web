@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import { logError } from '@/lib/logger';
 
 interface NewsletterFormProps {
@@ -28,18 +29,11 @@ const NewsletterForm = ({ source = 'blog' }: NewsletterFormProps) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/newsletter-subscription', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          source
-        }),
+      const { data, error } = await supabase.functions.invoke('newsletter-subscription', {
+        body: { email, source },
       });
 
-      const data = await response.json();
+      if (error) throw error;
 
       if (data.success) {
         toast({

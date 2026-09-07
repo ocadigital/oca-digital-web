@@ -114,11 +114,11 @@ const BlogIndex = () => {
       <Helmet>
         <title>Blog OCA Digital | Marketing Imobiliário</title>
         <meta name="description" content="Insights e estratégias de marketing imobiliário: geração de leads, automação, vendas e tendências do mercado." />
-        <link rel="canonical" href="https://oca-digital-web.lovable.app/blog" />
+        <link rel="canonical" href="https://www.ocadigital.com.br/blog" />
         <meta property="og:title" content="Blog OCA Digital | Marketing Imobiliário" />
         <meta property="og:description" content="Insights e estratégias para alavancar seu negócio imobiliário." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://oca-digital-web.lovable.app/blog" />
+        <meta property="og:url" content="https://www.ocadigital.com.br/blog" />
       </Helmet>
       <Header />
       

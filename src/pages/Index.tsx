@@ -23,11 +23,11 @@ const Index = () => {
         <meta property="og:title" content="OCA Digital | Marketing Imobiliário com IA" />
         <meta property="og:description" content="Transforme sua imobiliária em uma máquina de conversão com marketing imobiliário orientado a dados." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://oca-digital-web.lovable.app/" />
+        <meta property="og:url" content="https://www.ocadigital.com.br/" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="OCA Digital | Marketing Imobiliário com IA" />
         <meta name="twitter:description" content="Transforme sua imobiliária em uma máquina de conversão com marketing imobiliário orientado a dados." />
-        <link rel="canonical" href="https://oca-digital-web.lovable.app/" />
+        <link rel="canonical" href="https://www.ocadigital.com.br/" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
       </Helmet>

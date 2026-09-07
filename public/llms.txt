@@ -1,6 +1,31 @@
 # OCA Digital
 
-> Agência de marketing imobiliário que combina estratégia, dados e automação para gerar leads qualificados para imobiliárias e corretores no Brasil.
+> Agência de marketing imobiliário com IA, sediada em Florianópolis (SC), com atendimento em todo o Brasil. Combina estratégia, dados e automação para gerar leads qualificados para imobiliárias, incorporadoras e corretores autônomos.
+
+## Sobre
+
+O nome OCA vem de seus três pilares de metodologia: **O**rganização de Processos (CRM, NPS, unificação de leads, núcleo de SDR), **C**aptação de Clientes (campanhas de mídia paga, lançamentos imobiliários, conteúdo) e **A**utomação e Ferramentas (chatbot, lead score, cadências de e-mail, inteligência de mercado). Mais de 40 projetos entregues e mais de 20 clientes ativos.
+
+## Serviços
+
+- Google Ads e Meta Ads (campanhas de performance, remarketing, públicos personalizados)
+- SDR — Núcleo de Pré-qualificação (CRM, scripts BANT, dashboard em tempo real)
+- Automação de Marketing (lead scoring, cadência de e-mails, segmentação)
+- Lançamento Imobiliário (mídia paga, landing page, e-mail marketing, artes)
+- Pacotes mensais: Essencial, Avançado e Full
+
+## Produtos
+
+- **OCA One**: plataforma com IA no WhatsApp — atendimento automatizado com BANT, CRM integrado, avaliação e captação inteligente de imóveis, inteligência de mercado.
+- **OCA Base**: site profissional com integração aos principais portais imobiliários, voltado a pequenas imobiliárias e corretores autônomos.
+- **Curso para Corretores**: treinamento de marketing imobiliário, acesso vitalício, mais de 10h de conteúdo.
+
+## Contato
+
+- E-mail: contato@ocadigital.com.br
+- WhatsApp: (48) 99679-0700
+- Localização: Florianópolis, SC — atendimento nacional
+- Horário: Segunda a Sexta, 9h às 18h
 
 ## Pages
 

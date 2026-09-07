@@ -1,6 +1,6 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.50.0';
+import { createClient } from 'npm:@supabase/supabase-js@2.50.0';
 import { Resend } from "npm:resend@2.0.0";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
@@ -78,7 +78,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email
     console.log('Sending email notification');
     const emailResponse = await resend.emails.send({
-      from: "OCA Digital <onboarding@resend.dev>",
+      from: "OCA Digital <noreply@ocadigital.com.br>",
       to: ["anderson.goncalves81@gmail.com"],
       subject: subject,
       html: emailContent,

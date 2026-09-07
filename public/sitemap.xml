@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://oca-digital-web.lovable.app/</loc>
+    <loc>https://www.ocadigital.com.br/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://oca-digital-web.lovable.app/blog</loc>
+    <loc>https://www.ocadigital.com.br/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://oca-digital-web.lovable.app/politica-de-privacidade</loc>
+    <loc>https://www.ocadigital.com.br/politica-de-privacidade</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://oca-digital-web.lovable.app/termos-de-uso</loc>
+    <loc>https://www.ocadigital.com.br/termos-de-uso</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/blog/como-gerar-mais-leads-qualificados-imobiliaria-2024</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/blog/guia-completo-crm-imobiliario-organizar-leads</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

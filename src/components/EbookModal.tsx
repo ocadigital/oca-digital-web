@@ -90,6 +90,12 @@ const EbookModal = ({ isOpen, onClose }: EbookModalProps) => {
 
       if (error) throw error;
 
+      supabase.functions
+        .invoke('notify-ebook-download', {
+          body: { email: email.trim(), whatsapp: whatsapp.replace(/\D/g, ''), priority },
+        })
+        .catch((notifyError) => logError('Error notifying ebook download:', notifyError));
+
       setIsSuccess(true);
       toast({
         title: 'Sucesso!',

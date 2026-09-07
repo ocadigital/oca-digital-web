@@ -123,11 +123,11 @@ const BlogPost = () => {
       <Helmet>
         <title>{`${post.title} | OCA Digital`}</title>
         <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={`https://oca-digital-web.lovable.app/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://www.ocadigital.com.br/blog/${post.slug}`} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://oca-digital-web.lovable.app/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://www.ocadigital.com.br/blog/${post.slug}`} />
         {post.image && <meta property="og:image" content={post.image} />}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
@@ -142,7 +142,7 @@ const BlogPost = () => {
             author: { '@type': 'Person', name: post.author },
             publisher: { '@type': 'Organization', name: 'OCA Digital' },
             datePublished: post.created_at,
-            mainEntityOfPage: `https://oca-digital-web.lovable.app/blog/${post.slug}`,
+            mainEntityOfPage: `https://www.ocadigital.com.br/blog/${post.slug}`,
           })}
         </script>
       </Helmet>

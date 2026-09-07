@@ -8,11 +8,11 @@ const TermsOfService = () => {
       <Helmet>
         <title>Termos de Uso | OCA Digital</title>
         <meta name="description" content="Condições de uso do site e dos serviços da OCA Digital." />
-        <link rel="canonical" href="https://oca-digital-web.lovable.app/termos-de-uso" />
+        <link rel="canonical" href="https://www.ocadigital.com.br/termos-de-uso" />
         <meta property="og:title" content="Termos de Uso | OCA Digital" />
         <meta property="og:description" content="Condições de uso do site e dos serviços da OCA Digital." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://oca-digital-web.lovable.app/termos-de-uso" />
+        <meta property="og:url" content="https://www.ocadigital.com.br/termos-de-uso" />
       </Helmet>
       <Header />
       
