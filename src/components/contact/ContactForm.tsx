@@ -174,14 +174,10 @@ const ContactForm = () => {
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground ${errors.service ? 'border-red-500' : 'border-border'}`}
           >
             <option value="">Serviço de interesse</option>
-            <option value="campanhas-performance">Campanhas de Performance</option>
-            <option value="sdr">SDR</option>
-            <option value="automacao">Automação de Marketing</option>
+            <option value="google-meta-gpt-ads">Google Ads, Meta Ads e GPT Ads</option>
+            <option value="sistema-captacao-qualificacao">Sistema de Captação e Qualificação de Leads</option>
             <option value="lancamento">Lançamento Imobiliário</option>
-            <option value="pacote-mensal">Pacote Mensal</option>
-            <option value="oca-one">OCA One</option>
-            <option value="oca-base">OCA Base</option>
-            <option value="curso-corretores">Curso para Corretores</option>
+            <option value="outros">Outros</option>
           </select>
           {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
         </div>
