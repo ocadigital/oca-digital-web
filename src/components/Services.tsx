@@ -50,32 +50,32 @@ const Services = () => {
   const packages = [
     {
       name: "Plano Essencial",
-      description: "Mídia paga + landing + My Business + relatório",
+      description: "Manutenção do seu sistema de captação, sempre funcionando.",
       features: [
-        "Google Ads",
-        "Meta (Instagram e Facebook)",
-        "Gestão Google My Business",
-        "Relatórios mensais"
+        "Acompanhamento e ajuste contínuo do CRM e do rastreamento de leads",
+        "Monitoramento do Lead Score e das filas de qualificação",
+        "Gestão do Google My Business",
+        "Relatório mensal de performance"
       ]
     },
     {
       name: "Plano Avançado",
-      description: "Inclui planejamento estratégico e conteúdo",
+      description: "Essencial mais tráfego pago rodando em cima do seu sistema já implantado.",
       features: [
         "Tudo do Essencial",
-        "Planejamento estratégico",
-        "1 blog post mensal",
-        "1 e-mail marketing mensal"
+        "Google Ads, Meta Ads e GPT Ads",
+        "Otimização contínua de CPL e conversões",
+        "Planejamento estratégico mensal"
       ]
     },
     {
       name: "Plano Full",
-      description: "Solução completa com automação",
+      description: "Avançado mais conteúdo e consultoria dedicada.",
       features: [
         "Tudo do Avançado",
-        "Automação de marketing",
-        "Consultoria mensal",
-        "Suporte prioritário"
+        "1 blog post mensal",
+        "1 e-mail marketing mensal",
+        "Consultoria mensal com suporte prioritário"
       ]
     }
   ];
