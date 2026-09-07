@@ -3,14 +3,21 @@ import ContactForm from './contact/ContactForm';
 import ContactInfo from './contact/ContactInfo';
 import ConsultationCard from './contact/ConsultationCard';
 
-const Contact = () => {
+interface ContactProps {
+  /** Use when Contact is rendered as its own page (not a homepage section) so it gets a real h1. */
+  asPage?: boolean;
+}
+
+const Contact = ({ asPage = false }: ContactProps) => {
+  const HeadingTag = asPage ? 'h1' : 'h2';
+
   return (
     <section id="contato" className="py-20 bg-secondary section-separator">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <HeadingTag className="text-4xl font-bold text-foreground mb-4">
             Entre em Contato
-          </h2>
+          </HeadingTag>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Pronto para transformar sua imobiliária? Vamos conversar sobre suas necessidades e objetivos.
           </p>
