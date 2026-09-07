@@ -2,7 +2,13 @@
 import { Users, Target, Zap, BarChart3 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
-const About = () => {
+interface AboutProps {
+  /** Use when About is rendered as its own page (not a homepage section) so it gets a real h1. */
+  asPage?: boolean;
+}
+
+const About = ({ asPage = false }: AboutProps) => {
+  const HeadingTag = asPage ? 'h1' : 'h2';
   const methodology = [
     {
       phase: "Descoberta",
@@ -52,9 +58,9 @@ const About = () => {
               className="w-16 h-16 object-cover rounded-lg"
             />
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <HeadingTag className="text-4xl font-bold text-foreground mb-4">
             Quem Somos
-          </h2>
+          </HeadingTag>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Especialistas em marketing imobiliário com foco em resultados mensuráveis e crescimento sustentável.
           </p>

@@ -126,7 +126,7 @@ const PrivacyPolicy = () => {
                 </p>
                 <div className="bg-background p-4 rounded-lg">
                   <p className="text-foreground/90"><strong>E-mail:</strong> contato@ocadigital.com.br</p>
-                  <p className="text-foreground/90"><strong>Telefone:</strong> (11) 99999-9999</p>
+                  <p className="text-foreground/90"><strong>Telefone:</strong> (48) 99679-0700</p>
                 </div>
               </section>
             </div>
