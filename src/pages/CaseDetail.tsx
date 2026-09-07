@@ -151,7 +151,7 @@ const CaseDetail = () => {
             {caseStudy.testimonialAuthor && (
               <div className="text-sm text-muted-foreground">
                 <span className="font-semibold text-foreground">{caseStudy.testimonialAuthor}</span>
-                {caseStudy.testimonialRole && <> — {caseStudy.testimonialRole}</>}
+                {caseStudy.testimonialRole && <>, {caseStudy.testimonialRole}</>}
               </div>
             )}
           </Card>
