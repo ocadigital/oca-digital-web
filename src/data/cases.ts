@@ -86,6 +86,35 @@ export const cases: CaseStudy[] = [
     featured: true,
   },
   {
+    id: "5",
+    slug: "vokkan-vivaon-vivapark",
+    client: "Vokkan Construtora",
+    segment: "Incorporadora",
+    coverImage: "/images/cases/vokkan-vivapark.jpeg",
+    title: "Vokkan: a plataforma completa da VivaOn, a imobiliária in-house do Vivapark, em 60 dias",
+    summary:
+      "Design, desenvolvimento full-stack e CMS sob medida para posicionar a VivaOn, time in-house do Vivapark, como uma imobiliária completa — com captação de leads integrada ao CRM e gestão de múltiplos empreendimentos.",
+    challenge:
+      "A Vokkan precisava posicionar a VivaOn — seu time de corretores in-house — no mesmo nível de uma imobiliária completa, com uma plataforma capaz de apresentar os empreendimentos do Vivapark (Vista, Vértice, Voz e Ventura) com preços, plantas e disponibilidade, captar leads qualificados e direcionar cada visitante para falar com um especialista. Tudo isso sem nenhuma presença digital própria anterior para servir de base ou comparação.",
+    solution:
+      "Desenvolvemos a plataforma do zero, com arquitetura Next.js no front-end e Django (Python) + PostgreSQL no back-end, hospedados em Vercel, Render e Cloudflare R2. O CMS sob medida permite à própria Vokkan editar conteúdo, cadastrar novos empreendimentos, gerenciar corretores parceiros e controlar permissões de usuário, sem depender de terceiros para cada atualização. O design — aprovado em Figma antes do desenvolvimento — segue uma estrutura pensada para conversão: vídeo institucional com CTA já nos primeiros segundos, apresentação de cada empreendimento, um espaço dedicado à equipe de especialistas para humanizar o atendimento e um Q&A para quebra de objeções. A captação de leads foi integrada diretamente ao CRM da operação comercial, com boas práticas de SEO e rastreamento de conversão desde o primeiro dia.",
+    results:
+      "A plataforma entrou no ar após 60 dias de desenvolvimento — do zero, já que não existia presença digital própria da VivaOn antes. Por substituir uma ausência total, ainda não há comparativos históricos de performance, mas toda a estrutura foi construída para medir SEO, conversão e leads desde o lançamento. A parceria segue ativa: a OCA Digital é responsável pela manutenção mensal contínua (monitoramento de uptime, segurança, performance e relatórios), e as duas empresas já avaliam a viabilidade de novos projetos juntas.",
+    metrics: [
+      { label: "Prazo de desenvolvimento", value: "60 dias" },
+      { label: "Empreendimentos na plataforma", value: "4" },
+      { label: "Status da parceria", value: "Cliente ativo" },
+    ],
+    relatedBlogSlug: "guia-completo-crm-imobiliario-organizar-leads",
+    externalLinks: [
+      {
+        label: "Visitar o site do Vivapark",
+        url: "https://imoveisnovivapark.com.br",
+      },
+    ],
+    publishedAt: "2026-09-07",
+  },
+  {
     id: "2",
     slug: "maria-do-mar-hotel",
     client: "Maria do Mar Hotel",

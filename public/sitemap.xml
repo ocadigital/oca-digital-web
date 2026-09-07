@@ -69,6 +69,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.ocadigital.com.br/cases/vokkan-vivaon-vivapark</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.ocadigital.com.br/cases/maria-do-mar-hotel</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
