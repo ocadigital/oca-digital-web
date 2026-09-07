@@ -65,7 +65,7 @@ const Header = () => {
           
           <nav className="hidden md:flex items-center space-x-1">
             <button onClick={() => navigateToSection('inicio')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Início</button>
-            <button onClick={() => navigateToSection('sobre')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Sobre Nós</button>
+            <Link to="/sobre" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Sobre Nós</Link>
             <button onClick={() => navigateToSection('servicos')} className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Serviços</button>
             <Link to="/produtos" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Produtos</Link>
             <Link to="/blog" className="text-sm px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
@@ -95,7 +95,7 @@ const Header = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
               <button onClick={() => navigateToSection('inicio')} className="block px-3 py-2 text-foreground w-full text-left">Início</button>
-              <button onClick={() => navigateToSection('sobre')} className="block px-3 py-2 text-foreground w-full text-left">Sobre Nós</button>
+              <Link to="/sobre" className="block px-3 py-2 text-foreground" onClick={() => setIsMenuOpen(false)}>Sobre Nós</Link>
               <button onClick={() => navigateToSection('servicos')} className="block px-3 py-2 text-foreground w-full text-left">Serviços</button>
               <Link to="/produtos" className="block px-3 py-2 text-foreground" onClick={() => setIsMenuOpen(false)}>Produtos</Link>
               <Link to="/blog" className="block px-3 py-2 text-foreground" onClick={() => setIsMenuOpen(false)}>Blog</Link>
