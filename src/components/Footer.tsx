@@ -85,7 +85,7 @@ const Footer = () => {
         <div className="border-t border-border mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-muted-foreground text-sm">
-              © 2026 OCA Digital. Todos os direitos reservados. - 27.010.924/0001-25 ANDERSON MARTINS GONCALVES
+              © 2026 OCA Digital. Todos os direitos reservados. - CNPJ: 27.010.924/0001-25
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="/politica-de-privacidade" className="text-muted-foreground hover:text-primary transition-colors text-sm">
