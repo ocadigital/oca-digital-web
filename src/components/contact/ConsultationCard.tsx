@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const ConsultationCard = () => {
   const handleConsultoriaClick = () => {
-    window.open('https://calendly.com/anderson-ocadigital/30min', '_blank');
+    window.open('https://calendly.com/anderson-goncalves81/30min', '_blank');
   };
 
   return (

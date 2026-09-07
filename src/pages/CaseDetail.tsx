@@ -177,7 +177,7 @@ const CaseDetail = () => {
           </p>
           <Button
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            onClick={() => window.open('https://calendly.com/anderson-ocadigital/30min', '_blank')}
+            onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
           >
             Agendar Consultoria
           </Button>

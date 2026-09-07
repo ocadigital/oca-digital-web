@@ -19,7 +19,7 @@ const Header = () => {
 
 
   const handleConsultoriaClick = () => {
-    window.open('https://calendly.com/anderson-ocadigital/30min', '_blank');
+    window.open('https://calendly.com/anderson-goncalves81/30min', '_blank');
   };
 
   const navigateToSection = (sectionId: string) => {

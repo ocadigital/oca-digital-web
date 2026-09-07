@@ -138,7 +138,7 @@ const Hero = () => {
                 variant="outline" 
                 size="lg" 
                 className="text-lg px-8 py-4"
-                onClick={() => window.open('https://calendly.com/anderson-ocadigital/30min', '_blank')}
+                onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
               >
                 Agendar Consultoria
               </Button>
