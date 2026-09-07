@@ -81,6 +81,10 @@ export const cases: CaseStudy[] = [
       { label: "Sessões via Google Ads (Search)", value: "13 mil" },
       { label: "Desempenho vs. setor", value: "Acima da mediana" },
     ],
+    testimonialQuote:
+      "Já trabalhamos com a OCA desde o site anterior, e a migração pro novo site trouxe um salto na experiência de busca pros nossos clientes. Com as campanhas de Google Ads rodando junto, conseguimos capturar tanto quem busca comprar quanto quem busca alugar na Lagoa da Conceição.",
+    testimonialAuthor: "Aldo Silveira",
+    testimonialRole: "Proprietário, Aldo Imóveis",
     relatedBlogSlug: "como-gerar-mais-leads-qualificados-imobiliaria-2024",
     externalLinks: [
       {
