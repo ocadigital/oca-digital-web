@@ -32,12 +32,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setUser(session?.user ?? null);
         
         if (session?.user) {
+          setLoading(true);
           setTimeout(() => {
             checkUserRoles(session.user.id);
           }, 0);
         } else {
           setIsAdmin(false);
           setIsEditor(false);
+          setLoading(false);
         }
       }
     );
