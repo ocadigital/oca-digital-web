@@ -1,5 +1,4 @@
 
-import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -168,14 +167,6 @@ const Services = () => {
               </Card>
             ))}
           </div>
-        </div>
-
-        <div className="text-center mt-16">
-          <Link to="/produtos">
-            <Button size="lg" variant="outline" className="font-semibold">
-              Conheça nossos produtos e cursos
-            </Button>
-          </Link>
         </div>
       </div>
     </section>
