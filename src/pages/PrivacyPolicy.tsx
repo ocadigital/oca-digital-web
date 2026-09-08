@@ -125,7 +125,7 @@ const PrivacyPolicy = () => {
                   entre em contato conosco:
                 </p>
                 <div className="bg-background p-4 rounded-lg">
-                  <p className="text-foreground/90"><strong>E-mail:</strong> contato@ocadigital.com.br</p>
+                  <p className="text-foreground/90"><strong>E-mail:</strong> anderson.goncalves81@gmail.com</p>
                   <p className="text-foreground/90"><strong>Telefone:</strong> (48) 99679-0700</p>
                 </div>
               </section>
