@@ -22,8 +22,18 @@ const Footer = () => {
     }
   };
   return (
-    <footer className="bg-secondary text-foreground border-t-2 border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="relative overflow-hidden bg-secondary text-foreground border-t-2 border-border">
+      {/* Grafismo herdado da identidade original da marca, ver Brand Book cap. 05 */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.06]"
+        style={{
+          backgroundImage: 'url(/patterns/oca-grafismo.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          mixBlendMode: 'screen',
+        }}
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <img

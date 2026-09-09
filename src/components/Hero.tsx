@@ -105,8 +105,18 @@ const Hero = () => {
           transform: `translateY(${scrollY * 0.3}px)`,
         }}
       />
+      {/* Grafismo herdado da identidade original da marca, ver Brand Book cap. 05 */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.08]"
+        style={{
+          backgroundImage: 'url(/patterns/oca-grafismo.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          mixBlendMode: 'screen',
+        }}
+      />
 
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
