@@ -1,12 +1,12 @@
 const clients = [
-  { name: 'Brognoli', src: '/clients/brognoli.png' },
-  { name: 'Buzz', src: '/clients/buzz.png' },
-  { name: 'Captei', src: '/clients/captei.png' },
-  { name: 'Crédito Real', src: '/clients/credito-real.svg' },
-  { name: 'Jéssica Mendonça', src: '/clients/jessica-mendonca.png' },
-  { name: 'Santa Ilha', src: '/clients/santa-ilha.svg' },
-  { name: 'Vokkan', src: '/clients/vokkan.png' },
-  { name: 'Yes Empreendimentos', src: '/clients/yes-empreendimentos.png' },
+  { name: 'Brognoli', src: '/clients/brognoli.webp', w: 109, h: 45 },
+  { name: 'Buzz', src: '/clients/buzz.webp', w: 215, h: 60 },
+  { name: 'Captei', src: '/clients/captei.webp', w: 383, h: 82 },
+  { name: 'Crédito Real', src: '/clients/credito-real.svg', w: 270, h: 44 },
+  { name: 'Jéssica Mendonça', src: '/clients/jessica-mendonca.webp', w: 137, h: 108 },
+  { name: 'Santa Ilha', src: '/clients/santa-ilha.svg', w: 237, h: 55 },
+  { name: 'Vokkan', src: '/clients/vokkan.webp', w: 399, h: 82 },
+  { name: 'Yes Empreendimentos', src: '/clients/yes-empreendimentos.webp', w: 424, h: 222 },
 ];
 
 const Clients = () => {
@@ -28,6 +28,8 @@ const Clients = () => {
               src={client.src}
               alt={`Logo ${client.name}`}
               loading="lazy"
+              width={client.w}
+              height={client.h}
               className="mx-10 h-8 md:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
             />
           ))}

@@ -20,7 +20,9 @@ const About = ({ asPage = false, summary = false }: AboutProps) => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-4">
             <img
-              src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png"
+              src="/lovable-uploads/equipe-oca-digital.webp"
+              width={192}
+              height={192}
               alt="Equipe OCA Digital"
               className="w-16 h-16 object-cover rounded-lg"
             />
@@ -87,7 +89,9 @@ const About = ({ asPage = false, summary = false }: AboutProps) => {
         <div className="text-center mb-16">
           <div className="flex justify-center mb-4">
             <img 
-              src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
+              src="/lovable-uploads/equipe-oca-digital.webp"
+              width={192}
+              height={192} 
               alt="Equipe OCA Digital" 
               className="w-16 h-16 object-cover rounded-lg"
             />

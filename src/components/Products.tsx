@@ -34,8 +34,10 @@ const Products = ({ asPage = false }: ProductsProps) => {
           <Card className="p-8 card-elevated hover:-translate-y-2 border-2 border-primary/30 hover:border-primary/50">
             <div className="flex items-center justify-center mb-6">
               <img 
-                src="/lovable-uploads/e79f7b11-3826-4bd5-ab00-59394cfadb26.png" 
-                alt="OCA One Icon" 
+                src="/lovable-uploads/oca-one-icon.webp"
+                alt="OCA One Icon"
+                width={192}
+                height={192}
                 className="h-16 w-16 mr-4 bg-background rounded-lg p-2"
               />
               <h3 className="text-3xl font-bold text-foreground">OCA One</h3>
@@ -79,8 +81,10 @@ const Products = ({ asPage = false }: ProductsProps) => {
           <Card className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40">
             <div className="flex items-center justify-center mb-6">
               <img 
-                src="/lovable-uploads/2bc2982a-cd57-40a2-900d-a5859cf5face.png" 
-                alt="OCA Base Icon" 
+                src="/lovable-uploads/equipe-oca-digital.webp"
+                alt="OCA Base Icon"
+                width={192}
+                height={192}
                 className="h-16 w-16 mr-4 bg-background rounded-lg p-2"
               />
               <h3 className="text-3xl font-bold text-foreground">OCA Base</h3>

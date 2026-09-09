@@ -20,6 +20,9 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => (
       <img
         src={caseStudy.coverImage}
         alt={caseStudy.title}
+        width={1200}
+        height={670}
+        loading="lazy"
         className="w-full h-48 object-cover"
       />
     )}

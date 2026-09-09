@@ -152,9 +152,9 @@ const Hero = () => {
 
           <div className="relative">
             <Card className="p-8 shadow-2xl border-2 border-primary/20 bg-card">
-              <h3 className="text-2xl font-bold mb-6 text-center text-foreground">
+              <h2 className="text-2xl font-bold mb-6 text-center text-foreground">
                 🎯 Diagnóstico Gratuito
-              </h3>
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <input

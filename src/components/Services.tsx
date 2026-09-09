@@ -109,7 +109,7 @@ const Services = () => {
             {services.map((service, index) => (
               <Card key={index} className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40">
                 <div className="mb-6">
-                  <h4 className="text-2xl font-bold mb-2 text-foreground">{service.title}</h4>
+                  <h3 className="text-2xl font-bold mb-2 text-foreground">{service.title}</h3>
                   <p className="text-foreground mb-4">{service.description}</p>
                   <span className="text-muted-foreground">Duração: {service.duration}</span>
                 </div>

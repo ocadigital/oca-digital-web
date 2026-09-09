@@ -55,10 +55,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link to="/">
-              <img 
-                src="/oca-logo-white.png" 
-                alt="OCA Digital" 
+              <img
+                src="/oca-logo-white.webp"
+                alt="OCA Digital"
                 className="h-12 w-auto"
+                width={333}
+                height={144}
               />
             </Link>
           </div>
@@ -86,6 +88,8 @@ const Header = () => {
           <button
             className="md:hidden text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

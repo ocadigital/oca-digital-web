@@ -31,6 +31,8 @@ const FeaturedCases = () => {
                   <img
                     src={caseStudy.coverImage}
                     alt={caseStudy.title}
+                    width={1200}
+                    height={670}
                     className="w-full h-full object-cover"
                   />
                 </div>

@@ -100,6 +100,8 @@ const CaseDetail = () => {
           <img
             src={caseStudy.coverImage}
             alt={caseStudy.title}
+            width={1200}
+            height={670}
             className="w-full h-96 object-cover rounded-lg mb-8"
           />
         )}

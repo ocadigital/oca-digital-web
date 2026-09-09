@@ -26,10 +26,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <img 
-              src="/oca-logo-white.png" 
-              alt="OCA Digital" 
+            <img
+              src="/oca-logo-white.webp"
+              alt="OCA Digital"
               className="h-12 w-auto mb-4"
+              width={333}
+              height={144}
             />
             <p className="text-muted-foreground mb-4 max-w-md">
               Especialistas em marketing imobiliário que combinam estratégia, dados e automação 

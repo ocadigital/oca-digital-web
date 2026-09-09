@@ -28,7 +28,7 @@ export const cases: CaseStudy[] = [
     slug: "brognoli-negocios-imobiliarios",
     client: "Brognoli Negócios Imobiliários",
     segment: "Imobiliária",
-    coverImage: "/images/cases/brognoli.jpeg",
+    coverImage: "/images/cases/brognoli.webp",
     title: "Brognoli: de um dos maiores cases orgânicos do YouTube no mercado imobiliário à previsibilidade comercial de hoje",
     summary:
       "Uma web série que viralizou organicamente entre universitários de Florianópolis e, anos depois, a estruturação de CRM e atendimento que trouxe previsibilidade comercial para a operação.",
@@ -66,7 +66,7 @@ export const cases: CaseStudy[] = [
     slug: "aldo-imoveis-lagoa-da-conceicao",
     client: "Aldo Imóveis",
     segment: "Imobiliária",
-    coverImage: "/images/cases/aldo-imoveis.jpeg",
+    coverImage: "/images/cases/aldo-imoveis.webp",
     title: "Aldo Imóveis: 48 mil novos usuários após relançar o site com o OCA Base",
     summary:
       "Relançamento do site da Aldo Imóveis (Lagoa da Conceição, Florianópolis) com o OCA Base, combinado a campanhas de Google Ads segmentadas por venda e locação.",
@@ -99,7 +99,7 @@ export const cases: CaseStudy[] = [
     slug: "santa-ilha-sunclub-campeche",
     client: "Santa Ilha Imobiliária",
     segment: "Lançamento Imobiliário",
-    coverImage: "/images/cases/santa-ilha-sunclub.jpeg",
+    coverImage: "/images/cases/santa-ilha-sunclub.webp",
     title: "SUNCLUB Campeche: 173 leads em 5 semanas de pré-lançamento com CPL de R$43,44",
     summary:
       "Campanha completa de pré-lançamento do SUNCLUB Campeche Beach Residence para a Santa Ilha Imobiliária: hotsite, mídia paga, e-mail marketing e imprensa, do zero até 173 leads captados.",
@@ -123,7 +123,7 @@ export const cases: CaseStudy[] = [
     slug: "vokkan-vivaon-vivapark",
     client: "Vokkan Construtora",
     segment: "Incorporadora",
-    coverImage: "/images/cases/vokkan-vivapark.jpeg",
+    coverImage: "/images/cases/vokkan-vivapark.webp",
     title: "Vokkan: a plataforma completa da VivaOn, a imobiliária in-house do Vivapark, em 60 dias",
     summary:
       "Design, desenvolvimento full-stack e CMS sob medida para posicionar a VivaOn, time in-house do Vivapark, como uma imobiliária completa, com captação de leads integrada ao CRM e gestão de múltiplos empreendimentos.",
@@ -153,7 +153,7 @@ export const cases: CaseStudy[] = [
     client: "Maria do Mar Hotel",
     segment: "Hotelaria",
     otherSegment: true,
-    coverImage: "/images/cases/maria-do-mar-hotel.jpeg",
+    coverImage: "/images/cases/maria-do-mar-hotel.webp",
     title: "Maria do Mar Hotel: a mascote Maricota e o evento Sunset Wedding que viraram notícia",
     summary:
       "Como um hotel tradicional de Florianópolis rejuvenesceu sua marca com uma mascote local e conquistou mídia espontânea com um evento voltado ao mercado de casamentos.",
@@ -176,7 +176,7 @@ export const cases: CaseStudy[] = [
     client: "Pousada dos Sonhos",
     segment: "Hotelaria",
     otherSegment: true,
-    coverImage: "/images/cases/pousada-dos-sonhos.jpeg",
+    coverImage: "/images/cases/pousada-dos-sonhos.webp",
     title: "Pousada dos Sonhos: +403% em acessos orgânicos com uma ação off-line de link building",
     summary:
       "Uma ação off-line com blogueiras, pensada para gerar link building, resultou em um salto expressivo no tráfego orgânico e no ranqueamento das palavras-chave prioritárias do cliente.",
