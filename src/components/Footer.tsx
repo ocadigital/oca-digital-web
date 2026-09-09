@@ -1,4 +1,4 @@
-import { Facebook, Linkedin } from 'lucide-react';
+import { Facebook, Linkedin, Youtube } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
@@ -59,6 +59,15 @@ const Footer = () => {
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Linkedin size={24} aria-hidden="true" />
+              </a>
+              <a
+                href="https://www.youtube.com/@ocadigital-marketing"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube da OCA Digital"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Youtube size={24} aria-hidden="true" />
               </a>
             </div>
           </div>
