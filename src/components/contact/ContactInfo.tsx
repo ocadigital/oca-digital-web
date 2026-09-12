@@ -16,7 +16,7 @@ const ContactInfo = () => {
         </div>
         <div>
           <div className="font-semibold text-foreground">📍 Localização</div>
-          <div className="text-muted-foreground">Florianópolis, SC - Atendimento Nacional</div>
+          <div className="text-muted-foreground">Florianópolis, SC (atendimento nacional)</div>
         </div>
         <div>
           <div className="font-semibold text-foreground">🕐 Horário de Atendimento</div>

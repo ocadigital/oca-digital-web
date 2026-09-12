@@ -36,7 +36,7 @@ const FAQ = () => {
     },
     {
       question: "É possível cancelar os serviços a qualquer momento?",
-      answer: "Sim, nossos contratos mensais podem ser cancelados com 30 dias de antecedência. Para serviços pontuais, seguimos o cronograma acordado. Não temos fidelidade obrigatória - nosso foco é entregar resultados que façam você querer continuar conosco."
+      answer: "Sim, nossos contratos mensais podem ser cancelados com 30 dias de antecedência. Para serviços pontuais, seguimos o cronograma acordado. Não temos fidelidade obrigatória: nosso foco é entregar resultados que façam você querer continuar conosco."
     },
     {
       question: "Vocês trabalham com incorporadoras?",
