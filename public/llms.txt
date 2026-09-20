@@ -46,6 +46,7 @@ Not a fit for: general (non–real estate) marketing agencies, web development u
 - [Sobre](/sobre): História, metodologia e pilares da OCA Digital.
 - [Produtos](/produtos): OCA One, OCA Base e Curso para Corretores.
 - [Contato](/contact): Canais de contato e horário de atendimento.
+- [Teste de Maturidade Imobiliária](/teste-maturidade): Teste de 10 perguntas que indica em qual dos 5 níveis de maturidade está a imobiliária.
 - [Blog](/blog): Artigos sobre marketing imobiliário, vendas e tendências do mercado.
 - [Cases](/cases): Resultados reais de clientes.
 - [Política de Privacidade](/privacy): Como tratamos dados pessoais.
