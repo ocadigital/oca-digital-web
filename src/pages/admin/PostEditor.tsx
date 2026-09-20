@@ -7,19 +7,21 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Headphones, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PostEditor = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [uploadingAudio, setUploadingAudio] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
     excerpt: '',
     content: '',
     image: '',
+    audio_url: '',
     author: '',
     category: '',
     tags: '',
@@ -50,6 +52,7 @@ const PostEditor = () => {
         excerpt: data.excerpt,
         content: data.content,
         image: data.image || '',
+        audio_url: data.audio_url || '',
         author: data.author,
         category: data.category,
         tags: data.tags?.join(', ') || '',
@@ -79,6 +82,38 @@ const PostEditor = () => {
     });
   };
 
+  const handleAudioUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    if (!file.type.startsWith('audio/')) {
+      toast.error('Escolha um arquivo de áudio (MP3, M4A, WAV ou OGG).');
+      return;
+    }
+    if (file.size > 50 * 1024 * 1024) {
+      toast.error('O arquivo passa de 50 MB. Comprima o áudio e tente de novo.');
+      return;
+    }
+    setUploadingAudio(true);
+    try {
+      const ext = (file.name.split('.').pop() || 'mp3').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const base = (formData.slug || 'post').replace(/[^a-z0-9-]/g, '');
+      const path = `${base}-${Date.now()}.${ext}`;
+      const { error } = await supabase.storage.from('blog-audio').upload(path, file, {
+        contentType: file.type,
+        cacheControl: '31536000',
+      });
+      if (error) throw error;
+      const { data } = supabase.storage.from('blog-audio').getPublicUrl(path);
+      setFormData((prev) => ({ ...prev, audio_url: data.publicUrl }));
+      toast.success('Áudio enviado. Clique em salvar para publicar no post.');
+    } catch (error) {
+      toast.error('Erro ao enviar o áudio: ' + (error instanceof Error ? error.message : String(error)));
+    } finally {
+      setUploadingAudio(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -92,6 +127,7 @@ const PostEditor = () => {
         excerpt: formData.excerpt,
         content: formData.content,
         image: formData.image || null,
+        audio_url: formData.audio_url.trim() || null,
         author: formData.author,
         category: formData.category,
         tags: tagsArray,
@@ -253,6 +289,42 @@ const PostEditor = () => {
                   className="mt-1"
                 />
               </div>
+            </div>
+
+            <div className="rounded-lg border border-border p-4 space-y-3">
+              <div className="flex items-center gap-2">
+                <Headphones className="h-4 w-4 text-primary" />
+                <Label htmlFor="audio_url" className="m-0">Áudio do post (opcional)</Label>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Se houver um áudio, o player aparece no topo do post. Sem áudio, nada é exibido.
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <input
+                  id="audio_file"
+                  type="file"
+                  accept="audio/*"
+                  onChange={handleAudioUpload}
+                  disabled={uploadingAudio}
+                  className="text-sm"
+                />
+                {uploadingAudio && <span className="text-sm text-muted-foreground">Enviando...</span>}
+              </div>
+              <Input
+                id="audio_url"
+                value={formData.audio_url}
+                onChange={(e) => setFormData({ ...formData, audio_url: e.target.value })}
+                placeholder="ou cole aqui o link (https://...) de um arquivo de áudio"
+              />
+              {formData.audio_url && (
+                <div className="space-y-2">
+                  <audio controls preload="none" src={formData.audio_url} className="w-full" />
+                  <Button type="button" variant="outline" size="sm" onClick={() => setFormData({ ...formData, audio_url: '' })}>
+                    <Trash2 className="mr-2 h-4 w-4" />
+                    Remover áudio do post
+                  </Button>
+                </div>
+              )}
             </div>
 
             <div className="flex gap-4">

@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Headphones } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import ShareButtons from '@/components/blog/ShareButtons';
 import TableOfContents from '@/components/blog/TableOfContents';
@@ -28,6 +29,7 @@ interface BlogPost {
   excerpt: string;
   content: string;
   image: string | null;
+  audio_url: string | null;
   author: string;
   category: string;
   tags: string[];
@@ -140,6 +142,7 @@ const BlogPost = () => {
             headline: post.title,
             description: post.excerpt,
             image: post.image || undefined,
+            audio: post.audio_url ? { '@type': 'AudioObject', contentUrl: post.audio_url } : undefined,
             author: { '@type': 'Person', name: post.author },
             publisher: { '@type': 'Organization', name: 'OCA Digital' },
             datePublished: post.created_at,
@@ -192,6 +195,19 @@ const BlogPost = () => {
             <time>{formatDate(post.created_at)}</time>
           </div>
         </header>
+
+        {post.audio_url && (
+          <section aria-label="Ouça este artigo" className="mb-8 rounded-lg border border-border bg-card p-4 sm:p-5">
+            <div className="flex items-center gap-2 mb-3 text-sm font-semibold text-foreground">
+              <Headphones className="h-4 w-4 text-primary" aria-hidden="true" />
+              Ouça este artigo
+            </div>
+            <audio controls preload="metadata" src={post.audio_url} className="w-full [color-scheme:dark]">
+              Seu navegador não reproduz áudio.{' '}
+              <a href={post.audio_url}>Baixe o arquivo</a>.
+            </audio>
+          </section>
+        )}
 
         {post.image && (
           <img

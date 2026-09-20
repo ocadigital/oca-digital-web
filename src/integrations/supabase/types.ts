@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       blog_posts: {
         Row: {
+          audio_url: string | null
           author: string
           category: string
           content: string
@@ -33,6 +34,7 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          audio_url?: string | null
           author: string
           category: string
           content: string
@@ -50,6 +52,7 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          audio_url?: string | null
           author?: string
           category?: string
           content?: string
