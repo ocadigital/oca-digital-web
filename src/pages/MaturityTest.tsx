@@ -195,6 +195,21 @@ const Intro = ({ onStart, headingRef }: { onStart: () => void; headingRef: Headi
       </Link>
       .
     </p>
+    <figure className="mt-14 text-center">
+      <h2 className="text-2xl font-bold text-foreground mb-2">Conheça os 5 níveis antes de começar</h2>
+      <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+        Cada nível tem um indicador principal, e cada passagem tem um gargalo a destravar.
+      </p>
+      <img
+        src="/images/blog/modelo-maturidade-imobiliaria-infografico.webp"
+        alt="Infográfico com os 5 níveis do Modelo de Maturidade Imobiliária, do artesanal à IA, com o gargalo de cada passagem (centralizar os dados, especializar e treinar, decidir por dados e automatizar com IA) e os 3 pilares da Blindagem de Processos"
+        width={1200}
+        height={1800}
+        loading="lazy"
+        decoding="async"
+        className="mx-auto w-full max-w-[640px] h-auto rounded-xl border border-border"
+      />
+    </figure>
   </div>
 );
 
