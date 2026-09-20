@@ -1,5 +1,7 @@
 import {
   BOTTLENECKS,
+  DIMENSIONS,
+  diagnosisText,
   LEVELS,
   LEVEL_5_ACTIONS,
   type Level,
@@ -9,6 +11,8 @@ import {
 interface PdfInput {
   name: string;
   company?: string;
+  /** Resumo do perfil da empresa, quando informado. */
+  profile?: string;
   result: TestResult;
 }
 
@@ -49,7 +53,7 @@ const slug = (s: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
 
-export async function downloadMaturityPdf({ name, company, result }: PdfInput) {
+export async function downloadMaturityPdf({ name, company, profile, result }: PdfInput) {
   const { jsPDF } = await import('jspdf');
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
   const W = 210;
@@ -101,6 +105,7 @@ export async function downloadMaturityPdf({ name, company, result }: PdfInput) {
   const date = new Date().toLocaleDateString('pt-BR');
   paragraph(`Preparado para ${name}${company ? `, ${company}` : ''}`, 11, TEXT, 5.5, M, CW, 'bold');
   paragraph(date, 9.5, MUTED, 5);
+  if (profile) paragraph(profile, 9, MUTED, 4.5);
   y += 6;
 
   // Nível
@@ -108,9 +113,10 @@ export async function downloadMaturityPdf({ name, company, result }: PdfInput) {
   doc.setFontSize(40);
   ink(color);
   doc.text(`Nível ${level}`, M, y + 12);
+  const levelW = doc.getTextWidth(`Nível ${level}`);
   doc.setFontSize(14);
   ink(MUTED);
-  doc.text('de 5', M + doc.getTextWidth(`Nível ${level}`) * 1.0 + 8, y + 12);
+  doc.text('de 5', M + levelW + 3, y + 12);
   y += 22;
   doc.setFontSize(17);
   ink(TEXT);
@@ -129,29 +135,68 @@ export async function downloadMaturityPdf({ name, company, result }: PdfInput) {
   // Frentes
   paragraph('Como você está em cada frente', 13, TEXT, 6, M, CW, 'bold');
   y += 3;
+  const barW = CW - 78;
+  const top = y;
   result.dimensions.forEach((d) => {
     const weakest = d.id === result.weakest.id;
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10.5);
     ink(TEXT);
     doc.text(d.name, M, y);
+    const nameW = doc.getTextWidth(d.name);
     if (weakest) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(8.5);
       ink(PRIMARY);
-      doc.text('menor pontuação', M + doc.getTextWidth(d.name) + 4, y);
+      doc.text('menor pontuação', M + nameW + 3, y);
     }
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(10.5);
     ink(TEXT);
-    doc.text(d.score.toFixed(1), W - M, y, { align: 'right' });
+    doc.text(d.score.toFixed(1), M + barW, y, { align: 'right' });
     y += 3;
     fill(TRACK);
-    doc.roundedRect(M, y, CW, 2.8, 1.4, 1.4, 'F');
+    doc.roundedRect(M, y, barW, 2.8, 1.4, 1.4, 'F');
     fill(weakest ? PRIMARY : color);
-    doc.roundedRect(M, y, Math.max(2, (CW * d.score) / 5), 2.8, 1.4, 1.4, 'F');
+    doc.roundedRect(M, y, Math.max(2, (barW * d.score) / 5), 2.8, 1.4, 1.4, 'F');
     y += 9;
   });
+
+  // Radar das cinco frentes, ao lado das barras
+  const cx = M + barW + 43;
+  const cy = top + 22;
+  const R = 17;
+  const pt = (i: number, ratio: number): [number, number] => {
+    const angle = -Math.PI / 2 + (i * 2 * Math.PI) / DIMENSIONS.length;
+    return [cx + Math.cos(angle) * R * ratio, cy + Math.sin(angle) * R * ratio];
+  };
+  const polygon = (pts: [number, number][], style: 'S' | 'FD') => {
+    const segs = pts.slice(1).map(([px, py], i) => [px - pts[i][0], py - pts[i][1]]);
+    doc.lines(segs, pts[0][0], pts[0][1], [1, 1], style, true);
+  };
+  doc.setLineWidth(0.2);
+  draw(TRACK);
+  for (let n = 1; n <= 5; n++) polygon(DIMENSIONS.map((_, i) => pt(i, n / 5)), 'S');
+  DIMENSIONS.forEach((_, i) => {
+    const [px, py] = pt(i, 1);
+    doc.line(cx, cy, px, py);
+  });
+  fill([color[0] + (255 - color[0]) * 0.72, color[1] + (255 - color[1]) * 0.72, color[2] + (255 - color[2]) * 0.72].map(Math.round) as RGB);
+  draw(color);
+  doc.setLineWidth(0.6);
+  polygon(result.dimensions.map((d, i) => pt(i, d.score / 5)), 'FD');
+  doc.setLineWidth(0.2);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(7);
+  ink(TEXT);
+  DIMENSIONS.forEach((d, i) => {
+    const [lx, ly] = pt(i, 1.28);
+    const cos = Math.cos(-Math.PI / 2 + (i * 2 * Math.PI) / DIMENSIONS.length);
+    doc.text(d.short, lx, ly + (i === 0 ? -0.5 : 1.5), { align: Math.abs(cos) < 0.2 ? 'center' : cos > 0 ? 'left' : 'right' });
+  });
+
+  y = Math.max(y, top + 50);
+  paragraph(diagnosisText(result), 10, MUTED, 5);
   y += 2;
 
   // Gargalo e ações
@@ -202,18 +247,6 @@ export async function downloadMaturityPdf({ name, company, result }: PdfInput) {
     by += 2;
   });
   y += boxH + 8;
-
-  // Ponto de atenção
-  if (result.weakest.score <= result.overall - 0.4) {
-    ensure(20);
-    paragraph(
-      `Ponto de atenção: a sua frente com menor pontuação é ${result.weakest.name.toLowerCase()} (${result.weakest.score.toFixed(1)} de 5). Ela costuma ser a que mais segura a passagem para o próximo nível.`,
-      10,
-      MUTED,
-      5,
-    );
-    y += 6;
-  }
 
   // Próximo passo
   ensure(34);

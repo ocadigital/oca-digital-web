@@ -10,15 +10,17 @@ export interface Question {
 export interface Dimension {
   id: string;
   name: string;
+  /** Rótulo curto para o radar. */
+  short: string;
   questions: [number, number];
 }
 
 export const DIMENSIONS: Dimension[] = [
-  { id: 'dados', name: 'Registro e previsibilidade', questions: [0, 1] },
-  { id: 'processos', name: 'Processos e padrão de atendimento', questions: [2, 3] },
-  { id: 'papeis', name: 'Papéis e treinamento', questions: [4, 5] },
-  { id: 'metricas', name: 'Métricas e decisões', questions: [6, 7] },
-  { id: 'tecnologia', name: 'Esteira, tecnologia e IA', questions: [8, 9] },
+  { id: 'dados', short: 'Registro', name: 'Registro e previsibilidade', questions: [0, 1] },
+  { id: 'processos', short: 'Processos', name: 'Processos e padrão de atendimento', questions: [2, 3] },
+  { id: 'papeis', short: 'Papéis', name: 'Papéis e treinamento', questions: [4, 5] },
+  { id: 'metricas', short: 'Métricas', name: 'Métricas e decisões', questions: [6, 7] },
+  { id: 'tecnologia', short: 'Tecnologia e IA', name: 'Esteira, tecnologia e IA', questions: [8, 9] },
 ];
 
 export const QUESTIONS: Question[] = [
@@ -236,6 +238,7 @@ export interface TestResult {
   level: Level;
   dimensions: DimensionScore[];
   weakest: DimensionScore;
+  strongest: DimensionScore;
 }
 
 const round2 = (n: number) => Math.round(n * 100) / 100;
@@ -249,5 +252,80 @@ export function computeResult(answers: number[]): TestResult {
     score: round2((answers[d.questions[0]] + answers[d.questions[1]]) / 2),
   }));
   const weakest = dimensions.reduce((min, d) => (d.score < min.score ? d : min), dimensions[0]);
-  return { overall, level, dimensions, weakest };
+  const strongest = dimensions.reduce((max, d) => (d.score > max.score ? d : max), dimensions[0]);
+  return { overall, level, dimensions, weakest, strongest };
+}
+
+/** Frase de diagnóstico montada por regra, sempre coerente com as notas. */
+export function diagnosisText(result: TestResult): string {
+  const weak = result.weakest.name.toLowerCase();
+  const strong = result.strongest.name.toLowerCase();
+  if (result.strongest.score - result.weakest.score < 0.5) {
+    return `Suas cinco frentes estão em um patamar parecido. Para subir de nível, o caminho é avançar em todas juntas, começando por ${weak}.`;
+  }
+  return `Sua frente mais forte é ${strong} (${result.strongest.score.toFixed(1)} de 5). A que mais segura a passagem para o próximo nível é ${weak} (${result.weakest.score.toFixed(1)} de 5).`;
+}
+
+type OptionList = readonly (readonly [string, string])[];
+
+export const PROFILE_OPTIONS = {
+  segments: [
+    ['imobiliaria-corretora', 'Imobiliária / Corretora'],
+    ['incorporadora', 'Incorporadora'],
+    ['construtora', 'Construtora'],
+    ['loteadora', 'Loteadora'],
+    ['administradora-condominios', 'Administradora de condomínios'],
+    ['gestora-ativos', 'Gestora de ativos / FII'],
+    ['proptech', 'Proptech / Startup imobiliária'],
+    ['outro', 'Outro'],
+  ],
+  portfolio: [
+    ['locacao', 'Locação'],
+    ['venda', 'Venda'],
+    ['curta-temporada', 'Curta temporada'],
+    ['condominios', 'Condomínios'],
+  ],
+  size: [
+    ['micro', 'Até 100 imóveis'],
+    ['pequena', '101 a 500 imóveis'],
+    ['media', '501 a 999 imóveis'],
+    ['grande', '1.000 imóveis ou mais'],
+  ],
+  revenue: [
+    ['ate-1m', 'Até R$ 1 milhão'],
+    ['1m-5m', 'R$ 1M a R$ 5M'],
+    ['5m-20m', 'R$ 5M a R$ 20M'],
+    ['20m-100m', 'R$ 20M a R$ 100M'],
+    ['acima-100m', 'Acima de R$ 100M'],
+  ],
+  regions: [
+    ['sudeste', 'Sudeste'],
+    ['sul', 'Sul'],
+    ['nordeste', 'Nordeste'],
+    ['centro-oeste', 'Centro-Oeste'],
+    ['norte', 'Norte'],
+  ],
+} satisfies Record<string, OptionList>;
+
+export interface CompanyProfile {
+  segments: string[];
+  portfolio: string[];
+  size: string | null;
+  revenue: string | null;
+  regions: string[];
+}
+
+const labelOf = (list: OptionList, v: string) => list.find(([k]) => k === v)?.[1] ?? v;
+
+/** Resumo do perfil em uma linha, para o PDF. */
+export function profileLine(p: CompanyProfile): string {
+  return [
+    p.segments.map((v) => labelOf(PROFILE_OPTIONS.segments, v)).join(', '),
+    p.portfolio.length ? `Carteira: ${p.portfolio.map((v) => labelOf(PROFILE_OPTIONS.portfolio, v).toLowerCase()).join(', ')}` : '',
+    p.size ? labelOf(PROFILE_OPTIONS.size, p.size) : '',
+    p.revenue ? `Faturamento ${labelOf(PROFILE_OPTIONS.revenue, p.revenue)}` : '',
+    p.regions.length ? `Atuação: ${p.regions.map((v) => labelOf(PROFILE_OPTIONS.regions, v)).join(', ')}` : '',
+  ]
+    .filter(Boolean)
+    .join(' · ');
 }
