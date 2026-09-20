@@ -1,6 +1,7 @@
 
 import { Card } from '@/components/ui/card';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
@@ -41,6 +42,11 @@ const FAQ = () => {
     {
       question: "Vocês trabalham com incorporadoras?",
       answer: "Sim! Temos grande experiência com lançamentos imobiliários e campanhas para incorporadoras. Oferecemos serviços especializados em pré-lançamento, lançamento e pós-venda de empreendimentos."
+    },
+    {
+      question: "O que é o Modelo de Maturidade Imobiliária e como descubro o nível da minha imobiliária?",
+      answer: "É um modelo de 5 níveis, do artesanal à IA, inspirado no CMMI e no MPS.BR e adaptado pela OCA Digital à rotina de imobiliárias. Ele mostra em que estágio a operação está e qual gargalo trava a passagem para o próximo nível. Para descobrir o seu, faça o Teste de Maturidade Imobiliária em https://www.ocadigital.com.br/teste-maturidade: são 10 perguntas, leva menos de 3 minutos e o resultado traz o seu nível, a frente mais fraca da operação e o próximo passo, com PDF para baixar.",
+      link: { to: "/teste-maturidade", label: "Fazer o teste de maturidade" }
     },
     {
       question: "Como funciona a gestão de leads?",
@@ -99,6 +105,14 @@ const FAQ = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </p>
+                  {'link' in faq && faq.link && (
+                    <Link
+                      to={faq.link.to}
+                      className="inline-flex items-center mt-4 text-primary font-semibold underline underline-offset-4 hover:text-primary/80"
+                    >
+                      {faq.link.label}
+                    </Link>
+                  )}
                 </div>
               )}
             </Card>
