@@ -71,14 +71,40 @@ const track = (event: string, data: Record<string, unknown> = {}) => {
   w.dataLayer.push({ event, ...data });
 };
 
-const readUtm = () => {
+const readCookie = (name: string) => {
+  const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  if (!m) return null;
+  try {
+    return decodeURIComponent(m[1]);
+  } catch {
+    return m[1];
+  }
+};
+
+const CLICK_IDS = ['gclid', 'fbclid', 'msclkid'];
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+/**
+ * UTMs da URL atual mais a atribuição gravada em cookie pelo script de rastreamento do GTM
+ * (primeiro e último toque, página de entrada, origem, visitas). Sem os cookies, fica só a URL.
+ */
+const readAttribution = () => {
   const p = new URLSearchParams(window.location.search);
-  const utm: Record<string, string> = {};
-  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((k) => {
-    const v = p.get(k);
-    if (v) utm[k] = v.slice(0, 100);
+  const out: Record<string, string> = {};
+  const put = (k: string, v: string | null, max = 120) => {
+    if (v) out[k] = v.slice(0, max);
+  };
+  [...UTM_KEYS, ...CLICK_IDS].forEach((k) => {
+    put(k, p.get(k));
+    put(`first_${k}`, readCookie(`first_${k}`));
+    put(`last_${k}`, readCookie(`last_${k}`));
   });
-  return Object.keys(utm).length ? utm : null;
+  put('visitor_id', readCookie('visitor_id'), 40);
+  put('first_visit', readCookie('first_visit'), 30);
+  put('visit_count', readCookie('visit_count'), 6);
+  put('landing_page', readCookie('landing_page'), 200);
+  put('first_referrer', readCookie('referrer'), 150);
+  return Object.keys(out).length ? out : null;
 };
 
 const loadLead = (): Lead | null => {
@@ -131,7 +157,7 @@ const MaturityTest = () => {
           p_phone: l.phone,
           p_company_type: l.companyType,
           p_company: l.company || null,
-          p_utm: readUtm(),
+          p_utm: readAttribution(),
           p_referrer: document.referrer || null,
         });
         if (error) throw error;
@@ -184,7 +210,10 @@ const MaturityTest = () => {
 
   const onStartClick = () => {
     if (lead) beginTest(lead);
-    else setModalOpen(true);
+    else {
+      track('maturity_modal_open');
+      setModalOpen(true);
+    }
   };
 
   const finish = useCallback(
@@ -235,12 +264,19 @@ const MaturityTest = () => {
       const next = [...answers];
       next[index] = value;
       setAnswers(next);
+      track('maturity_question', { question_number: index + 1 });
+      // Salva o progresso a cada resposta para saber em que pergunta quem desiste parou.
+      if (responseId && index < QUESTIONS.length - 1) {
+        rpc('save_maturity_progress', { p_id: responseId, p_answers: next }).then(({ error }) => {
+          if (error) logError('progress error:', error);
+        });
+      }
       window.setTimeout(() => {
         if (index < QUESTIONS.length - 1) setIndex(index + 1);
         else finish(next as number[]);
       }, 220);
     },
-    [answers, index, finish],
+    [answers, index, finish, responseId],
   );
 
   useEffect(() => {
