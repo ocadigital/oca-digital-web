@@ -28,7 +28,7 @@ export const cases: CaseStudy[] = [
     slug: "brognoli-negocios-imobiliarios",
     client: "Brognoli Negócios Imobiliários",
     segment: "Imobiliária",
-    coverImage: "/images/cases/brognoli.webp",
+    coverImage: "/images/cases/brognoli-2026-09.webp",
     title: "Brognoli: de um dos maiores cases orgânicos do YouTube no mercado imobiliário à previsibilidade comercial de hoje",
     summary:
       "Uma web série que viralizou organicamente entre universitários de Florianópolis e, anos depois, a estruturação de CRM e atendimento que trouxe previsibilidade comercial para a operação.",
