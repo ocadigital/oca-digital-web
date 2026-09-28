@@ -168,7 +168,7 @@ export const cases: CaseStudy[] = [
     solution:
       "Desenvolvemos a plataforma do zero, com arquitetura Next.js no front-end e Django (Python) + PostgreSQL no back-end, hospedados em Vercel, Render e Cloudflare R2. O CMS sob medida permite à própria Vokkan editar conteúdo, cadastrar novos empreendimentos, gerenciar corretores parceiros e controlar permissões de usuário, sem depender de terceiros para cada atualização. O design, aprovado em Figma antes do desenvolvimento, segue uma estrutura pensada para conversão: vídeo institucional com CTA já nos primeiros segundos, apresentação de cada empreendimento, um espaço dedicado à equipe de especialistas para humanizar o atendimento e um Q&A para quebra de objeções. A captação de leads foi integrada diretamente ao CRM da operação comercial, com boas práticas de SEO e rastreamento de conversão desde o primeiro dia.",
     results:
-      "A plataforma entrou no ar após 60 dias de desenvolvimento, partindo do zero, já que não existia presença digital própria da VivaOn antes. Por substituir uma ausência total, ainda não há comparativos históricos de performance, mas toda a estrutura foi construída para medir SEO, conversão e leads desde o lançamento. A parceria segue ativa: a OCA Digital é responsável pela manutenção mensal contínua (monitoramento de uptime, segurança, performance e relatórios), e as duas empresas já avaliam a viabilidade de novos projetos juntas.",
+      "A plataforma entrou no ar em imoveisnovivapark.com.br após 60 dias de desenvolvimento, partindo do zero, já que não existia presença digital própria da VivaOn antes. Por substituir uma ausência total, ainda não há comparativos históricos de performance, mas toda a estrutura foi construída para medir SEO, conversão e leads desde o lançamento. A parceria segue ativa: a OCA Digital é responsável pela manutenção mensal contínua (monitoramento de uptime, segurança, performance e relatórios), e as duas empresas já avaliam a viabilidade de novos projetos juntas.",
     metrics: [
       { label: "Prazo de desenvolvimento", value: "60 dias" },
       { label: "Empreendimentos na plataforma", value: "4" },
@@ -177,7 +177,7 @@ export const cases: CaseStudy[] = [
     relatedBlogSlug: "guia-completo-crm-imobiliario-organizar-leads",
     externalLinks: [
       {
-        label: "Visitar o site do Vivapark",
+        label: "Ver o novo site do Vivapark",
         url: "https://imoveisnovivapark.com.br",
       },
     ],
