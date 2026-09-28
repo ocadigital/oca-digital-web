@@ -102,7 +102,7 @@ export const cases: CaseStudy[] = [
     slug: "aldo-imoveis-lagoa-da-conceicao",
     client: "Aldo Imóveis",
     segment: "Imobiliária",
-    coverImage: "/images/cases/aldo-imoveis.webp",
+    coverImage: "/images/cases/aldo-imoveis-2026-09.webp",
     title: "Aldo Imóveis: 48 mil novos usuários após relançar o site com o OCA Base",
     summary:
       "Relançamento do site da Aldo Imóveis (Lagoa da Conceição, Florianópolis) com o OCA Base, combinado a campanhas de Google Ads segmentadas por venda e locação.",
@@ -135,7 +135,7 @@ export const cases: CaseStudy[] = [
     slug: "santa-ilha-sunclub-campeche",
     client: "Santa Ilha Imobiliária",
     segment: "Lançamento Imobiliário",
-    coverImage: "/images/cases/santa-ilha-sunclub.webp",
+    coverImage: "/images/cases/santa-ilha-sunclub-2026-09.webp",
     title: "SUNCLUB Campeche: 173 leads em 5 semanas de pré-lançamento com CPL de R$43,44",
     summary:
       "Campanha completa de pré-lançamento do SUNCLUB Campeche Beach Residence para a Santa Ilha Imobiliária: hotsite, mídia paga, e-mail marketing e imprensa, do zero até 173 leads captados. A Santa Ilha terminou como a segunda imobiliária que mais vendeu unidades do empreendimento.",
@@ -159,7 +159,7 @@ export const cases: CaseStudy[] = [
     slug: "vokkan-vivaon-vivapark",
     client: "Vokkan Construtora",
     segment: "Incorporadora",
-    coverImage: "/images/cases/vokkan-vivapark.webp",
+    coverImage: "/images/cases/vokkan-vivapark-2026-09.webp",
     title: "Vokkan: a plataforma completa da VivaOn, a imobiliária in-house do Vivapark, em 60 dias",
     summary:
       "Design, desenvolvimento full-stack e CMS sob medida para posicionar a VivaOn, time in-house do Vivapark, como uma imobiliária completa, com captação de leads integrada ao CRM e gestão de múltiplos empreendimentos.",
