@@ -79,7 +79,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log('Sending email notification');
     const emailResponse = await resend.emails.send({
       from: "OCA Digital <noreply@ocadigital.com.br>",
-      to: ["anderson.goncalves81@gmail.com"],
+      to: ["anderson@ocadigital.com.br"],
       subject: subject,
       html: emailContent,
     });
