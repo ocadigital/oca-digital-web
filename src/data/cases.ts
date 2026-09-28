@@ -138,17 +138,17 @@ export const cases: CaseStudy[] = [
     coverImage: "/images/cases/santa-ilha-sunclub.webp",
     title: "SUNCLUB Campeche: 173 leads em 5 semanas de pré-lançamento com CPL de R$43,44",
     summary:
-      "Campanha completa de pré-lançamento do SUNCLUB Campeche Beach Residence para a Santa Ilha Imobiliária: hotsite, mídia paga, e-mail marketing e imprensa, do zero até 173 leads captados.",
+      "Campanha completa de pré-lançamento do SUNCLUB Campeche Beach Residence para a Santa Ilha Imobiliária: hotsite, mídia paga, e-mail marketing e imprensa, do zero até 173 leads captados. A Santa Ilha terminou como a segunda imobiliária que mais vendeu unidades do empreendimento.",
     challenge:
       "A Santa Ilha Imobiliária precisava estruturar, praticamente do zero e em pouco mais de 5 semanas, toda a operação digital de pré-lançamento do SUNCLUB Campeche Beach Residence, desde a presença online até a geração de leads qualificados, com um orçamento de mídia enxuto.",
     solution:
       "Construímos o funil completo: criação do hotsite, configuração de domínio, hospedagem, e-mail e Google Analytics; produção de 30 dias de conteúdo para Facebook e Instagram; edição e publicação de vídeos do empreendimento no canal da Santa Ilha; disparo de e-mail marketing para a base própria da OCA Digital; e articulação de uma matéria de imprensa no portal DuCampeche, além de um post no blog da própria Santa Ilha. Em paralelo, rodamos mídia paga em Google Ads (Search e YouTube), Facebook/Instagram Ads (tráfego e geração direta de leads) e uma campanha de remarketing.",
     results:
-      "A campanha impactou aproximadamente 106 mil pessoas e levou 7.167 visitantes únicos ao hotsite. O vídeo da trilha sonora do empreendimento sozinho somou 7.626 visualizações no YouTube. Ao todo, foram captados 173 leads (136 via formulário na landing page, 31 via Lead Ads no Facebook/Instagram e 6 por resposta direta ao e-mail), com um investimento total de R$7.514,32 (R$5.000 de honorários da OCA Digital + R$2.514,32 em mídia), um custo geral por lead de R$43,44.",
+      "A campanha impactou aproximadamente 106 mil pessoas e levou 7.167 visitantes únicos ao hotsite. O vídeo da trilha sonora do empreendimento sozinho somou 7.626 visualizações no YouTube. Ao todo, foram captados 173 leads (136 via formulário na landing page, 31 via Lead Ads no Facebook/Instagram e 6 por resposta direta ao e-mail), com um investimento total de R$7.514,32 (R$5.000 de honorários da OCA Digital + R$2.514,32 em mídia), um custo geral por lead de R$43,44. Nas vendas, a Santa Ilha foi a segunda imobiliária que mais vendeu imóveis do SUNCLUB Campeche.",
     metrics: [
       { label: "Leads captados", value: "173" },
-      { label: "Pessoas impactadas", value: "106 mil+" },
       { label: "Custo por lead (CPL)", value: "R$43,44" },
+      { label: "Ranking de vendas no empreendimento", value: "2º lugar" },
     ],
     relatedBlogSlug: "como-gerar-mais-leads-qualificados-imobiliaria-2024",
     publishedAt: "2026-01-01",
