@@ -62,6 +62,42 @@ export const cases: CaseStudy[] = [
     featured: true,
   },
   {
+    id: "7",
+    slug: "brognoli-indicasse-programa-de-indicacao",
+    client: "Brognoli Negócios Imobiliários",
+    segment: "Imobiliária",
+    coverImage: "/images/cases/brognoli-indicasse.webp",
+    title: "Indicasse: o programa de indicação que levou a Brognoli a uma média de 300 novas captações por mês",
+    summary:
+      "Em 2019 a Brognoli locava mais imóveis do que conseguia captar. Das entrevistas com proprietários, zeladores, porteiros e gestores de condomínio nasceu o Indicasse, um app de indicação com acompanhamento transparente e pagamento garantido a quem indica.",
+    challenge:
+      "Em 2019, como Head de Marketing da Brognoli, Anderson Gonçalves (hoje fundador da OCA Digital) percebeu que a quantidade de imóveis locados crescia mais rápido do que a de imóveis captados, e a carteira começava a ficar desequilibrada, com menos opções para oferecer a quem procurava. Para entender onde estavam os imóveis que não chegavam até a imobiliária, ele entrevistou proprietários e potenciais parceiros, como zeladores, porteiros e gestores de condomínio, que são os primeiros a saber quando um apartamento vai ficar vago. A dor apareceu logo: depois de indicar um imóvel, essas pessoas não tinham como acompanhar o que acontecia com a indicação, nem certeza de que receberiam alguma coisa por ela. Sem transparência, ninguém tinha motivo para indicar.",
+    solution:
+      "A resposta foi o Indicasse (indicasse.com.br), um aplicativo web da própria Brognoli para indicar imóveis residenciais e comerciais. Qualquer pessoa acima de 18 anos faz um cadastro rápido e pode indicar de duas formas: preenchendo o nome, o celular do proprietário e o endereço, ou compartilhando um link para o próprio proprietário preencher os dados. A partir daí, cada etapa aparece no app até o imóvel ser publicado no site da Brognoli. Na campanha de lançamento, o indicador recebia R$ 100 num cartão pré-pago sem anuidade assim que o imóvel era publicado, mais 10% do primeiro aluguel quando o imóvel residencial era locado. O lançamento foi feito em parceria com o Sindhub, com um evento presencial transmitido ao vivo, e uma campanha em mídia on e off com as chamadas \"Indicou imóvel, publicou, ganhou!\" e \"Já indicasse, mô quirido?\", no sotaque manezinho de Florianópolis. Na versão 2.0, o Indicasse passou a checar se o endereço indicado já existia no sistema da imobiliária, para evitar indicação duplicada, e a mandar cada indicação para o funil comercial no Bitrix24 separado por bairro, com restrição às regiões atendidas para não criar falsa expectativa em quem indica imóvel fora da área de atuação.",
+    results:
+      "Depois do mês de lançamento, a Brognoli passou a efetivar, em média, 300 novas captações de imóveis por mês vindas do programa, o que ajudou a reequilibrar a carteira entre imóveis captados e locados. Zeladores, porteiros, gestores de condomínio e os próprios clientes viraram uma rede de captação, porque passaram a ver em que pé estava cada indicação e a receber por ela. O Indicasse segue ativo até hoje.",
+    metrics: [
+      { label: "Novas captações por mês", value: "300 em média" },
+      { label: "Lançamento", value: "2019" },
+      { label: "Status do programa", value: "Ativo até hoje" },
+    ],
+    externalLinks: [
+      {
+        label: "Conhecer o Indicasse",
+        url: "https://indicasse.com.br",
+      },
+      {
+        label: "Post de lançamento no blog da Brognoli",
+        url: "https://www.brognoli.com.br/blog/renda-extra-indicou-imovel-publicou-ganhou/",
+      },
+      {
+        label: "Campanha \"Já indicasse, mô quirido?\"",
+        url: "https://www.brognoli.com.br/blog/ja-indicasse-mo-quirido/",
+      },
+    ],
+    publishedAt: "2026-09-28",
+  },
+  {
     id: "6",
     slug: "aldo-imoveis-lagoa-da-conceicao",
     client: "Aldo Imóveis",
