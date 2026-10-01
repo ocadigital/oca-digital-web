@@ -26,8 +26,28 @@ function escapeAttr(str: string): string {
   return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
-function injectContent(baseHtml: string, page: { title: string; description: string }, fragment: string): string {
-  let html = baseHtml;
+type PageMeta = { title: string; description: string; url?: string; ogTitle?: string; ogImage?: string };
+
+/** Troca as tags de prévia (WhatsApp, LinkedIn, X) quando a página tem imagem própria. */
+function injectSocial(baseHtml: string, page: PageMeta): string {
+  if (!page.ogImage) return baseHtml;
+  const title = escapeAttr(page.ogTitle || page.title);
+  const desc = escapeAttr(page.description);
+  const img = escapeAttr(page.ogImage);
+  const tags: [RegExp, string][] = [
+    [/<meta property="og:title" content=".*?"\s*\/?>/s, `<meta property="og:title" content="${title}" />`],
+    [/<meta property="og:description" content=".*?"\s*\/?>/s, `<meta property="og:description" content="${desc}" />`],
+    [/<meta property="og:image" content=".*?"\s*\/?>/s, `<meta property="og:image" content="${img}" />`],
+    [/<meta name="twitter:title" content=".*?"\s*\/?>/s, `<meta name="twitter:title" content="${title}" />`],
+    [/<meta name="twitter:description" content=".*?"\s*\/?>/s, `<meta name="twitter:description" content="${desc}" />`],
+    [/<meta name="twitter:image" content=".*?"\s*\/?>/s, `<meta name="twitter:image" content="${img}" />`],
+  ];
+  if (page.url) tags.push([/<meta property="og:url" content=".*?"\s*\/?>/s, `<meta property="og:url" content="${escapeAttr(page.url)}" />`]);
+  return tags.reduce((html, [re, tag]) => html.replace(re, tag), baseHtml);
+}
+
+function injectContent(baseHtml: string, page: PageMeta, fragment: string): string {
+  let html = injectSocial(baseHtml, page);
   html = html.replace(/<title>.*?<\/title>/s, `<title>${escapeAttr(page.title)}</title>`);
   html = html.replace(
     /<meta name="description" content=".*?"\s*\/?>/s,

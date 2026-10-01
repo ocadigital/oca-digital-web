@@ -4,6 +4,10 @@ import {
   diagnosisText,
   LEVELS,
   LEVEL_5_ACTIONS,
+  LEVEL_METRICS,
+  MIRO_TEMPLATE_URL,
+  evolutionMap,
+  frontPlan,
   type Level,
   type TestResult,
 } from '@/data/maturityTest';
@@ -14,6 +18,8 @@ interface PdfInput {
   /** Resumo do perfil da empresa, quando informado. */
   profile?: string;
   result: TestResult;
+  /** Respostas de 1 a 5, na ordem das perguntas, para o mapa de evolução. */
+  answers?: number[];
 }
 
 type RGB = [number, number, number];
@@ -53,7 +59,7 @@ const slug = (s: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
 
-export async function downloadMaturityPdf({ name, company, profile, result }: PdfInput) {
+export async function downloadMaturityPdf({ name, company, profile, result, answers }: PdfInput) {
   const { jsPDF } = await import('jspdf');
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
   const W = 210;
@@ -247,6 +253,108 @@ export async function downloadMaturityPdf({ name, company, profile, result }: Pd
     by += 2;
   });
   y += boxH + 8;
+
+  const section = (eyebrow: string, title: string, keepWith = 0) => {
+    ensure(24 + keepWith);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8.5);
+    ink(PRIMARY);
+    doc.text(eyebrow.toUpperCase(), M, y);
+    y += 6;
+    paragraph(title, 14, TEXT, 6.4, M, CW, 'bold');
+    y += 2;
+  };
+
+  // Plano por frente
+  y += 2;
+  section('Plano por frente', 'Uma ação para cada frente, na ordem de prioridade');
+  frontPlan(result).forEach((p, i) => {
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10.5);
+    const lines = doc.splitTextToSize(p.action, CW - 12) as string[];
+    ensure(8 + lines.length * 5.2);
+    fill(i === 0 ? PRIMARY : TRACK);
+    doc.circle(M + 3.2, y - 1.4, 3.2, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    ink(i === 0 ? [255, 255, 255] : TEXT);
+    doc.text(String(i + 1), M + 3.2, y, { align: 'center' });
+    doc.setFontSize(10.5);
+    ink(TEXT);
+    doc.text(`${p.name}  ·  ${p.score.toFixed(1)} de 5`, M + 10, y);
+    y += 5.4;
+    doc.setFont('helvetica', 'normal');
+    ink(MUTED);
+    lines.forEach((ln) => {
+      doc.text(ln, M + 10, y);
+      y += 5.2;
+    });
+    y += 3;
+  });
+  y += 4;
+
+  // Indicadores
+  section('Para medir a partir de agora', 'Indicadores para levar à próxima reunião');
+  LEVEL_METRICS[level].forEach((m) => {
+    ensure(7);
+    fill(PRIMARY);
+    doc.circle(M + 2, y - 1.3, 1, 'F');
+    paragraph(m, 10.5, TEXT, 5.2, M + 6, CW - 6);
+    y += 1;
+  });
+  y += 6;
+
+  // Mapa de evolução
+  if (answers && answers.length) {
+    section('Mapa de evolução', 'Onde você está hoje e qual é o próximo degrau', 30);
+    const colW = (CW - 6) / 2;
+    evolutionMap(answers).forEach((s) => {
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9.5);
+      const today = doc.splitTextToSize(s.today, colW - 8) as string[];
+      const nxt = doc.splitTextToSize(s.next ?? 'Você já está no último degrau desta pergunta. O desafio é manter.', colW - 8) as string[];
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      const q = doc.splitTextToSize(s.question, CW) as string[];
+      const boxH = 9 + Math.max(today.length, nxt.length) * 4.6;
+      ensure(q.length * 5 + boxH + 6);
+      paragraph(s.question, 10, TEXT, 5, M, CW, 'bold');
+      y += 1;
+      fill([246, 246, 250]);
+      draw(TRACK);
+      doc.roundedRect(M, y, colW, boxH, 2, 2, 'FD');
+      fill([245, 241, 253]);
+      draw([225, 214, 250]);
+      doc.roundedRect(M + colW + 6, y, colW, boxH, 2, 2, 'FD');
+      doc.setFontSize(7.5);
+      ink(MUTED);
+      doc.text('HOJE', M + 4, y + 5);
+      ink(PRIMARY);
+      doc.text('PRÓXIMO DEGRAU', M + colW + 10, y + 5);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9.5);
+      ink(TEXT);
+      today.forEach((ln, i) => doc.text(ln, M + 4, y + 10 + i * 4.6));
+      nxt.forEach((ln, i) => doc.text(ln, M + colW + 10, y + 10 + i * 4.6));
+      y += boxH + 6;
+    });
+    y += 2;
+  }
+
+  // Bônus
+  section('Bônus', 'Modelo no Miro para blindar os processos');
+  paragraph(
+    'O quadro que usamos com os clientes, com os 3 passos: mapear visualmente, documentar regras e processos e estabelecer rotinas. Faça uma cópia e preencha com o seu time.',
+    10.5,
+    MUTED,
+    5.2,
+  );
+  y += 1;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(10.5);
+  ink(PRIMARY);
+  doc.textWithLink('Abrir o modelo no Miro', M, y, { url: MIRO_TEMPLATE_URL });
+  y += 12;
 
   // Próximo passo
   ensure(34);

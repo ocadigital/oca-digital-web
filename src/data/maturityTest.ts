@@ -369,3 +369,113 @@ export function profileLine(p: CompanyProfile): string {
     .filter(Boolean)
     .join(' · ');
 }
+
+// ---------- Relatório completo (liberado após o cadastro) ----------
+
+/** Modelo no Miro com os 3 passos da Blindagem de Processos, bônus do cadastro. */
+export const MIRO_TEMPLATE_URL = 'https://miro.com/app/board/uXjVGITRDPw=/?share_link_id=560743161292';
+
+type Band = 1 | 2 | 3 | 4 | 5;
+/** Faixa da nota de uma frente, para escolher a ação certa. */
+export const scoreBand = (score: number): Band => (score < 1.5 ? 1 : score < 2.5 ? 2 : score < 3.5 ? 3 : score < 4.5 ? 4 : 5);
+
+/** Próxima ação de cada frente conforme a faixa da nota. */
+export const DIMENSION_ACTIONS: Record<string, Record<Band, string>> = {
+  dados: {
+    1: 'Escolha um CRM e passe para ele tudo o que hoje está em caderno e planilha: leads, captações e negociações abertas.',
+    2: 'Torne o preenchimento do CRM obrigatório, com os mesmos campos para todos, e confira na reunião semanal quem não registrou.',
+    3: 'Integre portais, site e campanhas ao CRM para que cada lead chegue com a origem marcada, sem digitação.',
+    4: 'Use o histórico do CRM para priorizar os leads automaticamente e receber alerta de quem está esfriando.',
+    5: 'Revise a qualidade dos dados todo mês: campos vazios, contatos duplicados e origens sem nome.',
+  },
+  processos: {
+    1: 'Escreva o passo a passo do atendimento, do primeiro contato à proposta, numa página só, e combine com o time.',
+    2: 'Transforme o funil em método: checklist por etapa, prazo de resposta e o que fazer quando o lead some.',
+    3: 'Revise o método todo mês com os números de cada etapa e ajuste onde a conversão cai.',
+    4: 'Automatize as etapas repetitivas, como confirmação de visita, lembrete de documento e follow-up, e teste versões do roteiro.',
+    5: 'Documente cada mudança que deu certo, para o método continuar sendo da imobiliária e não de quem o criou.',
+  },
+  papeis: {
+    1: 'Liste tudo o que o dono faz na semana e separe o que pode passar para outra pessoa nos próximos 30 dias.',
+    2: 'Defina quem faz o quê: pré-atendimento, captação, vendas e contratos, com uma pessoa responsável por papel.',
+    3: 'Dê a cada papel uma meta e um indicador próprio, acompanhados toda semana.',
+    4: 'Deixe a tarefa repetitiva com a automação e o tempo do corretor com a negociação.',
+    5: 'Revise os papéis a cada semestre, conforme a operação cresce.',
+  },
+  metricas: {
+    1: 'Comece com três números por mês: leads por canal, visitas realizadas e contratos fechados.',
+    2: 'Monte um relatório mensal por canal com custo, leads e vendas, e decida a verba em cima dele.',
+    3: 'Leve os indicadores para um painel que se atualiza sozinho, com CRM, portais e campanhas, e defina metas com alerta.',
+    4: 'Use o histórico para projetar o resultado e teste variações de campanha de forma contínua.',
+    5: 'Revise os indicadores a cada trimestre e aposente os que não mudam nenhuma decisão.',
+  },
+  tecnologia: {
+    1: 'Mapeie a esteira de contratos e locação e liste os documentos que mais se perdem ou atrasam.',
+    2: 'Padronize a esteira com checklist e prazo por etapa, e passe a assinatura dos contratos para digital.',
+    3: 'Meça o tempo de cada etapa da esteira e ataque a que mais atrasa. Comece a automação pelo simples: resposta inicial e cadência de e-mail.',
+    4: 'Aplique IA onde os dados já são confiáveis: análise de crédito, precificação e alerta de cancelamento.',
+    5: 'Teste uma automação nova por trimestre, sempre com uma meta definida.',
+  },
+};
+
+export interface FrontPlanItem {
+  id: string;
+  name: string;
+  score: number;
+  action: string;
+}
+
+/** Uma ação por frente, da nota mais baixa para a mais alta. */
+export function frontPlan(result: TestResult): FrontPlanItem[] {
+  return [...result.dimensions]
+    .sort((a, b) => a.score - b.score)
+    .map((d) => ({ id: d.id, name: d.name, score: d.score, action: DIMENSION_ACTIONS[d.id][scoreBand(d.score)] }));
+}
+
+/** Indicadores para começar a acompanhar, conforme o nível. */
+export const LEVEL_METRICS: Record<Level, string[]> = {
+  1: [
+    'Leads recebidos por canal: portal, site, redes sociais e indicação',
+    'Tempo até o primeiro atendimento de cada lead',
+    'Captações novas no mês',
+  ],
+  2: [
+    'Conversão de lead em visita',
+    'Conversão de visita em proposta',
+    'Leads sem retorno em 24 horas',
+    'Faturamento previsto para o mês seguinte',
+  ],
+  3: [
+    'Conversão em cada etapa do funil, por corretor',
+    'Custo por lead em cada canal',
+    'Tempo de ciclo da esteira de contratos',
+    'Vacância da carteira de locação',
+  ],
+  4: [
+    'Custo de aquisição de cliente (CAC) por canal',
+    'Retorno por portal e por campanha',
+    'Previsão de vendas comparada com o realizado',
+    'Taxa de cancelamento',
+  ],
+  5: [
+    'Tempo economizado pelas automações',
+    'Precisão das previsões de venda e cancelamento',
+    'Resultado dos testes A/B',
+    'Satisfação do cliente (NPS)',
+  ],
+};
+
+export interface EvolutionStep {
+  dimension: string;
+  question: string;
+  today: string;
+  next: string | null;
+}
+
+/** Para cada pergunta: a resposta de hoje e a opção do degrau seguinte. */
+export function evolutionMap(answers: number[]): EvolutionStep[] {
+  return QUESTIONS.map((q, i) => {
+    const a = answers[i];
+    return { dimension: q.dimension, question: q.text, today: q.options[a - 1], next: a < 5 ? q.options[a] : null };
+  });
+}

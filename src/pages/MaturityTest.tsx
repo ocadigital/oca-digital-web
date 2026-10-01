@@ -6,6 +6,8 @@ import Footer from '@/components/Footer';
 import ProcessShieldBadge from '@/components/ProcessShieldBadge';
 import MaturityRadar from '@/components/MaturityRadar';
 import MaturityLiveReport from '@/components/MaturityLiveReport';
+import MaturityFullReport from '@/components/MaturityFullReport';
+import MaturityShare from '@/components/MaturityShare';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -328,6 +330,8 @@ const MaturityTest = () => {
         {step === 'result' && result && profile && (
           <Result
             result={result}
+            answers={answers as number[]}
+            responseId={responseId}
             profile={profile}
             contact={contact}
             onUnlock={unlock}
@@ -699,6 +703,8 @@ const ContactForm = ({ onSubmit }: { onSubmit: (c: Contact) => Promise<boolean> 
 
 const Result = ({
   result,
+  answers,
+  responseId,
   profile,
   contact,
   onUnlock,
@@ -707,6 +713,8 @@ const Result = ({
   toast,
 }: {
   result: TestResult;
+  answers: number[];
+  responseId: string | null;
   profile: Profile;
   contact: Contact | null;
   onUnlock: (c: Contact) => Promise<boolean>;
@@ -721,16 +729,6 @@ const Result = ({
   const unlocked = !!contact;
   const [pdfBusy, setPdfBusy] = useState(false);
 
-  const shareText = `Fiz o Teste de Maturidade Imobiliária da OCA Digital e a minha imobiliária está no Nível ${level} de 5 (${info.name}). Descubra o seu: ${PAGE_URL}`;
-  const share = async () => {
-    try {
-      await navigator.clipboard.writeText(shareText);
-      toast({ title: 'Texto copiado', description: 'Cole onde quiser compartilhar.' });
-    } catch {
-      toast({ title: 'Não foi possível copiar', variant: 'destructive' });
-    }
-  };
-
   const downloadPdf = async (c: Contact) => {
     setPdfBusy(true);
     try {
@@ -740,6 +738,7 @@ const Result = ({
         company: c.company || undefined,
         profile: companyTypeLabel(profile.companyType),
         result,
+        answers,
       });
       track('maturity_test_pdf', { maturity_level: level });
     } catch (e) {
@@ -850,14 +849,38 @@ const Result = ({
         ) : (
           <>
             <p className="text-muted-foreground mb-6">
-              O diagnóstico completo explica o que trava a sua passagem para o próximo nível e traz {actions.length} ações para
-              destravar, com o PDF para compartilhar com o seu time. Informe onde quer receber:
+              Informe onde quer receber o diagnóstico completo. Ele libera aqui na tela e em PDF:
             </p>
+            <ul className="mb-6 grid gap-2 sm:grid-cols-2 text-sm text-foreground">
+              {[
+                `O gargalo da passagem para o ${next ? `Nível ${level + 1}` : 'próximo ciclo'} e ${actions.length} ações`,
+                'Plano com uma ação para cada frente, por prioridade',
+                'Mapa de evolução: sua resposta e o próximo degrau em cada pergunta',
+                'Indicadores para começar a medir',
+                'Modelo no Miro para blindar os processos',
+                'Relatório completo em PDF',
+              ].map((t) => (
+                <li key={t} className="flex gap-2">
+                  <span className="text-primary" aria-hidden="true">
+                    ✓
+                  </span>
+                  {t}
+                </li>
+              ))}
+            </ul>
             <ContactForm onSubmit={handleUnlock} />
           </>
         )}
       </Card>
 
+      {unlocked && (
+        <MaturityFullReport
+          result={result}
+          answers={answers}
+          onMiro={() => track('maturity_miro_click', { maturity_level: level })}
+        />
+      )}
+      <MaturityShare result={result} responseId={responseId} toast={toast} track={track} />
       <Card className="p-8 card-elevated text-center">
         <h2 className="text-2xl font-bold text-foreground mb-2">Quer um plano para subir de nível?</h2>
         <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
@@ -872,9 +895,6 @@ const Result = ({
       <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
         <Button asChild variant="outline">
           <Link to={GUIDE_PATH}>Ler o guia completo</Link>
-        </Button>
-        <Button variant="outline" onClick={share}>
-          Copiar texto para compartilhar
         </Button>
         <Button variant="ghost" onClick={onRestart}>
           Refazer o teste
