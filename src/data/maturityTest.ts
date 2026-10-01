@@ -256,6 +256,46 @@ export function computeResult(answers: number[]): TestResult {
   return { overall, level, dimensions, weakest, strongest };
 }
 
+export interface PartialDimension {
+  id: string;
+  name: string;
+  short: string;
+  /** Média das respostas já dadas nesta frente; null se nenhuma ainda. */
+  score: number | null;
+  answered: number;
+}
+
+export interface PartialResult {
+  dimensions: PartialDimension[];
+  overall: number | null;
+  level: Level | null;
+  answered: number;
+  completeDimensions: number;
+}
+
+/** Resultado parcial para o relatório que se monta enquanto a pessoa responde. */
+export function computePartial(answers: (number | null)[]): PartialResult {
+  const given = answers.filter((v): v is number => v != null);
+  const dimensions = DIMENSIONS.map((d) => {
+    const vals = d.questions.map((i) => answers[i]).filter((v): v is number => v != null);
+    return {
+      id: d.id,
+      name: d.name,
+      short: d.short,
+      score: vals.length ? round2(vals.reduce((a, b) => a + b, 0) / vals.length) : null,
+      answered: vals.length,
+    };
+  });
+  const overall = given.length ? round2(given.reduce((a, b) => a + b, 0) / given.length) : null;
+  return {
+    dimensions,
+    overall,
+    level: overall == null ? null : (Math.min(5, Math.max(1, Math.round(overall))) as Level),
+    answered: given.length,
+    completeDimensions: dimensions.filter((d) => d.answered === 2).length,
+  };
+}
+
 /** Frase de diagnóstico montada por regra, sempre coerente com as notas. */
 export function diagnosisText(result: TestResult): string {
   const weak = result.weakest.name.toLowerCase();

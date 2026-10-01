@@ -1,8 +1,11 @@
-import { DIMENSIONS, type DimensionScore } from '@/data/maturityTest';
+import { DIMENSIONS } from '@/data/maturityTest';
 
 interface Props {
-  dimensions: DimensionScore[];
+  /** Nota de 0 a 5 por frente; null quando a frente ainda não foi respondida. */
+  dimensions: { id: string; name: string; score: number | null }[];
   color: string;
+  /** Sem rótulos, para a versão pequena do relatório ao vivo. */
+  compact?: boolean;
 }
 
 const CX = 200;
@@ -17,10 +20,18 @@ const point = (i: number, ratio: number) => {
 const poly = (ratios: number[]) => ratios.map((r, i) => `${point(i, r).x.toFixed(1)},${point(i, r).y.toFixed(1)}`).join(' ');
 
 /** Radar das cinco frentes, escala de 0 a 5. */
-const MaturityRadar = ({ dimensions, color }: Props) => {
-  const summary = dimensions.map((d) => `${d.name}: ${d.score.toFixed(1)} de 5`).join('; ');
+const MaturityRadar = ({ dimensions, color, compact = false }: Props) => {
+  const summary = dimensions
+    .map((d) => `${d.name}: ${d.score == null ? 'ainda sem resposta' : `${d.score.toFixed(1)} de 5`}`)
+    .join('; ');
+  const ratio = (s: number | null) => (s ?? 0) / 5;
   return (
-    <svg viewBox="0 0 400 300" className="w-full h-auto" role="img" aria-label={`Radar da maturidade. ${summary}`}>
+    <svg
+      viewBox={compact ? '96 46 208 208' : '0 0 400 300'}
+      className="w-full h-auto"
+      role="img"
+      aria-label={`Radar da maturidade. ${summary}`}
+    >
       {[1, 2, 3, 4, 5].map((n) => (
         <polygon
           key={n}
@@ -35,7 +46,7 @@ const MaturityRadar = ({ dimensions, color }: Props) => {
         return <line key={i} x1={CX} y1={CY} x2={p.x} y2={p.y} stroke="hsl(var(--border))" strokeWidth={1} />;
       })}
       <polygon
-        points={poly(dimensions.map((d) => d.score / 5))}
+        points={poly(dimensions.map((d) => ratio(d.score)))}
         fill={color}
         fillOpacity={0.22}
         stroke={color}
@@ -43,24 +54,26 @@ const MaturityRadar = ({ dimensions, color }: Props) => {
         strokeLinejoin="round"
       />
       {dimensions.map((d, i) => {
-        const p = point(i, d.score / 5);
+        if (d.score == null) return null;
+        const p = point(i, ratio(d.score));
         return <circle key={d.id} cx={p.x} cy={p.y} r={4} fill={color} stroke="hsl(var(--card))" strokeWidth={1.5} />;
       })}
-      {DIMENSIONS.map((d, i) => {
-        const p = point(i, 1.2);
-        const anchor = Math.abs(p.cos) < 0.2 ? 'middle' : p.cos > 0 ? 'start' : 'end';
-        const score = dimensions[i].score.toFixed(1);
-        return (
-          <text key={d.id} x={p.x} y={p.y} textAnchor={anchor} fontSize={13} fill="hsl(var(--foreground))" fontWeight={600}>
-            <tspan x={p.x} dy={i === 0 ? -4 : 0}>
-              {d.short}
-            </tspan>
-            <tspan x={p.x} dy={15} fontSize={12} fontWeight={500} fill="hsl(var(--muted-foreground))">
-              {score}
-            </tspan>
-          </text>
-        );
-      })}
+      {!compact &&
+        DIMENSIONS.map((d, i) => {
+          const p = point(i, 1.2);
+          const anchor = Math.abs(p.cos) < 0.2 ? 'middle' : p.cos > 0 ? 'start' : 'end';
+          const s = dimensions[i].score;
+          return (
+            <text key={d.id} x={p.x} y={p.y} textAnchor={anchor} fontSize={13} fill="hsl(var(--foreground))" fontWeight={600}>
+              <tspan x={p.x} dy={i === 0 ? -4 : 0}>
+                {d.short}
+              </tspan>
+              <tspan x={p.x} dy={15} fontSize={12} fontWeight={500} fill="hsl(var(--muted-foreground))">
+                {s == null ? '—' : s.toFixed(1)}
+              </tspan>
+            </text>
+          );
+        })}
     </svg>
   );
 };

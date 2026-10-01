@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProcessShieldBadge from '@/components/ProcessShieldBadge';
 import MaturityRadar from '@/components/MaturityRadar';
+import MaturityLiveReport from '@/components/MaturityLiveReport';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -305,19 +306,24 @@ const MaturityTest = () => {
         <meta property="og:url" content={PAGE_URL} />
       </Helmet>
       <Header />
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <main className={`${step === 'quiz' ? 'max-w-6xl' : 'max-w-3xl'} mx-auto px-4 sm:px-6 py-10 sm:py-14`}>
         {step === 'intro' && <Intro onStart={onStartClick} headingRef={headingRef} />}
         {step === 'profile' && (
           <ProfileStep initial={profile} onSubmit={onProfileSubmit} onBack={() => setStep('intro')} headingRef={headingRef} />
         )}
         {step === 'quiz' && (
-          <Quiz
-            index={index}
-            answer={answers[index]}
-            onChoose={choose}
-            onBack={() => (index > 0 ? setIndex(index - 1) : setStep('profile'))}
-            headingRef={headingRef}
-          />
+          <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10">
+            <div className="lg:order-last lg:sticky lg:top-28">
+              <MaturityLiveReport answers={answers} name={profile?.name ?? ''} />
+            </div>
+            <Quiz
+              index={index}
+              answer={answers[index]}
+              onChoose={choose}
+              onBack={() => (index > 0 ? setIndex(index - 1) : setStep('profile'))}
+              headingRef={headingRef}
+            />
+          </div>
         )}
         {step === 'result' && result && profile && (
           <Result
