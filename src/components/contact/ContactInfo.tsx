@@ -8,7 +8,7 @@ const ContactInfo = () => {
       <div className="space-y-4">
         <div>
           <div className="font-semibold text-foreground">📧 E-mail</div>
-          <div className="text-muted-foreground">contato@ocadigital.com.br</div>
+          <div className="text-muted-foreground">anderson@ocadigital.com.br</div>
         </div>
         <div>
           <div className="font-semibold text-foreground">📱 WhatsApp</div>

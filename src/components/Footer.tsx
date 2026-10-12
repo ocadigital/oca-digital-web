@@ -49,6 +49,9 @@ const Footer = () => {
             </p>
             <div className="text-muted-foreground space-y-2">
               <div>📱 (48) 99679-0700</div>
+              <div>
+                ✉️ <a href="mailto:anderson@ocadigital.com.br" className="hover:text-primary transition-colors">anderson@ocadigital.com.br</a>
+              </div>
               <div>📍 Florianópolis, SC (atendimento nacional)</div>
             </div>
             <div className="flex items-center space-x-4 mt-4">
@@ -97,7 +100,7 @@ const Footer = () => {
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Web Sites</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Google Ads, Meta Ads e GPT Ads</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">CRM, Processos e Automação</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Pacotes Mensais</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Projetos sob medida</button></li>
             </ul>
           </div>
 
