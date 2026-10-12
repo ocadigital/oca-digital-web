@@ -22,9 +22,9 @@ Not a fit for: general (non–real estate) marketing agencies, web development u
 
 ## Serviços
 
-- Google Ads, Meta Ads e GPT Ads (campanhas de performance, remarketing, públicos personalizados)
-- Sistema de Captação e Qualificação de Leads (CRM único, scripts BANT, Lead Score, dashboard em tempo real)
 - Web Sites (sites para imobiliárias, incorporadoras e empreendimentos, com SEO, rastreamento de leads e integração ao CRM; entrega em 1 mês)
+- Google Ads, Meta Ads e GPT Ads (campanhas de performance, remarketing, públicos personalizados)
+- CRM, Processos e Automação (mapeamento do processo comercial, implantação de CRM próprio ou integração com o CRM do cliente, tags e funil, automações, scripts BANT, Lead Score, dashboard em tempo real)
 - Pacotes mensais de manutenção pós-implantação: Essencial, Avançado e Full
 
 ## Produtos

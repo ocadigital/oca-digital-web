@@ -5,6 +5,20 @@ import { Button } from '@/components/ui/button';
 const Services = () => {
   const services = [
     {
+      title: "Web Sites",
+      description: "Site para imobiliária, incorporadora ou empreendimento, feito para ser encontrado no Google e transformar visita em contato.",
+      duration: "1 mês",
+      ctaLabel: "Quero um Site que Gera Leads",
+      features: [
+        "Site institucional, portfólio de imóveis ou página de empreendimento",
+        "Otimizado para celular e carregamento rápido",
+        "SEO técnico para aparecer no Google",
+        "Formulários e WhatsApp integrados ao CRM",
+        "Rastreamento de origem dos leads (Analytics e pixels)",
+        "Blog para gerar tráfego orgânico"
+      ]
+    },
+    {
       title: "Google Ads, Meta Ads e GPT Ads",
       description: "Campanhas de busca, performance, remarketing e captação qualificada no Facebook, Instagram e GPT Ads.",
       duration: "Mensal",
@@ -19,31 +33,17 @@ const Services = () => {
       ]
     },
     {
-      title: "Sistema de Captação e Qualificação de Leads",
-      description: "Descubra a origem real de cada lead e nunca mais perca uma oportunidade. Centralização, pontuação e priorização automática, do primeiro clique até a visita agendada.",
+      title: "CRM, Processos e Automação",
+      description: "Organizamos o processo comercial e a tecnologia por trás dele: do primeiro contato do lead até a visita agendada, tudo registrado, priorizado e medido.",
       duration: "3 meses + acompanhamento mensal",
-      ctaLabel: "Quero meu Sistema de Captação e Qualificação",
+      ctaLabel: "Quero organizar meu CRM e processos",
       features: [
-        "Centralização de leads em CRM único com rastreamento de origem real",
-        "Scripts BANT + Lead Score automático",
-        "Cadência de e-mails e priorização automática de filas",
-        "Dashboard de acompanhamento em tempo real",
-        "Clusterização por personas e segmentação avançada",
-        "Limpeza automática de base"
-      ]
-    },
-    {
-      title: "Web Sites",
-      description: "Site para imobiliária, incorporadora ou empreendimento, feito para ser encontrado no Google e transformar visita em contato.",
-      duration: "1 mês",
-      ctaLabel: "Quero um Site que Gera Leads",
-      features: [
-        "Site institucional, portfólio de imóveis ou página de empreendimento",
-        "Otimizado para celular e carregamento rápido",
-        "SEO técnico para aparecer no Google",
-        "Formulários e WhatsApp integrados ao CRM",
-        "Rastreamento de origem dos leads (Analytics e pixels)",
-        "Blog para gerar tráfego orgânico"
+        "Mapeamento e padronização do processo comercial",
+        "Implantação de CRM próprio ou integração com o CRM que você já usa",
+        "Configuração de tags, etapas do funil e rastreamento da origem de cada lead",
+        "Automações de atendimento, cadência de e-mails e filas",
+        "Scripts BANT e Lead Score automático",
+        "Dashboard de acompanhamento em tempo real"
       ]
     }
   ];

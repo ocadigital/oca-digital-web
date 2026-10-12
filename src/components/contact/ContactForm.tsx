@@ -174,9 +174,9 @@ const ContactForm = () => {
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground ${errors.service ? 'border-red-500' : 'border-border'}`}
           >
             <option value="">Serviço de interesse</option>
-            <option value="google-meta-gpt-ads">Google Ads, Meta Ads e GPT Ads</option>
-            <option value="sistema-captacao-qualificacao">Sistema de Captação e Qualificação de Leads</option>
             <option value="web-sites">Web Sites</option>
+            <option value="google-meta-gpt-ads">Google Ads, Meta Ads e GPT Ads</option>
+            <option value="crm-processos-automacao">CRM, Processos e Automação</option>
             <option value="outros">Outros</option>
           </select>
           {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}

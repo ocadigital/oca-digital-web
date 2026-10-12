@@ -94,9 +94,9 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-foreground">Serviços</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Google Ads, Meta Ads e GPT Ads</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Captação e Qualificação de Leads</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Web Sites</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Google Ads, Meta Ads e GPT Ads</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">CRM, Processos e Automação</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Pacotes Mensais</button></li>
             </ul>
           </div>
