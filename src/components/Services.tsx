@@ -33,16 +33,17 @@ const Services = () => {
       ]
     },
     {
-      title: "Lançamento Imobiliário",
-      description: "Campanha completa para lançamentos com mídia paga, landing page e materiais gráficos.",
+      title: "Web Sites",
+      description: "Site para imobiliária, incorporadora ou empreendimento, feito para ser encontrado no Google e transformar visita em contato.",
       duration: "1 mês",
-      ctaLabel: "Quero Lançar meu Empreendimento",
+      ctaLabel: "Quero um Site que Gera Leads",
       features: [
-        "Mídia paga estratégica",
-        "Landing page otimizada",
-        "E-mail marketing",
-        "Artes gráficas",
-        "Gestão de redes sociais"
+        "Site institucional, portfólio de imóveis ou página de empreendimento",
+        "Otimizado para celular e carregamento rápido",
+        "SEO técnico para aparecer no Google",
+        "Formulários e WhatsApp integrados ao CRM",
+        "Rastreamento de origem dos leads (Analytics e pixels)",
+        "Blog para gerar tráfego orgânico"
       ]
     }
   ];
