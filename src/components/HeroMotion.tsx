@@ -31,7 +31,7 @@ const HeroMotion = () => {
   return (
     <div className="relative mx-auto w-full max-w-[560px] aspect-square rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl bg-[#0A0A10]">
       {reduce ? (
-        <img src="/motion/hero-fluxo-lead.jpg" alt={label} width={900} height={900} className="w-full h-full object-cover" />
+        <img src="/motion/hero-fluxo-lead-v2.jpg" alt={label} width={900} height={900} className="w-full h-full object-cover" />
       ) : (
         <video
           ref={videoRef}
@@ -41,13 +41,13 @@ const HeroMotion = () => {
           loop
           playsInline
           preload="auto"
-          poster="/motion/hero-fluxo-lead.jpg"
+          poster="/motion/hero-fluxo-lead-v2.jpg"
           width={900}
           height={900}
           aria-label={label}
         >
-          <source src="/motion/hero-fluxo-lead.webm" type="video/webm" />
-          <source src="/motion/hero-fluxo-lead.mp4" type="video/mp4" />
+          <source src="/motion/hero-fluxo-lead-v2.webm" type="video/webm" />
+          <source src="/motion/hero-fluxo-lead-v2.mp4" type="video/mp4" />
         </video>
       )}
     </div>
