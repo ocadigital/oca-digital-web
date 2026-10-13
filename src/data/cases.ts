@@ -103,13 +103,13 @@ export const cases: CaseStudy[] = [
     client: "Aldo Imóveis",
     segment: "Imobiliária",
     coverImage: "/images/cases/aldo-imoveis-2026-09.webp",
-    title: "Aldo Imóveis: 48 mil novos usuários após relançar o site com o OCA Base",
+    title: "Aldo Imóveis: 48 mil novos usuários após relançar o site",
     summary:
-      "Relançamento do site da Aldo Imóveis (Lagoa da Conceição, Florianópolis) com o OCA Base, combinado a campanhas de Google Ads segmentadas por venda e locação.",
+      "Relançamento do site da Aldo Imóveis (Lagoa da Conceição, Florianópolis), combinado a campanhas de Google Ads segmentadas por venda e locação.",
     challenge:
       "A Aldo Imóveis, cliente de longa data e cujo site anterior também foi construído pela OCA Digital, precisava modernizar sua presença digital para acompanhar o volume de buscas por imóveis em uma das regiões mais valorizadas de Florianópolis, a Lagoa da Conceição, tanto para venda quanto para locação.",
     solution:
-      "Relançamos o site em 1º de janeiro de 2026 com o OCA Base, nossa plataforma com integração aos principais portais imobiliários, com busca segmentada por finalidade (compra ou locação), bairro, tipo e faixa de preço. Em paralelo, estruturamos campanhas de Google Ads segmentadas por intenção: \"[SEARCH] Venda\" e \"[SEARCH] Aluguel\", e testamos complementarmente Meta e Instagram Ads.",
+      "Relançamos o site em 1º de janeiro de 2026 numa plataforma integrada aos principais portais imobiliários, com busca segmentada por finalidade (compra ou locação), bairro, tipo e faixa de preço. Em paralelo, estruturamos campanhas de Google Ads segmentadas por intenção: \"[SEARCH] Venda\" e \"[SEARCH] Aluguel\", e testamos complementarmente Meta e Instagram Ads.",
     results:
       "No período acompanhado pelo Google Analytics (agosto/2025 a agosto/2026, que inclui os últimos meses do site anterior e os primeiros 8 meses após o relançamento em janeiro), a Aldo Imóveis somou 48 mil novos usuários, com tráfego bem distribuído entre canais e 13 mil sessões vindas diretamente das campanhas de Google Ads Search. No comparativo do próprio Google Analytics com imobiliárias semelhantes, o desempenho do site ficou acima da mediana do setor. Meta e Instagram Ads tiveram resultado mais limitado por causa do orçamento reduzido destinado a esse canal, e a medição de leads/conversões diretas ainda não está implementada: pontos que já estão no radar para os próximos ciclos.",
     metrics: [

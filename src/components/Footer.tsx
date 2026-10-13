@@ -108,11 +108,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold mb-4 text-foreground">Produtos</h3>
+            <h3 className="font-bold mb-4 text-foreground">Conteúdo</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link to="/produtos" className="hover:text-primary transition-colors">OCA One</Link></li>
-              <li><Link to="/produtos" className="hover:text-primary transition-colors">OCA Base</Link></li>
-              <li><Link to="/produtos" className="hover:text-primary transition-colors">Curso para Corretores</Link></li>
+              <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link to="/cases" className="hover:text-primary transition-colors">Cases</Link></li>
+              <li><Link to="/teste-maturidade" className="hover:text-primary transition-colors">Teste de Maturidade</Link></li>
               <li><button onClick={() => navigateToSection('contato')} className="hover:text-primary transition-colors">Consultoria Gratuita</button></li>
             </ul>
           </div>

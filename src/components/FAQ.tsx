@@ -20,10 +20,6 @@ const FAQ = () => {
       answer: "A gente analisa a sua operação como ela é hoje, o marketing, o processo comercial e as ferramentas, e aponta onde estão as oportunidades. Leva cerca de 1 semana e você recebe um relatório com o plano de ação para a sua imobiliária."
     },
     {
-      question: "Qual a diferença entre OCA One e OCA Base?",
-      answer: "O OCA One é a plataforma com IA no WhatsApp, CRM com automação e inteligência de mercado. O OCA Base é para corretores autônomos e imobiliárias pequenas, com site profissional e integração com os portais."
-    },
-    {
       question: "Vocês trabalham apenas com imobiliárias de Florianópolis?",
       answer: "Não. A sede é em Florianópolis, mas atendemos o Brasil todo, porque o trabalho é digital e as reuniões podem ser online."
     },
@@ -79,7 +75,7 @@ const FAQ = () => {
             Perguntas Frequentes
           </h2>
           <p className="text-xl text-muted-foreground">
-            Tire suas dúvidas sobre nossos produtos e serviços
+            Tire suas dúvidas sobre como a OCA trabalha
           </p>
         </div>
 

@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import Index from "./pages/Index";
@@ -15,7 +15,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const CasesIndex = lazy(() => import("./pages/CasesIndex"));
 const CaseDetail = lazy(() => import("./pages/CaseDetail"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
-const ProdutosPage = lazy(() => import("./pages/ProdutosPage"));
+// Página de produtos guardada para lançar depois: src/pages/ProdutosPage.tsx
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const MaturityTest = lazy(() => import("./pages/MaturityTest"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -48,7 +48,7 @@ const App = () => (
               <Route path="/cases/:slug" element={<CaseDetail />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/sobre" element={<AboutPage />} />
-              <Route path="/produtos" element={<ProdutosPage />} />
+              <Route path="/produtos" element={<Navigate to="/" replace />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/teste-maturidade" element={<MaturityTest />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
