@@ -1,11 +1,14 @@
 
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import ServiceLeadModal, { type ServicoSelecionado } from '@/components/ServiceLeadModal';
 
 const Services = () => {
   const services = [
     {
       title: "Web Sites",
+      valor: "web-sites",
       description: "Site para imobiliária, incorporadora ou empreendimento, feito para ser encontrado no Google e transformar visita em contato.",
       duration: "2 meses",
       result: "Site no ar em 2 meses, com a busca orgânica crescendo a partir do 3º mês.",
@@ -23,6 +26,7 @@ const Services = () => {
     },
     {
       title: "Anúncios no Google, Meta e IA",
+      valor: "google-meta-gpt-ads",
       description: "Anúncios no Google, no Facebook, no Instagram e nas respostas de IA, falando com quem está procurando imóvel agora.",
       duration: "Mensal",
       result: "Primeiros leads já na primeira semana, com o custo de cada lead caindo até o 3º mês.",
@@ -40,6 +44,7 @@ const Services = () => {
     },
     {
       title: "CRM, Processos e Automação",
+      valor: "crm-processos-automacao",
       description: "Organizamos o seu processo comercial e a tecnologia por trás dele, do primeiro contato do lead até a visita agendada, com tudo registrado e medido.",
       duration: "1 mês de implantação + acompanhamento mensal",
       result: "No primeiro mês, nenhum lead sem resposta e o atendimento mais rápido. A conversão sobe a partir daí.",
@@ -57,12 +62,7 @@ const Services = () => {
     }
   ];
 
-  const handleInteresseClick = () => {
-    const contactSection = document.getElementById('contato');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const [servico, setServico] = useState<ServicoSelecionado | null>(null);
 
   return (
     <section id="servicos" className="py-20 bg-secondary section-separator">
@@ -104,7 +104,7 @@ const Services = () => {
                 </div>
                 <Button
                   className="w-full font-semibold"
-                  onClick={handleInteresseClick}
+                  onClick={() => setServico({ valor: service.valor, titulo: service.title })}
                 >
                   {service.ctaLabel}
                 </Button>
@@ -124,11 +124,12 @@ const Services = () => {
               <span key={item} className="px-4 py-1.5 rounded-full border border-border text-sm text-foreground">{item}</span>
             ))}
           </div>
-          <Button size="lg" className="font-semibold" onClick={handleInteresseClick}>
+          <Button size="lg" className="font-semibold" onClick={() => setServico({ valor: 'outros', titulo: 'Projeto sob medida' })}>
             Quero uma proposta sob medida
           </Button>
         </Card>
       </div>
+      <ServiceLeadModal servico={servico} onClose={() => setServico(null)} />
     </section>
   );
 };
