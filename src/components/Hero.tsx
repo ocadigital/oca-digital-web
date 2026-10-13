@@ -42,16 +42,12 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                Transforme sua
-                <span className="text-primary"> Imobiliária</span>
-                <br />
-                em uma Máquina de
-                <span className="text-primary"> Conversão</span>
+              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight text-balance">
+                Do anúncio à <span className="text-primary">visita agendada</span>, com número em cada etapa
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                A gente organiza o caminho do lead na sua imobiliária, do anúncio até a visita agendada, com CRM, automação e
-                anúncios, para você saber de onde vem cada contato e quanto dele vira venda.
+                A OCA cuida do anúncio, do site e do CRM da sua imobiliária, com automação para nenhum lead ficar sem resposta
+                e um relatório que mostra quanto cada canal vira venda.
               </p>
             </div>
 
