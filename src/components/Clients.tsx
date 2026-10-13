@@ -13,9 +13,9 @@ const Clients = () => {
   const loop = [...clients, ...clients];
 
   return (
-    <section aria-label="Clientes que confiam na OCA Digital" className="py-10 bg-secondary/60 border-y border-border">
+    <section aria-label="Clientes que confiam na OCA Digital" className="py-7 bg-secondary/60 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-sm font-light tracking-wide text-muted-foreground mb-6">
+        <p className="text-center text-sm font-light tracking-wide text-muted-foreground mb-5">
           <span className="text-foreground font-semibold">+40 projetos bem-sucedidos</span> · <span className="text-foreground font-semibold">+20 clientes</span> confiam na OCA Digital
         </p>
       </div>

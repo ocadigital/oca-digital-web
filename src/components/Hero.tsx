@@ -1,4 +1,3 @@
-import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import HeroMotion from '@/components/HeroMotion';
 import { useParallax } from '@/hooks/use-parallax';
@@ -10,7 +9,7 @@ const Hero = () => {
   const motionRef = useParallax<HTMLDivElement>(-0.1);
 
   return (
-    <section id="inicio" className="pt-16 min-h-screen relative overflow-hidden bg-background">
+    <section id="inicio" className="pt-16 relative overflow-hidden bg-background">
       {/* Violet glow backdrop */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -37,14 +36,14 @@ const Hero = () => {
       />
 
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="space-y-5">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight text-balance">
                 Do anúncio à <span className="text-primary">visita agendada</span>, com número em cada etapa
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
                 A OCA cuida do anúncio, do site e do CRM da sua imobiliária, com automação para nenhum lead ficar sem resposta
                 e um relatório que mostra quanto cada canal vira venda.
               </p>
@@ -60,7 +59,7 @@ const Hero = () => {
               </Button>
             </div>
 
-            <dl className="grid grid-cols-3 gap-4 sm:gap-8 pt-8">
+            <dl className="grid grid-cols-3 gap-4 sm:gap-8 pt-1">
               <div className="text-center">
                 <dt className="text-2xl sm:text-3xl font-bold text-primary">173 leads</dt>
                 <dd className="text-sm text-muted-foreground">em 1 semana no Sunclub Campeche, a R$ 43 cada</dd>
@@ -83,9 +82,6 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="text-center mt-16">
-          <ArrowDown className="mx-auto text-muted-foreground animate-bounce" size={32} />
-        </div>
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ const HeroMotion = () => (
     width={900}
     height={900}
     label="Animação: leads do Instagram, Google, portais e WhatsApp entram no CRM com a origem rastreada, recebem um lead score e viram visita agendada."
-    className="mx-auto w-full max-w-[560px] aspect-square rounded-2xl border-2 border-primary/20 shadow-2xl"
+    className="mx-auto w-full max-w-[440px] lg:max-w-[clamp(320px,calc(100svh-260px),440px)] aspect-square rounded-2xl border-2 border-primary/20 shadow-2xl"
   />
 );
 
