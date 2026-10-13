@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Clients from '@/components/Clients';
 import Services from '@/components/Services';
+import ProcessoLead from '@/components/ProcessoLead';
 import DiagnosticSection from '@/components/DiagnosticSection';
 import MaturityTestCta from '@/components/MaturityTestCta';
 import Founder from '@/components/Founder';
@@ -39,6 +40,7 @@ const Index = () => {
           <Hero />
           <Clients />
           <Services />
+          <ProcessoLead />
           <DiagnosticSection />
           <MaturityTestCta />
           <Founder />
