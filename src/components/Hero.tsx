@@ -1,15 +1,13 @@
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState, useEffect } from 'react';
 import HeroMotion from '@/components/HeroMotion';
+import { useParallax } from '@/hooks/use-parallax';
 
 const Hero = () => {
-  const [scrollY, setScrollY] = useState(0);
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Parallax leve: o brilho e o grafismo ficam para trás na rolagem, a animação anda um pouco à frente.
+  const brilhoRef = useParallax<HTMLDivElement>(0.3);
+  const grafismoRef = useParallax<HTMLDivElement>(0.15);
+  const motionRef = useParallax<HTMLDivElement>(-0.05);
 
   return (
     <section id="inicio" className="pt-16 min-h-screen relative overflow-hidden bg-background">
@@ -19,16 +17,17 @@ const Hero = () => {
         style={{ background: 'var(--gradient-hero-glow)' }}
       />
       <div
+        ref={brilhoRef}
         className="absolute inset-0 pointer-events-none opacity-40"
         style={{
           backgroundImage:
             'radial-gradient(circle at 20% 80%, hsl(265 90% 45% / 0.25), transparent 40%), radial-gradient(circle at 80% 20%, hsl(250 95% 55% / 0.2), transparent 45%)',
-          transform: `translateY(${scrollY * 0.3}px)`,
         }}
       />
       {/* Grafismo herdado da identidade original da marca, ver Brand Book cap. 05 */}
       <div
-        className="grafismo-oca absolute inset-0 pointer-events-none opacity-[0.08]"
+        ref={grafismoRef}
+        className="grafismo-oca absolute inset-x-0 -top-[15%] -bottom-[15%] pointer-events-none opacity-[0.08]"
         style={{
           backgroundImage: 'url(/patterns/oca-grafismo.webp)',
           backgroundSize: 'cover',
@@ -78,7 +77,9 @@ const Hero = () => {
           </div>
 
           <div className="relative">
-            <HeroMotion />
+            <div ref={motionRef}>
+              <HeroMotion />
+            </div>
           </div>
         </div>
 

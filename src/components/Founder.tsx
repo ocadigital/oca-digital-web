@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useParallax } from '@/hooks/use-parallax';
 
 const WHATSAPP =
   'https://wa.me/5548996790700?text=' +
@@ -13,11 +14,14 @@ const provas = [
 ];
 
 /** Seção da home sobre o fundador, com foto e trajetória. */
-const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostrarHistoria?: boolean }) => (
+const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostrarHistoria?: boolean }) => {
+  const fotoRef = useParallax<HTMLImageElement>(0.06);
+  return (
   <section id={id} className="py-20 bg-background section-separator">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-10 lg:gap-16 items-center">
       <div className="relative mx-auto w-full max-w-sm md:max-w-none">
         <img
+          ref={fotoRef}
           src="/images/anderson-goncalves-960.webp"
           srcSet="/images/anderson-goncalves-600.webp 600w, /images/anderson-goncalves-960.webp 960w"
           sizes="(min-width: 768px) 40vw, 90vw"
@@ -77,6 +81,7 @@ const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostra
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default Founder;

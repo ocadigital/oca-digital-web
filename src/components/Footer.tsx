@@ -1,9 +1,11 @@
+import { useParallax } from '@/hooks/use-parallax';
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const grafismoRef = useParallax<HTMLDivElement>(0.12);
 
   const navigateToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
@@ -25,7 +27,8 @@ const Footer = () => {
     <footer className="relative overflow-hidden bg-secondary text-foreground border-t-2 border-border">
       {/* Grafismo herdado da identidade original da marca, ver Brand Book cap. 05 */}
       <div
-        className="grafismo-oca absolute inset-0 pointer-events-none opacity-[0.06]"
+        ref={grafismoRef}
+        className="grafismo-oca absolute inset-x-0 -top-[20%] -bottom-[20%] pointer-events-none opacity-[0.06]"
         style={{
           backgroundImage: 'url(/patterns/oca-grafismo.webp)',
           backgroundSize: 'cover',
