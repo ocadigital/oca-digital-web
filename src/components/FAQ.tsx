@@ -17,40 +17,40 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Como funciona o processo de diagnóstico estratégico?",
-      answer: "O diagnóstico estratégico é uma análise completa da sua operação atual. Avaliamos seu marketing digital, processos comerciais, ferramentas utilizadas e identificamos oportunidades de melhoria. O processo dura cerca de 1 semana e entregamos um relatório detalhado com plano de ação personalizado."
+      answer: "A gente analisa a sua operação como ela é hoje, o marketing, o processo comercial e as ferramentas, e aponta onde estão as oportunidades. Leva cerca de 1 semana e você recebe um relatório com o plano de ação para a sua imobiliária."
     },
     {
       question: "Qual a diferença entre OCA One e OCA Base?",
-      answer: "OCA One é nossa plataforma inteligente com IA integrada no WhatsApp, CRM automatizado e inteligência de mercado. OCA Base é nossa solução para corretores autônomos e pequenas imobiliárias, focada em site profissional e integração com portais imobiliários."
+      answer: "O OCA One é a plataforma com IA no WhatsApp, CRM com automação e inteligência de mercado. O OCA Base é para corretores autônomos e imobiliárias pequenas, com site profissional e integração com os portais."
     },
     {
       question: "Vocês trabalham apenas com imobiliárias de Florianópolis?",
-      answer: "Não! Apesar de estarmos sediados em Florianópolis, SC, atendemos clientes em todo o Brasil. Nossos serviços são 100% digitais e oferecemos consultoria remota para qualquer região do país."
+      answer: "Não. A sede é em Florianópolis, mas atendemos o Brasil todo, porque o trabalho é digital e as reuniões podem ser online."
     },
     {
       question: "Quanto tempo leva para ver resultados?",
-      answer: "Os primeiros resultados geralmente aparecem entre 30 a 60 dias, dependendo do serviço contratado. Para campanhas de mídia paga, os resultados são mais rápidos (7-15 dias). Já para SEO e automação, o prazo é de 60-90 dias para resultados consistentes."
+      answer: "Os primeiros resultados costumam aparecer entre 30 e 60 dias, conforme o serviço. Em anúncios pagos é mais rápido, de 7 a 15 dias, e SEO e automação levam de 60 a 90 dias para dar resultado consistente."
     },
     {
       question: "Vocês oferecem suporte técnico?",
-      answer: "Sim! Todos os nossos clientes têm acesso a suporte técnico durante o horário comercial (9h às 18h, segunda a sexta). Para clientes dos planos mais avançados, oferecemos suporte prioritário e consultoria mensal."
+      answer: "Sim. Todo cliente tem suporte em horário comercial, das 9h às 18h, de segunda a sexta, e quem tem acompanhamento mensal tem atendimento prioritário e uma reunião de consultoria por mês."
     },
     {
       question: "É possível cancelar os serviços a qualquer momento?",
-      answer: "Sim, nossos contratos mensais podem ser cancelados com 30 dias de antecedência. Para serviços pontuais, seguimos o cronograma acordado. Não temos fidelidade obrigatória: nosso foco é entregar resultados que façam você querer continuar conosco."
+      answer: "Sim. Os contratos mensais podem ser cancelados com 30 dias de aviso, sem fidelidade. Os serviços pontuais seguem o cronograma combinado."
     },
     {
       question: "Vocês trabalham com incorporadoras?",
-      answer: "Sim! Temos grande experiência com lançamentos imobiliários e campanhas para incorporadoras. Oferecemos serviços especializados em pré-lançamento, lançamento e pós-venda de empreendimentos."
+      answer: "Sim. Fizemos, por exemplo, a captação do Sunclub Campeche, com 173 leads em 1 semana, e o site da VivaOn, com 4 empreendimentos no ar em 60 dias. Atendemos pré-lançamento, lançamento e pós-venda."
     },
     {
       question: "O que é o Modelo de Maturidade Imobiliária e como descubro o nível da minha imobiliária?",
-      answer: "É um modelo de 5 níveis, do artesanal à IA, inspirado no CMMI e no MPS.BR e adaptado pela OCA Digital à rotina de imobiliárias. Ele mostra em que estágio a operação está e qual gargalo trava a passagem para o próximo nível. Para descobrir o seu, faça o Teste de Maturidade Imobiliária em https://www.ocadigital.com.br/teste-maturidade: são 10 perguntas, leva menos de 3 minutos e o resultado traz o seu nível, a frente mais fraca da operação e o próximo passo, com PDF para baixar.",
+      answer: "É um modelo de 5 níveis, do artesanal à IA, que a OCA Digital montou para a rotina de imobiliárias a partir dos modelos usados por empresas de tecnologia para medir a maturidade dos processos. Ele mostra em que estágio a operação está e o que trava a passagem para o próximo nível. Para descobrir o seu, faça o Teste de Maturidade Imobiliária em https://www.ocadigital.com.br/teste-maturidade: são 10 perguntas, leva menos de 3 minutos e o resultado traz o seu nível, a frente mais fraca da operação e o próximo passo, com PDF para baixar.",
       link: { to: "/teste-maturidade", label: "Fazer o teste de maturidade" }
     },
     {
       question: "Como funciona a gestão de leads?",
-      answer: "Centralizamos todos os seus leads em uma única plataforma, implementamos sistema de qualificação BANT, criamos automações para nutrição e distribuição inteligente para sua equipe comercial. Tudo com dashboard em tempo real para acompanhamento."
+      answer: "Todos os leads vão para um lugar só. A gente monta um roteiro de perguntas para separar quem tem orçamento e prazo de quem só está olhando, automatiza o acompanhamento de quem ainda não está pronto e distribui os contatos entre os corretores, e você acompanha tudo num painel em tempo real."
     }
   ];
 

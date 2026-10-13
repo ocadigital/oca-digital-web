@@ -50,8 +50,8 @@ const Hero = () => {
                 <span className="text-primary"> Conversão</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Especialistas em marketing imobiliário que combinam estratégia, dados e automação 
-                para gerar mais leads qualificados e impulsionar suas vendas.
+                A gente organiza o caminho do lead na sua imobiliária, do anúncio até a visita agendada, com CRM, automação e
+                anúncios, para você saber de onde vem cada contato e quanto dele vira venda.
               </p>
             </div>
 
@@ -65,20 +65,20 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 pt-8">
+            <dl className="grid grid-cols-3 gap-4 sm:gap-8 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">+200%</div>
-                <div className="text-sm text-muted-foreground">Aumento em Leads</div>
+                <dt className="text-2xl sm:text-3xl font-bold text-primary">173 leads</dt>
+                <dd className="text-sm text-muted-foreground">em 1 semana no Sunclub Campeche, a R$ 43 cada</dd>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">+150%</div>
-                <div className="text-sm text-muted-foreground">ROI Médio</div>
+                <dt className="text-2xl sm:text-3xl font-bold text-primary">2º lugar</dt>
+                <dd className="text-sm text-muted-foreground">em vendas no Sunclub entre as imobiliárias do empreendimento</dd>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">+20</div>
-                <div className="text-sm text-muted-foreground">Clientes</div>
+                <dt className="text-2xl sm:text-3xl font-bold text-primary">300/mês</dt>
+                <dd className="text-sm text-muted-foreground">captações de imóveis com o Indicasse, da Brognoli</dd>
               </div>
-            </div>
+            </dl>
           </div>
 
           <div className="relative">

@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import About from '@/components/About';
+import Founder from '@/components/Founder';
 
 const AboutPage = () => {
   return (
@@ -23,6 +24,7 @@ const AboutPage = () => {
       </Helmet>
       <Header />
       <About asPage />
+          <Founder id="anderson" mostrarHistoria={false} />
       <Footer />
     </div>
   );

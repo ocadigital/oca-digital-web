@@ -372,8 +372,8 @@ const Intro = ({ onStart, headingRef }: { onStart: () => void; headingRef: Headi
       Começar o teste
     </Button>
     <p className="text-sm text-muted-foreground mt-8 max-w-xl mx-auto">
-      O modelo se inspira no CMMI e no MPS.BR e foi adaptado pela OCA Digital para a rotina de imobiliárias. É uma estimativa
-      baseada nas suas respostas, não uma certificação.{' '}
+      O modelo usa a lógica dos modelos que medem a maturidade de processos em empresas de tecnologia, adaptada pela OCA Digital
+      para a rotina de imobiliárias. É uma estimativa feita a partir das suas respostas, não uma certificação.{' '}
       <Link to={GUIDE_PATH} className="underline text-primary">
         Leia o guia completo
       </Link>
@@ -384,10 +384,9 @@ const Intro = ({ onStart, headingRef }: { onStart: () => void; headingRef: Headi
         Como este modelo foi construído
       </h2>
       <p className="text-muted-foreground mb-5">
-        O ponto de partida é o CMMI, um modelo internacional que mede a maturidade de uma empresa em cinco níveis, do improviso até a
-        melhoria contínua. Aqui no Brasil existe o MPS.BR, uma versão nacional com degraus mais graduais, pensada para empresas de
-        portes diferentes. A OCA Digital adaptou essa lógica para a rotina da imobiliária, com perguntas sobre CRM, funil, corretores,
-        métricas e IA.
+        A base é o CMMI, um modelo internacional que empresas de tecnologia usam para medir em que ponto estão os processos, em
+        cinco degraus que vão do improviso à melhoria contínua. A gente pegou essa lógica e trocou as perguntas por coisas do dia a dia
+        da imobiliária: CRM, funil, corretores, números e IA.
       </p>
       <ul className="divide-y divide-border rounded-lg border border-border text-sm">
         {(
@@ -398,7 +397,7 @@ const Intro = ({ onStart, headingRef }: { onStart: () => void; headingRef: Headi
             [4, 'Quantitatively Managed'],
             [5, 'Optimizing'],
           ] as [Level, string][]
-        ).map(([n, cmmi]) => (
+        ).map(([n]) => (
           <li key={n} className="flex items-center justify-between gap-4 px-4 py-2.5">
             <span className="text-foreground">
               <span className="font-semibold" style={{ color: LEVELS[n].color }}>
@@ -406,7 +405,6 @@ const Intro = ({ onStart, headingRef }: { onStart: () => void; headingRef: Headi
               </span>{' '}
               {LEVELS[n].name}
             </span>
-            <span className="text-muted-foreground shrink-0">CMMI: {cmmi}</span>
           </li>
         ))}
       </ul>

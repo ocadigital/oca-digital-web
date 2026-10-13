@@ -30,7 +30,7 @@ const Clients = () => {
               loading="lazy"
               width={client.w}
               height={client.h}
-              className="mx-10 h-8 md:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+              className="logo-cliente mx-10 h-8 md:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
             />
           ))}
         </div>

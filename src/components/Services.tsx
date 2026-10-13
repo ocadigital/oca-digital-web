@@ -8,42 +8,42 @@ const Services = () => {
       title: "Web Sites",
       description: "Site para imobiliária, incorporadora ou empreendimento, feito para ser encontrado no Google e transformar visita em contato.",
       duration: "1 mês",
-      ctaLabel: "Quero um Site que Gera Leads",
+      ctaLabel: "Quero um site que traz contatos",
       features: [
         "Site institucional, portfólio de imóveis ou página de empreendimento",
-        "Otimizado para celular e carregamento rápido",
-        "SEO técnico para aparecer no Google",
-        "Formulários e WhatsApp integrados ao CRM",
-        "Rastreamento de origem dos leads (Analytics e pixels)",
-        "Blog para gerar tráfego orgânico"
+        "Rápido e pensado primeiro para o celular",
+        "Estrutura feita para aparecer no Google",
+        "Formulários e WhatsApp caindo direto no CRM",
+        "Você sabe de onde veio cada contato",
+        "Blog para atrair visitas do Google sem pagar anúncio"
       ]
     },
     {
       title: "Google Ads, Meta Ads e GPT Ads",
-      description: "Campanhas de busca, performance, remarketing e captação qualificada no Facebook, Instagram e GPT Ads.",
+      description: "Anúncios no Google, no Facebook, no Instagram e nas respostas de IA, falando com quem está procurando imóvel agora.",
       duration: "Mensal",
-      ctaLabel: "Quero Campanhas de Google, Meta e GPT Ads",
+      ctaLabel: "Quero anúncios no Google, Meta e GPT Ads",
       features: [
-        "Campanhas de busca (Search) para alta intenção",
-        "Performance Max, Display e remarketing",
-        "Campanhas no Facebook e Instagram",
-        "Anúncios em GPT Ads, o novo canal de tráfego em IA",
-        "Públicos personalizados, lookalike e testes A/B",
-        "Otimização contínua de CPL, conversões e ROI"
+        "Anúncios no Google para quem já está buscando imóvel",
+        "Anúncios que voltam a aparecer para quem visitou o seu site",
+        "Campanhas no Facebook e no Instagram",
+        "GPT Ads, anúncios que aparecem dentro das respostas de IA",
+        "Testes com públicos e criativos diferentes até achar o que funciona",
+        "Acompanhamento do custo de cada contato e de cada venda"
       ]
     },
     {
       title: "CRM, Processos e Automação",
-      description: "Organizamos o processo comercial e a tecnologia por trás dele: do primeiro contato do lead até a visita agendada, tudo registrado, priorizado e medido.",
+      description: "A gente organiza o seu processo comercial e a tecnologia por trás dele, do primeiro contato do lead até a visita agendada, com tudo registrado e medido.",
       duration: "3 meses + acompanhamento mensal",
       ctaLabel: "Quero organizar meu CRM e processos",
       features: [
-        "Mapeamento e padronização do processo comercial",
-        "Implantação de CRM próprio ou integração com o CRM que você já usa",
-        "Configuração de tags, etapas do funil e rastreamento da origem de cada lead",
-        "Automações de atendimento, cadência de e-mails e filas",
-        "Scripts BANT e Lead Score automático",
-        "Dashboard de acompanhamento em tempo real"
+        "Um jeito só de atender, combinado com o seu time",
+        "CRM novo ou integração com o que você já usa",
+        "Etapas do funil e origem de cada contato configuradas",
+        "Resposta automática, sequência de e-mails e distribuição dos leads entre os corretores",
+        "Roteiro de perguntas e nota automática para saber quem está mais perto de comprar",
+        "Painel com os números do comercial em tempo real"
       ]
     }
   ];
@@ -63,7 +63,7 @@ const Services = () => {
             Serviços de Marketing Imobiliário
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Soluções completas para transformar sua operação imobiliária em uma máquina de conversão
+            O site traz o contato, o anúncio traz gente nova e o CRM garante que ninguém fique sem resposta
           </p>
         </div>
 
@@ -97,10 +97,10 @@ const Services = () => {
         </div>
 
         <Card className="p-8 md:p-10 card-elevated border-primary/30 text-center max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold mb-4 text-foreground">E muito mais, sob medida</h3>
+          <h3 className="text-3xl font-bold mb-4 text-foreground">Também fazemos sob medida</h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Cada imobiliária está num momento diferente. Além desses serviços, montamos propostas sob medida para a sua
-            necessidade real, com vídeos, planejamento de marketing, SEO, conteúdo e acompanhamento mensal depois da entrega.
+            Cada imobiliária está num momento diferente, então além desses três serviços a gente monta propostas sob medida,
+            com vídeos, planejamento de marketing, SEO, conteúdo e acompanhamento mensal depois da entrega.
           </p>
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {['Vídeos e Reels', 'Planejamento de marketing', 'SEO e blog', 'Conteúdo para redes', 'Acompanhamento mensal'].map((item) => (

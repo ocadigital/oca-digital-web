@@ -94,7 +94,7 @@
     @apply border-border;
   }
 
-  /* Versão clara, em teste: ative com ?tema=claro na URL (fica salva na sessão; ?tema=escuro volta) */
+  /* Tema claro (padrão desde 2026-10-13). ?tema=escuro na URL mostra a versão escura antiga na sessão. */
   html.tema-claro {
     --background: 240 20% 98%;
     --foreground: 240 28% 10%;
@@ -128,6 +128,8 @@
     color-scheme: light;
   }
   html.tema-claro .logo-oca { filter: invert(1); }
+  /* Logos de clientes vêm em branco: no tema claro viram silhueta escura */
+  html.tema-claro .logo-cliente { filter: brightness(0); }
   html.tema-claro .grafismo-oca { filter: invert(1); mix-blend-mode: multiply !important; }
 
   html {

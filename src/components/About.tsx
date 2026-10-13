@@ -71,15 +71,15 @@ const About = ({ asPage = false, summary = false }: AboutProps) => {
   const pillars = [
     {
       title: "Organização de Processos",
-      description: "Implantação de CRM, NPS, unificação dos Leads para atendimento, processos e metodologia de SDR para criação de núcleo especializado de atendimento."
+      description: "Implantação de CRM, pesquisa de satisfação com os clientes, todos os leads num lugar só e um time de pré-atendimento para responder rápido e separar quem está pronto para visitar."
     },
     {
       title: "Captação de Clientes",
-      description: "Geração de Leads através de Campanhas Marketing customizadas, criação de logo, lançamentos imobiliários e conteúdo para redes sociais."
+      description: "Geração de leads com campanhas sob medida, criação de marca, lançamentos imobiliários e conteúdo para redes sociais."
     },
     {
       title: "Automação e Ferramentas",
-      description: "Criação de Chatbot para atendimento automatizado, cadência de e-mails (inbound marketing), Lead Score, consultoria na contratação e implantação de ferramentas."
+      description: "Atendimento automático no WhatsApp, sequência de e-mails para quem ainda não está pronto, nota automática para saber quem está mais perto de comprar e ajuda para escolher e implantar as ferramentas."
     }
   ];
 
@@ -100,7 +100,7 @@ const About = ({ asPage = false, summary = false }: AboutProps) => {
             Quem Somos
           </HeadingTag>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Especialistas em marketing imobiliário com foco em resultados mensuráveis e crescimento sustentável.
+            Marketing imobiliário com número na mesa: de onde vem cada lead, quanto custa e quanto dele vira venda.
           </p>
         </div>
 
@@ -111,16 +111,15 @@ const About = ({ asPage = false, summary = false }: AboutProps) => {
             <h3 className="text-3xl font-bold text-foreground mb-6">Nossa História</h3>
             <div className="space-y-4">
               <p className="text-muted-foreground">
-                Fundada por especialistas em marketing digital e mercado imobiliário, a OCA Digital nasceu da necessidade 
-                de profissionalizar e escalar as operações de marketing das imobiliárias brasileiras.
+                A OCA Digital nasceu para profissionalizar o marketing e o comercial das imobiliárias, que muitas vezes ainda
+                dependem de planilha, de WhatsApp e da memória dos corretores.
               </p>
               <p className="text-muted-foreground">
-                Nosso nome vem da sigla OCA: Organização de Processos, Captação de Leads e Automação de Marketing. 
-                Esses são os três pilares que sustentam nossa metodologia única.
+                O nome vem da sigla OCA: Organização de Processos, Captação de Leads e Automação de Marketing, as três frentes
+                do nosso trabalho.
               </p>
               <p className="text-muted-foreground">
-                Com mais de 20 clientes ativos e resultados comprovados, ajudamos imobiliárias de todos os tamanhos
-                a transformarem seus processos e alcançarem resultados excepcionais.
+                Hoje são mais de 20 clientes, entre imobiliárias de todos os tamanhos e incorporadoras.
               </p>
             </div>
           </div>

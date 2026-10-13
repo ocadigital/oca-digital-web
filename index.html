@@ -3,6 +3,11 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Tema claro antes do primeiro desenho da página (evita piscar escuro). ?tema=escuro mantém o antigo.
+      try { if (!/[?&]tema=escuro/.test(location.search) && sessionStorage.getItem('oca-tema') !== 'escuro') document.documentElement.classList.add('tema-claro'); }
+      catch (e) { document.documentElement.classList.add('tema-claro'); }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Google Tag Manager (loaded after first interaction or page load, to keep it off the critical rendering path) -->

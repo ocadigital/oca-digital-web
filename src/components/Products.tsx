@@ -50,22 +50,22 @@ const Products = ({ asPage = false }: ProductsProps) => {
 
             <div className="space-y-4 mb-8">
               <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
-                <h4 className="font-bold text-primary mb-2">🤖 IA treinada com BANT no WhatsApp</h4>
-                <p className="text-foreground">Atendimento automatizado e pré-qualificação inteligente</p>
+                <h4 className="font-bold text-primary mb-2">IA no WhatsApp que faz as primeiras perguntas</h4>
+                <p className="text-foreground">Responde na hora e descobre se o cliente tem orçamento, prazo e interesse de verdade</p>
               </div>
               
               <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
-                <h4 className="font-bold text-primary mb-2">📊 CRM com automação integrada</h4>
+                <h4 className="font-bold text-primary mb-2">CRM com automação integrada</h4>
                 <p className="text-foreground">Gestão completa sem custos extras de integrações</p>
               </div>
               
               <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
-                <h4 className="font-bold text-primary mb-2">🏠 Avaliação e captação inteligente</h4>
+                <h4 className="font-bold text-primary mb-2">Avaliação e captação inteligente</h4>
                 <p className="text-foreground">Base no comportamento real do mercado</p>
               </div>
               
               <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
-                <h4 className="font-bold text-primary mb-2">📈 Inteligência de mercado</h4>
+                <h4 className="font-bold text-primary mb-2">Inteligência de mercado</h4>
                 <p className="text-foreground">Insights e análises para decisões estratégicas</p>
               </div>
             </div>
@@ -97,22 +97,22 @@ const Products = ({ asPage = false }: ProductsProps) => {
 
             <div className="space-y-4 mb-8">
               <div className="bg-secondary/50 p-4 rounded-lg border border-border">
-                <h4 className="font-bold text-primary mb-2">🌐 Site profissional</h4>
+                <h4 className="font-bold text-primary mb-2">Site profissional</h4>
                 <p className="text-foreground">Design moderno e responsivo</p>
               </div>
               
               <div className="bg-secondary/50 p-4 rounded-lg border border-border">
-                <h4 className="font-bold text-primary mb-2">🔗 Integração com portais</h4>
+                <h4 className="font-bold text-primary mb-2">Integração com portais</h4>
                 <p className="text-foreground">Conecte-se aos maiores portais imobiliários</p>
               </div>
               
               <div className="bg-secondary/50 p-4 rounded-lg border border-border">
-                <h4 className="font-bold text-primary mb-2">📋 Gestão de imóveis</h4>
+                <h4 className="font-bold text-primary mb-2">Gestão de imóveis</h4>
                 <p className="text-foreground">Cadastre e organize toda sua carteira</p>
               </div>
               
               <div className="bg-secondary/50 p-4 rounded-lg border border-border">
-                <h4 className="font-bold text-primary mb-2">💰 Preço acessível</h4>
+                <h4 className="font-bold text-primary mb-2">Preço acessível</h4>
                 <p className="text-foreground">Solução que cabe no seu orçamento</p>
               </div>
             </div>
