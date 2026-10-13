@@ -25,7 +25,7 @@ const Footer = () => {
     <footer className="relative overflow-hidden bg-secondary text-foreground border-t-2 border-border">
       {/* Grafismo herdado da identidade original da marca, ver Brand Book cap. 05 */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
+        className="grafismo-oca absolute inset-0 pointer-events-none opacity-[0.06]"
         style={{
           backgroundImage: 'url(/patterns/oca-grafismo.webp)',
           backgroundSize: 'cover',
@@ -39,7 +39,7 @@ const Footer = () => {
             <img
               src="/oca-logo-white.webp"
               alt="OCA Digital"
-              className="h-12 w-auto mb-4"
+              className="logo-oca h-12 w-auto mb-4"
               width={333}
               height={144}
             />

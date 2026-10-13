@@ -28,7 +28,7 @@ const Hero = () => {
       />
       {/* Grafismo herdado da identidade original da marca, ver Brand Book cap. 05 */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.08]"
+        className="grafismo-oca absolute inset-0 pointer-events-none opacity-[0.08]"
         style={{
           backgroundImage: 'url(/patterns/oca-grafismo.webp)',
           backgroundSize: 'cover',

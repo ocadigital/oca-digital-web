@@ -58,7 +58,7 @@ const Header = () => {
               <img
                 src="/oca-logo-white.webp"
                 alt="OCA Digital"
-                className="h-12 w-auto"
+                className="logo-oca h-12 w-auto"
                 width={333}
                 height={144}
               />
