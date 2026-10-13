@@ -8,7 +8,7 @@ const WHATSAPP =
   encodeURIComponent('Oi Anderson, vi o site da OCA Digital e quero conversar sobre a minha imobiliária.');
 
 const provas = [
-  { valor: '2019', texto: 'Head de Marketing da Brognoli' },
+  { valor: '3 imobiliárias', texto: 'onde cuidei do marketing por dentro: Brognoli, Buzz e Santa Ilha' },
   { valor: '+1,1 mi', texto: 'visualizações num vídeo da websérie Vida Independente, sem mídia paga' },
   { valor: 'Blindagem', texto: 'de Processos, método que levo em palestras e mentorias para agências' },
 ];
@@ -41,9 +41,10 @@ const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostra
 
         <div className="space-y-4 text-lg text-muted-foreground">
           <p>
-            Eu conheci o mercado imobiliário por dentro. Em 2019, como Head de Marketing da Brognoli, o problema não era falta
-            de mídia: a imobiliária locava mais imóveis do que conseguia captar, e os leads se perdiam entre planilha, WhatsApp
-            e portal.
+            Eu conheci o mercado imobiliário por dentro. Fui Head de Marketing da Brognoli, Gerente de Marketing da Buzz
+            Imobiliária e responsável pelo marketing da Santa Ilha Imóveis. Na Brognoli, em 2019, o problema não era falta de
+            mídia: a imobiliária locava mais imóveis do que conseguia captar, e os leads se perdiam entre planilha, WhatsApp e
+            portal.
           </p>
           <p>
             Foi ali que criamos o Indicasse e a websérie Vida Independente. Desde então, antes de pensar em anúncio, eu olho para
