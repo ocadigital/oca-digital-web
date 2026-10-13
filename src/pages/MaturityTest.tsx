@@ -385,7 +385,7 @@ const Intro = ({ onStart, headingRef }: { onStart: () => void; headingRef: Headi
       </h2>
       <p className="text-muted-foreground mb-5">
         A base é o CMMI, um modelo internacional que empresas de tecnologia usam para medir em que ponto estão os processos, em
-        cinco degraus que vão do improviso à melhoria contínua. A gente pegou essa lógica e trocou as perguntas por coisas do dia a dia
+        cinco degraus que vão do improviso à melhoria contínua. Pegamos essa lógica e trocamos as perguntas por coisas do dia a dia
         da imobiliária: CRM, funil, corretores, números e IA.
       </p>
       <ul className="divide-y divide-border rounded-lg border border-border text-sm">

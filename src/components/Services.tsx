@@ -7,7 +7,10 @@ const Services = () => {
     {
       title: "Web Sites",
       description: "Site para imobiliária, incorporadora ou empreendimento, feito para ser encontrado no Google e transformar visita em contato.",
-      duration: "1 mês",
+      duration: "2 meses",
+      result: "Site no ar em 2 meses, com a busca orgânica crescendo a partir do 3º mês.",
+      price: "A partir de R$ 7.000",
+      priceNote: "Pagamento único.",
       ctaLabel: "Quero um site que traz contatos",
       features: [
         "Site institucional, portfólio de imóveis ou página de empreendimento",
@@ -22,6 +25,9 @@ const Services = () => {
       title: "Anúncios no Google, Meta e IA",
       description: "Anúncios no Google, no Facebook, no Instagram e nas respostas de IA, falando com quem está procurando imóvel agora.",
       duration: "Mensal",
+      result: "Primeiros leads já na primeira semana, com o custo de cada lead caindo até o 3º mês.",
+      price: "A partir de R$ 1.200/mês",
+      priceNote: "+ R$ 1.000 de setup. A verba dos anúncios é paga direto ao Google e à Meta, à parte.",
       ctaLabel: "Quero anúncios no Google, Meta e GPT Ads",
       features: [
         "Anúncios no Google para quem já está buscando imóvel",
@@ -34,8 +40,11 @@ const Services = () => {
     },
     {
       title: "CRM, Processos e Automação",
-      description: "A gente organiza o seu processo comercial e a tecnologia por trás dele, do primeiro contato do lead até a visita agendada, com tudo registrado e medido.",
-      duration: "3 meses + acompanhamento mensal",
+      description: "Organizamos o seu processo comercial e a tecnologia por trás dele, do primeiro contato do lead até a visita agendada, com tudo registrado e medido.",
+      duration: "1 mês de implantação + acompanhamento mensal",
+      result: "No primeiro mês, nenhum lead sem resposta e o atendimento mais rápido. A conversão sobe a partir daí.",
+      price: "R$ 800/mês",
+      priceNote: "+ R$ 1.500 de setup. Licença do CRM incluída para até 10 usuários.",
       ctaLabel: "Quero organizar meu CRM e processos",
       features: [
         "Um jeito só de atender, combinado com o seu time",
@@ -71,11 +80,15 @@ const Services = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40">
+              <Card key={index} className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40 flex flex-col">
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold mb-2 text-foreground">{service.title}</h3>
                   <p className="text-foreground mb-4">{service.description}</p>
-                  <span className="text-muted-foreground">Duração: {service.duration}</span>
+                  <span className="text-muted-foreground">Prazo: {service.duration}</span>
+                  <div className="mt-4 rounded-lg border border-primary/30 bg-primary/5 p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">Resultado esperado</p>
+                    <p className="text-sm text-foreground">{service.result}</p>
+                  </div>
                 </div>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
@@ -85,6 +98,10 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-auto mb-5 border-t border-border pt-5">
+                  <p className="text-2xl font-bold text-foreground">{service.price}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{service.priceNote}</p>
+                </div>
                 <Button
                   className="w-full font-semibold"
                   onClick={handleInteresseClick}
@@ -99,7 +116,7 @@ const Services = () => {
         <Card className="p-8 md:p-10 card-elevated border-primary/30 text-center max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold mb-4 text-foreground">Também fazemos sob medida</h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Cada imobiliária está num momento diferente, então além desses três serviços a gente monta propostas sob medida,
+            Cada imobiliária está num momento diferente, então além desses três serviços montamos propostas sob medida,
             com vídeos, planejamento de marketing, SEO, conteúdo e acompanhamento mensal depois da entrega.
           </p>
           <div className="flex flex-wrap justify-center gap-2 mb-8">

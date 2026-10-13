@@ -93,7 +93,7 @@ const DiagnosticSection = () => {
               Descubra onde a sua imobiliária está perdendo leads
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Conte rapidamente sobre a sua operação e a gente analisa captação, atendimento e processo comercial para
+              Conte rapidamente sobre a sua operação e nós analisamos captação, atendimento e processo comercial para
               apontar os gargalos e o que resolver primeiro. Sem compromisso.
             </p>
             <ul className="space-y-2 text-foreground">

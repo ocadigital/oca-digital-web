@@ -17,7 +17,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Como funciona o processo de diagnóstico estratégico?",
-      answer: "A gente analisa a sua operação como ela é hoje, o marketing, o processo comercial e as ferramentas, e aponta onde estão as oportunidades. Leva cerca de 1 semana e você recebe um relatório com o plano de ação para a sua imobiliária."
+      answer: "Analisamos a sua operação como ela é hoje, o marketing, o processo comercial e as ferramentas, e aponta onde estão as oportunidades. Leva cerca de 1 semana e você recebe um relatório com o plano de ação para a sua imobiliária."
     },
     {
       question: "Vocês trabalham apenas com imobiliárias de Florianópolis?",
@@ -25,7 +25,7 @@ const FAQ = () => {
     },
     {
       question: "Quanto tempo leva para ver resultados?",
-      answer: "Os primeiros resultados costumam aparecer entre 30 e 60 dias, conforme o serviço. Em anúncios pagos é mais rápido, de 7 a 15 dias, e SEO e automação levam de 60 a 90 dias para dar resultado consistente."
+      answer: "Depende do serviço. Nos anúncios, os primeiros leads chegam já na primeira semana e o custo de cada lead cai até o 3º mês. No CRM, já no primeiro mês nenhum lead fica sem resposta e o atendimento fica mais rápido. No site, a busca orgânica começa a crescer a partir do 3º mês, porque o Google leva esse tempo para posicionar as páginas."
     },
     {
       question: "Vocês oferecem suporte técnico?",
@@ -46,7 +46,7 @@ const FAQ = () => {
     },
     {
       question: "Como funciona a gestão de leads?",
-      answer: "Todos os leads vão para um lugar só. A gente monta um roteiro de perguntas para separar quem tem orçamento e prazo de quem só está olhando, automatiza o acompanhamento de quem ainda não está pronto e distribui os contatos entre os corretores, e você acompanha tudo num painel em tempo real."
+      answer: "Todos os leads vão para um lugar só. Montamos um roteiro de perguntas para separar quem tem orçamento e prazo de quem só está olhando, automatiza o acompanhamento de quem ainda não está pronto e distribui os contatos entre os corretores, e você acompanha tudo num painel em tempo real."
     }
   ];
 
