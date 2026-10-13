@@ -3,8 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 /**
  * Animação do hero: o lead chega (Instagram, Google, portal, WhatsApp), entra no CRM,
  * é pontuado e vira visita. Vídeo gerado no projeto sketch-videos (composição HeroOCA).
+ * O visitante vê primeiro o desenho completo (o poster); depois de alguns segundos o vídeo
+ * monta o fluxo uma vez e para no último quadro, que também é o desenho completo.
  * Quem pede menos movimento no aparelho vê só a imagem final.
  */
+const ATRASO_MS = 2500;
+
 const HeroMotion = () => {
   const [reduce, setReduce] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -17,12 +21,15 @@ const HeroMotion = () => {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
-  // O React não repassa `muted` como atributo, e sem ele o navegador bloqueia o autoplay.
+  // O React não repassa `muted` como atributo, e sem ele o navegador bloqueia a reprodução automática.
   useEffect(() => {
     const v = videoRef.current;
     if (!v || reduce) return;
     v.muted = true;
-    v.play().catch(() => undefined);
+    const t = window.setTimeout(() => {
+      v.play().catch(() => undefined);
+    }, ATRASO_MS);
+    return () => window.clearTimeout(t);
   }, [reduce]);
 
   const label =
@@ -36,9 +43,7 @@ const HeroMotion = () => {
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
-          autoPlay
           muted
-          loop
           playsInline
           preload="auto"
           poster="/motion/hero-fluxo-lead-v2.jpg"

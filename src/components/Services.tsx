@@ -19,7 +19,7 @@ const Services = () => {
       ]
     },
     {
-      title: "Google Ads, Meta Ads e GPT Ads",
+      title: "Anúncios no Google, Meta e IA",
       description: "Anúncios no Google, no Facebook, no Instagram e nas respostas de IA, falando com quem está procurando imóvel agora.",
       duration: "Mensal",
       ctaLabel: "Quero anúncios no Google, Meta e GPT Ads",

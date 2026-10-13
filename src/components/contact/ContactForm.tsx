@@ -175,7 +175,7 @@ const ContactForm = () => {
           >
             <option value="">Serviço de interesse</option>
             <option value="web-sites">Web Sites</option>
-            <option value="google-meta-gpt-ads">Google Ads, Meta Ads e GPT Ads</option>
+            <option value="google-meta-gpt-ads">Anúncios no Google, Meta e IA (GPT Ads)</option>
             <option value="crm-processos-automacao">CRM, Processos e Automação</option>
             <option value="outros">Outros</option>
           </select>

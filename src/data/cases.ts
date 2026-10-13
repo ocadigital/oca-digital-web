@@ -136,7 +136,7 @@ export const cases: CaseStudy[] = [
     client: "Santa Ilha Imobiliária",
     segment: "Lançamento Imobiliário",
     coverImage: "/images/cases/santa-ilha-sunclub-2026-09.webp",
-    title: "SUNCLUB Campeche: 173 leads em 1 semana de captação, com CPL de R$43,44",
+    title: "SUNCLUB Campeche: 173 leads em 1 semana de captação, a R$ 43,44 por lead",
     summary:
       "Campanha completa de pré-lançamento do SUNCLUB Campeche Beach Residence para a Santa Ilha Imobiliária: hotsite, mídia paga, e-mail marketing e imprensa, do zero até 173 leads captados em 1 semana. A Santa Ilha terminou como a segunda imobiliária que mais vendeu unidades do empreendimento.",
     challenge:
@@ -147,7 +147,7 @@ export const cases: CaseStudy[] = [
       "A campanha impactou aproximadamente 106 mil pessoas e levou 7.167 visitantes únicos ao hotsite. O vídeo da trilha sonora do empreendimento sozinho somou 7.626 visualizações no YouTube. O trabalho levou 4 semanas, e a captação se concentrou na última delas: foram 173 leads em 1 semana (136 via formulário na landing page, 31 via Lead Ads no Facebook/Instagram e 6 por resposta direta ao e-mail), com um investimento total de R$7.514,32 (R$5.000 de honorários da OCA Digital + R$2.514,32 em mídia), um custo geral por lead de R$43,44. Nas vendas, a Santa Ilha foi a segunda imobiliária que mais vendeu imóveis do SUNCLUB Campeche.",
     metrics: [
       { label: "Leads captados em 1 semana", value: "173" },
-      { label: "Custo por lead (CPL)", value: "R$43,44" },
+      { label: "Custo por lead", value: "R$43,44" },
       { label: "Ranking de vendas no empreendimento", value: "2º lugar" },
     ],
     relatedBlogSlug: "como-gerar-mais-leads-qualificados-imobiliaria-2024",
