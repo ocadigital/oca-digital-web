@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Clients from '@/components/Clients';
 import Services from '@/components/Services';
 import ProcessoLead from '@/components/ProcessoLead';
+import CrmPreview from '@/components/CrmPreview';
 import DiagnosticSection from '@/components/DiagnosticSection';
 import MaturityTestCta from '@/components/MaturityTestCta';
 import Founder from '@/components/Founder';
@@ -41,6 +42,7 @@ const Index = () => {
           <Clients />
           <Services />
           <ProcessoLead />
+          <CrmPreview />
           <DiagnosticSection />
           <MaturityTestCta />
           <Founder />

@@ -5,7 +5,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const grafismoRef = useParallax<HTMLDivElement>(0.12);
+  const grafismoRef = useParallax<HTMLDivElement>(0.2);
 
   const navigateToSection = (sectionId: string) => {
     if (location.pathname !== '/') {

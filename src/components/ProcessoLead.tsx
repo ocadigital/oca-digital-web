@@ -1,4 +1,5 @@
 import VideoLoop from '@/components/VideoLoop';
+import { useParallax } from '@/hooks/use-parallax';
 
 const etapas = [
   { titulo: 'Captação', texto: 'Anúncios, site e portais trazem o contato.' },
@@ -10,7 +11,9 @@ const etapas = [
 ];
 
 /** Seção "Como funciona": o caminho do lead em 6 etapas (vídeo no computador, lista no celular). */
-const ProcessoLead = () => (
+const ProcessoLead = () => {
+  const videoRef = useParallax<HTMLDivElement>(-0.06);
+  return (
   <section id="como-funciona" className="py-20 bg-background section-separator">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12 max-w-3xl mx-auto">
@@ -23,6 +26,7 @@ const ProcessoLead = () => (
       </div>
 
       <div className="hidden md:block">
+        <div ref={videoRef}>
         <VideoLoop
           base="/motion/processo-lead-v1"
           width={1600}
@@ -31,6 +35,7 @@ const ProcessoLead = () => (
           label="Animação do processo: captação no Instagram, Google, portais e WhatsApp, CRM com todos os leads, enriquecimento com dados do LinkedIn, lead score, atendimento automático no WhatsApp com detalhes do imóvel e visita agendada."
           className="w-full aspect-[16/7] rounded-2xl border-2 border-primary/20 shadow-2xl"
         />
+        </div>
         <p className="text-xs text-muted-foreground text-center mt-3">Exemplo ilustrativo.</p>
       </div>
 
@@ -49,6 +54,7 @@ const ProcessoLead = () => (
       </ol>
     </div>
   </section>
-);
+  );
+};
 
 export default ProcessoLead;

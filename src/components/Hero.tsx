@@ -5,9 +5,9 @@ import { useParallax } from '@/hooks/use-parallax';
 
 const Hero = () => {
   // Parallax leve: o brilho e o grafismo ficam para trás na rolagem, a animação anda um pouco à frente.
-  const brilhoRef = useParallax<HTMLDivElement>(0.3);
-  const grafismoRef = useParallax<HTMLDivElement>(0.15);
-  const motionRef = useParallax<HTMLDivElement>(-0.05);
+  const brilhoRef = useParallax<HTMLDivElement>(0.4);
+  const grafismoRef = useParallax<HTMLDivElement>(0.25);
+  const motionRef = useParallax<HTMLDivElement>(-0.1);
 
   return (
     <section id="inicio" className="pt-16 min-h-screen relative overflow-hidden bg-background">

@@ -15,7 +15,7 @@ const provas = [
 
 /** Seção da home sobre o fundador, com foto e trajetória. */
 const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostrarHistoria?: boolean }) => {
-  const fotoRef = useParallax<HTMLImageElement>(0.06);
+  const fotoRef = useParallax<HTMLImageElement>(-0.1);
   return (
   <section id={id} className="py-20 bg-background section-separator">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-10 lg:gap-16 items-center">
