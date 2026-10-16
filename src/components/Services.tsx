@@ -1,7 +1,8 @@
 
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import ServiceLeadModal, { type ServicoSelecionado } from '@/components/ServiceLeadModal';
 
 const Services = () => {
@@ -25,12 +26,30 @@ const Services = () => {
       ]
     },
     {
+      title: "Landing Pages",
+      valor: "landing-page",
+      description: "Página de captação para um lançamento, um empreendimento ou uma campanha, feita para transformar o clique do anúncio em contato.",
+      duration: "Até 3 semanas",
+      result: "Página no ar em até 3 semanas, pronta para receber o tráfego dos anúncios e medir cada contato.",
+      price: "A partir de R$ 2.000",
+      priceNote: "Pagamento único.",
+      ctaLabel: "Quero uma landing page",
+      features: [
+        "Uma página focada em um empreendimento ou numa campanha",
+        "Textos e layout pensados para gerar contato",
+        "Formulário e WhatsApp caindo direto no CRM",
+        "Pixel da Meta, GA4 e conversões configurados",
+        "Rápida e feita primeiro para o celular",
+        "Versões de título e chamada para testar o que converte mais"
+      ]
+    },
+    {
       title: "Anúncios no Google, Meta e IA",
       valor: "google-meta-gpt-ads",
       description: "Anúncios no Google, no Facebook, no Instagram e nas respostas de IA, falando com quem está procurando imóvel agora.",
       duration: "Mensal",
       result: "Primeiros leads já na primeira semana, com o custo de cada lead caindo até o 3º mês.",
-      price: "A partir de R$ 1.200/mês",
+      price: "A partir de R$ 1.500/mês",
       priceNote: "+ R$ 1.000 de setup. A verba dos anúncios é paga direto ao Google e à Meta, à parte.",
       ctaLabel: "Quero anúncios no Google, Meta e GPT Ads",
       features: [
@@ -59,10 +78,46 @@ const Services = () => {
         "Roteiro de perguntas e nota automática para saber quem está mais perto de comprar",
         "Painel com os números do comercial em tempo real"
       ]
+    },
+    {
+      title: "Planejamento de Marketing",
+      valor: "planejamento-marketing",
+      description: "Plano anual de marketing da imobiliária, com metas, ações, orçamento e rotina, para o time interno executar com clareza.",
+      duration: "1 mês",
+      result: "Em 1 mês, um plano de 12 meses que um profissional interno, mesmo com menos experiência, consegue executar.",
+      price: "R$ 3.000",
+      priceNote: "Pagamento único.",
+      ctaLabel: "Quero um planejamento de marketing",
+      features: [
+        "Diagnóstico de canais, concorrência e posicionamento",
+        "Metas mensais de leads, visitas, captações e vendas",
+        "Calendário de 12 meses com campanhas e ações",
+        "Orçamento de mídia por canal e por trimestre",
+        "Rotina semanal e mensal, com checklists e indicadores",
+        "Perfil da vaga e onboarding do profissional interno"
+      ]
     }
   ];
 
   const [servico, setServico] = useState<ServicoSelecionado | null>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [atual, setAtual] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    const sync = () => {
+      setTotal(api.scrollSnapList().length);
+      setAtual(api.selectedScrollSnap());
+    };
+    sync();
+    api.on('select', sync);
+    api.on('reInit', sync);
+    return () => {
+      api.off('select', sync);
+      api.off('reInit', sync);
+    };
+  }, [api]);
 
   return (
     <section id="servicos" className="py-20 bg-secondary section-separator">
@@ -77,10 +132,11 @@ const Services = () => {
         </div>
 
         <div className="mb-20">
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Carousel setApi={setApi} opts={{ align: 'start' }} className="w-full" aria-label="Serviços da OCA Digital">
+            <CarouselContent className="-ml-6 py-3">
             {services.map((service, index) => (
-              <Card key={index} className="p-8 card-elevated hover:-translate-y-2 hover:border-primary/40 flex flex-col">
+              <CarouselItem key={index} className="pl-6 basis-full md:basis-1/2 lg:basis-1/3">
+              <Card className="h-full p-8 card-elevated hover:border-primary/40 flex flex-col">
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold mb-2 text-foreground">{service.title}</h3>
                   <p className="text-foreground mb-4">{service.description}</p>
@@ -109,18 +165,36 @@ const Services = () => {
                   {service.ctaLabel}
                 </Button>
               </Card>
+              </CarouselItem>
             ))}
-          </div>
+            </CarouselContent>
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <CarouselPrevious className="static translate-y-0 h-10 w-10" aria-label="Serviço anterior" />
+              <div className="flex gap-2">
+                {Array.from({ length: total }).map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Ir para o grupo ${i + 1} de serviços`}
+                    aria-current={i === atual}
+                    onClick={() => api?.scrollTo(i)}
+                    className={`h-2.5 rounded-full transition-all ${i === atual ? 'w-8 bg-primary' : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50'}`}
+                  />
+                ))}
+              </div>
+              <CarouselNext className="static translate-y-0 h-10 w-10" aria-label="Próximo serviço" />
+            </div>
+          </Carousel>
         </div>
 
         <Card className="p-8 md:p-10 card-elevated border-primary/30 text-center max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold mb-4 text-foreground">Também fazemos sob medida</h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Cada imobiliária está num momento diferente, então além desses três serviços montamos propostas sob medida,
-            com vídeos, planejamento de marketing, SEO, conteúdo e acompanhamento mensal depois da entrega.
+            Cada imobiliária está num momento diferente, então além desses serviços montamos propostas sob medida,
+            com vídeos, SEO, conteúdo e acompanhamento mensal depois da entrega.
           </p>
           <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {['Vídeos e Reels', 'Planejamento de marketing', 'SEO e blog', 'Conteúdo para redes', 'Acompanhamento mensal'].map((item) => (
+            {['Vídeos e Reels', 'SEO e blog', 'Conteúdo para redes', 'Acompanhamento mensal'].map((item) => (
               <span key={item} className="px-4 py-1.5 rounded-full border border-border text-sm text-foreground">{item}</span>
             ))}
           </div>
