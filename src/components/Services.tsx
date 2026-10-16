@@ -2,6 +2,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import ServiceLeadModal, { type ServicoSelecionado } from '@/components/ServiceLeadModal';
 
@@ -67,8 +68,8 @@ const Services = () => {
       description: "Organizamos o seu processo comercial e a tecnologia por trás dele, do primeiro contato do lead até a visita agendada, com tudo registrado e medido.",
       duration: "1 mês de implantação + acompanhamento mensal",
       result: "No primeiro mês, nenhum lead sem resposta e o atendimento mais rápido. A conversão sobe a partir daí.",
-      price: "R$ 800/mês",
-      priceNote: "+ R$ 1.500 de setup. Licença do CRM incluída para até 10 usuários.",
+      price: "A partir de R$ 150/mês",
+      priceNote: "Licença do CRM para até 3 usuários. Implantação e planos com mais usuários conforme a operação.",
       ctaLabel: "Quero organizar meu CRM e processos",
       features: [
         "Um jeito só de atender, combinado com o seu time",
@@ -103,6 +104,19 @@ const Services = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [atual, setAtual] = useState(0);
   const [total, setTotal] = useState(0);
+  const [precosAbertos, setPrecosAbertos] = useState<Record<string, boolean>>({});
+
+  const alternarPreco = (valor: string) => {
+    setPrecosAbertos((atual) => {
+      const abrir = !atual[valor];
+      if (abrir) {
+        const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
+        w.dataLayer = w.dataLayer || [];
+        w.dataLayer.push({ event: 'service_price_open', servico: valor });
+      }
+      return { ...atual, [valor]: abrir };
+    });
+  };
 
   useEffect(() => {
     if (!api) return;
@@ -154,9 +168,24 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto mb-5 border-t border-border pt-5">
-                  <p className="text-2xl font-bold text-foreground">{service.price}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{service.priceNote}</p>
+                <div className="mt-auto mb-5 border-t border-border pt-4">
+                  <button
+                    type="button"
+                    onClick={() => alternarPreco(service.valor)}
+                    aria-expanded={!!precosAbertos[service.valor]}
+                    aria-controls={`preco-${service.valor}`}
+                    className="flex w-full items-center justify-between rounded-md py-1 text-left font-semibold text-primary hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    Ver investimento
+                    <ChevronDown
+                      className={`h-5 w-5 transition-transform duration-200 ${precosAbertos[service.valor] ? 'rotate-180' : ''}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <div id={`preco-${service.valor}`} hidden={!precosAbertos[service.valor]} className="pt-3">
+                    <p className="text-2xl font-bold text-foreground">{service.price}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{service.priceNote}</p>
+                  </div>
                 </div>
                 <Button
                   className="w-full font-semibold"
