@@ -23,6 +23,7 @@ const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const Login = lazy(() => import("./pages/admin/Login"));
 const PostsList = lazy(() => import("./pages/admin/PostsList"));
 const PostEditor = lazy(() => import("./pages/admin/PostEditor"));
+const Prospeccao = lazy(() => import("./pages/admin/Prospeccao"));
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,12 @@ const App = () => (
               <Route path="/admin/posts/edit/:id" element={
                 <ProtectedRoute>
                   <PostEditor />
+                </ProtectedRoute>
+              } />
+
+              <Route path="/admin/prospeccao" element={
+                <ProtectedRoute requireAdmin>
+                  <Prospeccao />
                 </ProtectedRoute>
               } />
 
