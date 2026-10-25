@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { logError } from '@/lib/logger';
-import TermometroLead, { type ResultadoTermometro } from '@/components/TermometroLead';
 
 /** Diagnóstico gratuito: antes ficava no hero, agora é uma seção abaixo dos serviços. */
 const DiagnosticSection = () => {
@@ -16,8 +15,6 @@ const DiagnosticSection = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // o que o visitante simulou no Termômetro vai junto no pedido de diagnóstico
-  const [termometro, setTermometro] = useState<ResultadoTermometro | null>(null);
   const { toast } = useToast();
 
   const validateForm = () => {
@@ -51,7 +48,7 @@ const DiagnosticSection = () => {
           email: formData.email,
           telefone: formData.phone,
           tipo_de_empresa: formData.companySize,
-          comment: `Solicitação de diagnóstico gratuito através do formulário principal do site.${termometro ? `\n\n${termometro.resumo}` : ''}`
+          comment: `Solicitação de diagnóstico gratuito através do formulário principal do site.`
         }
       });
 
@@ -93,23 +90,19 @@ const DiagnosticSection = () => {
           <div className="space-y-5">
             <span className="text-sm font-semibold tracking-wider uppercase text-primary">Diagnóstico gratuito</span>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
-              Lead que espera, esfria.
+              Descubra onde a sua imobiliária está perdendo leads
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Na sua imobiliária ninguém serve café frio para um cliente. No WhatsApp isso acontece todo dia: o lead
-              chega, espera horas pela resposta e, quando o corretor responde, ele já conversou com outras duas imobiliárias.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              No diagnóstico medimos quanto tempo o seu atendimento leva, de onde vêm os seus leads e onde eles esfriam
-              antes da visita. Em 20 minutos você sai com os primeiros passos para resolver. Sem compromisso.
+              Conte rapidamente sobre a sua operação e nós analisamos captação, atendimento e processo comercial para
+              apontar os gargalos e o que resolver primeiro. Sem compromisso.
             </p>
             <ul className="space-y-2 text-foreground">
-              <li className="flex gap-2"><span className="text-primary">✓</span> Quanto tempo o seu time leva para responder</li>
               <li className="flex gap-2"><span className="text-primary">✓</span> De onde vêm os seus leads e quanto custam</li>
               <li className="flex gap-2"><span className="text-primary">✓</span> Onde o atendimento trava antes da visita</li>
+              <li className="flex gap-2"><span className="text-primary">✓</span> Os primeiros passos com mais retorno</li>
             </ul>
           </div>
-          <Card id="diagnostico-form" className="p-8 shadow-2xl border-2 border-primary/20 bg-card">
+          <Card className="p-8 shadow-2xl border-2 border-primary/20 bg-card">
             <h3 className="text-2xl font-bold mb-6 text-center text-foreground">Quero meu diagnóstico</h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -176,9 +169,6 @@ const DiagnosticSection = () => {
             Seus dados estão protegidos. Não fazemos spam.
           </p>
           </Card>
-        </div>
-        <div className="mt-12">
-          <TermometroLead onResultado={setTermometro} />
         </div>
       </div>
     </section>
