@@ -20,6 +20,48 @@ interface ContactFormData {
   form: string;
 }
 
+// Nome legível de cada formulário do site, para o negócio mostrar de onde veio
+const ORIGENS: Record<string, string> = {
+  contact_form: 'Formulário de contato',
+  servico_card: 'Card de serviço',
+  diagnostico: 'Diagnóstico',
+  maturity_test: 'Teste de Maturidade',
+  hero_diagnostic: 'Diagnóstico gratuito (home)',
+};
+
+// Secrets no Supabase: OCA_ONE_WEBHOOK_URL (ex.: https://mentoria-azure.vercel.app/api/webhook/entrada)
+// e OCA_ONE_WEBHOOK_KEY (o mesmo valor de WEBHOOK_KEY na Vercel do OCA One)
+async function enviarParaCrm(formData: ContactFormData) {
+  const url = Deno.env.get('OCA_ONE_WEBHOOK_URL');
+  const chave = Deno.env.get('OCA_ONE_WEBHOOK_KEY');
+  if (!url || !chave) {
+    console.log('CRM: secrets não configurados, conversão não enviada');
+    return;
+  }
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-webhook-key': chave },
+      body: JSON.stringify({
+        empresa_nome: Deno.env.get('OCA_ONE_EMPRESA') ?? 'OCA Digital',
+        pipeline_nome: Deno.env.get('OCA_ONE_PIPELINE') ?? undefined,
+        nome: formData.nome,
+        email: formData.email,
+        telefone: formData.telefone,
+        tipo_de_empresa: formData.tipo_de_empresa,
+        servico: formData.servico,
+        mensagem: formData.comment,
+        origem: ORIGENS[formData.form] ?? formData.form,
+        utm_source: 'site-oca',
+      }),
+      signal: AbortSignal.timeout(10000),
+    });
+    console.log('CRM: status', res.status);
+  } catch (e) {
+    console.error('CRM: falha ao enviar', e instanceof Error ? e.message : 'erro');
+  }
+}
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -55,6 +97,9 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     console.log('Saved to database successfully');
+
+    // Envia a conversão para o CRM (OCA One). Falha aqui não derruba o formulário.
+    await enviarParaCrm(formData);
 
     // Prepare email content
     const isHeroForm = formData.form === 'hero_diagnostic';
