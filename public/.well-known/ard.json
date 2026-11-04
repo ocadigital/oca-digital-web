@@ -1,0 +1,33 @@
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:www.ocadigital.com.br:oca:llms-txt",
+      "displayName": "OCA Digital, marketing imobiliário (llms.txt)",
+      "type": "text/markdown",
+      "url": "https://www.ocadigital.com.br/llms.txt",
+      "description": "Resumo da OCA Digital para modelos de linguagem: serviços de marketing imobiliário (sites, landing pages, anúncios, planejamento, consultoria em processos e automação, CRM), cases, blog e contato.",
+      "tags": ["marketing imobiliário", "imobiliária", "CRM", "leads", "Florianópolis"],
+      "representativeQueries": [
+        "Agência de marketing imobiliário em Florianópolis",
+        "Quanto custa um site para imobiliária?",
+        "Como organizar o CRM e o atendimento de leads de uma imobiliária",
+        "Teste de maturidade do processo comercial da imobiliária"
+      ],
+      "trustManifest": { "identity": "https://www.ocadigital.com.br", "identityType": "https" }
+    },
+    {
+      "identifier": "urn:air:www.ocadigital.com.br:oca:sitemap",
+      "displayName": "OCA Digital, mapa do site",
+      "type": "application/xml",
+      "url": "https://www.ocadigital.com.br/sitemap.xml",
+      "description": "Lista de todas as páginas públicas do site da OCA Digital, incluindo serviços, cases, posts do blog e o Teste de Maturidade.",
+      "tags": ["sitemap", "páginas", "blog"],
+      "representativeQueries": [
+        "Quais páginas tem o site da OCA Digital?",
+        "Posts do blog da OCA Digital sobre leads e CRM"
+      ],
+      "trustManifest": { "identity": "https://www.ocadigital.com.br", "identityType": "https" }
+    }
+  ]
+}

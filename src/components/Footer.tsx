@@ -102,7 +102,8 @@ const Footer = () => {
             <ul className="space-y-2 text-muted-foreground">
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Web Sites</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Anúncios no Google, Meta e IA</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">CRM, Processos e Automação</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Consultoria em Processos e Automação</button></li>
+              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">CRM</button></li>
               <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Projetos sob medida</button></li>
             </ul>
           </div>
