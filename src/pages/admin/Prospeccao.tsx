@@ -30,6 +30,8 @@ interface Imobiliaria {
   imovel_locacao_descricao: string | null;
   ex_cliente: boolean;
   rating_interno: number | null;
+  ia_citacoes?: number | null;
+  ia_posicao?: number | null;
   status: string;
   observacoes: string | null;
   rating: number;
@@ -47,7 +49,7 @@ const score = (d: Imobiliaria) => {
 
 const fmt = (n: number | null) => (n == null ? '—' : n.toLocaleString('pt-BR'));
 
-type SortKey = 'nome' | 'regiao' | 'seguidores_instagram' | 'estoque_venda' | 'estoque_locacao' | 'google_nota' | 'rating';
+type SortKey = 'nome' | 'regiao' | 'seguidores_instagram' | 'ia_citacoes' | 'estoque_venda' | 'estoque_locacao' | 'google_nota' | 'rating';
 
 const COLS: { key: SortKey | 'bairro' | 'plataforma_site'; label: string; num?: boolean }[] = [
   { key: 'nome', label: 'Imobiliária' },
@@ -58,6 +60,7 @@ const COLS: { key: SortKey | 'bairro' | 'plataforma_site'; label: string; num?: 
   { key: 'estoque_venda', label: 'Venda', num: true },
   { key: 'estoque_locacao', label: 'Locação', num: true },
   { key: 'google_nota', label: 'Google', num: true },
+  { key: 'ia_citacoes', label: 'Citações IA', num: true },
   { key: 'rating', label: 'Rating', num: true },
 ];
 
@@ -123,7 +126,7 @@ const Prospeccao = () => {
   }, [rows, q, regiao, plataforma, ads, sort]);
 
   const toggleSort = (key: string) => {
-    if (!['nome', 'regiao', 'seguidores_instagram', 'estoque_venda', 'estoque_locacao', 'google_nota', 'rating'].includes(key)) return;
+    if (!['nome', 'regiao', 'seguidores_instagram', 'ia_citacoes', 'estoque_venda', 'estoque_locacao', 'google_nota', 'rating'].includes(key)) return;
     const k = key as SortKey;
     setSort((s) => (s.key === k ? { key: k, dir: (-s.dir) as 1 | -1 } : { key: k, dir: k === 'nome' || k === 'regiao' ? 1 : -1 }));
   };
@@ -219,6 +222,9 @@ const Prospeccao = () => {
                     <td className="px-3 py-2 text-right tabular-nums whitespace-nowrap">
                       {r.google_nota ? <>{r.google_nota.toFixed(1)} <span className="text-muted-foreground">({fmt(r.google_avaliacoes)})</span></> : '—'}
                     </td>
+                    <td className="px-3 py-2 text-right tabular-nums whitespace-nowrap">
+                      {r.ia_citacoes ? <>{r.ia_citacoes}/30 <span className="text-muted-foreground">(#{r.ia_posicao})</span></> : '—'}
+                    </td>
                     <td className="px-3 py-2 text-right tabular-nums font-semibold">{r.rating}</td>
                   </tr>
                   {open === r.id && (
@@ -256,7 +262,7 @@ const Prospeccao = () => {
           </table>
         </Card>
         <p className="text-xs text-muted-foreground">
-          Rating provisório (0 a 100): seguidores no Instagram 35, estoque 25, Google 20, anúncio na Meta 20. Se rating_interno estiver preenchido no banco, ele vale.
+          Rating provisório (0 a 100): seguidores no Instagram 35, estoque 25, Google 20, anúncio na Meta 20. Se rating_interno estiver preenchido no banco, ele vale. Citações IA: ranking da Ranqueia (ChatGPT, Gemini e Perplexity), não entra no rating.
         </p>
       </main>
     </div>
