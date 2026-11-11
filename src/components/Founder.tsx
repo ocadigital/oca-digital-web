@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useParallax } from '@/hooks/use-parallax';
@@ -16,6 +17,13 @@ const provas = [
 /** Seção da home sobre o fundador, com foto e trajetória. */
 const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostrarHistoria?: boolean }) => {
   const fotoRef = useParallax<HTMLImageElement>(-0.1);
+  const { hash } = useLocation();
+  // links como /sobre#anderson (box do autor nos posts) chegam direto nesta seção
+  useEffect(() => {
+    if (hash !== `#${id}`) return;
+    const t = window.setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'instant' as ScrollBehavior, block: 'start' }), 150);
+    return () => window.clearTimeout(t);
+  }, [hash, id]);
   return (
   <section id={id} className="py-20 bg-background section-separator">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-10 lg:gap-16 items-center">
@@ -79,6 +87,18 @@ const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostra
             </Button>
           )}
         </div>
+        <p className="mt-5 text-sm text-muted-foreground">
+          Também escrevo no{' '}
+          <Link to="/blog" className="font-medium text-primary hover:underline">blog da OCA</Link>
+          {' '}sobre leads, CRM e processos, e conto os bastidores dos projetos nos{' '}
+          <Link to="/cases" className="font-medium text-primary hover:underline">cases</Link>.
+          {mostrarHistoria && (
+            <>
+              {' '}
+              <Link to="/sobre#anderson" className="font-medium text-primary hover:underline">Ver perfil completo</Link>.
+            </>
+          )}
+        </p>
       </div>
     </div>
   </section>

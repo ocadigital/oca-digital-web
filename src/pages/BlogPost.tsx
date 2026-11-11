@@ -21,6 +21,7 @@ import { logError } from '@/lib/logger';
 import { sanitizeHtml } from '@/lib/sanitize';
 import { getCaseByRelatedBlogSlug } from '@/data/cases';
 import { abrirWhatsapp } from '@/lib/whatsapp';
+import { AuthorBox, PostsRail } from '@/components/Discovery';
 
 
 interface BlogPost {
@@ -42,7 +43,6 @@ interface BlogPost {
 const BlogPost = () => {
   const { slug } = useParams();
   const [post, setPost] = useState<BlogPost | null>(null);
-  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -64,19 +64,6 @@ const BlogPost = () => {
 
       setPost(postData);
 
-      // Fetch related posts
-      if (postData) {
-        const { data: related, error: relatedError } = await supabase
-          .from('blog_posts')
-          .select('*')
-          .eq('published', true)
-          .eq('category', postData.category)
-          .neq('id', postData.id)
-          .limit(3);
-
-        if (relatedError) throw relatedError;
-        setRelatedPosts(related || []);
-      }
     } catch (error) {
       logError('Error fetching post:', error);
     } finally {
@@ -191,7 +178,7 @@ const BlogPost = () => {
           </h1>
           
           <div className="flex items-center text-muted-foreground">
-            <span>Por {post.author}</span>
+            <span>Por <Link to="/sobre#anderson" className="hover:text-primary underline-offset-4 hover:underline">{post.author}</Link></span>
             <span className="mx-2">•</span>
             <time>{formatDate(post.created_at)}</time>
           </div>
@@ -242,40 +229,9 @@ const BlogPost = () => {
               url={window.location.href}
             />
 
-            {relatedPosts.length > 0 && (
-              <section className="mt-12 pt-12 border-t">
-                <h2 className="text-2xl font-bold mb-6">Posts Relacionados</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {relatedPosts.map((relatedPost) => (
-                    <Card
-                      key={relatedPost.id}
-                      className="overflow-hidden hover:shadow-lg transition-shadow"
-                    >
-                      {relatedPost.image && (
-                        <img
-                          src={relatedPost.image}
-                          alt={relatedPost.title}
-                          className="w-full h-40 object-cover"
-                        />
-                      )}
-                      <div className="p-4">
-                        <h3 className="font-bold mb-2 line-clamp-2">
-                          {relatedPost.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                          {relatedPost.excerpt}
-                        </p>
-                        <Link to={`/blog/${relatedPost.slug}`} aria-label={`Ler artigo completo: ${relatedPost.title}`}>
-                          <Button variant="outline" size="sm" className="w-full">
-                            Ler Artigo Completo
-                          </Button>
-                        </Link>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
-              </section>
-            )}
+            <AuthorBox />
+
+            <PostsRail titulo="Continue lendo" categoria={post.category} excluirId={post.id} />
 
             {getCaseByRelatedBlogSlug(post.slug) && (
               <section className="mt-12 pt-12 border-t">

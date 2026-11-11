@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { getCaseBySlug } from '@/data/cases';
 import { abrirWhatsapp } from '@/lib/whatsapp';
+import { CasesRail, PostsRail } from '@/components/Discovery';
 
 const CaseDetail = () => {
   const { slug } = useParams();
@@ -185,6 +186,9 @@ const CaseDetail = () => {
             Quero um resultado assim
           </Button>
         </Card>
+
+        <CasesRail titulo="Outros cases" referencia={caseStudy} />
+        <PostsRail titulo="Artigos para ir mais fundo" />
       </div>
 
       <Footer />

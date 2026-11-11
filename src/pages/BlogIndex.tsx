@@ -24,6 +24,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { logError } from '@/lib/logger';
+import { intercalarFerramentas, CasesRail } from '@/components/Discovery';
 
 interface BlogPost {
   id: string;
@@ -212,7 +213,7 @@ const BlogIndex = () => {
             ) : (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                  {currentPosts.map((post) => (
+                  {intercalarFerramentas(currentPosts.map((post) => (
                     <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                       {post.image && (
                         <img
@@ -249,7 +250,7 @@ const BlogIndex = () => {
                         </Link>
                       </div>
                     </Card>
-                  ))}
+                  )), 'blog')}
                 </div>
 
                 {totalPages > 1 && (
@@ -287,6 +288,8 @@ const BlogIndex = () => {
             )}
           </div>
         </div>
+
+        <CasesRail titulo="Cases recentes" />
       </main>
 
       <Footer />

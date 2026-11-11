@@ -20,7 +20,7 @@ const AboutPage = () => {
           content="Conheça a história, a metodologia e os pilares da OCA Digital, agência especialista em marketing imobiliário sediada em Florianópolis."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.ocadigital.com.br/about" />
+        <meta property="og:url" content="https://www.ocadigital.com.br/sobre" />
       </Helmet>
       <Header />
       <About asPage />
