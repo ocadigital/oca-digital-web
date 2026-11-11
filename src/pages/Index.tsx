@@ -15,8 +15,10 @@ import Blog from '@/components/Blog';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { useTrackVisit } from '@/lib/formProgress';
 
 const Index = () => {
+  useTrackVisit();
   return (
     <>
       <Helmet>

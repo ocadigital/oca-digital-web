@@ -147,6 +147,7 @@ const Prospeccao = () => {
           <h1 className="text-2xl font-bold text-foreground">Prospecção de Imobiliárias</h1>
           <div className="flex gap-4 items-center">
             <Link to="/admin/posts" className="text-sm text-muted-foreground hover:text-foreground">Posts do blog</Link>
+            <Link to="/admin/conversoes" className="text-sm text-muted-foreground hover:text-foreground">Conversões</Link>
             <span className="text-muted-foreground">Olá, {user?.email}</span>
             <Button onClick={signOut} variant="outline" size="sm">Sair</Button>
           </div>

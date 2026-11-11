@@ -8,6 +8,7 @@ import { Progress } from '@/components/ui/progress';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { logError } from '@/lib/logger';
+import { useTrackVisit } from '@/lib/formProgress';
 
 /**
  * Diagnóstico de leads em etapas. Cada etapa grava na mesma linha de diagnostico_respostas
@@ -103,6 +104,7 @@ const fieldClass =
   'w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground';
 
 const Diagnostico = () => {
+  useTrackVisit();
   const [step, setStep] = useState<Step>('intro');
   const [r, setR] = useState<Respostas>(INICIAL);
   const [id, setId] = useState<string | null>(null);

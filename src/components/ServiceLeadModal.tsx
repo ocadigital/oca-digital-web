@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { supabase } from '@/integrations/supabase/client';
 import { logError } from '@/lib/logger';
+import { trackSiteEvent, useFormProgress } from '@/lib/formProgress';
 
 export interface ServicoSelecionado {
   /** Valor enviado no campo oculto (mesmos valores do formulário de contato). */
@@ -41,6 +42,7 @@ const ServiceLeadModal = ({ servico, onClose }: Props) => {
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
   const [falha, setFalha] = useState('');
+  const progresso = useFormProgress('servico', servico?.valor);
 
   useEffect(() => {
     if (servico) {
@@ -48,11 +50,18 @@ const ServiceLeadModal = ({ servico, onClose }: Props) => {
       setFalha('');
       setErros({});
       track('service_lead_open', { servico: servico.valor });
+      trackSiteEvent('servico_modal_aberto', { servico: servico.valor });
+      progresso.reiniciar();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [servico]);
 
   const set = (k: keyof typeof vazio, v: string) => {
-    setForm((f) => ({ ...f, [k]: v }));
+    setForm((f) => {
+      const next = { ...f, [k]: v };
+      progresso.registrar({ nome: next.nome, email: next.email, telefone: next.telefone, tipo_empresa: next.tipo, servico: servico?.valor });
+      return next;
+    });
     if (erros[k]) setErros((e) => ({ ...e, [k]: '' }));
   };
 
@@ -85,6 +94,7 @@ const ServiceLeadModal = ({ servico, onClose }: Props) => {
       });
       if (error) throw error;
       track('service_lead_submit', { servico: servico.valor, tipo_de_empresa: form.tipo });
+      await progresso.concluir();
       setEnviado(true);
       setForm(vazio);
     } catch (e) {
@@ -154,7 +164,9 @@ const ServiceLeadModal = ({ servico, onClose }: Props) => {
               <Button type="submit" className="w-full font-semibold" disabled={enviando}>
                 {enviando ? 'Enviando...' : 'Quero conversar'}
               </Button>
-              <p className="text-xs text-muted-foreground text-center">Seus dados ficam só com a OCA Digital. Não enviamos spam.</p>
+              <p className="text-xs text-muted-foreground text-center">
+                Seus dados ficam só com a OCA Digital e não enviamos spam. Para retomarmos o contato, o que você preencher fica salvo mesmo sem concluir o envio.
+              </p>
             </form>
           </>
         )}

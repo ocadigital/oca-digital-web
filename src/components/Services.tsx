@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import ServiceLeadModal, { type ServicoSelecionado } from '@/components/ServiceLeadModal';
+import { trackSiteEvent } from '@/lib/formProgress';
 
 const Services = () => {
   const services = [
@@ -134,6 +135,7 @@ const Services = () => {
         const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
         w.dataLayer = w.dataLayer || [];
         w.dataLayer.push({ event: 'service_price_open', servico: valor });
+        trackSiteEvent('preco_aberto', { servico: valor });
       }
       return { ...atual, [valor]: abrir };
     });

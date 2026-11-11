@@ -1,10 +1,11 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { logError } from '@/lib/logger';
+import { trackSiteEvent, useFormProgress } from '@/lib/formProgress';
 
 interface ContactFormData {
   name: string;
@@ -27,6 +28,11 @@ const ContactForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const progresso = useFormProgress('contato');
+
+  useEffect(() => {
+    trackSiteEvent('contato_visto');
+  }, []);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -40,7 +46,6 @@ const ContactForm = () => {
     if (!formData.phone.trim()) newErrors.phone = 'Telefone é obrigatório';
     if (!formData.companyType) newErrors.companyType = 'Tipo de empresa é obrigatório';
     if (!formData.service) newErrors.service = 'Serviço de interesse é obrigatório';
-    if (!formData.message.trim()) newErrors.message = 'Mensagem é obrigatória';
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -62,7 +67,7 @@ const ContactForm = () => {
           telefone: formData.phone,
           tipo_de_empresa: formData.companyType,
           servico: formData.service,
-          comment: formData.message
+          comment: formData.message.trim() || '(sem mensagem)'
         }
       });
 
@@ -70,6 +75,8 @@ const ContactForm = () => {
         logError('Error:', error);
         throw error;
       }
+
+      await progresso.concluir();
 
       toast({
         title: "Mensagem enviada com sucesso!",
@@ -98,7 +105,14 @@ const ContactForm = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => {
+      const next = { ...prev, [name]: value };
+      progresso.registrar({
+        nome: next.name, email: next.email, telefone: next.phone,
+        tipo_empresa: next.companyType, servico: next.service, mensagem: next.message,
+      });
+      return next;
+    });
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -188,8 +202,8 @@ const ContactForm = () => {
           <textarea
             rows={4}
             name="message"
-            placeholder="Conte-nos sobre seu desafio atual..."
-            aria-label="Conte-nos sobre seu desafio atual..."
+            placeholder="Conte sobre o seu desafio atual (opcional)"
+            aria-label="Conte sobre o seu desafio atual (opcional)"
             value={formData.message}
             onChange={handleChange}
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-foreground placeholder-muted-foreground ${errors.message ? 'border-red-500' : 'border-border'}`}
@@ -203,6 +217,10 @@ const ContactForm = () => {
         >
           {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
         </Button>
+        <p className="text-xs text-muted-foreground text-center">
+          Para retomarmos o contato, os dados que você preencher ficam salvos mesmo que não termine o envio.
+          Veja a <a href="/politica-de-privacidade" className="underline hover:text-primary">política de privacidade</a>.
+        </p>
       </form>
     </Card>
   );

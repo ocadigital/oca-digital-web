@@ -24,6 +24,7 @@ import {
   type Level,
   type TestResult,
 } from '@/data/maturityTest';
+import { useTrackVisit } from '@/lib/formProgress';
 
 type Step = 'intro' | 'profile' | 'quiz' | 'result';
 
@@ -129,6 +130,7 @@ const completeArgs = (id: string, all: number[], r: TestResult) => ({
 });
 
 const MaturityTest = () => {
+  useTrackVisit();
   const [step, setStep] = useState<Step>('intro');
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>(() => QUESTIONS.map(() => null));
