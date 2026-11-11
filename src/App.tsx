@@ -16,6 +16,8 @@ const CasesIndex = lazy(() => import("./pages/CasesIndex"));
 const CaseDetail = lazy(() => import("./pages/CaseDetail"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 // Página de produtos guardada para lançar depois: src/pages/ProdutosPage.tsx
+const ServicePage = lazy(() => import("./pages/ServicePage"));
+const ServicosIndex = lazy(() => import("./pages/ServicePage").then((m) => ({ default: m.ServicosIndex })));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const MaturityTest = lazy(() => import("./pages/MaturityTest"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
@@ -49,6 +51,8 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/cases" element={<CasesIndex />} />
               <Route path="/cases/:slug" element={<CaseDetail />} />
+              <Route path="/servicos" element={<ServicosIndex />} />
+              <Route path="/servicos/:slug" element={<ServicePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/sobre" element={<AboutPage />} />
               <Route path="/produtos" element={<Navigate to="/" replace />} />

@@ -36,6 +36,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.ocadigital.com.br/servicos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.ocadigital.com.br/politica-de-privacidade</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -44,6 +49,51 @@
     <loc>https://www.ocadigital.com.br/termos-de-uso</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/marketing-imobiliario</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/sites-para-imobiliarias</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/landing-pages-imobiliarias</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/anuncios-imobiliarios</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/planejamento-de-marketing-imobiliario</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/consultoria-processos-comerciais</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/crm-imobiliario</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/automacao-n8n-imobiliarias</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ocadigital.com.br/servicos/marketing-para-lancamentos-imobiliarios</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.ocadigital.com.br/blog/por-que-estrategia-marketing-imobiliario-nao-sai-do-papel</loc>

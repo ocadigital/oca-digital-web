@@ -3,7 +3,7 @@ import { trackSiteEvent } from '@/lib/formProgress';
 // CTAs de conversa do site: abrem o WhatsApp do Anderson com uma mensagem pronta conforme o lugar do clique.
 export const WHATSAPP_NUMERO = '5548996790700';
 
-export type OrigemWhatsapp = 'menu' | 'home' | 'oca-one' | 'oca-base' | 'contato' | 'blog' | 'case' | 'fundador';
+export type OrigemWhatsapp = 'menu' | 'home' | 'oca-one' | 'oca-base' | 'contato' | 'blog' | 'case' | 'fundador' | 'servico';
 
 const MENSAGENS: Record<OrigemWhatsapp, (detalhe?: string) => string> = {
   menu: () => 'Oi Anderson, vim pelo site da OCA Digital e quero conversar sobre o marketing da minha imobiliária.',
@@ -13,6 +13,7 @@ const MENSAGENS: Record<OrigemWhatsapp, (detalhe?: string) => string> = {
   contato: () => 'Oi Anderson, vim pelo site da OCA Digital e quero marcar uma conversa sobre a minha imobiliária.',
   blog: (titulo) => `Oi Anderson, li o post "${titulo ?? 'do blog'}" no site da OCA Digital e quero aplicar isso na minha imobiliária.`,
   case: (titulo) => `Oi Anderson, vi o case "${titulo ?? 'no site'}" da OCA Digital e quero um resultado parecido na minha imobiliária.`,
+  servico: (nome) => `Oi Anderson, vi a página de ${nome ?? 'serviços'} no site da OCA Digital e quero conversar sobre a minha imobiliária.`,
   fundador: () => 'Oi Anderson, vi o site da OCA Digital e quero conversar sobre a minha imobiliária.',
 };
 

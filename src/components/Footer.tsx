@@ -100,11 +100,19 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-foreground">Serviços</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Web Sites</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Anúncios no Google, Meta e IA</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Consultoria em Processos e Automação</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">CRM</button></li>
-              <li><button onClick={() => navigateToSection('servicos')} className="hover:text-primary transition-colors">Projetos sob medida</button></li>
+              {[
+                ['marketing-imobiliario', 'Marketing Imobiliário'],
+                ['sites-para-imobiliarias', 'Sites para Imobiliárias'],
+                ['landing-pages-imobiliarias', 'Landing Pages'],
+                ['anuncios-imobiliarios', 'Anúncios no Google, Meta e IA'],
+                ['crm-imobiliario', 'CRM Imobiliário'],
+                ['consultoria-processos-comerciais', 'Processos Comerciais'],
+                ['automacao-n8n-imobiliarias', 'Automação com n8n'],
+                ['marketing-para-lancamentos-imobiliarios', 'Lançamentos'],
+                ['planejamento-de-marketing-imobiliario', 'Planejamento de Marketing'],
+              ].map(([slug, nome]) => (
+                <li key={slug}><Link to={`/servicos/${slug}`} className="hover:text-primary transition-colors">{nome}</Link></li>
+              ))}
             </ul>
           </div>
 

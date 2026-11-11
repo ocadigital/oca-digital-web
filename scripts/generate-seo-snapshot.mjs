@@ -27,23 +27,23 @@ async function fetchPosts() {
   }
 }
 
-async function loadCases() {
+async function loadTs(rel, nome) {
   try {
-    const src = readFileSync(path.join(ROOT, 'src/data/cases.ts'), 'utf-8');
+    const src = readFileSync(path.join(ROOT, rel), 'utf-8');
     const { code } = transformSync(src, { loader: 'ts', format: 'esm' });
     const dir = mkdtempSync(path.join(tmpdir(), 'oca-cases-'));
-    const file = path.join(dir, 'cases.mjs');
+    const file = path.join(dir, `${nome}.mjs`);
     writeFileSync(file, code, 'utf-8');
     const mod = await import(pathToFileURL(file).href);
-    return mod.cases || [];
+    return mod[nome] || [];
   } catch (err) {
-    console.warn('[seo-snapshot] Falha ao ler cases.ts:', err.message);
+    console.warn(`[seo-snapshot] Falha ao ler ${rel}:`, err.message);
     return [];
   }
 }
 
 async function main() {
-  const [posts, cases] = await Promise.all([fetchPosts(), loadCases()]);
+  const [posts, cases, servicos] = await Promise.all([fetchPosts(), loadTs('src/data/cases.ts', 'cases'), loadTs('src/data/servicos.ts', 'servicos')]);
   const snapshot = {
     generatedAt: new Date().toISOString(),
     posts: posts.map((p) => ({
@@ -71,9 +71,10 @@ async function main() {
       publishedAt: c.publishedAt,
       otherSegment: !!c.otherSegment,
     })),
+    servicos,
   };
   writeFileSync(path.join(ROOT, 'lib/seo-snapshot.mjs'), 'export default ' + JSON.stringify(snapshot) + ';\n', 'utf-8');
-  console.log(`[seo-snapshot] ${snapshot.posts.length} posts e ${snapshot.cases.length} cases.`);
+  console.log(`[seo-snapshot] ${snapshot.posts.length} posts e ${snapshot.cases.length} cases e ${snapshot.servicos.length} serviços.`);
 }
 
 main();

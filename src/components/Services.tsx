@@ -6,12 +6,14 @@ import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-reac
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import ServiceLeadModal, { type ServicoSelecionado } from '@/components/ServiceLeadModal';
 import { trackSiteEvent } from '@/lib/formProgress';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
     {
       title: "Web Sites",
       valor: "web-sites",
+      slug: "sites-para-imobiliarias",
       description: "Site para imobiliária, incorporadora ou empreendimento, feito para ser encontrado no Google e transformar visita em contato.",
       duration: "2 meses",
       result: "Site no ar em 2 meses, com a busca orgânica crescendo a partir do 3º mês.",
@@ -30,6 +32,7 @@ const Services = () => {
     {
       title: "Landing Pages",
       valor: "landing-page",
+      slug: "landing-pages-imobiliarias",
       description: "Página de captação para um lançamento, um empreendimento ou uma campanha, feita para transformar o clique do anúncio em contato.",
       duration: "Até 3 semanas",
       result: "Página no ar em até 3 semanas, pronta para receber o tráfego dos anúncios e medir cada contato.",
@@ -48,6 +51,7 @@ const Services = () => {
     {
       title: "Anúncios no Google, Meta e IA",
       valor: "google-meta-gpt-ads",
+      slug: "anuncios-imobiliarios",
       description: "Anúncios no Google, no Facebook, no Instagram e nas respostas de IA, falando com quem está procurando imóvel agora.",
       duration: "Mensal",
       result: "Primeiros leads já na primeira semana, com o custo de cada lead caindo até o 3º mês.",
@@ -66,6 +70,7 @@ const Services = () => {
     {
       title: "Planejamento de Marketing",
       valor: "planejamento-marketing",
+      slug: "planejamento-de-marketing-imobiliario",
       description: "Plano anual de marketing da imobiliária, com metas, ações, orçamento e rotina, para o time interno executar com clareza.",
       duration: "1 mês",
       result: "Em 1 mês, um plano de 12 meses que um profissional interno, mesmo com menos experiência, consegue executar.",
@@ -84,6 +89,7 @@ const Services = () => {
     {
       title: "Consultoria em Processos e Automação",
       valor: "processos-automacao",
+      slug: "consultoria-processos-comerciais",
       description: "Organizamos com o seu time o processo comercial, do primeiro contato do lead até a visita agendada, e automatizamos o que hoje depende de alguém lembrar.",
       duration: "1 mês de implantação + acompanhamento mensal",
       result: "No primeiro mês, nenhum lead sem resposta e o atendimento mais rápido. A conversão sobe a partir daí.",
@@ -99,8 +105,27 @@ const Services = () => {
       ]
     },
     {
+      title: "Automação com n8n",
+      valor: "automacao-n8n",
+      slug: "automacao-n8n-imobiliarias",
+      description: "Fluxos que conectam portais, site, CRM, WhatsApp e e-mail, para as tarefas repetidas do comercial acontecerem sozinhas.",
+      duration: "De alguns dias a 2 semanas por fluxo",
+      result: "Lead do portal no CRM e o corretor avisado na hora, sem ninguém copiar nada na mão.",
+      price: "R$ 1.500 de setup + a partir de R$ 300 por fluxo",
+      priceNote: "O valor de cada fluxo depende de quantas etapas e sistemas ele envolve.",
+      ctaLabel: "Quero automatizar",
+      features: [
+        "Leads dos portais e do site entrando no CRM",
+        "Corretor avisado no WhatsApp na hora",
+        "Primeira resposta automática com os detalhes do imóvel",
+        "Follow-up para quem parou de responder",
+        "Relatório semanal com os números do comercial"
+      ]
+    },
+    {
       title: "CRM",
       valor: "crm",
+      slug: "crm-imobiliario",
       description: "CRM configurado para o funil da sua imobiliária, com cada contato registrado, a origem de cada lead e o painel do comercial em tempo real.",
       duration: "Implantação em até 1 mês",
       result: "Do primeiro mês em diante, todo lead registrado, distribuído e com o próximo passo à vista.",
@@ -300,6 +325,12 @@ const Services = () => {
                 >
                   {service.ctaLabel}
                 </Button>
+                <Link
+                  to={`/servicos/${service.slug}`}
+                  className="mt-3 block text-center text-sm font-medium text-muted-foreground underline-offset-4 hover:text-primary hover:underline"
+                >
+                  Ver detalhes do serviço
+                </Link>
               </Card>
               </CarouselItem>
             ))}
