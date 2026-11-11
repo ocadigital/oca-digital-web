@@ -72,7 +72,7 @@ const Products = ({ asPage = false }: ProductsProps) => {
             <div className="text-center">
               <p className="text-foreground mb-6">Setup personalizado incluído</p>
               <Button size="lg" className="font-semibold" onClick={handleAgendarDemo('oca-one')}>
-                Pedir demo do OCA One no WhatsApp
+                Pedir demo no WhatsApp
               </Button>
             </div>
           </Card>
@@ -119,7 +119,7 @@ const Products = ({ asPage = false }: ProductsProps) => {
             <div className="text-center">
               <p className="text-foreground mb-6">Planos flexíveis para seu negócio</p>
               <Button size="lg" variant="outline" className="font-semibold" onClick={handleAgendarDemo('oca-base')}>
-                Pedir demo do OCA Base no WhatsApp
+                Pedir demo no WhatsApp
               </Button>
             </div>
           </Card>

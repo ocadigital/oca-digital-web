@@ -68,7 +68,7 @@ const FeaturedCases = () => {
         <div className="text-center">
           <Link to="/cases">
             <Button size="lg" className="font-semibold">
-              Ver Todos os Cases de Marketing Imobiliário
+              Ver todos os cases
             </Button>
           </Link>
         </div>

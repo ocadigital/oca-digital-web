@@ -33,7 +33,7 @@ const DiagnosticSection = () => (
             Responda sobre a sua operação e veja na hora quanto em comissão pode estar esfriando no WhatsApp.
           </p>
           <Link to="/diagnostico" onClick={() => track('diagnostico_cta_home')}>
-            <Button size="lg" className="w-full font-semibold">Medir a temperatura dos meus leads</Button>
+            <Button size="lg" className="w-full font-semibold">Medir meus leads</Button>
           </Link>
           <p className="text-xs text-muted-foreground mt-4">Grátis e sem compromisso.</p>
         </Card>

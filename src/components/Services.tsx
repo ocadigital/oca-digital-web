@@ -17,7 +17,7 @@ const Services = () => {
       result: "Site no ar em 2 meses, com a busca orgânica crescendo a partir do 3º mês.",
       price: "A partir de R$ 7.000",
       priceNote: "Pagamento único.",
-      ctaLabel: "Quero um site que traz contatos",
+      ctaLabel: "Quero um site",
       features: [
         "Site institucional, portfólio de imóveis ou página de empreendimento",
         "Rápido e pensado primeiro para o celular",
@@ -53,7 +53,7 @@ const Services = () => {
       result: "Primeiros leads já na primeira semana, com o custo de cada lead caindo até o 3º mês.",
       price: "A partir de R$ 1.500/mês",
       priceNote: "+ R$ 1.000 de setup. A verba dos anúncios é paga direto ao Google e à Meta, à parte.",
-      ctaLabel: "Quero anúncios no Google, Meta e GPT Ads",
+      ctaLabel: "Quero anunciar",
       features: [
         "Anúncios no Google para quem já está buscando imóvel",
         "Anúncios que voltam a aparecer para quem visitou o seu site",
@@ -71,7 +71,7 @@ const Services = () => {
       result: "Em 1 mês, um plano de 12 meses que um profissional interno, mesmo com menos experiência, consegue executar.",
       price: "R$ 3.000",
       priceNote: "Pagamento único.",
-      ctaLabel: "Quero um planejamento de marketing",
+      ctaLabel: "Quero um planejamento",
       features: [
         "Diagnóstico de canais, concorrência e posicionamento",
         "Metas mensais de leads, visitas, captações e vendas",
@@ -89,7 +89,7 @@ const Services = () => {
       result: "No primeiro mês, nenhum lead sem resposta e o atendimento mais rápido. A conversão sobe a partir daí.",
       price: "Sob medida",
       priceNote: "O investimento depende do tamanho do time e da operação. Montamos a proposta depois de conhecer o seu processo.",
-      ctaLabel: "Quero organizar meus processos",
+      ctaLabel: "Quero organizar processos",
       features: [
         "Mapeamento de como o seu time atende hoje e onde o lead se perde",
         "Um jeito só de atender, combinado com o seu time",
@@ -106,7 +106,7 @@ const Services = () => {
       result: "Do primeiro mês em diante, todo lead registrado, distribuído e com o próximo passo à vista.",
       price: "A partir de R$ 150/mês",
       priceNote: "Licença do CRM para até 3 usuários. Implantação e planos com mais usuários conforme a operação.",
-      ctaLabel: "Quero um CRM para a minha imobiliária",
+      ctaLabel: "Quero um CRM",
       features: [
         "CRM novo ou integração com o que você já usa",
         "Etapas do funil e origem de cada contato configuradas",
@@ -350,7 +350,7 @@ const Services = () => {
             ))}
           </div>
           <Button size="lg" className="font-semibold" onClick={() => setServico({ valor: 'outros', titulo: 'Projeto sob medida' })}>
-            Quero uma proposta sob medida
+            Pedir proposta sob medida
           </Button>
         </Card>
       </div>

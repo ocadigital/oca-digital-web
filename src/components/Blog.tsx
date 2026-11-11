@@ -142,7 +142,7 @@ const Blog = () => {
               size="lg"
               className="font-semibold"
             >
-              Ver Todos os Artigos de Marketing Imobiliário
+              Ver todos os artigos
             </Button>
           </Link>
         </div>

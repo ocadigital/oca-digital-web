@@ -224,7 +224,7 @@ const Diagnostico = () => {
               <span className="px-3 py-1 rounded-full border border-border">resultado na hora</span>
             </div>
             <Button size="lg" className="font-semibold px-10" onClick={() => { track('diagnostico_inicio'); setStep('operacao'); }}>
-              Medir a temperatura dos meus leads
+              Medir meus leads
             </Button>
           </div>
         )}

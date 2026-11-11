@@ -75,7 +75,7 @@ const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostra
           </Button>
           {mostrarHistoria && (
             <Button asChild size="lg" variant="outline" className="font-semibold">
-              <Link to="/sobre">Conheça a história da OCA</Link>
+              <Link to="/sobre">Conheça a OCA</Link>
             </Button>
           )}
         </div>
