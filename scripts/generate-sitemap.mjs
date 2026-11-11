@@ -11,15 +11,12 @@ const SUPABASE_ANON_KEY =
 
 const staticUrls = [
   { loc: '/', changefreq: 'weekly', priority: '1.0' },
-  { loc: '/about', changefreq: 'monthly', priority: '0.6' },
   { loc: '/sobre', changefreq: 'monthly', priority: '0.6' },
-  { loc: '/produtos', changefreq: 'monthly', priority: '0.7' },
   { loc: '/contact', changefreq: 'monthly', priority: '0.6' },
   { loc: '/teste-maturidade', changefreq: 'monthly', priority: '0.7' },
   { loc: '/diagnostico', changefreq: 'monthly', priority: '0.7' },
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
   { loc: '/cases', changefreq: 'weekly', priority: '0.8' },
-  { loc: '/privacy', changefreq: 'yearly', priority: '0.3' },
   { loc: '/politica-de-privacidade', changefreq: 'yearly', priority: '0.3' },
   { loc: '/termos-de-uso', changefreq: 'yearly', priority: '0.3' },
 ];
@@ -31,8 +28,13 @@ function getCaseSlugs() {
       '../src/data/cases.ts'
     );
     const content = readFileSync(filePath, 'utf-8');
-    const matches = [...content.matchAll(/slug:\s*"([^"]+)"/g)];
-    return matches.map((m) => m[1]);
+    // Cada case começa em `id:`; os marcados com otherSegment (fora do foco imobiliário) não entram.
+    return content
+      .split(/\n\s*\{\s*\n\s*id:/)
+      .slice(1)
+      .filter((bloco) => !/otherSegment:\s*true/.test(bloco))
+      .map((bloco) => (bloco.match(/slug:\s*"([^"]+)"/) || [])[1])
+      .filter(Boolean);
   } catch (err) {
     console.warn('[generate-sitemap] Falha ao ler cases.ts:', err.message);
     return [];

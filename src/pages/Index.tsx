@@ -22,8 +22,8 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>OCA Digital | Marketing Imobiliário com IA</title>
-        <meta name="description" content="Marketing imobiliário com estratégia, dados e automação. Gere mais leads qualificados em Florianópolis e em todo o Brasil." />
+        <title>Marketing Imobiliário para Imobiliárias e Incorporadoras | OCA Digital</title>
+        <meta name="description" content="Agência de marketing imobiliário em Florianópolis: anúncios, site, landing pages e CRM com automação, para nenhum lead ficar sem resposta e cada canal virar venda medida." />
         <meta name="keywords" content="marketing imobiliário, leads imobiliários, automação marketing, diagnóstico estratégico, CRM imobiliário, Florianópolis, Santa Catarina" />
         <meta name="author" content="OCA Digital" />
         <meta property="og:title" content="OCA Digital | Marketing Imobiliário com IA" />

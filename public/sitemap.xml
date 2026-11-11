@@ -6,19 +6,9 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.ocadigital.com.br/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.ocadigital.com.br/sobre</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.ocadigital.com.br/produtos</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.ocadigital.com.br/contact</loc>
@@ -31,6 +21,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.ocadigital.com.br/diagnostico</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.ocadigital.com.br/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -39,11 +34,6 @@
     <loc>https://www.ocadigital.com.br/cases</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ocadigital.com.br/privacy</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.ocadigital.com.br/politica-de-privacidade</loc>
@@ -69,13 +59,13 @@
   </url>
   <url>
     <loc>https://www.ocadigital.com.br/blog/guia-completo-crm-imobiliario-organizar-leads</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.ocadigital.com.br/blog/como-gerar-mais-leads-qualificados-imobiliaria-2024</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -101,16 +91,6 @@
   </url>
   <url>
     <loc>https://www.ocadigital.com.br/cases/vokkan-vivaon-vivapark</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ocadigital.com.br/cases/maria-do-mar-hotel</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ocadigital.com.br/cases/pousada-dos-sonhos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
