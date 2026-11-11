@@ -232,13 +232,14 @@ export const ServicosIndex = () => {
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Serviços de marketing imobiliário</h1>
         <p className="text-xl text-muted-foreground max-w-3xl mb-10">
-          Cada serviço resolve uma etapa do caminho entre o anúncio e a visita agendada. Você pode contratar um só ou combinar vários.
+          Cada serviço resolve uma etapa do caminho entre o anúncio e a visita agendada. Você pode contratar um só ou combinar vários. Clique em um serviço para ver como funciona, o prazo, o investimento e as perguntas frequentes.
         </p>
         <Link to={`/servicos/${pilar.slug}`} className="group block mb-8">
           <Card className="p-8 border-primary/30 bg-primary/5 group-hover:border-primary/60 transition-colors">
             <p className="text-sm font-semibold text-primary mb-1">Visão geral</p>
             <h2 className="text-2xl font-bold text-foreground mb-2">{pilar.h1}</h2>
             <p className="text-muted-foreground">{pilar.seoDescription}</p>
+            <p className="mt-4 text-sm font-semibold text-primary group-hover:underline">Ver a visão geral →</p>
           </Card>
         </Link>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -248,6 +249,7 @@ export const ServicosIndex = () => {
                 <h2 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary">{s.nome}</h2>
                 <p className="text-sm text-muted-foreground mb-3">{s.seoDescription}</p>
                 <p className="text-sm font-semibold text-foreground">{s.preco}</p>
+                <p className="mt-4 text-sm font-semibold text-primary group-hover:underline">Ver página do serviço →</p>
               </Card>
             </Link>
           ))}
