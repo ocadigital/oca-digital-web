@@ -21,6 +21,7 @@ import {
   renderMarkdown,
   wantsMarkdown,
 } from './lib/agent-content.mjs';
+import { seoFor, jsonLdTag } from './lib/seo-pages.mjs';
 
 function escapeAttr(str: string): string {
   return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -57,6 +58,25 @@ function injectContent(baseHtml: string, page: PageMeta, fragment: string): stri
   return html;
 }
 
+type Seo = ReturnType<typeof seoFor>;
+
+/** Canonical e og:url próprios, og:type, noindex quando for o caso e o JSON-LD no head. */
+function applySeo(baseHtml: string, seo: Seo): string {
+  const url = escapeAttr(seo.canonical);
+  let html = baseHtml
+    .replace(/<link rel="canonical" href=".*?"\s*\/?>/s, `<link rel="canonical" href="${url}" />`)
+    .replace(/<meta property="og:url" content=".*?"\s*\/?>/s, `<meta property="og:url" content="${url}" />`);
+  if (seo.ogType) {
+    html = html.replace(/<meta property="og:type" content=".*?"\s*\/?>/s, `<meta property="og:type" content="${escapeAttr(seo.ogType)}" />`);
+  }
+  if (seo.noindex) {
+    html = html.replace('</head>', '<meta name="robots" content="noindex, follow" />\n</head>');
+  }
+  const ld = jsonLdTag(seo.schema);
+  if (ld) html = html.replace('</head>', `${ld}\n</head>`);
+  return html;
+}
+
 export default async function middleware(request: Request) {
   const url = new URL(request.url);
   const pathname = url.pathname;
@@ -65,6 +85,13 @@ export default async function middleware(request: Request) {
   // always pass through untouched.
   if (looksLikeStaticAsset(pathname)) {
     return next();
+  }
+
+  // URLs antigas ou duplicadas: redirecionamento permanente para a versão oficial.
+  const PERMANENT: Record<string, string> = { '/about': '/sobre', '/privacy': '/politica-de-privacidade', '/produtos': '/' };
+  const destino = PERMANENT[pathname.replace(/\/$/, '') || '/'];
+  if (destino) {
+    return Response.redirect(new URL(destino + url.search, request.url), 301);
   }
 
   const accept = request.headers.get('accept') || '';
@@ -84,13 +111,7 @@ export default async function middleware(request: Request) {
 
   const page = CONTENT_PAGES[pathname];
 
-  // Known route we don't have hand-authored content for (blog/case slugs,
-  // legacy PT-only pages, admin) — let the SPA handle it as before.
-  if (!page) {
-    return next();
-  }
-
-  if (preferMarkdown) {
+  if (page && preferMarkdown) {
     return new Response(renderMarkdown(page), {
       status: 200,
       headers: {
@@ -100,13 +121,27 @@ export default async function middleware(request: Request) {
     });
   }
 
-  // Normal HTML request: fetch the real built index.html (with its correct,
-  // hashed asset tags) and inject real content into the root div so it's
-  // present without JavaScript, then let React take over as usual on load.
+  // Admin fica fora do SEO: só o SPA.
+  if (pathname.startsWith('/admin')) {
+    return next();
+  }
+
+  // HTML: busca o index.html do build e injeta canonical, title, descrição, prévia social,
+  // dados estruturados e o conteúdo principal, para robôs lerem sem executar JavaScript.
+  const seo = seoFor(pathname);
   const baseRes = await fetch(new URL('/index.html', request.url));
-  const baseHtml = await baseRes.text();
-  const fragment = renderHtmlFragment(page);
-  const html = injectContent(baseHtml, page, fragment);
+  let html = await baseRes.text();
+
+  if (page) {
+    html = injectContent(html, { ...page, url: seo.canonical }, renderHtmlFragment(page));
+  } else if (seo.title) {
+    html = injectContent(
+      html,
+      { title: seo.title, description: seo.description, url: seo.canonical, ogTitle: seo.ogTitle, ogImage: seo.ogImage },
+      seo.fragment || ''
+    );
+  }
+  html = applySeo(html, seo);
 
   return new Response(html, {
     status: 200,
