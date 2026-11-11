@@ -129,6 +129,15 @@ export default async function middleware(request: Request) {
   // HTML: busca o index.html do build e injeta canonical, title, descrição, prévia social,
   // dados estruturados e o conteúdo principal, para robôs lerem sem executar JavaScript.
   const seo = seoFor(pathname);
+
+  // Serviço ou case com slug que não existe: 404 de verdade. (Posts ficam de fora porque um
+  // post novo publicado no admin ainda não está no snapshot até o próximo deploy.)
+  if (/^\/(servicos|cases)\/[^/]+\/?$/.test(pathname) && !seo.title) {
+    return new Response(notFoundMarkdown(pathname), {
+      status: 404,
+      headers: { 'Content-Type': 'text/markdown; charset=utf-8', 'Cache-Control': 'no-store', Vary: 'Accept, Accept-Encoding' },
+    });
+  }
   const baseRes = await fetch(new URL('/index.html', request.url));
   let html = await baseRes.text();
 
