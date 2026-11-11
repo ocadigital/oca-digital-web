@@ -17,6 +17,7 @@ const staticUrls = [
   { loc: '/diagnostico', changefreq: 'monthly', priority: '0.7' },
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
   { loc: '/cases', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/servicos', changefreq: 'monthly', priority: '0.9' },
   { loc: '/politica-de-privacidade', changefreq: 'yearly', priority: '0.3' },
   { loc: '/termos-de-uso', changefreq: 'yearly', priority: '0.3' },
 ];
@@ -90,10 +91,23 @@ async function main() {
     urlEntry({ loc: `/cases/${slug}`, changefreq: 'monthly', priority: '0.7' })
   );
 
+  // Páginas de serviço: lidas do snapshot que o prebuild acabou de gerar.
+  let servicoSlugs = [];
+  try {
+    const { default: snap } = await import(new URL('../lib/seo-snapshot.mjs', import.meta.url).href);
+    servicoSlugs = (snap.servicos || []).map((s) => s.slug);
+  } catch (err) {
+    console.warn('[generate-sitemap] Falha ao ler os serviços do snapshot:', err.message);
+  }
+  const servicoEntries = servicoSlugs.map((slug) =>
+    urlEntry({ loc: `/servicos/${slug}`, changefreq: 'monthly', priority: slug === 'marketing-imobiliario' ? '0.9' : '0.8' })
+  );
+
   const staticEntries = staticUrls.map(urlEntry);
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[
     ...staticEntries,
+    ...servicoEntries,
     ...postEntries,
     ...caseEntries,
   ].join('\n')}\n</urlset>\n`;
@@ -103,7 +117,7 @@ async function main() {
     '../public/sitemap.xml'
   );
   writeFileSync(outPath, xml, 'utf-8');
-  console.log(`[generate-sitemap] sitemap.xml gerado com ${staticUrls.length} páginas estáticas + ${posts.length} posts + ${caseSlugs.length} cases.`);
+  console.log(`[generate-sitemap] sitemap.xml gerado com ${staticUrls.length} páginas estáticas + ${servicoSlugs.length} serviços + ${posts.length} posts + ${caseSlugs.length} cases.`);
 }
 
 main();

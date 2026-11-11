@@ -194,6 +194,8 @@ const ContactForm = () => {
             <option value="planejamento-marketing">Planejamento de Marketing</option>
             <option value="processos-automacao">Consultoria em Processos e Automação</option>
             <option value="crm">CRM</option>
+            <option value="automacao-n8n">Automações e Integrações com n8n</option>
+            <option value="lancamentos">Marketing para Lançamentos</option>
             <option value="outros">Outros</option>
           </select>
           {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}

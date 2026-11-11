@@ -13,6 +13,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { cases, type CaseStudy } from '@/data/cases';
+import { intercalarFerramentas, PostsRail } from '@/components/Discovery';
 
 const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => (
   <Card className="overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
@@ -108,9 +109,9 @@ const CasesIndex = () => {
           <>
             {mainCases.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {mainCases.map((caseStudy) => (
+                {intercalarFerramentas(mainCases.map((caseStudy) => (
                   <CaseCard key={caseStudy.id} caseStudy={caseStudy} />
-                ))}
+                )), 'cases')}
               </div>
             )}
 
@@ -130,6 +131,8 @@ const CasesIndex = () => {
             )}
           </>
         )}
+
+        <PostsRail titulo="Últimos artigos do blog" />
       </main>
 
       <Footer />

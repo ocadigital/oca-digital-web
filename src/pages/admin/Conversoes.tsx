@@ -25,7 +25,7 @@ interface Teste {
 const PERIODOS = [7, 30, 90] as const;
 const SERVICOS: Record<string, string> = {
   'web-sites': 'Web Sites', 'landing-page': 'Landing Pages', 'google-meta-gpt-ads': 'Anúncios',
-  'planejamento-marketing': 'Planejamento', 'processos-automacao': 'Processos e Automação', crm: 'CRM', outros: 'Sob medida',
+  'planejamento-marketing': 'Planejamento', 'processos-automacao': 'Processos e Automação', crm: 'CRM', 'automacao-n8n': 'Automação n8n', lancamentos: 'Lançamentos', outros: 'Sob medida',
 };
 const PAGINAS: Record<string, string> = { '/': 'Home', '/teste-maturidade': 'Teste de Maturidade', '/diagnostico': 'Diagnóstico' };
 const dataBr = (s: string) => new Date(s).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
