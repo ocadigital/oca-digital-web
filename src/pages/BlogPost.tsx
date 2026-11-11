@@ -20,6 +20,7 @@ import {
 import { logError } from '@/lib/logger';
 import { sanitizeHtml } from '@/lib/sanitize';
 import { getCaseByRelatedBlogSlug } from '@/data/cases';
+import { abrirWhatsapp } from '@/lib/whatsapp';
 
 
 interface BlogPost {
@@ -300,14 +301,14 @@ const BlogPost = () => {
                     Pronto para transformar seu negócio imobiliário?
                   </h3>
                   <p className="text-foreground/90 mb-6">
-                    Agende uma consultoria gratuita e descubra como podemos ajudar
-                    você a alcançar seus objetivos.
+                    Chame no WhatsApp para uma conversa gratuita e descubra como aplicar
+                    essa estratégia na sua imobiliária.
                   </p>
                   <Button
                     className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                    onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
+                    onClick={() => abrirWhatsapp('blog', post.title)}
                   >
-                    Quero Aplicar essa Estratégia
+                    Quero aplicar no WhatsApp
                   </Button>
                 </div>
               </Card>

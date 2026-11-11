@@ -21,7 +21,7 @@ export const readAttribution = () => {
 
 const visitor = () => document.cookie.match(/(?:^|; )visitor_id=([^;]*)/)?.[1]?.slice(0, 40) ?? null;
 
-export type SiteEvent = 'visita' | 'preco_aberto' | 'servico_modal_aberto' | 'contato_visto';
+export type SiteEvent = 'visita' | 'preco_aberto' | 'servico_modal_aberto' | 'contato_visto' | 'whatsapp_clicado';
 
 /** Registra um evento do funil no banco (para o painel /admin/conversoes). Nunca lança erro. */
 export const trackSiteEvent = (event: SiteEvent, data: { servico?: string } = {}) => {

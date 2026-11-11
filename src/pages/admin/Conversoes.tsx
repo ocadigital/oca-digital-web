@@ -29,6 +29,10 @@ const SERVICOS: Record<string, string> = {
 };
 const PAGINAS: Record<string, string> = { '/': 'Home', '/teste-maturidade': 'Teste de Maturidade', '/diagnostico': 'Diagnóstico' };
 const dataBr = (s: string) => new Date(s).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+const ORIGENS_WPP: Record<string, string> = {
+  menu: 'Menu do site', home: 'Topo da home', 'oca-one': 'Demo OCA One', 'oca-base': 'Demo OCA Base',
+  contato: 'Página de contato', blog: 'Fim dos posts do blog', case: 'Fim dos cases', fundador: 'Seção do fundador',
+};
 const pct = (a: number, b: number) => (b ? `${Math.round((a / b) * 100)}%` : '–');
 
 const Conversoes = () => {
@@ -125,7 +129,8 @@ const Conversoes = () => {
     // onde o teste e o diagnóstico param
     const paradasTeste = Array.from({ length: 11 }, (_, i) => testes.filter((x) => !x.completed_at && (x.last_step ?? 0) === i).length);
     const paradasDiag = [1, 2, 3, 4].map((i) => diags.filter((x) => !x.completed_at && x.last_step === i).length);
-    return { visitas, servicos, funis, parados, paradasTeste, paradasDiag };
+    const whatsapp = Object.keys(ORIGENS_WPP).map((o) => ({ o, n: conta('whatsapp_clicado', (x) => x.servico === o) })).filter((x) => x.n);
+    return { visitas, servicos, funis, parados, paradasTeste, paradasDiag, whatsapp };
   }, [eventos, progresso, diags, testes]);
 
   return (
@@ -162,6 +167,21 @@ const Conversoes = () => {
                 ))}
               </div>
               <p className="text-xs text-muted-foreground mt-2">Contagem própria do site, começou a registrar em 10/11/2026. O GA4 continua sendo a fonte para tráfego total.</p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-semibold mb-1 text-foreground">Cliques no WhatsApp</h2>
+              <p className="text-xs text-muted-foreground mb-3">Botões de conversa do site, por lugar do clique. A conversa em si acontece no seu WhatsApp.</p>
+              {resumo.whatsapp.length === 0 ? <p className="text-sm text-muted-foreground">Nenhum clique no período.</p> : (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {resumo.whatsapp.map((w) => (
+                    <Card key={w.o} className="p-4">
+                      <p className="text-sm text-muted-foreground">{ORIGENS_WPP[w.o]}</p>
+                      <p className="text-2xl font-bold text-foreground tabular-nums">{w.n}</p>
+                    </Card>
+                  ))}
+                </div>
+              )}
             </section>
 
             <section>

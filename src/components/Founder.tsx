@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useParallax } from '@/hooks/use-parallax';
+import { linkWhatsapp } from '@/lib/whatsapp';
+import { trackSiteEvent } from '@/lib/formProgress';
 
-const WHATSAPP =
-  'https://wa.me/5548996790700?text=' +
-  encodeURIComponent('Oi Anderson, vi o site da OCA Digital e quero conversar sobre a minha imobiliária.');
+const WHATSAPP = linkWhatsapp('fundador');
 
 const provas = [
   { valor: '3 imobiliárias', texto: 'onde cuidei do marketing por dentro: Brognoli, Buzz e Santa Ilha' },
@@ -68,7 +68,7 @@ const Founder = ({ id = 'sobre', mostrarHistoria = true }: { id?: string; mostra
 
         <div className="flex flex-wrap gap-3 mt-8">
           <Button asChild size="lg" className="font-semibold">
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={() => trackSiteEvent('whatsapp_clicado', { servico: 'fundador' })}>
               <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
               Falar com o Anderson
             </a>

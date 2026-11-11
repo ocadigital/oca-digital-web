@@ -1,6 +1,7 @@
 
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { abrirWhatsapp } from '@/lib/whatsapp';
 
 interface ProductsProps {
   /** Use when Products is rendered as its own page (not a homepage section) so it gets a real h1. */
@@ -14,9 +15,7 @@ const Products = ({ asPage = false }: ProductsProps) => {
     alert('Em breve');
   };
 
-  const handleAgendarDemo = () => {
-    window.open('https://calendly.com/anderson-goncalves81/30min', '_blank');
-  };
+  const handleAgendarDemo = (produto: 'oca-one' | 'oca-base') => () => abrirWhatsapp(produto);
 
   return (
     <section id="produtos" className="py-20 bg-background section-separator">
@@ -72,8 +71,8 @@ const Products = ({ asPage = false }: ProductsProps) => {
 
             <div className="text-center">
               <p className="text-foreground mb-6">Setup personalizado incluído</p>
-              <Button size="lg" className="font-semibold" onClick={handleAgendarDemo}>
-                Agendar Demo do OCA One
+              <Button size="lg" className="font-semibold" onClick={handleAgendarDemo('oca-one')}>
+                Pedir demo do OCA One no WhatsApp
               </Button>
             </div>
           </Card>
@@ -119,8 +118,8 @@ const Products = ({ asPage = false }: ProductsProps) => {
 
             <div className="text-center">
               <p className="text-foreground mb-6">Planos flexíveis para seu negócio</p>
-              <Button size="lg" variant="outline" className="font-semibold" onClick={handleAgendarDemo}>
-                Agendar Demo do OCA Base
+              <Button size="lg" variant="outline" className="font-semibold" onClick={handleAgendarDemo('oca-base')}>
+                Pedir demo do OCA Base no WhatsApp
               </Button>
             </div>
           </Card>

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { abrirWhatsapp } from '@/lib/whatsapp';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ const Header = () => {
 
 
   const handleConsultoriaClick = () => {
-    window.open('https://calendly.com/anderson-goncalves81/30min', '_blank');
+    abrirWhatsapp('menu');
   };
 
   const navigateToSection = (sectionId: string) => {
@@ -80,7 +81,7 @@ const Header = () => {
             <Button 
               onClick={handleConsultoriaClick}
             >
-              Consultoria Gratuita
+              Falar no WhatsApp
             </Button>
           </div>
 
@@ -109,7 +110,7 @@ const Header = () => {
                   className="w-full"
                   onClick={handleConsultoriaClick}
                 >
-                  Consultoria Gratuita
+                  Falar no WhatsApp
                 </Button>
               </div>
             </div>

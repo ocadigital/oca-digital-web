@@ -295,7 +295,7 @@ const Services = () => {
                   </div>
                 </div>
                 <Button
-                  className="w-full font-semibold"
+                  className="w-full font-semibold h-auto min-h-10 whitespace-normal py-2.5 leading-snug"
                   onClick={() => setServico({ valor: service.valor, titulo: service.title })}
                 >
                   {service.ctaLabel}

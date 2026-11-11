@@ -1,24 +1,25 @@
 
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { abrirWhatsapp } from '@/lib/whatsapp';
 
 const ConsultationCard = () => {
   const handleConsultoriaClick = () => {
-    window.open('https://calendly.com/anderson-goncalves81/30min', '_blank');
+    abrirWhatsapp('contato');
   };
 
   return (
     <Card className="p-6 bg-primary/10 border-primary/30 card-elevated">
       <h4 className="font-bold text-xl mb-4 text-primary">Consultoria Gratuita</h4>
       <p className="text-foreground mb-4">
-        Agende uma conversa de 30 minutos para entender como podemos ajudar 
-        sua imobiliária a crescer com marketing digital.
+        Chame no WhatsApp para uma conversa de 30 minutos sobre como podemos ajudar
+        a sua imobiliária a crescer com marketing digital.
       </p>
       <Button 
         className="w-full font-semibold"
         onClick={handleConsultoriaClick}
       >
-        Agendar Consultoria Gratuita
+        Chamar no WhatsApp
       </Button>
     </Card>
   );

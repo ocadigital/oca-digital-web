@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import HeroMotion from '@/components/HeroMotion';
 import { useParallax } from '@/hooks/use-parallax';
+import { abrirWhatsapp } from '@/lib/whatsapp';
 
 const Hero = () => {
   // Parallax leve: o brilho e o grafismo ficam para trás na rolagem, a animação anda um pouco à frente.
@@ -53,9 +54,9 @@ const Hero = () => {
               <Button
                 size="lg"
                 className="text-lg px-8 py-4"
-                onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
+                onClick={() => abrirWhatsapp('home')}
               >
-                Falar com Especialista
+                Falar no WhatsApp
               </Button>
             </div>
 

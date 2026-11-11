@@ -13,6 +13,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { getCaseBySlug } from '@/data/cases';
+import { abrirWhatsapp } from '@/lib/whatsapp';
 
 const CaseDetail = () => {
   const { slug } = useParams();
@@ -174,14 +175,14 @@ const CaseDetail = () => {
         <Card className="p-8 bg-primary/10 border-primary/30 text-center">
           <h3 className="text-2xl font-bold mb-4">Quer um resultado parecido?</h3>
           <p className="text-foreground/90 mb-6">
-            Agende uma consultoria gratuita e descubra como podemos ajudar você a alcançar
+            Chame no WhatsApp para uma conversa gratuita e descubra como chegar a
             resultados como este.
           </p>
           <Button
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            onClick={() => window.open('https://calendly.com/anderson-goncalves81/30min', '_blank')}
+            onClick={() => abrirWhatsapp('case', caseStudy.title)}
           >
-            Quero um Resultado Assim
+            Quero um resultado assim
           </Button>
         </Card>
       </div>
