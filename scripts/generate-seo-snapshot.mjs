@@ -1,4 +1,4 @@
-// Roda antes de cada build (ver "prebuild" em package.json) e grava lib/seo-snapshot.json
+// Roda antes de cada build (ver "prebuild" em package.json) e grava lib/seo-snapshot.mjs
 // com os posts publicados (Supabase) e os cases (src/data/cases.ts). O middleware usa
 // esse arquivo para entregar title, canonical, schema e o conteúdo principal no HTML
 // inicial de /blog, /blog/:slug, /cases e /cases/:slug, sem depender de JavaScript.
@@ -72,7 +72,7 @@ async function main() {
       otherSegment: !!c.otherSegment,
     })),
   };
-  writeFileSync(path.join(ROOT, 'lib/seo-snapshot.json'), JSON.stringify(snapshot), 'utf-8');
+  writeFileSync(path.join(ROOT, 'lib/seo-snapshot.mjs'), 'export default ' + JSON.stringify(snapshot) + ';\n', 'utf-8');
   console.log(`[seo-snapshot] ${snapshot.posts.length} posts e ${snapshot.cases.length} cases.`);
 }
 
