@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Users, Target, Zap, BarChart3 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { metodologia, pilares } from '@/data/oca';
 
 interface AboutProps {
   /** Use when About is rendered as its own page (not a homepage section) so it gets a real h1. */
@@ -45,43 +46,8 @@ const About = ({ asPage = false, summary = false }: AboutProps) => {
     );
   }
 
-  const methodology = [
-    {
-      phase: "Descoberta",
-      icon: "🔹",
-      description: "Coletamos dados, analisamos o cenário atual e escutamos o time interno. É o momento de abrir possibilidades, identificar gargalos e entender o comportamento dos leads."
-    },
-    {
-      phase: "Definição",
-      icon: "🔸",
-      description: "Com base nos dados, organizamos os aprendizados, identificamos oportunidades e traçamos um diagnóstico estratégico. Aqui é onde as ideias começam a ganhar forma."
-    },
-    {
-      phase: "Execução",
-      icon: "🔹",
-      description: "Criamos e implementamos soluções práticas, desde ajustes técnicos no site e automações de marketing até campanhas de mídia paga e novos processos comerciais."
-    },
-    {
-      phase: "Entrega",
-      icon: "🔸",
-      description: "Validamos, medimos e refinamos. Entregamos relatórios, dashboards e insights contínuos para que a empresa evolua com base em dados e cultura de melhoria contínua."
-    }
-  ];
-
-  const pillars = [
-    {
-      title: "Organização de Processos",
-      description: "Implantação de CRM, pesquisa de satisfação com os clientes, todos os leads num lugar só e um time de pré-atendimento para responder rápido e separar quem está pronto para visitar."
-    },
-    {
-      title: "Captação de Clientes",
-      description: "Geração de leads com campanhas sob medida, criação de marca, lançamentos imobiliários e conteúdo para redes sociais."
-    },
-    {
-      title: "Automação e Ferramentas",
-      description: "Atendimento automático no WhatsApp, sequência de e-mails para quem ainda não está pronto, nota automática para saber quem está mais perto de comprar e ajuda para escolher e implantar as ferramentas."
-    }
-  ];
+  const methodology = metodologia.map((m) => ({ phase: m.fase, icon: m.icone, description: m.descricao }));
+  const pillars = pilares.map((p) => ({ title: p.titulo, description: p.descricao }));
 
   return (
     <section id="sobre" className="py-20 bg-background section-separator">

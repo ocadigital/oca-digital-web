@@ -16,7 +16,9 @@ import {
 } from '@/components/ui/breadcrumb';
 import ServiceLeadModal, { type ServicoSelecionado } from '@/components/ServiceLeadModal';
 import { getServicoBySlug, servicos } from '@/data/servicos';
-import { getCaseBySlug } from '@/data/cases';
+import Clients from '@/components/Clients';
+import { EsteiraRelacionados, FundadorResumo, Metodologia, PilaresDoServico } from '@/components/OcaInstitucional';
+import { pilaresDoServico, postsDoServico } from '@/data/oca';
 import { abrirWhatsapp } from '@/lib/whatsapp';
 
 const ServicePage = () => {
@@ -28,7 +30,6 @@ const ServicePage = () => {
   if (!s) return <Navigate to="/servicos" replace />;
 
   const canonical = `https://www.ocadigital.com.br/servicos/${s.slug}`;
-  const cases = s.cases.map(getCaseBySlug).filter((c): c is NonNullable<typeof c> => !!c);
   const relacionados = s.relacionados.map(getServicoBySlug).filter((r): r is NonNullable<typeof r> => !!r);
   const pedir = () => setModal({ valor: s.valor, titulo: s.nome });
 
@@ -44,7 +45,7 @@ const ServicePage = () => {
       </Helmet>
       <Header />
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10">
         <Breadcrumb className="mb-8">
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -70,6 +71,12 @@ const ServicePage = () => {
             <Button size="lg" variant="outline" onClick={() => abrirWhatsapp('servico', s.nome)}>Falar no WhatsApp</Button>
           </div>
         </header>
+      </main>
+
+      <Clients />
+
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <PilaresDoServico ativos={pilaresDoServico[s.slug] ?? []} />
 
         <div className="grid gap-10 md:grid-cols-2 mb-14">
           <section>
@@ -143,27 +150,6 @@ const ServicePage = () => {
           </section>
         )}
 
-        {cases.length > 0 && (
-          <section className="mb-14">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Cases relacionados</h2>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {cases.map((c) => (
-                <Link key={c.slug} to={`/cases/${c.slug}`} className="group">
-                  <Card className="h-full p-6 card-elevated group-hover:border-primary/40 transition-colors">
-                    <p className="text-sm font-semibold text-primary mb-1">{c.client}</p>
-                    <h3 className="font-bold text-foreground mb-3 group-hover:text-primary">{c.title}</h3>
-                    {c.metrics[0] && (
-                      <p className="text-sm text-muted-foreground">
-                        <strong className="text-foreground">{c.metrics[0].value}</strong> {c.metrics[0].label.toLowerCase()}
-                      </p>
-                    )}
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
-
         <section className="mb-14">
           <h2 className="text-2xl font-bold text-foreground mb-6">Perguntas frequentes</h2>
           <div className="space-y-3">
@@ -200,6 +186,10 @@ const ServicePage = () => {
           </section>
         )}
 
+        <Metodologia />
+
+        <FundadorResumo />
+
         <Card className="p-8 bg-primary/10 border-primary/30 text-center">
           <h2 className="text-2xl font-bold mb-3 text-foreground">Vamos ver se faz sentido para a sua imobiliária?</h2>
           <p className="text-foreground/90 mb-6 max-w-2xl mx-auto">
@@ -210,6 +200,8 @@ const ServicePage = () => {
             <Button size="lg" variant="outline" onClick={() => abrirWhatsapp('servico', s.nome)}>Falar no WhatsApp</Button>
           </div>
         </Card>
+
+        <EsteiraRelacionados casesSlugs={s.cases} postsSlugs={postsDoServico[s.slug] ?? []} />
       </main>
 
       <Footer />
