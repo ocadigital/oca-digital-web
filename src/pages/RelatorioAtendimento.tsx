@@ -169,6 +169,8 @@ const RelatorioAtendimento = () => {
         {lead && carregando && <p className="text-center text-muted-foreground">Carregando o relatório...</p>}
         {lead && dados && <Ranking dados={dados} lead={lead} />}
 
+        <ConviteDiagnostico />
+
         <Metodologia />
       </main>
       <Footer />
@@ -359,6 +361,28 @@ const NaoEstou = ({ lead }: { lead: Lead }) => {
     </Card>
   );
 };
+
+const ConviteDiagnostico = () => (
+  <section className="text-center space-y-5 py-12 px-4 rounded-2xl bg-muted/40">
+    <p className="text-sm font-semibold tracking-widest uppercase text-primary">Diagnóstico gratuito</p>
+    <h2 className="text-4xl sm:text-5xl font-bold text-foreground">Lead que espera, esfria.</h2>
+    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+      Na sua imobiliária ninguém serve café frio para um cliente. No WhatsApp isso acontece todo dia: o lead chega, espera horas
+      pela resposta e, quando o corretor responde, ele já conversou com outras duas imobiliárias.
+    </p>
+    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+      Responda 3 perguntas sobre a sua operação e veja quantos leads esfriam por mês e quanto isso custa em comissão.
+    </p>
+    <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
+      <span className="px-3 py-1 rounded-full border border-border">3 perguntas</span>
+      <span className="px-3 py-1 rounded-full border border-border">2 minutos</span>
+      <span className="px-3 py-1 rounded-full border border-border">resultado na hora</span>
+    </div>
+    <Link to="/diagnostico?iniciar=1" onClick={() => track('diagnostico_cta_relatorio')}>
+      <Button size="lg" className="font-semibold px-10 mt-2">Medir meus leads</Button>
+    </Link>
+  </section>
+);
 
 const Metodologia = () => (
   <section className="text-sm text-muted-foreground space-y-2 border-t pt-8">

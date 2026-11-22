@@ -105,7 +105,9 @@ const fieldClass =
 
 const Diagnostico = () => {
   useTrackVisit();
-  const [step, setStep] = useState<Step>('intro');
+  // ?iniciar=1 pula a introdução (links de outras páginas que já explicaram o diagnóstico)
+  const [step, setStep] = useState<Step>(() =>
+    new URLSearchParams(window.location.search).get('iniciar') === '1' ? 'operacao' : 'intro');
   const [r, setR] = useState<Respostas>(INICIAL);
   const [id, setId] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
