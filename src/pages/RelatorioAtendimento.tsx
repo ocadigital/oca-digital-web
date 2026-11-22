@@ -1,3 +1,4 @@
+import { trackSiteEvent, useTrackVisit } from '@/lib/formProgress';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
@@ -54,7 +55,9 @@ interface Lead {
 type Rpc = (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown; error: { message: string } | null }>;
 const rpc = supabase.rpc.bind(supabase) as unknown as Rpc;
 
+const ACOES: Record<string, string> = { relatorio_atendimento_detalhe: 'detalhe', relatorio_atendimento_avaliacao: 'avaliacao', diagnostico_cta_relatorio: 'diagnostico' };
 const track = (event: string, data: Record<string, unknown> = {}) => {
+  if (ACOES[event]) trackSiteEvent('relatorio_acao', { servico: ACOES[event] });
   const w = window as unknown as { dataLayer?: unknown[] };
   w.dataLayer = w.dataLayer || [];
   w.dataLayer.push({ event, ...data });
@@ -92,6 +95,7 @@ const notificar = (form: string, lead: Lead, comment: string) =>
   });
 
 const RelatorioAtendimento = () => {
+  useTrackVisit();
   const [lead, setLead] = useState<Lead | null>(readLead);
   const [dados, setDados] = useState<Imob[] | null>(null);
   const [carregando, setCarregando] = useState(false);

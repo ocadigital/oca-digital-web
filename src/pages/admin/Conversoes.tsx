@@ -17,6 +17,10 @@ interface Diag {
   id: string; created_at: string; last_step: number; completed_at: string | null; leads_mes: number | null;
   lead_name: string | null; lead_email: string | null; lead_phone: string | null; lead_company_type: string | null;
 }
+interface RelLead {
+  id: string; created_at: string; nome: string; email: string; telefone: string; imobiliaria: string | null; cargo: string | null;
+  utm: Record<string, string> | null; referrer: string | null; detalhes_pedidos: string[];
+}
 interface Teste {
   id: string; created_at: string; last_step: number | null; completed_at: string | null; level: number | null;
   lead_name: string | null; lead_email: string | null; lead_phone: string | null; lead_company_type: string | null;
@@ -27,7 +31,7 @@ const SERVICOS: Record<string, string> = {
   'web-sites': 'Web Sites', 'landing-page': 'Landing Pages', 'google-meta-gpt-ads': 'Anúncios',
   'planejamento-marketing': 'Planejamento', 'processos-automacao': 'Processos e Automação', crm: 'CRM', 'automacao-n8n': 'Automação n8n', lancamentos: 'Lançamentos', outros: 'Sob medida',
 };
-const PAGINAS: Record<string, string> = { '/': 'Home', '/teste-maturidade': 'Teste de Maturidade', '/diagnostico': 'Diagnóstico' };
+const PAGINAS: Record<string, string> = { '/': 'Home', '/teste-maturidade': 'Teste de Maturidade', '/diagnostico': 'Diagnóstico', '/relatorio-atendimento': 'Relatório de atendimento' };
 const dataBr = (s: string) => new Date(s).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
 const ORIGENS_WPP: Record<string, string> = {
   menu: 'Menu do site', home: 'Topo da home', 'oca-one': 'Demo OCA One', 'oca-base': 'Demo OCA Base',
@@ -44,6 +48,7 @@ const Conversoes = () => {
   const [progresso, setProgresso] = useState<Progresso[]>([]);
   const [diags, setDiags] = useState<Diag[]>([]);
   const [testes, setTestes] = useState<Teste[]>([]);
+  const [relLeads, setRelLeads] = useState<RelLead[]>([]);
 
   const carregar = async () => {
     setCarregando(true);
@@ -51,20 +56,22 @@ const Conversoes = () => {
     const desde = new Date(Date.now() - dias * 86400000).toISOString();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const db = supabase as any;
-    const [e, p, d, t] = await Promise.all([
+    const [e, p, d, t, r] = await Promise.all([
       db.from('site_events').select('event,page,servico,created_at').gte('created_at', desde).limit(10000),
       db.from('form_progress').select('*').gte('created_at', desde).order('created_at', { ascending: false }).limit(2000),
       db.from('diagnostico_respostas').select('id,created_at,last_step,completed_at,leads_mes,lead_name,lead_email,lead_phone,lead_company_type')
         .gte('created_at', desde).order('created_at', { ascending: false }).limit(2000),
       db.from('maturity_test_responses').select('id,created_at,last_step,completed_at,level,lead_name,lead_email,lead_phone,lead_company_type')
         .gte('created_at', desde).order('created_at', { ascending: false }).limit(2000),
+      db.from('relatorio_leads').select('*').gte('created_at', desde).order('created_at', { ascending: false }).limit(2000),
     ]);
-    const falhas = [e, p, d, t].filter((r) => r.error).map((r) => r.error.message);
+    const falhas = [e, p, d, t, r].filter((r) => r.error).map((r) => r.error.message);
     if (falhas.length) setErro(`Algumas tabelas não carregaram: ${falhas.join(' · ')}`);
     setEventos(e.data ?? []);
     setProgresso(p.data ?? []);
     setDiags(d.data ?? []);
     setTestes(t.data ?? []);
+    setRelLeads(r.data ?? []);
     setCarregando(false);
   };
 
@@ -130,8 +137,19 @@ const Conversoes = () => {
     const paradasTeste = Array.from({ length: 11 }, (_, i) => testes.filter((x) => !x.completed_at && (x.last_step ?? 0) === i).length);
     const paradasDiag = [1, 2, 3, 4].map((i) => diags.filter((x) => !x.completed_at && x.last_step === i).length);
     const whatsapp = Object.keys(ORIGENS_WPP).map((o) => ({ o, n: conta('whatsapp_clicado', (x) => x.servico === o) })).filter((x) => x.n);
-    return { visitas, servicos, funis, parados, paradasTeste, paradasDiag, whatsapp };
-  }, [eventos, progresso, diags, testes]);
+    const acao = (a: string) => conta('relatorio_acao', (x) => x.servico === a);
+    const origem = (l: RelLead) => l.utm?.utm_source || (l.referrer ? (() => { try { return new URL(l.referrer).hostname.replace('www.', ''); } catch { return l.referrer; } })() : 'direto');
+    const origens = Object.entries(relLeads.reduce<Record<string, number>>((m, l) => { const o = origem(l); m[o] = (m[o] ?? 0) + 1; return m; }, {}))
+      .sort((a, b) => b[1] - a[1]);
+    const relatorio = {
+      visitas: visitas.find((v) => v.pg === '/relatorio-atendimento')?.n ?? 0,
+      liberaram: relLeads.length,
+      pediramDetalhe: relLeads.filter((l) => (l.detalhes_pedidos ?? []).length > 0).length,
+      detalhes: acao('detalhe'), avaliacao: acao('avaliacao'), diagnostico: acao('diagnostico'),
+      origens, leads: relLeads.map((l) => ({ ...l, origem: origem(l) })),
+    };
+    return { visitas, servicos, funis, parados, paradasTeste, paradasDiag, whatsapp, relatorio };
+  }, [eventos, progresso, diags, testes, relLeads]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -158,7 +176,7 @@ const Conversoes = () => {
           <>
             <section>
               <h2 className="text-lg font-semibold mb-3 text-foreground">Visitas</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {resumo.visitas.map((v) => (
                   <Card key={v.pg} className="p-5">
                     <p className="text-sm text-muted-foreground">{PAGINAS[v.pg]}</p>
@@ -180,6 +198,49 @@ const Conversoes = () => {
                       <p className="text-2xl font-bold text-foreground tabular-nums">{w.n}</p>
                     </Card>
                   ))}
+                </div>
+              )}
+            </section>
+
+            <section>
+              <h2 className="text-lg font-semibold mb-1 text-foreground">Relatório de atendimento</h2>
+              <p className="text-xs text-muted-foreground mb-3">Página /relatorio-atendimento. Visitas e ações começaram a ser registradas em 22/11/2026; os leads que liberaram vêm desde o lançamento.</p>
+              <div className="grid grid-cols-2 sm:grid-cols-6 gap-4">
+                {[
+                  ['Visitas', resumo.relatorio.visitas, ''],
+                  ['Liberaram o ranking', resumo.relatorio.liberaram, pct(resumo.relatorio.liberaram, resumo.relatorio.visitas) + ' das visitas'],
+                  ['Pediram detalhe', resumo.relatorio.pediramDetalhe, `${resumo.relatorio.detalhes} pedidos no período`],
+                  ['Pediram avaliação', resumo.relatorio.avaliacao, 'chega no seu e-mail'],
+                  ['Clicaram no diagnóstico', resumo.relatorio.diagnostico, ''],
+                  ['Diagnósticos concluídos', diags.filter((x) => x.completed_at).length, 'todas as origens'],
+                ].map(([k, n, obs]) => (
+                  <Card key={k as string} className="p-4">
+                    <p className="text-sm text-muted-foreground">{k}</p>
+                    <p className="text-2xl font-bold text-foreground tabular-nums">{n}</p>
+                    {obs ? <p className="text-xs text-muted-foreground">{obs}</p> : null}
+                  </Card>
+                ))}
+              </div>
+              {resumo.relatorio.origens.length > 0 && (
+                <p className="text-sm text-muted-foreground mt-3">De onde vieram os leads: {resumo.relatorio.origens.map(([o, n]) => `${o} (${n})`).join(' · ')}</p>
+              )}
+              {resumo.relatorio.leads.length > 0 && (
+                <div className="overflow-x-auto mt-3">
+                  <table className="w-full text-sm">
+                    <thead className="text-left text-muted-foreground">
+                      <tr><th className="py-2 pr-4">Quando</th><th className="pr-4">Nome</th><th className="pr-4">Imobiliária</th><th className="pr-4">Cargo</th><th className="pr-4">Telefone</th><th className="pr-4">E-mail</th><th className="pr-4">Detalhes</th><th>Origem</th></tr>
+                    </thead>
+                    <tbody>
+                      {resumo.relatorio.leads.map((l) => (
+                        <tr key={l.id} className="border-t border-border">
+                          <td className="py-2 pr-4 tabular-nums whitespace-nowrap">{dataBr(l.created_at)}</td>
+                          <td className="pr-4">{l.nome}</td><td className="pr-4">{l.imobiliaria ?? '–'}</td><td className="pr-4">{l.cargo ?? '–'}</td>
+                          <td className="pr-4 whitespace-nowrap">{l.telefone}</td><td className="pr-4">{l.email}</td>
+                          <td className="pr-4 tabular-nums">{(l.detalhes_pedidos ?? []).length}</td><td className="text-muted-foreground">{l.origem}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               )}
             </section>
