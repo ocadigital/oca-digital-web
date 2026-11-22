@@ -145,7 +145,7 @@ const Conversoes = () => {
       visitas: visitas.find((v) => v.pg === '/relatorio-atendimento')?.n ?? 0,
       liberaram: relLeads.length,
       pediramDetalhe: relLeads.filter((l) => (l.detalhes_pedidos ?? []).length > 0).length,
-      detalhes: acao('detalhe'), avaliacao: acao('avaliacao'), diagnostico: acao('diagnostico'),
+      detalhes: acao('detalhe'), card: acao('card'), avaliacao: acao('avaliacao'), diagnostico: acao('diagnostico'),
       origens, leads: relLeads.map((l) => ({ ...l, origem: origem(l) })),
     };
     return { visitas, servicos, funis, parados, paradasTeste, paradasDiag, whatsapp, relatorio };
@@ -207,7 +207,7 @@ const Conversoes = () => {
               <p className="text-xs text-muted-foreground mb-3">Página /relatorio-atendimento. Visitas e ações começaram a ser registradas em 22/11/2026; os leads que liberaram vêm desde o lançamento.</p>
               <div className="grid grid-cols-2 sm:grid-cols-6 gap-4">
                 {[
-                  ['Visitas', resumo.relatorio.visitas, ''],
+                  ['Visitas', resumo.relatorio.visitas, `${resumo.relatorio.card} pelo card do site`],
                   ['Liberaram o ranking', resumo.relatorio.liberaram, pct(resumo.relatorio.liberaram, resumo.relatorio.visitas) + ' das visitas'],
                   ['Pediram detalhe', resumo.relatorio.pediramDetalhe, `${resumo.relatorio.detalhes} pedidos no período`],
                   ['Pediram avaliação', resumo.relatorio.avaliacao, 'chega no seu e-mail'],

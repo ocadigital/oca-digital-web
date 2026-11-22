@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import Index from "./pages/Index";
+import RelatorioCard from "./components/RelatorioCard";
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex"));
@@ -99,6 +100,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
+          <RelatorioCard />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
