@@ -21,6 +21,7 @@ const ServicosIndex = lazy(() => import("./pages/ServicePage").then((m) => ({ de
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const MaturityTest = lazy(() => import("./pages/MaturityTest"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
+const RelatorioAtendimento = lazy(() => import("./pages/RelatorioAtendimento"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const Login = lazy(() => import("./pages/admin/Login"));
@@ -59,6 +60,7 @@ const App = () => (
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/teste-maturidade" element={<MaturityTest />} />
               <Route path="/diagnostico" element={<Diagnostico />} />
+              <Route path="/relatorio-atendimento" element={<RelatorioAtendimento />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
               <Route path="/termos-de-uso" element={<TermsOfService />} />
