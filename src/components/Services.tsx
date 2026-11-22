@@ -17,7 +17,7 @@ const Services = () => {
       description: "Site para imobiliária, incorporadora ou empreendimento, feito para ser encontrado no Google e transformar visita em contato.",
       duration: "2 meses",
       result: "Site no ar em 2 meses, com a busca orgânica crescendo a partir do 3º mês.",
-      price: "A partir de R$ 7.000",
+      price: "A partir de R$ 12.000",
       priceNote: "Pagamento único.",
       ctaLabel: "Quero um site",
       features: [
@@ -36,7 +36,7 @@ const Services = () => {
       description: "Página de captação para um lançamento, um empreendimento ou uma campanha, feita para transformar o clique do anúncio em contato.",
       duration: "Até 3 semanas",
       result: "Página no ar em até 3 semanas, pronta para receber o tráfego dos anúncios e medir cada contato.",
-      price: "A partir de R$ 2.000",
+      price: "A partir de R$ 4.000",
       priceNote: "Pagamento único.",
       ctaLabel: "Quero uma landing page",
       features: [
@@ -55,7 +55,7 @@ const Services = () => {
       description: "Anúncios no Google, no Facebook, no Instagram e nas respostas de IA, falando com quem está procurando imóvel agora.",
       duration: "Mensal",
       result: "Primeiros leads já na primeira semana, com o custo de cada lead caindo até o 3º mês.",
-      price: "A partir de R$ 1.500/mês",
+      price: "A partir de R$ 2.000/mês",
       priceNote: "+ R$ 1.000 de setup. A verba dos anúncios é paga direto ao Google e à Meta, à parte.",
       ctaLabel: "Quero anunciar",
       features: [
@@ -74,7 +74,7 @@ const Services = () => {
       description: "Plano anual de marketing da imobiliária, com metas, ações, orçamento e rotina, para o time interno executar com clareza.",
       duration: "1 mês",
       result: "Em 1 mês, um plano de 12 meses que um profissional interno, mesmo com menos experiência, consegue executar.",
-      price: "R$ 3.000",
+      price: "R$ 5.000",
       priceNote: "Pagamento único.",
       ctaLabel: "Quero um planejamento",
       features: [

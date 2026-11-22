@@ -103,7 +103,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Sites para Imobiliárias',
     seoTitle: 'Site para Imobiliária e Incorporadora | OCA Digital',
     seoDescription:
-      'Site para imobiliária, incorporadora ou empreendimento, feito para aparecer no Google e transformar visita em contato, com formulários e WhatsApp caindo no CRM. A partir de R$ 7.000.',
+      'Site para imobiliária, incorporadora ou empreendimento, feito para aparecer no Google e transformar visita em contato, com formulários e WhatsApp caindo no CRM. A partir de R$ 12.000.',
     h1: 'Site para imobiliária feito para ser encontrado e gerar contato',
     intro:
       'Um site imobiliário bonito que ninguém encontra não ajuda o comercial. Nós fazemos o site pensando primeiro em quem procura imóvel no Google e no celular, e ligamos cada formulário e cada botão de WhatsApp ao CRM, para você saber de onde veio cada contato.',
@@ -133,7 +133,7 @@ export const servicos: ServicoPagina[] = [
       'Blog para atrair visitas do Google sem pagar anúncio',
     ],
     prazo: '2 meses',
-    preco: 'A partir de R$ 7.000',
+    preco: 'A partir de R$ 12.000',
     precoNota: 'Pagamento único. A busca orgânica costuma crescer a partir do 3º mês, que é o tempo que o Google leva para posicionar as páginas.',
     ctaLabel: 'Quero um site',
     faq: [
@@ -163,7 +163,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Landing Pages Imobiliárias',
     seoTitle: 'Landing Page para Lançamento e Empreendimento | OCA Digital',
     seoDescription:
-      'Landing page de captação para lançamento, empreendimento ou campanha imobiliária, com formulário e WhatsApp no CRM e conversões configuradas. Até 3 semanas, a partir de R$ 2.000.',
+      'Landing page de captação para lançamento, empreendimento ou campanha imobiliária, com formulário e WhatsApp no CRM e conversões configuradas. Até 3 semanas, a partir de R$ 4.000.',
     h1: 'Landing page imobiliária para transformar clique em contato',
     intro:
       'Quando o anúncio leva para a home do site, o visitante se perde. A landing page fala de um empreendimento ou de uma campanha só, responde as dúvidas que importam e pede o contato. Nós entregamos a página pronta para receber o tráfego e medir cada lead.',
@@ -193,7 +193,7 @@ export const servicos: ServicoPagina[] = [
       'Versões de título e chamada para teste',
     ],
     prazo: 'Até 3 semanas',
-    preco: 'A partir de R$ 2.000',
+    preco: 'A partir de R$ 4.000',
     precoNota: 'Pagamento único.',
     ctaLabel: 'Quero uma landing page',
     faq: [
@@ -219,7 +219,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Anúncios no Google, Meta e IA',
     seoTitle: 'Anúncios para Imobiliárias no Google, Meta e IA | OCA Digital',
     seoDescription:
-      'Gestão de anúncios para imobiliárias e incorporadoras no Google, Facebook, Instagram e nas respostas de IA (GPT Ads), com custo por lead e por venda acompanhado. A partir de R$ 1.500/mês.',
+      'Gestão de anúncios para imobiliárias e incorporadoras no Google, Facebook, Instagram e nas respostas de IA (GPT Ads), com custo por lead e por venda acompanhado. A partir de R$ 2.000/mês.',
     h1: 'Anúncios imobiliários no Google, na Meta e nas respostas de IA',
     intro:
       'Nós anunciamos para quem está procurando imóvel agora: no Google, no Facebook, no Instagram e dentro das respostas de IA. E acompanhamos o que acontece depois do clique, porque lead barato que nunca vira visita não é resultado.',
@@ -249,7 +249,7 @@ export const servicos: ServicoPagina[] = [
       'Custo de cada contato e de cada venda acompanhado',
     ],
     prazo: 'Mensal',
-    preco: 'A partir de R$ 1.500/mês',
+    preco: 'A partir de R$ 2.000/mês',
     precoNota: '+ R$ 1.000 de setup. A verba dos anúncios é paga direto ao Google e à Meta, à parte. Os primeiros leads costumam chegar na primeira semana e o custo por lead cai até o 3º mês.',
     ctaLabel: 'Quero anunciar',
     faq: [
@@ -279,7 +279,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Planejamento de Marketing',
     seoTitle: 'Planejamento de Marketing para Imobiliárias | OCA Digital',
     seoDescription:
-      'Plano anual de marketing para imobiliária, com diagnóstico, metas mensais, calendário de 12 meses, orçamento de mídia e rotina para o time interno executar. 1 mês, R$ 3.000.',
+      'Plano anual de marketing para imobiliária, com diagnóstico, metas mensais, calendário de 12 meses, orçamento de mídia e rotina para o time interno executar. 1 mês, R$ 5.000.',
     h1: 'Planejamento de marketing imobiliário para o seu time executar',
     intro:
       'Muitas imobiliárias têm alguém cuidando do marketing, mas sem um plano essa pessoa vive apagando incêndio. Nós montamos o plano de 12 meses com metas, ações, orçamento e rotina, num formato que um profissional interno, mesmo com menos experiência, consegue seguir.',
@@ -308,7 +308,7 @@ export const servicos: ServicoPagina[] = [
       'Perfil da vaga e onboarding do profissional interno',
     ],
     prazo: '1 mês',
-    preco: 'R$ 3.000',
+    preco: 'R$ 5.000',
     precoNota: 'Pagamento único.',
     ctaLabel: 'Quero um planejamento',
     faq: [
