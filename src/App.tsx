@@ -9,6 +9,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import Index from "./pages/Index";
 import RelatorioCard from "./components/RelatorioCard";
+import AdminSemAnalytics from "./components/AdminSemAnalytics";
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex"));
@@ -101,6 +102,7 @@ const App = () => (
             </Routes>
           </Suspense>
           <RelatorioCard />
+          <AdminSemAnalytics />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>

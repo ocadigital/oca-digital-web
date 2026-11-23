@@ -15,6 +15,11 @@
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
       (function (w, d, s, i) {
+        // Páginas administrativas e o navegador de quem usa o admin ficam fora do GA4.
+        try {
+          if (w.location.pathname.indexOf('/admin') === 0) w.localStorage.setItem('ocaInterno', '1');
+          if (w.localStorage.getItem('ocaInterno') === '1') return;
+        } catch (e) {}
         var loaded = false;
         var events = ['scroll', 'mousemove', 'keydown', 'touchstart', 'click'];
         function loadGtm() {
