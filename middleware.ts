@@ -21,7 +21,7 @@ import {
   renderMarkdown,
   wantsMarkdown,
 } from './lib/agent-content.mjs';
-import { seoFor, jsonLdTag } from './lib/seo-pages.mjs';
+import { seoFor, jsonLdTag, withSiteChrome } from './lib/seo-pages.mjs';
 
 function escapeAttr(str: string): string {
   return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -141,14 +141,17 @@ export default async function middleware(request: Request) {
   const baseRes = await fetch(new URL('/index.html', request.url));
   let html = await baseRes.text();
 
+  // Toda página leva menu e rodapé com links no HTML inicial, além do conteúdo principal.
   if (page) {
-    html = injectContent(html, { ...page, url: seo.canonical }, renderHtmlFragment(page));
+    html = injectContent(html, { ...page, url: seo.canonical }, withSiteChrome(renderHtmlFragment(page)));
   } else if (seo.title) {
     html = injectContent(
       html,
       { title: seo.title, description: seo.description, url: seo.canonical, ogTitle: seo.ogTitle, ogImage: seo.ogImage },
-      seo.fragment || ''
+      withSiteChrome(seo.fragment || '')
     );
+  } else {
+    html = html.replace('<div id="root"></div>', `<div id="root">${withSiteChrome('')}</div>`);
   }
   html = applySeo(html, seo);
 

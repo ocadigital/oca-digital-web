@@ -31,9 +31,9 @@ export const servicos: ServicoPagina[] = [
     slug: 'marketing-imobiliario',
     valor: 'outros',
     nome: 'Marketing Imobiliário',
-    seoTitle: 'Marketing Imobiliário: do Anúncio à Visita Agendada | OCA Digital',
+    seoTitle: 'Marketing Imobiliário do Anúncio à Visita | OCA Digital',
     seoDescription:
-      'Como a OCA Digital faz marketing imobiliário para imobiliárias e incorporadoras: site, anúncios, CRM, processos e automação trabalhando juntos, com número em cada etapa.',
+      'Marketing para imobiliárias e incorporadoras: site, anúncios, CRM e automação trabalhando juntos, com número em cada etapa.',
     h1: 'Marketing imobiliário do anúncio à visita agendada',
     intro:
       'Marketing imobiliário não termina quando o lead chega. Nós cuidamos do caminho inteiro: o anúncio que traz o contato, o site que convence, o CRM que registra, o atendimento que responde rápido e a automação que não deixa ninguém esquecido, tudo medido para você saber o que vira visita e o que vira venda.',
@@ -103,7 +103,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Sites para Imobiliárias',
     seoTitle: 'Site para Imobiliária e Incorporadora | OCA Digital',
     seoDescription:
-      'Site para imobiliária, incorporadora ou empreendimento, feito para aparecer no Google e transformar visita em contato, com formulários e WhatsApp caindo no CRM. A partir de R$ 12.000.',
+      'Site para imobiliária ou incorporadora feito para aparecer no Google e virar contato, com formulário e WhatsApp no CRM. A partir de R$ 12.000.',
     h1: 'Site para imobiliária feito para ser encontrado e gerar contato',
     intro:
       'Um site imobiliário bonito que ninguém encontra não ajuda o comercial. Nós fazemos o site pensando primeiro em quem procura imóvel no Google e no celular, e ligamos cada formulário e cada botão de WhatsApp ao CRM, para você saber de onde veio cada contato.',
@@ -163,7 +163,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Landing Pages Imobiliárias',
     seoTitle: 'Landing Page para Lançamento e Empreendimento | OCA Digital',
     seoDescription:
-      'Landing page de captação para lançamento, empreendimento ou campanha imobiliária, com formulário e WhatsApp no CRM e conversões configuradas. Até 3 semanas, a partir de R$ 4.000.',
+      'Landing page para lançamento ou campanha imobiliária, com formulário e WhatsApp no CRM. Pronta em até 3 semanas, a partir de R$ 4.000.',
     h1: 'Landing page imobiliária para transformar clique em contato',
     intro:
       'Quando o anúncio leva para a home do site, o visitante se perde. A landing page fala de um empreendimento ou de uma campanha só, responde as dúvidas que importam e pede o contato. Nós entregamos a página pronta para receber o tráfego e medir cada lead.',
@@ -217,9 +217,9 @@ export const servicos: ServicoPagina[] = [
     slug: 'anuncios-imobiliarios',
     valor: 'google-meta-gpt-ads',
     nome: 'Anúncios no Google, Meta e IA',
-    seoTitle: 'Anúncios para Imobiliárias no Google, Meta e IA | OCA Digital',
+    seoTitle: 'Anúncios para Imobiliárias: Google, Meta e IA | OCA Digital',
     seoDescription:
-      'Gestão de anúncios para imobiliárias e incorporadoras no Google, Facebook, Instagram e nas respostas de IA (GPT Ads), com custo por lead e por venda acompanhado. A partir de R$ 2.000/mês.',
+      'Anúncios para imobiliárias no Google, Meta e nas respostas de IA, com custo por lead e por venda acompanhado. A partir de R$ 2.000/mês.',
     h1: 'Anúncios imobiliários no Google, na Meta e nas respostas de IA',
     intro:
       'Nós anunciamos para quem está procurando imóvel agora: no Google, no Facebook, no Instagram e dentro das respostas de IA. E acompanhamos o que acontece depois do clique, porque lead barato que nunca vira visita não é resultado.',
@@ -279,7 +279,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Planejamento de Marketing',
     seoTitle: 'Planejamento de Marketing para Imobiliárias | OCA Digital',
     seoDescription:
-      'Plano anual de marketing para imobiliária, com diagnóstico, metas mensais, calendário de 12 meses, orçamento de mídia e rotina para o time interno executar. 1 mês, R$ 5.000.',
+      'Plano anual de marketing para imobiliária: metas, calendário de 12 meses, orçamento de mídia e rotina para o time executar. R$ 5.000.',
     h1: 'Planejamento de marketing imobiliário para o seu time executar',
     intro:
       'Muitas imobiliárias têm alguém cuidando do marketing, mas sem um plano essa pessoa vive apagando incêndio. Nós montamos o plano de 12 meses com metas, ações, orçamento e rotina, num formato que um profissional interno, mesmo com menos experiência, consegue seguir.',
@@ -332,9 +332,9 @@ export const servicos: ServicoPagina[] = [
     slug: 'consultoria-processos-comerciais',
     valor: 'processos-automacao',
     nome: 'Consultoria em Processos e Automação',
-    seoTitle: 'Consultoria em Processos Comerciais para Imobiliárias | OCA Digital',
+    seoTitle: 'Consultoria Comercial para Imobiliárias | OCA Digital',
     seoDescription:
-      'Consultoria para organizar o processo comercial da imobiliária, do primeiro contato do lead até a visita agendada, com resposta automática, qualificação e indicadores. Sob medida.',
+      'Consultoria para organizar o comercial da imobiliária, do primeiro contato à visita, com resposta automática, qualificação e indicadores.',
     h1: 'Processo comercial imobiliário do primeiro contato à visita',
     intro:
       'Nós organizamos com o seu time como cada lead é atendido, do primeiro contato até a visita agendada, e automatizamos o que hoje depende de alguém lembrar. O resultado esperado no primeiro mês é simples: nenhum lead sem resposta.',
@@ -386,9 +386,9 @@ export const servicos: ServicoPagina[] = [
     slug: 'crm-imobiliario',
     valor: 'crm',
     nome: 'CRM Imobiliário',
-    seoTitle: 'CRM para Imobiliária: Implantação e Configuração | OCA Digital',
+    seoTitle: 'CRM para Imobiliária: Implantação | OCA Digital',
     seoDescription:
-      'CRM configurado para o funil da imobiliária, com origem de cada lead, distribuição entre corretores e painel do comercial em tempo real. A partir de R$ 150/mês para até 3 usuários.',
+      'CRM configurado para o funil da imobiliária, com origem de cada lead, distribuição entre corretores e painel em tempo real. Desde R$ 150/mês.',
     h1: 'CRM imobiliário configurado para o seu funil',
     intro:
       'Um CRM só funciona quando é configurado para o jeito que a sua imobiliária vende. Nós montamos as etapas do funil, ligamos o site, os formulários e o WhatsApp, distribuímos os leads entre os corretores e deixamos o painel do comercial pronto para o gestor acompanhar.',
@@ -442,7 +442,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Automações e Integrações com n8n',
     seoTitle: 'Automação com n8n para Imobiliárias | OCA Digital',
     seoDescription:
-      'Automações e integrações com n8n para imobiliárias: leads dos portais no CRM e no WhatsApp do corretor, resposta automática, follow-up e relatórios. R$ 1.500 de setup + a partir de R$ 300 por fluxo.',
+      'Automação com n8n para imobiliárias: leads dos portais no CRM e no WhatsApp do corretor, resposta automática, follow-up e relatórios.',
     h1: 'Automação com n8n para imobiliárias',
     intro:
       'O n8n é uma ferramenta de automação que conecta os sistemas que a sua imobiliária já usa: portais, site, CRM, WhatsApp, e-mail e planilhas. Nós desenhamos e montamos os fluxos para que as tarefas repetidas aconteçam sozinhas e o corretor fique com o que só ele pode fazer, que é atender e vender.',
@@ -502,7 +502,7 @@ export const servicos: ServicoPagina[] = [
     nome: 'Marketing para Lançamentos',
     seoTitle: 'Marketing para Lançamento Imobiliário | OCA Digital',
     seoDescription:
-      'Marketing para lançamento imobiliário: landing page, anúncios, CRM e atendimento do pré-lançamento ao pós-venda. Case SUNCLUB Campeche: 173 leads em 1 semana a R$ 43,44 por lead.',
+      'Marketing para lançamento imobiliário, do pré-lançamento ao pós-venda. Case SUNCLUB Campeche: 173 leads em 1 semana a R$ 43,44 cada.',
     h1: 'Marketing para lançamento imobiliário, do pré-lançamento às vendas',
     intro:
       'Lançamento tem prazo e não perdoa atraso. Nós cuidamos da captação e do atendimento ao mesmo tempo: página, anúncios, CRM e sequência de contato prontos antes do lançamento, para cada lead chegar com origem registrada e ser atendido rápido pela equipe de vendas.',
